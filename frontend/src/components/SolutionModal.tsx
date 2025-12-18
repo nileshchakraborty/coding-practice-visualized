@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import type { Solution } from '../types';
+import type { Solution, TestCaseResult } from '../types';
 import SmartVisualizer from './SmartVisualizer';
 import { X, Code as CodeIcon, BookOpen, Terminal, Play } from 'lucide-react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
@@ -25,7 +25,9 @@ const SolutionModal: React.FC<SolutionModalProps> = ({ isOpen, onClose, solution
     // for now let's use a key or effect
     React.useEffect(() => {
         if (solution?.code) {
-            setCode(solution.code);
+            // Fix: Unescape newlines if they are literal string characters (common from some JSON sources)
+            const formattedCode = solution.code.replace(/\\n/g, '\n');
+            setCode(formattedCode);
             setOutput('');
         }
     }, [solution]);
@@ -45,8 +47,8 @@ const SolutionModal: React.FC<SolutionModalProps> = ({ isOpen, onClose, solution
                 // Runner returns { results: [...], success: bool }
                 // Let's format it nicel
                 if (res.data.results) {
-                    const allPassed = res.data.results.every((r: any) => r.passed);
-                    const outputMsg = res.data.results.map((r: any, i: number) =>
+                    const allPassed = res.data.results.every((r: TestCaseResult) => r.passed);
+                    const outputMsg = res.data.results.map((r: TestCaseResult, i: number) =>
                         `Test Case ${i + 1}: ${r.passed ? 'PASSED ✅' : 'FAILED ❌'}\nInput: ${r.input}\nExpected: ${r.expected}\nActual: ${r.actual}\n`
                     ).join('\n-------------------\n');
 

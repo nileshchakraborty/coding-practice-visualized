@@ -45,9 +45,22 @@ export interface Solution {
 
     // Smart Visualization
     visualizationType?: 'array' | 'string' | 'matrix' | 'tree';
-    initialState?: any;
+    initialState?: (number | string)[] | string;
     animationSteps?: AnimationStep[];
 
     // Legacy support
     steps?: AnimationStep[];
+}
+
+export interface TestCaseResult {
+    passed: boolean;
+    input: string;
+    expected: string;
+    actual: string;
+}
+
+export interface RunResponse {
+    success: boolean;
+    results?: TestCaseResult[];
+    error?: string;
 }

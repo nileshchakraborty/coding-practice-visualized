@@ -9,6 +9,7 @@ function App() {
   const [searchQuery, setSearchQuery] = useState('');
   const [difficultyFilter, setDifficultyFilter] = useState<'All' | 'Easy' | 'Medium' | 'Hard'>('All');
   const [selectedSolution, setSelectedSolution] = useState<Solution | null>(null);
+  const [selectedSlug, setSelectedSlug] = useState<string | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [loadingSlug, setLoadingSlug] = useState<string | null>(null);
 
@@ -37,10 +38,10 @@ function App() {
       const data = res.data;
       let totalEasy = 0, totalMedium = 0, totalHard = 0;
 
-      const categoriesWithStats = data.categories.map((cat: any) => {
-        const easy = cat.problems.filter((p: any) => p.difficulty === 'Easy').length;
-        const medium = cat.problems.filter((p: any) => p.difficulty === 'Medium').length;
-        const hard = cat.problems.filter((p: any) => p.difficulty === 'Hard').length;
+      const categoriesWithStats = data.categories.map((cat: { problems: Problem[]; name: string; icon: string }) => {
+        const easy = cat.problems.filter((p: Problem) => p.difficulty === 'Easy').length;
+        const medium = cat.problems.filter((p: Problem) => p.difficulty === 'Medium').length;
+        const hard = cat.problems.filter((p: Problem) => p.difficulty === 'Hard').length;
 
         totalEasy += easy;
         totalMedium += medium;
@@ -66,6 +67,7 @@ function App() {
 
   const handleProblemClick = async (slug: string) => {
     setLoadingSlug(slug);
+    setSelectedSlug(slug);
     try {
       // Try to get existing solution
       let solutionData: Solution | null = null;
@@ -200,7 +202,7 @@ function App() {
               <div className="max-h-[300px] overflow-y-auto custom-scrollbar">
                 {visibleProblems.map(p => (
                   <div
-                    key={p.id}
+                    key={p.slug}
                     onClick={() => handleProblemClick(p.slug)}
                     className={`flex items-center justify-between p-4 border-b border-slate-800/50 hover:bg-indigo-500/10 hover:border-l-4 hover:border-l-indigo-500 cursor-pointer transition-all ${loadingSlug === p.slug ? 'opacity-50 pointer-events-none' : ''}`}
                   >
@@ -236,6 +238,7 @@ function App() {
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
         solution={selectedSolution}
+        slug={selectedSlug}
       />
     </div>
   );

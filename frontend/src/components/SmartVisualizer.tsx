@@ -10,7 +10,7 @@ interface SmartVisualizerProps {
 const SmartVisualizer: React.FC<SmartVisualizerProps> = ({ solution }) => {
     const [currentStep, setCurrentStep] = useState(0);
     const [isPlaying, setIsPlaying] = useState(false);
-    const [speed, setSpeed] = useState(1000);
+    const [speed] = useState(1000);
     const timerRef = useRef<number | null>(null);
 
     const steps = solution.animationSteps || [];
