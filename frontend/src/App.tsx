@@ -189,7 +189,7 @@ function App() {
                     <span className="text-2xl">{cat.icon}</span>
                     <h3 className="font-bold text-lg text-slate-200">{cat.name}</h3>
                   </div>
-                  <span className="text-sm text-slate-500 bg-slate-950 px-2 py-1 rounded-md">{cat.count}</span>
+                  <span className="text-sm text-slate-500 bg-slate-950 px-2 py-1 rounded-md">{visibleProblems.length}</span>
                 </div>
                 {/* Progress bar mock */}
                 <div className="h-1 bg-slate-800 rounded-full overflow-hidden flex mt-3">

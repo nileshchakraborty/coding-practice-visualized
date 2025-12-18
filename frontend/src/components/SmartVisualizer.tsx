@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import type { Solution, AnimationStep } from '../types';
+import type { Solution } from '../types';
 import { Play, Pause, SkipBack, SkipForward } from 'lucide-react';
 
 interface SmartVisualizerProps {
@@ -29,7 +29,6 @@ const SmartVisualizer: React.FC<SmartVisualizerProps> = ({ solution }) => {
         const currentArray = [...initialState];
 
         // Replay up to current step
-        /* eslint-disable @typescript-eslint/no-unused-vars */
         for (let i = 0; i < currentStep; i++) {
             // If we had 'swap' or 'set' types, we'd apply them here
             // For now, we only have highlights, which are transient per step

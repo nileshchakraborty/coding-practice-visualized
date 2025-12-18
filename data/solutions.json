@@ -1,59 +1,29 @@
 {
     "solutions": {
-        "two-sum": {
-            "title": "Two Sum",
-            "pattern": "Hash Map",
-            "patternEmoji": "🗂️",
-            "timeComplexity": "O(n)",
+        "triangle": {
+            "title": "Triangle",
+            "pattern": "Dynamic Programming",
+            "patternEmoji": "📉",
+            "timeComplexity": "O(n^2)",
             "spaceComplexity": "O(n)",
-            "oneliner": "Use a hash map to find the complement in one pass!",
+            "oneliner": "Compute min path sum from bottom to top to avoid greedy traps!",
             "intuition": [
-                "🎯 For each number, we need to find if its 'partner' exists",
-                "🧠 Partner = target - current number",
-                "💡 Hash map lets us check in O(1) time!"
+                "🔺 Greedy doesn't work! Local min ≠ Global min",
+                "🧠 Subproblem: Min path from cell (i, j) to bottom",
+                "💡 dp[i][j] = triangle[i][j] + min(dp[i+1][j], dp[i+1][j+1])"
             ],
             "testCases": [
                 {
-                    "input": "nums = [2,7,11,15], target = 9",
-                    "output": "[0, 1]"
+                    "input": "triangle = [[2],[3,4],[6,5,7],[4,1,8,3]]",
+                    "output": "11"
                 },
                 {
-                    "input": "nums = [3,2,4], target = 6",
-                    "output": "[1, 2]"
-                },
-                {
-                    "input": "nums = [3,3], target = 6",
-                    "output": "[0, 1]"
+                    "input": "triangle = [[-10]]",
+                    "output": "-10"
                 }
             ],
-            "steps": [
-                {
-                    "step": 1,
-                    "title": "Create Empty Hash Map",
-                    "visual": "{ }",
-                    "explanation": "This will store numbers we've seen and their indices"
-                },
-                {
-                    "step": 2,
-                    "title": "Loop Through Array",
-                    "visual": "[2, 7, 11, 15] → target = 9\n     ↑\n   i = 0",
-                    "explanation": "For each number, calculate what we need to find"
-                },
-                {
-                    "step": 3,
-                    "title": "Calculate Complement",
-                    "visual": "complement = 9 - 2 = 7\n                ↓\n           Need to find 7!",
-                    "explanation": "If complement exists in map → FOUND IT!"
-                },
-                {
-                    "step": 4,
-                    "title": "Check & Store",
-                    "visual": "7 not in map → store {2: 0}\n\nNext: 9 - 7 = 2 ✅ Found in map!",
-                    "explanation": "If not found, add current to map and continue"
-                }
-            ],
-            "code": "def twoSum(nums, target):\n    seen = {}  # num → index\n    for i, num in enumerate(nums):\n        complement = target - num\n        if complement in seen:\n            return [seen[complement], i]\n        seen[num] = i",
-            "keyInsight": "Hash map trades space for speed - O(1) lookup instead of O(n) search!"
+            "code": "def minimumTotal(triangle):\n    dp = triangle[-1][:]\n    for i in range(len(triangle) - 2, -1, -1):\n        for j in range(i + 1):\n            dp[j] = triangle[i][j] + min(dp[j], dp[j + 1])\n    return dp[0]",
+            "keyInsight": "Bottom-up DP simplifies boundary conditions and reuses space."
         },
         "best-time-to-buy-and-sell-stock": {
             "title": "Best Time to Buy and Sell Stock",
@@ -66,6 +36,16 @@
                 "🎯 Buy LOW, Sell HIGH",
                 "🧠 Keep track of the cheapest day to buy",
                 "💡 At each day, calculate: what if I sold today?"
+            ],
+            "testCases": [
+                {
+                    "input": "prices = [7,1,5,3,6,4]",
+                    "output": "5"
+                },
+                {
+                    "input": "prices = [7,6,4,3,1]",
+                    "output": "0"
+                }
             ],
             "steps": [
                 {
@@ -108,6 +88,20 @@
                 "🧠 Compare characters from outside → inside",
                 "💡 Skip spaces and punctuation!"
             ],
+            "testCases": [
+                {
+                    "input": "s = \"A man, a plan, a canal: Panama\"",
+                    "output": "True"
+                },
+                {
+                    "input": "s = \"race a car\"",
+                    "output": "False"
+                },
+                {
+                    "input": "s = \" \"",
+                    "output": "True"
+                }
+            ],
             "steps": [
                 {
                     "step": 1,
@@ -148,6 +142,20 @@
                 "🎯 Can't start from front - would overwrite nums1!",
                 "🧠 Start from back - empty space is there for us!",
                 "💡 Three pointers: end of nums1, end of nums2, write position"
+            ],
+            "testCases": [
+                {
+                    "input": "nums1 = [1,2,3,0,0,0], m = 3, nums2 = [2,5,6], n = 3",
+                    "output": "[1, 2, 2, 3, 5, 6]"
+                },
+                {
+                    "input": "nums1 = [1], m = 1, nums2 = [], n = 0",
+                    "output": "[1]"
+                },
+                {
+                    "input": "nums1 = [0], m = 0, nums2 = [1], n = 1",
+                    "output": "[1]"
+                }
             ],
             "steps": [
                 {
@@ -190,6 +198,20 @@
                 "🧠 Most recent open must close first = LIFO = Stack!",
                 "💡 Opening → push, Closing → pop & check match"
             ],
+            "testCases": [
+                {
+                    "input": "s = \"()\"",
+                    "output": "True"
+                },
+                {
+                    "input": "s = \"()[]{}\"",
+                    "output": "True"
+                },
+                {
+                    "input": "s = \"(]\"",
+                    "output": "False"
+                }
+            ],
             "steps": [
                 {
                     "step": 1,
@@ -230,6 +252,20 @@
                 "🎯 At each position: should I continue or restart?",
                 "🧠 If current_sum < 0, better to start fresh!",
                 "💡 Track both current sum and overall maximum"
+            ],
+            "testCases": [
+                {
+                    "input": "nums = [-2,1,-3,4,-1,2,1,-5,4]",
+                    "output": "6"
+                },
+                {
+                    "input": "nums = [1]",
+                    "output": "1"
+                },
+                {
+                    "input": "nums = [5,4,-1,7,8]",
+                    "output": "23"
+                }
             ],
             "steps": [
                 {
@@ -272,6 +308,20 @@
                 "🧠 This is just Fibonacci in disguise!",
                 "💡 Only need to track last 2 values"
             ],
+            "testCases": [
+                {
+                    "input": "n = 2",
+                    "output": "2"
+                },
+                {
+                    "input": "n = 3",
+                    "output": "3"
+                },
+                {
+                    "input": "n = 4",
+                    "output": "5"
+                }
+            ],
             "steps": [
                 {
                     "step": 1,
@@ -312,6 +362,20 @@
                 "🎯 If there's a loop, fast will catch up to slow",
                 "🐢 Slow: 1 step at a time",
                 "🐇 Fast: 2 steps at a time → WILL lap slow if cycle exists!"
+            ],
+            "testCases": [
+                {
+                    "input": "head = [3,2,0,-4], pos = 1",
+                    "output": "True"
+                },
+                {
+                    "input": "head = [1,2], pos = 0",
+                    "output": "True"
+                },
+                {
+                    "input": "head = [1], pos = -1",
+                    "output": "False"
+                }
             ],
             "steps": [
                 {
@@ -354,6 +418,16 @@
                 "🧠 Check middle: too big? go left. Too small? go right.",
                 "💡 Halving = log₂(n) steps maximum"
             ],
+            "testCases": [
+                {
+                    "input": "nums = [-1,0,3,5,9,12], target = 9",
+                    "output": "4"
+                },
+                {
+                    "input": "nums = [-1,0,3,5,9,12], target = 2",
+                    "output": "-1"
+                }
+            ],
             "steps": [
                 {
                     "step": 1,
@@ -394,6 +468,16 @@
                 "🎯 Each connected group of 1s = one island",
                 "🧠 When you find land, explore ALL connected land",
                 "💡 Mark visited cells to avoid counting twice"
+            ],
+            "testCases": [
+                {
+                    "input": "grid = [[\"1\",\"1\",\"1\",\"1\",\"0\"],[\"1\",\"1\",\"0\",\"1\",\"0\"],[\"1\",\"1\",\"0\",\"0\",\"0\"],[\"0\",\"0\",\"0\",\"0\",\"0\"]]",
+                    "output": "1"
+                },
+                {
+                    "input": "grid = [[\"1\",\"1\",\"0\",\"0\",\"0\"],[\"1\",\"1\",\"0\",\"0\",\"0\"],[\"0\",\"0\",\"1\",\"0\",\"0\"],[\"0\",\"0\",\"0\",\"1\",\"1\"]]",
+                    "output": "3"
+                }
             ],
             "steps": [
                 {
@@ -436,6 +520,16 @@
                 "🧠 Need to save 'next' before changing pointer",
                 "💡 Use 3 pointers: prev, current, next"
             ],
+            "testCases": [
+                {
+                    "input": "head = [1,2,3,4,5]",
+                    "output": "[5,4,3,2,1]"
+                },
+                {
+                    "input": "head = [1,2]",
+                    "output": "[2,1]"
+                }
+            ],
             "steps": [
                 {
                     "step": 1,
@@ -477,6 +571,20 @@
                 "🧠 Set = O(1) lookup + only unique values",
                 "💡 If set size < array size → duplicates exist!"
             ],
+            "testCases": [
+                {
+                    "input": "nums = [1,2,3,1]",
+                    "output": "True"
+                },
+                {
+                    "input": "nums = [1,2,3,4]",
+                    "output": "False"
+                },
+                {
+                    "input": "nums = [1,1,1,3,3,4,3,2,4,2]",
+                    "output": "True"
+                }
+            ],
             "steps": [
                 {
                     "step": 1,
@@ -504,7 +612,9 @@
                 }
             ],
             "code": "def containsDuplicate(nums):\n    # One-liner:\n    return len(set(nums)) < len(nums)\n    \n    # Or with early exit:\n    seen = set()\n    for num in nums:\n        if num in seen:\n            return True\n        seen.add(num)\n    return False",
-            "keyInsight": "Sets are your best friend for duplicate detection!"
+            "keyInsight": "Sets are your best friend for duplicate detection!",
+            "videoId": "3OamzN90kPg",
+            "neetcodeLink": "https://neetcode.io/problems/contains-duplicate"
         },
         "invert-binary-tree": {
             "title": "Invert Binary Tree",
@@ -517,6 +627,16 @@
                 "🎯 Mirror the tree: every left becomes right",
                 "🧠 Recursively swap children at each node",
                 "💡 Base case: null node needs no swap"
+            ],
+            "testCases": [
+                {
+                    "input": "root = [4,2,7,1,3,6,9]",
+                    "output": "[4,7,2,9,6,3,1]"
+                },
+                {
+                    "input": "root = [2,1,3]",
+                    "output": "[2,3,1]"
+                }
             ],
             "steps": [
                 {
@@ -558,6 +678,20 @@
                 "🎯 For each amount: what's minimum coins needed?",
                 "🧠 dp[i] = min coins to make amount i",
                 "💡 For each coin: dp[i] = min(dp[i], dp[i-coin] + 1)"
+            ],
+            "testCases": [
+                {
+                    "input": "coins = [1,2,5], amount = 11",
+                    "output": "3"
+                },
+                {
+                    "input": "coins = [2], amount = 3",
+                    "output": "-1"
+                },
+                {
+                    "input": "coins = [1], amount = 0",
+                    "output": "0"
+                }
             ],
             "steps": [
                 {
@@ -667,7 +801,138 @@
                     "input": "numbers = [2,7,11,15], target = 9",
                     "output": "[1, 2]"
                 }
-            ]
+            ],
+            "videoId": "KLlXCFG5TnA",
+            "takeuforwardLink": "https://takeuforward.org/data-structure/two-sum-check-if-a-pair-with-given-sum-exists-in-array/"
+        },
+        "remove-element": {
+            "title": "Remove Element",
+            "pattern": "Two Pointers",
+            "patternEmoji": "✌️",
+            "timeComplexity": "O(n)",
+            "spaceComplexity": "O(1)",
+            "oneliner": "Use a read pointer and a write pointer to filter in-place.",
+            "intuition": [
+                "🎯 We need to remove all instances of val in-place",
+                "🧠 Maintain a 'k' pointer that tracks the position of valid elements",
+                "💡 If current element != val, put it at k and increment k"
+            ],
+            "testCases": [
+                {
+                    "input": "nums = [3,2,2,3], val = 3",
+                    "output": "2, nums = [2,2,_,_]"
+                },
+                {
+                    "input": "nums = [0,1,2,2,3,0,4,2], val = 2",
+                    "output": "5, nums = [0,1,4,0,3,_,_,_]"
+                }
+            ],
+            "code": "def removeElement(nums, val):\n    k = 0\n    for i in range(len(nums)):\n        if nums[i] != val:\n            nums[k] = nums[i]\n            k += 1\n    return k",
+            "keyInsight": "Overwrite values we don't want with the ones we keep!"
+        },
+        "majority-element": {
+            "title": "Majority Element",
+            "pattern": "Boyer-Moore Voting",
+            "patternEmoji": "🗳️",
+            "timeComplexity": "O(n)",
+            "spaceComplexity": "O(1)",
+            "oneliner": "Cancel out different elements; the majority always survives!",
+            "intuition": [
+                "🎯 Majority element appears > n/2 times",
+                "🧠 Think of it as a war: mixed pair die, majority wins",
+                "💡 Count +, Count -. If count 0, pick new candidate."
+            ],
+            "testCases": [
+                {
+                    "input": "nums = [3,2,3]",
+                    "output": "3"
+                },
+                {
+                    "input": "nums = [2,2,1,1,1,2,2]",
+                    "output": "2"
+                }
+            ],
+            "code": "def majorityElement(nums):\n    count = 0\n    candidate = None\n    \n    for num in nums:\n        if count == 0:\n            candidate = num\n        count += (1 if num == candidate else -1)\n        \n    return candidate",
+            "keyInsight": "If >50% of people vote Red, even if everyone else pairs up against them, Red wins!"
+        },
+        "ransom-note": {
+            "title": "Ransom Note",
+            "pattern": "Frequency Count",
+            "patternEmoji": "📊",
+            "timeComplexity": "O(n + m)",
+            "spaceComplexity": "O(1)",
+            "oneliner": "Count available letters in magazine, subtract for note.",
+            "intuition": [
+                "🎯 Can we construct the note from magazine letters?",
+                "🧠 Need enough of EACH character type",
+                "💡 Count occurrences. If any char count in note > magazine -> False"
+            ],
+            "testCases": [
+                {
+                    "input": "ransomNote = \"a\", magazine = \"b\"",
+                    "output": "False"
+                },
+                {
+                    "input": "ransomNote = \"aa\", magazine = \"ab\"",
+                    "output": "False"
+                },
+                {
+                    "input": "ransomNote = \"aa\", magazine = \"aab\"",
+                    "output": "True"
+                }
+            ],
+            "code": "def canConstruct(ransomNote, magazine):\n    from collections import Counter\n    counts = Counter(magazine)\n    \n    for char in ransomNote:\n        if counts[char] <= 0:\n            return False\n        counts[char] -= 1\n        \n    return True",
+            "keyInsight": "Using a fixed-size array (26 chars) or hashmap makes this efficient!"
+        },
+        "valid-anagram": {
+            "title": "Valid Anagram",
+            "pattern": "Frequency Analysis",
+            "patternEmoji": "⚖️",
+            "timeComplexity": "O(n)",
+            "spaceComplexity": "O(1)",
+            "oneliner": "Count characters - must match exactly!",
+            "intuition": [
+                "🎯 Anagram = same characters, same counts, different order",
+                "🧠 Sort? O(n log n). Count? O(n).",
+                "💡 Increment for 's', decrement for 't'. All zero? True."
+            ],
+            "testCases": [
+                {
+                    "input": "s = \"anagram\", t = \"nagaram\"",
+                    "output": "True"
+                },
+                {
+                    "input": "s = \"rat\", t = \"car\"",
+                    "output": "False"
+                }
+            ],
+            "code": "def isAnagram(s, t):\n    if len(s) != len(t):\n        return False\n        \n    count = {}\n    \n    for char in s:\n        count[char] = count.get(char, 0) + 1\n        \n    for char in t:\n        if char not in count or count[char] == 0:\n            return False\n        count[char] -= 1\n        \n    return True",
+            "keyInsight": "If lengths differ, instant False. Otherwise, cancel out counts."
+        },
+        "happy-number": {
+            "title": "Happy Number",
+            "pattern": "Cycle Detection",
+            "patternEmoji": "🔄",
+            "timeComplexity": "O(log n)",
+            "spaceComplexity": "O(log n)",
+            "oneliner": "Detect if sum of squares enters a cycle or hits 1.",
+            "intuition": [
+                "🎯 Repeat process: replace n with sum of squared digits",
+                "🧠 It either reaches 1 (Happy) or cycles endlessly (Sad)",
+                "💡 Use a Set to track seen numbers OR Floyd's cycle finding!"
+            ],
+            "testCases": [
+                {
+                    "input": "n = 19",
+                    "output": "True"
+                },
+                {
+                    "input": "n = 2",
+                    "output": "False"
+                }
+            ],
+            "code": "def isHappy(n):\n    seen = set()\n    while n != 1 and n not in seen:\n        seen.add(n)\n        n = sum(int(d) ** 2 for d in str(n))\n    return n == 1",
+            "keyInsight": "Only two outcomes: 1 or cycle. Detect the cycle!"
         }
     }
 }

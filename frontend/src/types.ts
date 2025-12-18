@@ -49,7 +49,16 @@ export interface Solution {
     animationSteps?: AnimationStep[];
 
     // Legacy support
+    // Legacy support
     steps?: AnimationStep[];
+
+    // Playground
+    testCases?: { input: string; output: string }[];
+
+    // External Resources
+    videoId?: string;         // YouTube Video ID
+    neetcodeLink?: string;    // Full URL override (optional)
+    takeuforwardLink?: string;// Full URL (optional)
 }
 
 export interface TestCaseResult {
