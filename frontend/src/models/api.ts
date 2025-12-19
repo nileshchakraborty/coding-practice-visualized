@@ -93,7 +93,7 @@ export const TutorAPI = {
         message: string,
         history: { role: string; content: string }[]
     ): Promise<{ response?: string; error?: string }> {
-        const response = await axios.post(`${API_BASE}/tutor`, {
+        const response = await axios.post(`${API_BASE}/ai/tutor`, {
             slug,
             message,
             history,
