@@ -1,0 +1,10 @@
+{
+    "name": "leetcode-visual-root",
+    "private": true,
+    "scripts": {
+        "vercel-build": "cd frontend && npm install && npm run build && mkdir -p ../public && cp -r dist/* ../public/"
+    },
+    "engines": {
+        "node": "18.x"
+    }
+}
