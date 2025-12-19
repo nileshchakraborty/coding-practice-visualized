@@ -41,4 +41,28 @@ export class ProblemService {
         // 2. Pass to AI
         return this.aiService.answerQuestion(title, desc, history, message);
     }
+    async generateSolution(slug: string) {
+        const problem = await this.problemRepo.getProblemBySlug(slug);
+        if (!problem) throw new Error("Problem not found");
+
+        const aiResult = await this.aiService.generateSolution(problem.title, problem.description);
+
+        if (aiResult.error) throw new Error(aiResult.error);
+
+        // Map AI result to Solution entity
+        const solution: any = {
+            slug,
+            title: problem.title,
+            code: aiResult.code,
+            testCases: [], // AI doesn't generate test cases yet, maybe keep empty or ask AI? 
+            hints: [],
+            generated: true,
+            timeComplexity: aiResult.timeComplexity,
+            spaceComplexity: aiResult.spaceComplexity,
+            explanation: aiResult.explanation
+        };
+
+        await this.problemRepo.saveSolution(slug, solution);
+        return { success: true, solution };
+    }
 }
