@@ -1,7 +1,14 @@
 import json
 import sys
 import os
-from runner import execute_code
+import os
+try:
+    from api.lib.runner import execute_code
+except ImportError:
+    # Fallback if run from root
+    import sys
+    sys.path.append(os.path.join(os.getcwd(), 'api'))
+    from lib.runner import execute_code
 
 SOLUTIONS_FILE = "data/solutions.json"
 

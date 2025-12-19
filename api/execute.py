@@ -12,15 +12,12 @@ sys.path.append(current_dir) # Add api/
 sys.path.append(parent_dir)  # Add root/
 
 try:
+    # Try importing from lib (relative to this file)
     from lib import runner
 except ImportError:
-    # Fallback for local dev or different Vercel structure
-    try:
-        import runner
-    except ImportError:
-        # Last resort: try adding lib explicitly
-        sys.path.append(os.path.join(current_dir, 'lib'))
-        import runner
+    # Fallback to sys path modification if needed
+    sys.path.append(os.path.join(os.path.dirname(__file__), 'lib'))
+    import runner
 
 class handler(BaseHTTPRequestHandler):
     def do_POST(self):
