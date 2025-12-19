@@ -13,8 +13,12 @@ const SmartVisualizer: React.FC<SmartVisualizerProps> = ({ solution }) => {
     const [speed] = useState(1000);
     const timerRef = useRef<number | null>(null);
 
-    const steps = solution.animationSteps || [];
-    const initialState = solution.initialState || [];
+    const steps = solution.animationSteps || solution.steps || [];
+    const rawInitialState = solution.initialState || [];
+    const initialState = typeof rawInitialState === 'string'
+        ? rawInitialState.split('')
+        : rawInitialState;
+
     const totalSteps = steps.length;
 
     // Helper to determine active state for rendering
@@ -147,6 +151,20 @@ const SmartVisualizer: React.FC<SmartVisualizerProps> = ({ solution }) => {
                         </motion.div>
                     )}
                 </AnimatePresence>
+
+                {/* Legacy Support: Visual & Explanation */}
+                {activeStepData?.visual && (
+                    <div className="mt-8 p-4 bg-slate-900/50 rounded-lg border border-slate-800 w-full max-w-lg">
+                        <pre className="font-mono text-xs md:text-sm text-slate-300 overflow-x-auto whitespace-pre">
+                            {activeStepData.visual}
+                        </pre>
+                        {activeStepData.explanation && (
+                            <p className="mt-2 text-sm text-slate-400 italic border-t border-slate-800 pt-2">
+                                {activeStepData.explanation}
+                            </p>
+                        )}
+                    </div>
+                )}
 
             </div>
         </div>

@@ -25,6 +25,7 @@ class Config:
     # Ollama settings
     OLLAMA_URL: str = os.getenv("OLLAMA_URL", "http://localhost:11434")
     OLLAMA_MODEL: str = os.getenv("OLLAMA_MODEL", "qwen2.5-coder:14b")
+    OLLAMA_API_KEY: Optional[str] = os.getenv("OLLAMA_API_KEY")
     
     # OpenAI settings
     OPENAI_API_KEY: Optional[str] = os.getenv("OPENAI_API_KEY")
@@ -36,6 +37,13 @@ class Config:
     
     # Timeout
     AI_TIMEOUT: int = int(os.getenv("AI_TIMEOUT", "300"))
+
+    # Paths
+    ROOT_DIR: Path = Path(__file__).parent.parent.resolve()
+    DATA_DIR: Path = ROOT_DIR / "data"
+    PROBLEMS_FILE: Path = DATA_DIR / "problems.json"
+    SOLUTIONS_FILE: Path = DATA_DIR / "solutions.json"
+    STATIC_DIR: Path = ROOT_DIR / "static_ui"
 
 
 def get_config() -> Config:

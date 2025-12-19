@@ -31,7 +31,8 @@ class AdapterFactory:
             return OllamaAdapter(
                 base_url=config.OLLAMA_URL,
                 model=config.OLLAMA_MODEL,
-                timeout=config.AI_TIMEOUT
+                timeout=config.AI_TIMEOUT,
+                api_key=config.OLLAMA_API_KEY
             )
         elif provider == "openai":
             return OpenAIAdapter(

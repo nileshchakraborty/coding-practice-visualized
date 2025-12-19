@@ -1,52 +1,63 @@
+
 import json
 
-PROBLEMS_FILE = "data/problems.json"
-SOLUTIONS_FILE = "data/solutions.json"
+PROBLEMS_FILE = 'data/problems.json'
+SOLUTIONS_FILE = 'data/solutions.json'
 
-def load_json(path):
-    with open(path, "r") as f:
-        return json.load(f)
-
-print("Auditing solutions...")
-problems_data = load_json(PROBLEMS_FILE)
-solutions_data = load_json(SOLUTIONS_FILE)
-
-total_problems = 0
-missing_solutions = []
-low_quality_solutions = []
-good_solutions = 0
-
-for cat in problems_data["categories"]:
-    for p in cat["problems"]:
-        total_problems += 1
-        slug = p["slug"]
+def audit():
+    with open(PROBLEMS_FILE, 'r') as f:
+        problems_data = json.load(f)
         
-        if slug not in solutions_data["solutions"]:
-            missing_solutions.append(slug)
+    with open(SOLUTIONS_FILE, 'r') as f:
+        solutions_data = json.load(f)
+        solutions = solutions_data.get('solutions', {})
+        
+    all_slugs = set()
+    for cat in problems_data['categories']:
+        for prob in cat['problems']:
+            all_slugs.add(prob['slug'])
+            
+    print(f"Total Problems in list: {len(all_slugs)}")
+    print(f"Total Solutions in file: {len(solutions)}")
+    
+    missing_solution_key = []
+    missing_code = []
+    missing_statement = []
+    missing_viz = []
+    
+    for slug in all_slugs:
+        if slug not in solutions:
+            missing_solution_key.append(slug)
             continue
             
-        sol = solutions_data["solutions"][slug]
+        sol = solutions[slug]
+        if not sol.get('code'):
+            missing_code.append(slug)
+        if not sol.get('problemStatement'):
+            missing_statement.append(slug)
+        # Check viz (animationSteps OR legacy steps)
+        has_anim = sol.get('animationSteps') and len(sol['animationSteps']) > 0
+        has_legacy = sol.get('steps') and len(sol['steps']) > 0
+        if not (has_anim or has_legacy):
+            missing_viz.append(slug)
+
+    print("-" * 30)
+    print(f"MISSING SOLUTION ENTRY: {len(missing_solution_key)}")
+    if missing_solution_key:
+        print(f"Sample: {missing_solution_key[:5]}")
         
-        # Quality Checks
-        reasons = []
-        if not sol.get("intuition") or len(sol["intuition"]) < 2:
-            reasons.append("weak intuition")
-        if not sol.get("steps") and not sol.get("animationSteps"):
-            reasons.append("no visuals")
-        if not sol.get("patternEmoji"):
-            reasons.append("no emoji")
-            
-        if reasons:
-            low_quality_solutions.append(f"{slug} ({', '.join(reasons)})")
-        else:
-            good_solutions += 1
+    print(f"MISSING CODE: {len(missing_code)}")
+    if missing_code:
+        print(f"Sample: {missing_code[:5]}")
+        
+    print(f"MISSING STATEMENT (Description): {len(missing_statement)}")
+    if missing_statement:
+        print(f"Sample: {missing_statement[:5]}")
+        
+    print(f"MISSING VISUALIZATION: {len(missing_viz)}")
+    if missing_viz:
+        print(f"Sample: {missing_viz[:5]}")
+    print("-" * 30)
 
-print(f"Total Problems: {total_problems}")
-print(f"Good Solutions: {good_solutions}")
-print(f"Missing Solutions: {len(missing_solutions)}")
-print(f"Low Quality Solutions: {len(low_quality_solutions)}")
-
-if missing_solutions:
-    print("\nSample Missing:", missing_solutions[:5])
-if low_quality_solutions:
-    print("\nSample Low Quality:", low_quality_solutions[:5])
+if __name__ == "__main__":
+    audit()

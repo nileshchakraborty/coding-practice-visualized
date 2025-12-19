@@ -20,11 +20,22 @@ class OllamaAdapter(AIAdapter):
         self, 
         base_url: str = "http://localhost:11434",
         model: str = "qwen2.5-coder:14b",
-        timeout: int = 300
+        timeout: int = 300,
+        api_key: Optional[str] = None
     ):
-        self.base_url = base_url.rstrip('/')
+        base_url = base_url.rstrip('/')
+        if base_url.endswith('/api'):
+            base_url = base_url[:-4]
+        self.base_url = base_url
         self.model = model
         self.timeout = timeout
+        self.api_key = api_key
+        
+    def _get_headers(self) -> Dict[str, str]:
+        headers = {"Content-Type": "application/json"}
+        if self.api_key:
+            headers["Authorization"] = f"Bearer {self.api_key}"
+        return headers
     
     @property
     def name(self) -> str:
@@ -63,6 +74,7 @@ class OllamaAdapter(AIAdapter):
             response = requests.post(
                 f"{self.base_url}/api/generate",
                 json=payload,
+                headers=self._get_headers(),
                 timeout=self.timeout
             )
             
@@ -106,6 +118,7 @@ class OllamaAdapter(AIAdapter):
             response = requests.post(
                 f"{self.base_url}/api/chat",
                 json=payload,
+                headers=self._get_headers(),
                 timeout=self.timeout
             )
             

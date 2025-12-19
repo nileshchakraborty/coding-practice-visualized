@@ -155,10 +155,60 @@ def ask_tutor(
     
     result = adapter.chat(messages)
     
+    result = adapter.chat(messages)
+    
     return result
 
 
-def validate_and_fix(solution_data: dict, problem_slug: str) -> tuple:
+def generate_visualization_steps(problem_title: str, code: str, initial_state: any, viz_type: str = "array") -> list:
+    """
+    Generate animation steps for an existing solution.
+    """
+    adapter = get_adapter()
+    
+    system_prompt = """You are an expert algorithm visualizer.
+    Your goal is to generate a list of "animationSteps" to visualize the execution of the provided code on the "initialState".
+    
+    Output MUST be a JSON object with a single key "animationSteps" containing a list of steps.
+    
+    Step Format:
+    {
+        "type": "highlight",
+        "indices": [0, 1],
+        "color": "accent", 
+        "pointers": [{"index": 0, "label": "i"}, {"index": 1, "label": "j"}],
+        "transientMessage": "Checking if nums[0] + nums[1] == target"
+    }
+    
+    Rules:
+    - Trace the code logically.
+    - Generate 5-10 key steps (don't trace every single loop iteration if it's too long, just key moments).
+    - Use "highlight" type.
+    - Colors: "accent" (processing), "success" (found/match), "error" (mismatch).
+    """
+    
+    prompt = f"""
+    Problem: {problem_title}
+    Code:
+    {code}
+    
+    Visualization Type: {viz_type}
+    Initial State: {initial_state}
+    
+    Generate the animationSteps JSON.
+    """
+    
+    result = adapter.generate_json(prompt, system_prompt)
+    
+    if "animationSteps" in result:
+        return result["animationSteps"]
+    
+    # Fallback if AI returned raw list or wrapped response
+    if isinstance(result, list):
+        return result
+        
+    return []
+
     """
     Validates code against test cases.
     
