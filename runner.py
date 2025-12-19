@@ -15,6 +15,8 @@ def execute_code(code, test_cases):
 import json
 import inspect
 import sys
+import re
+import ast
 
 # ... [Same logic as before, but cleaner] ...
 # --- Data Structures & Helpers ---
@@ -191,14 +193,43 @@ def run_tests_internal():
         try:
             # Parse inputs
             local_scope = {'null': None, 'true': True, 'false': False}
-            exec(test['input'], globals(), local_scope)
+            # Input Parsing Strategy
+            # 1. Try treating as valid Python script (Imperative Class Test or Semicolon Separated)
+            full_script_mode = False
+            last_expr_val = None
+            
+            try:
+                # AST Parse Check
+                tree = ast.parse(test['input'])
+                full_script_mode = True
+                
+                # Exec and Eval Last Strategy
+                if tree.body:
+                    last_node = tree.body[-1]
+                    if isinstance(last_node, ast.Expr):
+                        # Exec prev
+                        if len(tree.body) > 1:
+                            prev = ast.Module(body=tree.body[:-1], type_ignores=[])
+                            exec(compile(prev, filename="<string>", mode="exec"), globals(), local_scope)
+                        # Eval last
+                        expr = ast.Expression(body=last_node.value)
+                        last_expr_val = eval(compile(expr, filename="<string>", mode="eval"), globals(), local_scope)
+                    else:
+                        exec(compile(tree, filename="<string>", mode="exec"), globals(), local_scope)
+                else:
+                    exec(test['input'], globals(), local_scope)
+
+            except Exception:
+                # 2. If SyntaxError or other weird parsing artifacts (e.g. tuple unpacking of assignments),
+                # likely comma-separated assignments (LC style).
+                # Fix inputs like "nums = [1,2], target = 3"
+                sanitized_input = re.sub(r',\s*(?=[a-zA-Z_]\w*\s*=)', '; ', test['input'])
+                exec(sanitized_input, globals(), local_scope)
             
             actual_val = None
 
             if is_class_solution:
-                # Class Design Execution
-                # Expected input vars: commands (list of str), args (list of lists)
-                # Fallback: support user-defined input var names if needed, but standardizing on commands/args is best.
+                # Class Logic
                 cmd_var = next((k for k in local_scope if 'command' in k or 'method' in k or 'op' in k), None)
                 arg_var = next((k for k in local_scope if 'arg' in k or 'input' in k or 'val' in k), None)
                 
@@ -220,54 +251,123 @@ def run_tests_internal():
                         else:
                             res_list.append(None)
                     actual_val = res_list
+                
+                elif full_script_mode:
+                    # Fallback: Imperative Script Result
+                    actual_val = last_expr_val
+
                 else:
                     raise Exception("Class solution requires 'commands' and 'args' logic in test case.")
 
             else:
                 # Standard Function Execution
-                # Smart arg matching
+                # Smart arg matching with aliases
                 sig = inspect.signature(solution_func)
                 args = []
+                # Aliases map: Param Name -> Possible Test Vars
+                aliases = {
+                    'node': ['adjList', 'val'],
+                    'target': ['k'],
+                    'arr': ['nums', 'vec'],
+                    'nums': ['arr'],
+                    'root': ['p', 'q']
+                }
+
                 for param in sig.parameters:
+                    val = None
+                    found = False
+                    
+                    # 1. Exact match
                     if param in local_scope:
                         val = local_scope[param]
-                        
-                        # Heuristic: Convert lists to Linked List or Tree based on param name
+                        found = True
+                    # 2. Alias match
+                    elif param in aliases:
+                        for alias in aliases[param]:
+                            if alias in local_scope:
+                                val = local_scope[alias]
+                                found = True
+                                break
+                    
+                    if found:
+                        # Heuristic conversions
                         if isinstance(val, list) and param in ['l1', 'l2', 'head', 'list1', 'list2', 'headA', 'headB']:
                             pos = local_scope.get('pos', -1)
                             val = list_to_ll(val, pos)
-                        elif isinstance(val, list) and param in ['root', 'p', 'q', 'root1', 'root2', 'subRoot']:
+                        elif isinstance(val, list) and param in ['root', 'root1', 'root2', 'subRoot']:
                              val = list_to_tree(val)
                         elif isinstance(val, list) and param in ['node'] and all(isinstance(x, list) for x in val):
                              val = adj_to_graph(val)
+                        # Handle p/q parameter:
+                        # If list -> convert to TreeNode (for same-tree, validate-bst)
+                        # If int -> find node in tree by value (for LCA problems)
+                        elif param in ['p', 'q']:
+                            if isinstance(val, list):
+                                val = list_to_tree(val)
+                            elif isinstance(val, int):
+                                # p/q are integer VALUES, need to find the node in root tree
+                                root_tree = None
+                                for a in args:
+                                    if isinstance(a, TreeNode):
+                                        root_tree = a
+                                        break
+                                if root_tree:
+                                    def find_node(node, target):
+                                        if not node: return None
+                                        if node.val == target: return node
+                                        left = find_node(node.left, target)
+                                        if left: return left
+                                        return find_node(node.right, target)
+                                    val = find_node(root_tree, val)
                              
                         args.append(val)
                     else:
-                        pass # Default logic
+                        # Default none if not found? Or skip?
+                        # If required arg missing, it will crash.
+                        pass
 
                 if len(args) != len(sig.parameters):
                      pass
 
                 result = solution_func(*args)
                 
-                if solution_func.__name__ == 'groupAnagrams' and isinstance(result, list):
-                    try:
-                        result = sorted([sorted(x) for x in result])
-                    except: pass
+                # Helper to convert outputs
+                def convert_val(val, func_name=''):
+                    if isinstance(val, ListNode): return ll_to_list(val)
+                    if isinstance(val, TreeNode):
+                        # For LCA functions, return just the node value, not tree serialization
+                        if 'lowestCommonAncestor' in func_name:
+                            return val.val
+                        return tree_to_list(val)
+                    if hasattr(val, 'val') and hasattr(val, 'neighbors'): return graph_to_adj(val)
+                    # Handle Node class with random pointer (copy-list-with-random-pointer)
+                    if hasattr(val, 'val') and hasattr(val, 'next') and hasattr(val, 'random'):
+                        return ll_to_list(val)
+                    # Handle generic Node class
+                    if type(val).__name__ == 'Node' and hasattr(val, 'val'):
+                        if hasattr(val, 'random'): return ll_to_list(val)
+                        if hasattr(val, 'neighbors'): return graph_to_adj(val)
+                    return val
 
-                # Post-process result
-                actual_val = result
-                if isinstance(result, ListNode):
-                    actual_val = ll_to_list(result)
-                elif isinstance(result, TreeNode):
-                    actual_val = tree_to_list(result)
-                elif hasattr(result, 'val') and hasattr(result, 'neighbors'):
-                    actual_val = graph_to_adj(result)
-                elif hasattr(result, 'val') and hasattr(result, 'next') and hasattr(result, 'random'):
-                    actual_val = ll_to_list(result)
-                elif type(result).__name__ == 'Node':
-                     if hasattr(result, 'neighbors'): actual_val = graph_to_adj(result)
-                     elif hasattr(result, 'random'): actual_val = ll_to_list(result)
+                actual_val = convert_val(result, solution_func.__name__)
+                
+                # Support In-Place: Only for known in-place modification functions
+                # Not for functions that return new heads/roots
+                in_place_funcs = ['sortColors', 'rotate', 'setZeroes', 'moveZeroes', 
+                                  'reverseString', 'wallsAndGates', 'gameOfLife']
+                if actual_val is None and result is None and args:
+                    if solution_func.__name__ in in_place_funcs:
+                        candidates = [convert_val(a) for a in args]
+                        if candidates and isinstance(candidates[0], list):
+                            actual_val = candidates[0]
+                    else:
+                        # For LinkedList/Tree functions that return None = empty result
+                        actual_val = []
+                
+                if solution_func.__name__ == 'groupAnagrams' and isinstance(actual_val, list):
+                    try:
+                        actual_val = sorted([sorted(x) for x in actual_val])
+                    except: pass
             
             # Eval expected
             expected = eval(test['output'], globals(), {'null': None, 'true': True, 'false': False})
@@ -297,7 +397,17 @@ def run_tests_internal():
                 actual_val = []
 
             # Compare
-            passed = (actual_val == expected)
+            passed = False
+            try:
+                # Float comparison logic
+                def is_float(x): return isinstance(x, (float, int)) and not isinstance(x, bool)
+                if is_float(actual_val) and is_float(expected):
+                    passed = abs(actual_val - expected) < 1e-5
+                else:
+                    passed = (actual_val == expected)
+            except:
+                passed = (actual_val == expected)
+                
             if not passed:
                 all_passed = False
                 
@@ -311,11 +421,12 @@ def run_tests_internal():
             
         except Exception as e:
             all_passed = False
+            import traceback
             results.append({
                 "case": i + 1,
                 "passed": False,
                 "input": test['input'],
-                "error": str(e)
+                "error": traceback.format_exc()
             })
     
     print(json.dumps({"passed": all_passed, "results": results}))

@@ -102,3 +102,24 @@ server.log
 
 # Data (if we don't want to commit bulky xlsx)
 *.xlsx
+
+# Temporary files
+*.tmp
+*.temp
+
+# Validation and debug outputs
+validation_*.txt
+debug_*.py
+fix_*.py
+
+# Temporary scripts
+test_*.py
+temp_*.py
+
+# OS-specific
+Thumbs.db
+*~
+
+# Backend cache
+backend/__pycache__/
+backend/**/__pycache__/

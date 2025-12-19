@@ -12,6 +12,8 @@ RUNNER_TEMPLATE = """
 import json
 import inspect
 import sys
+import re
+import ast
 
 # --- Data Structures & Helpers ---
 class ListNode:
@@ -172,14 +174,52 @@ def run_tests_internal():
     for i, test in enumerate(test_cases):
         try:
             local_scope = {'null': None, 'true': True, 'false': False}
-            exec(test['input'], globals(), local_scope)
+            # Input Parsing Strategy
+            # 1. Try treating as valid Python script (Imperative Class Test or Semicolon Separated)
+            full_script_mode = False
+            last_expr_val = None
+            
+            try:
+                # AST Parse Check
+                tree = ast.parse(test['input'])
+                full_script_mode = True
+                
+                # Exec and Eval Last Strategy
+                if tree.body:
+                    last_node = tree.body[-1]
+                    if isinstance(last_node, ast.Expr):
+                        # Exec prev
+                        if len(tree.body) > 1:
+                            prev = ast.Module(body=tree.body[:-1], type_ignores=[])
+                            exec(compile(prev, filename="<string>", mode="exec"), globals(), local_scope)
+                        # Eval last
+                        expr = ast.Expression(body=last_node.value)
+                        last_expr_val = eval(compile(expr, filename="<string>", mode="eval"), globals(), local_scope)
+                    else:
+                        exec(compile(tree, filename="<string>", mode="exec"), globals(), local_scope)
+                else:
+                    exec(test['input'], globals(), local_scope)
+
+            except Exception:
+                # 2. If SyntaxError or other weird parsing artifacts
+                # likely comma-separated assignments (LC style).
+                sanitized_input = re.sub(r',\s*(?=[a-zA-Z_]\w*\s*=)', '; ', test['input'])
+                exec(sanitized_input, globals(), local_scope)
             
             actual_val = None
+            
+            # If we captured an expression value in script mode, that might be the result
+            if full_script_mode and last_expr_val is not None:
+                # We still need to check if this was a class wrapper or just direct code
+                pass # Logic continues below
+            
             if is_class_solution:
                 # Class Logic
                 cmd_var = next((k for k in local_scope if 'command' in k or 'method' in k or 'op' in k), None)
                 arg_var = next((k for k in local_scope if 'arg' in k or 'input' in k or 'val' in k), None)
+                
                 if cmd_var and arg_var:
+                    # .. standard class logic ...
                     commands = local_scope[cmd_var]
                     arguments = local_scope[arg_var]
                     obj = solution_func(*arguments[0])
@@ -189,28 +229,83 @@ def run_tests_internal():
                              res_list.append(getattr(obj, cmd)(*params))
                          else: res_list.append(None)
                     actual_val = res_list
+                
+                elif full_script_mode:
+                    # Fallback: Imperative Script Result
+                    actual_val = last_expr_val
+                
                 else: raise Exception("Class solution requires commands/args.")
             else:
-                # Function Logic
+                # Smart arg matching with aliases
                 sig = inspect.signature(solution_func)
                 args = []
+                aliases = {
+                    'node': ['adjList', 'val'],
+                    'target': ['k'],
+                    'arr': ['nums', 'vec'],
+                    'nums': ['arr'],
+                    'root': ['p', 'q']
+                }
+
                 for param in sig.parameters:
+                    val = None
+                    found = False
                     if param in local_scope:
                         val = local_scope[param]
-                        if isinstance(val, list) and param in ['l1', 'l2', 'head', 'list1']: val = list_to_ll(val)
-                        elif isinstance(val, list) and param in ['root', 'p', 'q']: val = list_to_tree(val)
+                        found = True
+                    elif param in aliases:
+                        for alias in aliases[param]:
+                            if alias in local_scope:
+                                val = local_scope[alias]
+                                found = True
+                                break
+                    
+                    if found:
+                        if isinstance(val, list) and param in ['l1', 'l2', 'head', 'list1', 'list2', 'headA', 'headB']:
+                            pos = local_scope.get('pos', -1)
+                            val = list_to_ll(val, pos)
+                        elif isinstance(val, list) and param in ['root', 'p', 'q', 'root1', 'root2', 'subRoot']:
+                             val = list_to_tree(val)
+                        elif isinstance(val, list) and param in ['node'] and all(isinstance(x, list) for x in val):
+                             val = adj_to_graph(val)
                         args.append(val)
+                    else:
+                        pass
                 result = solution_func(*args)
                 actual_val = result
-                if isinstance(result, ListNode): actual_val = ll_to_list(result)
-                elif isinstance(result, TreeNode): actual_val = tree_to_list(result)
-                elif hasattr(result, 'val') and hasattr(result, 'neighbors'): actual_val = graph_to_adj(result)
+                
+                # Helper to convert outputs
+                def convert_val(val):
+                    if isinstance(val, ListNode): return ll_to_list(val)
+                    if isinstance(val, TreeNode): return tree_to_list(val)
+                    if hasattr(val, 'val') and hasattr(val, 'neighbors'): return graph_to_adj(val)
+                    return val
+
+                actual_val = convert_val(result)
+                
+                # Support In-Place: If result is None but expected is List, check args[0]
+                if actual_val is None and result is None and args:
+                    # Check if args[0] matches expected type or if it was modified
+                    # Heuristic: If expected is list and args[0] is list/node
+                    candidates = [convert_val(a) for a in args]
+                    # We try to find one that matches the expected value? 
+                    # Or just default to first arg for standard in-place probs
+                    if candidates and isinstance(candidates[0], list):
+                        actual_val = candidates[0]
 
             # Eval expected
             expected = eval(test['output'], globals(), {'null': None, 'true': True, 'false': False})
             
             # Simple compare
-            passed = (actual_val == expected)
+            passed = False
+            try:
+                def is_float(x): return isinstance(x, (float, int)) and not isinstance(x, bool)
+                if is_float(actual_val) and is_float(expected):
+                    passed = abs(actual_val - expected) < 1e-5
+                else:
+                    passed = (actual_val == expected)
+            except:
+                passed = (actual_val == expected)
             if not passed: all_passed = False
             results.append({"case": i+1, "passed": passed, "input": test['input'], "expected": str(expected), "actual": str(actual_val)})
             
