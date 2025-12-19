@@ -1,0 +1,12 @@
+[project]
+name = "leetcode-visual-api"
+
+[build]
+builder = "paketobuildpacks/builder:base"
+
+[[services]]
+name = "api"
+
+[services.env]
+AI_PROVIDER = "ollama"
+OLLAMA_URL = "http://localhost:11434"

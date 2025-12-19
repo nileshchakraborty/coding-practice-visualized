@@ -2,11 +2,12 @@ import React, { useState } from 'react';
 import type { Solution, TestCaseResult } from '../types';
 import SmartVisualizer from './SmartVisualizer';
 import TutorChat from './TutorChat';
-import { X, Code as CodeIcon, BookOpen, Terminal, Play, ExternalLink, Plus, Trash2, Youtube, FileText, MessageCircle } from 'lucide-react';
+import { X, Code as CodeIcon, BookOpen, Terminal, Play, ExternalLink, Youtube, FileText, MessageCircle, Plus, Trash2 } from 'lucide-react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 import axios from 'axios';
+import Editor from '@monaco-editor/react';
 
 interface SolutionModalProps {
     isOpen: boolean;
@@ -21,11 +22,8 @@ const SolutionModal: React.FC<SolutionModalProps> = ({ isOpen, onClose, solution
     const [output, setOutput] = useState('');
     const [isRunning, setIsRunning] = useState(false);
 
-    // Test Case State
-    const [testCases, setTestCases] = useState<{ input: string; output: string }[]>([]);
-    const [customInput, setCustomInput] = useState('');
-    const [customOutput, setCustomOutput] = useState('');
-    const [isAddingTest, setIsAddingTest] = useState(false);
+    // Single Custom Test Case State (editable, temporary)
+    const [customTestCase, setCustomTestCase] = useState<{ input: string; output: string } | null>(null);
 
     // Tutor Chat State (persisted across tab switches)
     const [tutorMessages, setTutorMessages] = useState<{ role: 'user' | 'assistant'; content: string }[]>([]);
@@ -59,10 +57,10 @@ const SolutionModal: React.FC<SolutionModalProps> = ({ isOpen, onClose, solution
         try {
 
             // Combine built-in and custom test cases
-            const allTestCases = [
-                ...(solution?.testCases || []),
-                ...testCases
-            ];
+            const allTestCases = [...(solution?.testCases || [])];
+            if (customTestCase) {
+                allTestCases.push(customTestCase);
+            }
 
             const res = await axios.post('/api/run', {
                 code: code,
@@ -100,17 +98,7 @@ const SolutionModal: React.FC<SolutionModalProps> = ({ isOpen, onClose, solution
         }
     };
 
-    const handleAddTestCase = () => {
-        if (!customInput || !customOutput) return;
-        setTestCases([...testCases, { input: customInput, output: customOutput }]);
-        setCustomInput('');
-        setCustomOutput('');
-        setIsAddingTest(false);
-    };
 
-    const handleRemoveTestCase = (index: number) => {
-        setTestCases(testCases.filter((_, i) => i !== index));
-    };
 
     if (!isOpen || !solution) return null;
 
@@ -189,7 +177,7 @@ const SolutionModal: React.FC<SolutionModalProps> = ({ isOpen, onClose, solution
                                 </h3>
                                 <div className="p-6 rounded-xl bg-slate-800/50 border border-slate-700/50">
                                     <p className="text-slate-200 text-lg leading-relaxed whitespace-pre-line">
-                                        {solution.description || solution.oneliner || 'No description available.'}
+                                        {solution.problemStatement || solution.description || 'No description available.'}
                                     </p>
                                 </div>
                             </div>
@@ -550,12 +538,32 @@ const SolutionModal: React.FC<SolutionModalProps> = ({ isOpen, onClose, solution
                                 <div className="absolute top-0 left-0 right-0 px-4 py-2 bg-[#1a1a2e] border-b border-slate-700 text-xs text-slate-500 font-mono flex justify-between items-center z-10">
                                     <span>main.py</span>
                                 </div>
-                                <textarea
-                                    value={code}
-                                    onChange={(e) => setCode(e.target.value)}
-                                    className="absolute inset-0 w-full h-full p-4 pt-14 bg-transparent text-slate-200 font-mono text-base leading-relaxed resize-none focus:outline-none z-0"
-                                    spellCheck={false}
-                                />
+                                <div className="absolute inset-0 top-[37px] w-full">
+                                    <Editor
+                                        height="100%"
+                                        language="python"
+                                        value={code}
+                                        onChange={(value) => setCode(value || '')}
+                                        theme="vs-dark"
+                                        options={{
+                                            minimap: { enabled: false },
+                                            fontSize: 14,
+                                            lineNumbers: 'on',
+                                            scrollBeyondLastLine: false,
+                                            automaticLayout: true,
+                                            padding: { top: 10 },
+                                            fontFamily: "'JetBrains Mono', 'Fira Code', 'Consolas', monospace",
+                                            renderLineHighlight: 'none',
+                                            hideCursorInOverviewRuler: true,
+                                            overviewRulerBorder: false,
+                                            scrollbar: {
+                                                vertical: 'hidden',
+                                                horizontal: 'hidden'
+                                            }
+                                        }}
+                                        loading={<div className="text-slate-500 p-4">Loading Editor...</div>}
+                                    />
+                                </div>
                             </div>
                             <div className="flex justify-between items-center bg-[#16162a] p-2 rounded-lg border border-slate-700">
                                 <span className="text-sm text-slate-400 font-mono pl-2">
@@ -574,21 +582,12 @@ const SolutionModal: React.FC<SolutionModalProps> = ({ isOpen, onClose, solution
                             <div className="flex-1 bg-black rounded-xl border border-slate-800 overflow-hidden flex flex-col md:flex-row">
                                 {/* Test Cases List */}
                                 <div className="md:w-1/3 border-b md:border-b-0 md:border-r border-slate-800 p-4 bg-[#0d0d15] overflow-y-auto custom-scrollbar flex flex-col">
-                                    <div className="flex justify-between items-center mb-3">
-                                        <h4 className="text-xs font-bold text-slate-500 uppercase tracking-wider">Test Cases</h4>
-                                        <button
-                                            onClick={() => setIsAddingTest(!isAddingTest)}
-                                            className="p-1 hover:bg-slate-800 rounded text-slate-400 hover:text-indigo-400 transition-colors"
-                                            title="Add Custom Test Case"
-                                        >
-                                            <Plus size={16} />
-                                        </button>
-                                    </div>
+                                    <h4 className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-3">Test Cases</h4>
 
                                     <div className="space-y-3 flex-1">
                                         {/* Built-in Test Cases */}
                                         {solution.testCases?.map((testCase, i) => (
-                                            <div key={`builtin-${i}`} className="p-3 rounded-lg bg-slate-900 border border-slate-800 relative group">
+                                            <div key={`builtin-${i}`} className="p-3 rounded-lg bg-slate-900 border border-slate-800">
                                                 <div className="text-xs text-slate-500 mb-1 font-mono">Built-in {i + 1}</div>
                                                 <div className="text-xs text-slate-400 mb-1 font-mono">Input:</div>
                                                 <div className="text-sm text-indigo-300 font-mono break-all mb-2">{testCase.input}</div>
@@ -597,76 +596,58 @@ const SolutionModal: React.FC<SolutionModalProps> = ({ isOpen, onClose, solution
                                             </div>
                                         ))}
 
-                                        {/* Custom Test Cases */}
-                                        {testCases.map((testCase, i) => (
-                                            <div key={`custom-${i}`} className="p-3 rounded-lg bg-indigo-500/10 border border-indigo-500/30 relative group">
-                                                <div className="flex justify-between items-start">
-                                                    <div className="text-xs text-indigo-400 mb-1 font-mono">Custom {i + 1}</div>
+                                        {/* Single Editable Custom Test Case */}
+                                        <div className="p-3 rounded-lg bg-indigo-500/10 border border-indigo-500/30">
+                                            <div className="flex justify-between items-center mb-2">
+                                                <div className="text-xs text-indigo-400 font-mono font-bold">Custom Test</div>
+                                                {customTestCase ? (
                                                     <button
-                                                        onClick={() => handleRemoveTestCase(i)}
-                                                        className="text-slate-500 hover:text-red-400 opacity-0 group-hover:opacity-100 transition-opacity"
+                                                        onClick={() => setCustomTestCase(null)}
+                                                        className="p-1 text-slate-500 hover:text-red-400 hover:bg-red-400/10 rounded transition-colors"
+                                                        title="Remove custom test"
                                                     >
                                                         <Trash2 size={14} />
                                                     </button>
-                                                </div>
-                                                <div className="text-xs text-slate-400 mb-1 font-mono">Input:</div>
-                                                <div className="text-sm text-indigo-300 font-mono break-all mb-2">{testCase.input}</div>
-                                                <div className="text-xs text-slate-400 mb-1 font-mono">Expected:</div>
-                                                <div className="text-sm text-emerald-300 font-mono break-all">{testCase.output}</div>
+                                                ) : (
+                                                    <button
+                                                        onClick={() => setCustomTestCase({ input: '', output: '' })}
+                                                        className="flex items-center gap-1 text-xs text-indigo-400 hover:text-indigo-300 transition-colors"
+                                                    >
+                                                        <Plus size={14} />
+                                                        <span>Add</span>
+                                                    </button>
+                                                )}
                                             </div>
-                                        ))}
 
-                                        {/* Add New Test Case Form */}
-                                        {isAddingTest && (
-                                            <div className="p-3 rounded-lg bg-slate-900 border border-indigo-500 animate-in fade-in zoom-in-95 duration-200">
+                                            {customTestCase && (
                                                 <div className="space-y-2">
                                                     <div>
-                                                        <label className="text-xs text-slate-400 font-mono">Input:</label>
+                                                        <label className="text-xs text-slate-400 font-mono block mb-1">Input:</label>
                                                         <input
-                                                            value={customInput}
-                                                            onChange={(e) => setCustomInput(e.target.value)}
-                                                            className="w-full bg-black border border-slate-700 rounded px-2 py-1 text-sm font-mono text-indigo-300 focus:border-indigo-500 outline-none"
-                                                            placeholder="nums = [1,2]"
+                                                            value={customTestCase.input}
+                                                            onChange={(e) => setCustomTestCase(prev => prev ? ({
+                                                                ...prev,
+                                                                input: e.target.value
+                                                            }) : null)}
+                                                            className="w-full bg-black/50 border border-slate-700 rounded px-2 py-1.5 text-sm font-mono text-indigo-300 focus:border-indigo-500 outline-none placeholder:text-slate-700"
+                                                            placeholder="hand = [1,2,3], groupSize = 3"
                                                         />
                                                     </div>
                                                     <div>
-                                                        <label className="text-xs text-slate-400 font-mono">Expected:</label>
+                                                        <label className="text-xs text-slate-400 font-mono block mb-1">Expected:</label>
                                                         <input
-                                                            value={customOutput}
-                                                            onChange={(e) => setCustomOutput(e.target.value)}
-                                                            className="w-full bg-black border border-slate-700 rounded px-2 py-1 text-sm font-mono text-emerald-300 focus:border-emerald-500 outline-none"
-                                                            placeholder="3"
+                                                            value={customTestCase.output}
+                                                            onChange={(e) => setCustomTestCase(prev => prev ? ({
+                                                                ...prev,
+                                                                output: e.target.value
+                                                            }) : null)}
+                                                            className="w-full bg-black/50 border border-slate-700 rounded px-2 py-1.5 text-sm font-mono text-emerald-300 focus:border-emerald-500 outline-none placeholder:text-slate-700"
+                                                            placeholder="True"
                                                         />
                                                     </div>
-                                                    <div className="flex justify-end gap-2 mt-2">
-                                                        <button
-                                                            onClick={() => setIsAddingTest(false)}
-                                                            className="text-xs text-slate-400 hover:text-white px-2 py-1"
-                                                        >
-                                                            Cancel
-                                                        </button>
-                                                        <button
-                                                            onClick={handleAddTestCase}
-                                                            className="text-xs bg-indigo-600 hover:bg-indigo-500 text-white px-3 py-1 rounded"
-                                                        >
-                                                            Add
-                                                        </button>
-                                                    </div>
                                                 </div>
-                                            </div>
-                                        )}
-
-                                        {!solution.testCases && testCases.length === 0 && !isAddingTest && (
-                                            <div className="text-sm text-slate-600 italic text-center py-4">
-                                                No test cases available.<br />
-                                                <button
-                                                    onClick={() => setIsAddingTest(true)}
-                                                    className="text-indigo-400 hover:text-indigo-300 underline mt-2"
-                                                >
-                                                    Add one?
-                                                </button>
-                                            </div>
-                                        )}
+                                            )}
+                                        </div>
                                     </div>
                                 </div>
 

@@ -2,7 +2,23 @@
 
 A full-stack application for visualizing LeetCode problems, generating solutions with AI, and getting personalized tutoring.
 
-![Dashboard](docs/images/dashboard.png)
+## Screenshots
+
+### Dashboard
+![Dashboard](docs/screenshots/dashboard.png)
+*Problem explorer with 252 problems organized by category*
+
+### Solution Playground
+![Playground](docs/screenshots/playground.png)
+*Interactive code editor with test cases*
+
+### Algorithm Visualization
+![Visualization](docs/screenshots/visualization.png)
+*Step-by-step animation with pointers and highlighting*
+
+### Explanation View
+![Explanation](docs/screenshots/explanation.png)
+*Video tutorials and detailed walkthroughs*
 
 ## Features
 

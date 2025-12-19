@@ -2,18 +2,44 @@
     "version": 2,
     "builds": [
         {
+            "src": "api/*.py",
+            "use": "@vercel/python"
+        },
+        {
             "src": "src/index.ts",
             "use": "@vercel/node"
         }
     ],
     "routes": [
         {
+            "src": "/api/execute",
+            "dest": "/api/execute.py"
+        },
+        {
+            "src": "/api/health/python",
+            "dest": "/api/health.py"
+        },
+        {
             "src": "/api/(.*)",
-            "dest": "src/index.ts"
+            "dest": "/src/index.ts"
         },
         {
             "src": "/(.*)",
-            "dest": "src/index.ts"
+            "dest": "/src/index.ts"
         }
-    ]
+    ],
+    "functions": {
+        "api/execute.py": {
+            "runtime": "@vercel/python@3.0.0",
+            "maxDuration": 30
+        },
+        "api/health.py": {
+            "runtime": "@vercel/python@3.0.0"
+        }
+    },
+    "env": {
+        "AI_PROVIDER": "@ai_provider",
+        "OLLAMA_URL": "@ollama_url",
+        "OPENAI_API_KEY": "@openai_api_key"
+    }
 }

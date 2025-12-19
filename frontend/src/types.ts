@@ -27,6 +27,7 @@ export interface AnimationStep {
     color?: 'accent' | 'success' | 'default' | 'error';
     pointers?: Array<{ index: number; label: string }>;
     transientMessage?: string;
+    arrayState?: (number | string)[]; // Current array state at this step
     visual?: string; // Legacy support
     explanation?: string; // Legacy support
     step?: number; // Legacy support
@@ -45,9 +46,16 @@ export interface Solution {
     code: string;
 
     // Smart Visualization
-    visualizationType?: 'array' | 'string' | 'matrix' | 'tree';
+    visualizationType?: 'array' | 'string' | 'matrix' | 'tree' | 'linkedlist' | 'graph' | 'grid';
     initialState?: (number | string)[] | string;
     animationSteps?: AnimationStep[];
+
+    // Data structure specific visualization data
+    treeRoot?: unknown;
+    listHead?: unknown;
+    matrix?: (number | string)[][];
+    graphNodes?: { id: number | string; label?: string }[];
+    graphEdges?: { from: number | string; to: number | string; weight?: number }[];
 
     // Legacy support
     // Legacy support
@@ -57,7 +65,8 @@ export interface Solution {
     testCases?: { input: string; output: string }[];
 
     // Enhanced Problem Data
-    description?: string;                              // Full problem description
+    problemStatement?: string;                          // Actual LeetCode problem description
+    description?: string;                              // Alternative/fallback description
     examples?: { input: string; output: string; explanation?: string }[];
     constraints?: string[];                            // Array of constraints
     hints?: string[];                                  // Array of hints
