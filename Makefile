@@ -29,6 +29,9 @@ run-api:
 run-frontend:
 	cd frontend && npm run dev
 
+test:
+	python3 validate_all.py
+
 build:
 	@echo "Building Frontend..."
 	cd frontend && npm run build
