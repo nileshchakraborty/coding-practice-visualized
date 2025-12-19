@@ -20,7 +20,12 @@ export class OllamaService implements AIService {
                 headers['Authorization'] = `Bearer ${this.apiKey}`;
             }
 
-            const response = await fetch(`${this.baseUrl}/api/chat`, {
+            // Handle both local (http://localhost:11434) and cloud (https://ollama.com/api) base URLs
+            // Cloud URL already includes /api, local doesn't
+            const chatPath = this.baseUrl.endsWith('/api') ? '/chat' : '/api/chat';
+            const url = this.baseUrl.replace(/\/$/, '') + chatPath;
+
+            const response = await fetch(url, {
                 method: 'POST',
                 headers,
                 body: JSON.stringify({
