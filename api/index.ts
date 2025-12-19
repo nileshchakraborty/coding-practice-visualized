@@ -132,6 +132,17 @@ app.post('/api/ai/tutor', async (req, res) => {
     }
 });
 
+app.post('/api/generate', async (req, res) => {
+    try {
+        const { slug } = req.body;
+        const result = await problemService.generateSolution(slug);
+        res.json(result);
+    } catch (e: any) {
+        console.error("Generation Error:", e);
+        res.status(500).json({ error: e.message });
+    }
+});
+
 // Start for local dev
 const PORT = process.env.PORT || 3001;
 if (process.env.NODE_ENV !== 'production') {

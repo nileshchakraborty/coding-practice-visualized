@@ -70,4 +70,22 @@ export class OpenAIService implements AIService {
             return { error: error.message };
         }
     }
+
+    async generateSolution(problemTitle: string, problemDesc: string): Promise<any> {
+        try {
+            const completion = await this.openai.chat.completions.create({
+                messages: [
+                    { role: "system", content: "You are an expert algorithm engineer. Generate a solution for the given problem. Return ONLY a JSON object with keys: 'code', 'timeComplexity', 'spaceComplexity', 'explanation'. The 'code' should be a complete valid javascript/typescript function. Do not wrap in markdown." },
+                    { role: "user", content: `Problem: ${problemTitle}\n${problemDesc}` }
+                ],
+                model: "gpt-4-turbo-preview",
+                response_format: { type: "json_object" }
+            });
+            const content = completion.choices[0].message.content;
+            return JSON.parse(content || '{}');
+        } catch (error: any) {
+            console.error("AI Error:", error);
+            return { error: error.message };
+        }
+    }
 }

@@ -30,4 +30,13 @@ export class FileProblemRepository implements ProblemRepository {
         const solutions = JSON.parse(fs.readFileSync(this.solutionsFile, 'utf-8'));
         return solutions[slug] || null;
     }
+
+    async saveSolution(slug: string, solution: Solution): Promise<void> {
+        let solutions: Record<string, Solution> = {};
+        if (fs.existsSync(this.solutionsFile)) {
+            solutions = JSON.parse(fs.readFileSync(this.solutionsFile, 'utf-8'));
+        }
+        solutions[slug] = solution;
+        fs.writeFileSync(this.solutionsFile, JSON.stringify(solutions, null, 2));
+    }
 }
