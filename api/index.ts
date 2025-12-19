@@ -191,6 +191,10 @@ app.get('/api/debug', (req, res) => {
             ai: {
                 provider: aiProvider,
                 serviceType: aiService.constructor.name,
+                // OpenAI config
+                OPENAI_BASE_URL: process.env.OPENAI_BASE_URL || '(default: https://api.openai.com/v1)',
+                OPENAI_MODEL: process.env.OPENAI_MODEL || '(default: gpt-4-turbo-preview)',
+                // Ollama config (for reference)
                 OLLAMA_BASE_URL: process.env.OLLAMA_BASE_URL || '(default: http://127.0.0.1:11434)',
                 OLLAMA_API_KEY_SET: !!process.env.OLLAMA_API_KEY,
                 OLLAMA_MODEL: process.env.OLLAMA_MODEL || '(default: deepseek-coder)'
