@@ -34,6 +34,7 @@ import { ToolRegistry } from '../src/domain/mcp/ToolRegistry';
 import { FileProblemRepository } from '../src/adapters/driven/fs/FileProblemRepository';
 import { LocalExecutionService } from '../src/adapters/driven/execution/LocalExecutionService';
 import { OllamaService } from '../src/adapters/driven/ollama/OllamaService';
+import { OpenAIService } from '../src/adapters/driven/openai/OpenAIService';
 import { MCPTools } from '../src/adapters/driven/mcp/Tools';
 
 // Application
@@ -50,7 +51,21 @@ console.log("Initializing Hexagonal Architecture...");
 // 1. Create Driven Adapters
 const problemRepo = new FileProblemRepository();
 const executionService = new LocalExecutionService();
-const aiService = new OllamaService();
+
+// Dynamic AI Service Selection
+const aiProvider = process.env.AI_PROVIDER || (process.env.OPENAI_API_KEY ? 'openai' : 'ollama');
+console.log(`Selecting AI Provider: ${aiProvider}`);
+
+let aiService;
+if (aiProvider === 'openai') {
+    if (!process.env.OPENAI_API_KEY) {
+        console.warn("WARNING: AI_PROVIDER is 'openai' but OPENAI_API_KEY is missing!");
+    }
+    aiService = new OpenAIService();
+} else {
+    aiService = new OllamaService();
+}
+
 const toolRegistry = new ToolRegistry();
 
 // 2. Wire up MCP Tools
