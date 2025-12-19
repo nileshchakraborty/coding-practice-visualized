@@ -12,6 +12,7 @@ kill_port() {
 
 # Clean start: Kill anything on our ports
 kill_port 8000
+kill_port 3001
 kill_port 3000
 
 BACKEND_PID=""
@@ -42,6 +43,7 @@ cleanup() {
     
     # Final cleanup of ports just in case
     kill_port 8000
+    kill_port 3001
     kill_port 3000
     
     exit
@@ -49,9 +51,11 @@ cleanup() {
 
 trap cleanup SIGINT SIGTERM EXIT
 
-echo "Starting Backend (Port 8000)..."
-uvicorn main:app --reload --port 8000 &
+echo "Starting Backend (Port 3001)..."
+cd api
+npm start &
 BACKEND_PID=$!
+cd ..
 
 # Give backend a moment to grab the socket
 sleep 1

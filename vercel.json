@@ -1,0 +1,18 @@
+{
+    "version": 2,
+    "rewrites": [
+        {
+            "source": "/api/execute",
+            "destination": "/api/execute.py"
+        },
+        {
+            "source": "/api/(.*)",
+            "destination": "/api/index.ts"
+        }
+    ],
+    "functions": {
+        "api/execute.py": {
+            "runtime": "python3.9"
+        }
+    }
+}
