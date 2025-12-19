@@ -5,6 +5,6 @@
         "vercel-build": "cd frontend && npm install && npm run build && mkdir -p ../public && cp -r dist/* ../public/"
     },
     "engines": {
-        "node": "18.x"
+        "node": "24.x"
     }
 }
