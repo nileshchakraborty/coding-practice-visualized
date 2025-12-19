@@ -176,7 +176,7 @@ const SmartVisualizer: React.FC<SmartVisualizerProps> = ({ solution }) => {
             case 'grid':
                 return (
                     <MatrixVisualizer
-                        matrix={solution.matrix || initialState as any}
+                        matrix={solution.matrix || (initialState as unknown as (number | string)[][])}
                         highlightedCells={[]}
                         currentCell={undefined}
                     />
@@ -198,10 +198,10 @@ const SmartVisualizer: React.FC<SmartVisualizerProps> = ({ solution }) => {
                 return (
                     <div className="viz-array-container flex gap-3 relative z-10">
                         <AnimatePresence mode="sync">
-                            {currentArray.map((val: any, idx: number) => {
+                            {currentArray.map((val: number | string, idx: number) => {
                                 const isHighlighted = activeStepData?.indices?.includes(idx);
 
-                                let colorClass = "border-slate-700 bg-slate-800";
+                                let colorClass = "border-slate-300 bg-slate-200 dark:border-slate-700 dark:bg-slate-800";
                                 let glowStyle = {};
                                 if (isHighlighted) {
                                     if (activeStepData?.color === 'success') {
@@ -235,7 +235,7 @@ const SmartVisualizer: React.FC<SmartVisualizerProps> = ({ solution }) => {
                                         className={`relative w-12 h-12 md:w-14 md:h-14 flex items-center justify-center rounded-lg border-2 text-lg font-bold ${colorClass}`}
                                     >
                                         <motion.span
-                                            className="text-white"
+                                            className="text-slate-800 dark:text-white"
                                             animate={{ scale: isHighlighted ? 1.2 : 1 }}
                                             transition={{ duration: 0.2 }}
                                         >
@@ -276,23 +276,23 @@ const SmartVisualizer: React.FC<SmartVisualizerProps> = ({ solution }) => {
     return (
         <div className="flex flex-col items-center w-full">
             {/* Controls */}
-            <div className="viz-controls flex gap-4 mb-6 p-2 bg-slate-800 rounded-lg border border-slate-700">
-                <button onClick={handlePrev} className="p-2 hover:bg-slate-700 rounded-full transition-colors text-slate-300 hover:text-white">
+            <div className="viz-controls flex gap-4 mb-6 p-2 bg-slate-200 dark:bg-slate-800 rounded-lg border border-slate-300 dark:border-slate-700">
+                <button onClick={handlePrev} className="p-2 hover:bg-slate-300 dark:hover:bg-slate-700 rounded-full transition-colors text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white">
                     <SkipBack size={20} />
                 </button>
-                <button onClick={() => setIsPlaying(!isPlaying)} className="p-2 hover:bg-slate-700 rounded-full transition-colors text-slate-300 hover:text-white">
+                <button onClick={() => setIsPlaying(!isPlaying)} className="p-2 hover:bg-slate-300 dark:hover:bg-slate-700 rounded-full transition-colors text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white">
                     {isPlaying ? <Pause size={20} /> : <Play size={20} />}
                 </button>
-                <button onClick={handleNext} className="p-2 hover:bg-slate-700 rounded-full transition-colors text-slate-300 hover:text-white">
+                <button onClick={handleNext} className="p-2 hover:bg-slate-300 dark:hover:bg-slate-700 rounded-full transition-colors text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white">
                     <SkipForward size={20} />
                 </button>
-                <span className="text-sm font-mono text-slate-400 self-center min-w-[80px] text-center">
+                <span className="text-sm font-mono text-slate-500 dark:text-slate-400 self-center min-w-[80px] text-center">
                     {currentStep} / {totalSteps}
                 </span>
             </div>
 
             {/* Stage */}
-            <div className="viz-stage relative w-full min-h-[250px] bg-[#0d0d15] rounded-xl border border-slate-700/50 flex flex-col items-center justify-center p-8 pt-12 overflow-visible">
+            <div className="viz-stage relative w-full min-h-[250px] bg-slate-100 dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-700/50 flex flex-col items-center justify-center p-8 pt-12 overflow-visible">
                 {renderVisualizer()}
             </div>
 
@@ -304,7 +304,7 @@ const SmartVisualizer: React.FC<SmartVisualizerProps> = ({ solution }) => {
                         initial={{ y: 10, opacity: 0 }}
                         animate={{ y: 0, opacity: 1 }}
                         exit={{ y: -10, opacity: 0 }}
-                        className="mt-3 bg-slate-800/90 border border-slate-700 px-4 py-2 rounded-lg text-sm text-slate-200 text-center"
+                        className="mt-3 bg-white dark:bg-slate-800/90 border border-slate-200 dark:border-slate-700 px-4 py-2 rounded-lg text-sm text-slate-700 dark:text-slate-200 text-center shadow-sm"
                     >
                         {activeStepData.transientMessage}
                     </motion.div>
@@ -327,17 +327,17 @@ const SmartVisualizer: React.FC<SmartVisualizerProps> = ({ solution }) => {
                     : null;
 
                 return (
-                    <div className="mt-4 p-4 bg-slate-900/50 rounded-lg border border-slate-800 w-full max-w-2xl">
+                    <div className="mt-4 p-4 bg-white dark:bg-slate-900/50 rounded-lg border border-slate-200 dark:border-slate-800 w-full max-w-2xl shadow-sm">
                         <div className="flex items-start gap-3">
-                            <div className="flex-shrink-0 w-8 h-8 rounded-full bg-indigo-500/20 border border-indigo-500/50 flex items-center justify-center text-indigo-400 font-bold text-sm">
+                            <div className="flex-shrink-0 w-8 h-8 rounded-full bg-indigo-500/20 border border-indigo-500/50 flex items-center justify-center text-indigo-600 dark:text-indigo-400 font-bold text-sm">
                                 {currentStep}
                             </div>
                             <div className="flex-1">
-                                <pre className="font-mono text-sm text-slate-200 whitespace-pre-wrap break-words">
+                                <pre className="font-mono text-sm text-slate-700 dark:text-slate-200 whitespace-pre-wrap break-words">
                                     {stepText}
                                 </pre>
                                 {explanationText && (
-                                    <p className="mt-2 text-sm text-slate-400 italic border-t border-slate-800 pt-2">
+                                    <p className="mt-2 text-sm text-slate-500 dark:text-slate-400 italic border-t border-slate-200 dark:border-slate-800 pt-2">
                                         {explanationText}
                                     </p>
                                 )}
