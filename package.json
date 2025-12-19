@@ -1,5 +1,5 @@
 {
-    "name": "leetcode-visual-root",
+    "name": "codenium",
     "private": true,
     "scripts": {
         "build": "make build"

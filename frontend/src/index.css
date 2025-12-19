@@ -3,12 +3,54 @@
 @tailwind utilities;
 
 /* ===========================
-   LeetCode Visualizer Styles
-   Modern Dark Theme
+   Codenium Styles
+   Light & Dark Theme Support
    =========================== */
 
+/* Light Theme (default) */
 :root {
-    /* Colors */
+    /* Colors - Light */
+    --bg-primary: #f8fafc;
+    --bg-secondary: #f1f5f9;
+    --bg-card: rgba(255, 255, 255, 0.9);
+    --bg-card-hover: rgba(248, 250, 252, 0.95);
+
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --text-muted: #94a3b8;
+
+    --easy: #10b981;
+    --easy-bg: rgba(16, 185, 129, 0.1);
+    --medium: #f59e0b;
+    --medium-bg: rgba(245, 158, 11, 0.1);
+    --hard: #ef4444;
+    --hard-bg: rgba(239, 68, 68, 0.1);
+
+    --accent: #6366f1;
+    --accent-glow: rgba(99, 102, 241, 0.2);
+
+    --border: rgba(15, 23, 42, 0.1);
+    --border-hover: rgba(15, 23, 42, 0.2);
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+    --gradient-card: linear-gradient(145deg, rgba(255, 255, 255, 0.8), rgba(248, 250, 252, 0.9));
+
+    /* Shadows */
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.15);
+    --shadow-glow: 0 0 20px var(--accent-glow);
+
+    /* Spacing */
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-xl: 24px;
+}
+
+/* Dark Theme */
+.dark {
     --bg-primary: #0a0a0f;
     --bg-secondary: #12121a;
     --bg-card: rgba(20, 20, 30, 0.8);
@@ -31,21 +73,13 @@
     --border: rgba(255, 255, 255, 0.08);
     --border-hover: rgba(255, 255, 255, 0.15);
 
-    /* Gradients */
     --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     --gradient-card: linear-gradient(145deg, rgba(30, 30, 45, 0.6), rgba(20, 20, 30, 0.9));
 
-    /* Shadows */
     --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
     --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.4);
     --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.5);
     --shadow-glow: 0 0 30px var(--accent-glow);
-
-    /* Spacing */
-    --radius-sm: 8px;
-    --radius-md: 12px;
-    --radius-lg: 16px;
-    --radius-xl: 24px;
 }
 
 * {

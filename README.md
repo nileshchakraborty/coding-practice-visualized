@@ -1,15 +1,15 @@
-# LeetCode Visualizer
+# Codenium
 
-A full-stack application for visualizing LeetCode problems, generating solutions with AI, and getting personalized tutoring.
+A visual learning platform for coding, designed for focused minds. Codenium helps you understand algorithms through visualizations, interactive practice, and AI-powered tutoring.
 
 ![Dashboard](docs/screenshots/dashboard.png)
 
 ## Features
 
-- **Problem Explorer**: Visual dashboard of Top 150 Interview questions.
-- **Smart Visualizations**: AI-generated visualizations for algorithms (Two Pointers, Sliding Window, etc.).
-- **Interactive Playground**: Run Python code against test cases directly in the browser.
-- **AI Tutor**: Socratic agent to help you derive solutions.
+- **Visual Problem Explorer**: Dashboard of Top 150 Interview questions with progress tracking
+- **Smart Visualizations**: AI-generated algorithm visualizations (Two Pointers, Sliding Window, etc.)
+- **Interactive Playground**: Run Python code against test cases directly in the browser
+- **AI Tutor**: Socratic learning agent to help you understand and derive solutions
 
 ## Architecture
 
@@ -28,21 +28,15 @@ graph TD
         end
         
         subgraph "Adapters"
-            Ports -->|Implemented By| AIAdapter[OpenAIService]
+            Ports -->|Implemented By| AIAdapter[AI Service]
             Ports -->|Implemented By| Repo[FileProblemRepository]
             Ports -->|Implemented By| Exec[LocalExecutionService]
         end
         
-        AIAdapter -->|External API| OpenAI[OpenAI API]
+        AIAdapter -->|External API| AI[Ollama / OpenAI]
         Exec -->|Spawns| Runner[Python Runner Bridge]
     end
 ```
-
-### Components
-
-1.  **Node.js API (`api/index.ts`)**: The composition root and entry point.
-2.  **Hexagonal Core (`api/src/domain`)**: Pure business logic and MCP tool definitions.
-3.  **Python Bridge (`api/execute.py`)**: Handles code execution. In production (Vercel), this is a separate Python Serverless Function. Locally, it's spawned by Node.js.
 
 ## Getting Started
 
@@ -53,15 +47,16 @@ graph TD
 
 ### Configuration
 
-Create a `.env` file in the root directory:
+Copy `.env.example` to `.env` and configure:
 
 ```ini
-OPENAI_API_KEY=sk-...
+AI_PROVIDER=ollama
+OLLAMA_BASE_URL=https://ollama.com/api
+OLLAMA_API_KEY=your-key
+OLLAMA_MODEL=qwen2.5-coder:14b
 ```
 
 ### Quick Start
-
-We provide a script to start both the Frontend and Backend services.
 
 ```bash
 # 1. Install dependencies
@@ -78,10 +73,12 @@ cd ../api && npm install && pip install -r requirements.txt
 
 ## Deployment
 
-The project is designed for **Vercel**.
+Designed for **Vercel**:
 
 1. Install Vercel CLI: `npm i -g vercel`
 2. Deploy: `vercel deploy`
-3. Add Environment Variables in Vercel Dashboard (`OPENAI_API_KEY`).
+3. Add Environment Variables in Vercel Dashboard
 
-The `vercel.json` ensures that `/api/execute` routes to the Python function, while other API routes go to the Node.js function.
+## License
+
+MIT
