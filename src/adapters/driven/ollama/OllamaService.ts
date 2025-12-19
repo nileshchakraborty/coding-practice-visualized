@@ -4,17 +4,25 @@ export class OllamaService implements AIService {
     private baseUrl: string;
     private model: string;
 
+    private apiKey?: string;
+
     constructor() {
         this.baseUrl = process.env.OLLAMA_BASE_URL || 'http://127.0.0.1:11434';
         this.model = process.env.OLLAMA_MODEL || 'deepseek-coder';
+        this.apiKey = process.env.OLLAMA_API_KEY;
         console.log(`OllamaService initialized with model: ${this.model} at ${this.baseUrl}`);
     }
 
     private async chat(messages: any[], format?: string): Promise<string> {
         try {
+            const headers: Record<string, string> = { 'Content-Type': 'application/json' };
+            if (this.apiKey) {
+                headers['Authorization'] = `Bearer ${this.apiKey}`;
+            }
+
             const response = await fetch(`${this.baseUrl}/api/chat`, {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
+                headers,
                 body: JSON.stringify({
                     model: this.model,
                     messages,
