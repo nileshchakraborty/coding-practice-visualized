@@ -9,9 +9,9 @@ export class LocalExecutionService implements ExecutionService {
         return new Promise((resolve) => {
             // Robust path finding for local_runner.py
             const possiblePaths = [
-                path.join(process.cwd(), 'local_runner.py'),         // If CWD is api/
-                path.join(process.cwd(), 'api', 'local_runner.py'),  // If CWD is root
-                path.join(__dirname, '../../../../local_runner.py')  // Fallback relative to this file
+                path.join(process.cwd(), '_local_runner.py'),         // If CWD is api/
+                path.join(process.cwd(), 'api', '_local_runner.py'),  // If CWD is root
+                path.join(__dirname, '../../../../api/_local_runner.py')  // Fallback
             ];
 
             let pythonScript = possiblePaths.find(p => fs.existsSync(p));

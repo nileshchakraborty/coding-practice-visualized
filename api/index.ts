@@ -28,16 +28,16 @@ console.log("OPENAI_API_KEY present:", !!process.env.OPENAI_API_KEY);
 
 
 // Domain
-import { ToolRegistry } from './src/domain/mcp/ToolRegistry';
+import { ToolRegistry } from '../src/domain/mcp/ToolRegistry';
 
 // Adapters
-import { FileProblemRepository } from './src/adapters/driven/fs/FileProblemRepository';
-import { LocalExecutionService } from './src/adapters/driven/execution/LocalExecutionService';
-import { OpenAIService } from './src/adapters/driven/openai/OpenAIService';
-import { MCPTools } from './src/adapters/driven/mcp/Tools';
+import { FileProblemRepository } from '../src/adapters/driven/fs/FileProblemRepository';
+import { LocalExecutionService } from '../src/adapters/driven/execution/LocalExecutionService';
+import { OpenAIService } from '../src/adapters/driven/openai/OpenAIService';
+import { MCPTools } from '../src/adapters/driven/mcp/Tools';
 
 // Application
-import { ProblemService } from './src/application/ProblemService';
+import { ProblemService } from '../src/application/ProblemService';
 
 const app = express();
 

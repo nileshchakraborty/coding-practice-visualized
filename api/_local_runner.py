@@ -3,20 +3,16 @@ import json
 import os
 
 # Ensure we can import lib.runner
+# _local_runner.py is in api/. lib/ is in root.
 current_dir = os.path.dirname(os.path.abspath(__file__))
-sys.path.append(current_dir)
+root_dir = os.path.dirname(current_dir)
+sys.path.append(root_dir)
 
 try:
     from lib import runner
 except ImportError as e:
-    # Fallback if running from a different cwd
-    parent = os.path.dirname(current_dir)
-    sys.path.append(parent)
-    try:
-        from api.lib import runner
-    except ImportError:
-        print(json.dumps({"error": f"Could not import runner: {e}"}))
-        sys.exit(1)
+    print(json.dumps({"error": f"Could not import runner from {root_dir}: {e}"}))
+    sys.exit(1)
 
 def main():
     try:
