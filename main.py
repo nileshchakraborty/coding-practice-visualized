@@ -69,6 +69,11 @@ def title_to_slug(title):
 async def get_problems():
     return load_problems()
 
+@app.get("/api/health")
+async def health_check():
+    """Health check endpoint for deployment platforms"""
+    return {"status": "healthy", "service": "leetcode-visual"}
+
 @app.get("/api/solutions/{slug}")
 async def get_solution(slug: str):
     solutions = load_solutions()
