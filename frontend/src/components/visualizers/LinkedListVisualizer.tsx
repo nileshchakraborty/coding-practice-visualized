@@ -44,7 +44,7 @@ const LinkedListVisualizer: React.FC<LinkedListVisualizerProps> = ({
         if (highlightedIndices.includes(idx)) {
             return 'border-emerald-500 bg-emerald-500/20 shadow-[0_0_15px_rgba(16,185,129,0.4)]';
         }
-        return 'border-slate-700 bg-slate-800';
+        return 'border-slate-300 bg-slate-200 dark:border-slate-700 dark:bg-slate-800';
     };
 
     const getPointerBadge = (label: string) => {
@@ -115,11 +115,11 @@ const LinkedListVisualizer: React.FC<LinkedListVisualizerProps> = ({
                                 className={`flex items-center rounded-lg border-2 overflow-hidden ${getNodeColor(idx)}`}
                             >
                                 {/* Value */}
-                                <div className="w-10 h-10 flex items-center justify-center text-white font-bold">
+                                <div className="w-10 h-10 flex items-center justify-center text-slate-800 dark:text-white font-bold">
                                     {node.val}
                                 </div>
                                 {/* Next pointer area */}
-                                <div className="w-4 h-10 border-l-2 border-slate-600 bg-slate-900/50" />
+                                <div className="w-4 h-10 border-l-2 border-slate-400 dark:border-slate-600 bg-slate-300/50 dark:bg-slate-900/50" />
                             </div>
 
                             {/* Index below */}

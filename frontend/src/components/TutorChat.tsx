@@ -94,7 +94,7 @@ const TutorChat: React.FC<TutorChatProps> = ({ slug, messages, setMessages }) =>
     };
 
     return (
-        <div className="flex flex-col h-full bg-[#0d0d15] rounded-xl border border-slate-700 overflow-hidden">
+        <div className="flex flex-col h-full bg-slate-50 dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-700 overflow-hidden">
             {/* Messages Area */}
             <div className="flex-1 overflow-y-auto p-4 space-y-4 custom-scrollbar">
                 {messages.map((msg, idx) => (
@@ -104,12 +104,12 @@ const TutorChat: React.FC<TutorChatProps> = ({ slug, messages, setMessages }) =>
                     >
                         <div className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 ${msg.role === 'user' ? 'bg-indigo-600' : 'bg-emerald-600'
                             }`}>
-                            {msg.role === 'user' ? <User size={16} /> : <Bot size={16} />}
+                            {msg.role === 'user' ? <User size={16} className="text-white" /> : <Bot size={16} className="text-white" />}
                         </div>
 
                         <div className={`max-w-[80%] px-4 py-3 rounded-2xl text-sm ${msg.role === 'user'
                             ? 'bg-indigo-600 text-white rounded-tr-none'
-                            : 'bg-slate-800 text-slate-200 rounded-tl-none border border-slate-700'
+                            : 'bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 rounded-tl-none border border-slate-200 dark:border-slate-700 shadow-sm'
                             }`}>
                             {renderContent(msg.content)}
                         </div>
@@ -118,10 +118,10 @@ const TutorChat: React.FC<TutorChatProps> = ({ slug, messages, setMessages }) =>
                 {isLoading && (
                     <div className="flex items-start gap-3">
                         <div className="w-8 h-8 rounded-full bg-emerald-600 flex items-center justify-center shrink-0">
-                            <Bot size={16} />
+                            <Bot size={16} className="text-white" />
                         </div>
-                        <div className="bg-slate-800 px-4 py-3 rounded-2xl rounded-tl-none border border-slate-700">
-                            <Loader2 size={20} className="animate-spin text-emerald-400" />
+                        <div className="bg-white dark:bg-slate-800 px-4 py-3 rounded-2xl rounded-tl-none border border-slate-200 dark:border-slate-700 shadow-sm">
+                            <Loader2 size={20} className="animate-spin text-emerald-500 dark:text-emerald-400" />
                         </div>
                     </div>
                 )}
@@ -129,15 +129,15 @@ const TutorChat: React.FC<TutorChatProps> = ({ slug, messages, setMessages }) =>
             </div>
 
             {/* Input Area */}
-            <div className="p-4 bg-[#16162a] border-t border-slate-700">
-                <div className="flex items-center gap-2 bg-slate-900 border border-slate-700 rounded-xl px-4 py-2 focus-within:border-indigo-500 focus-within:ring-1 focus-within:ring-indigo-500 transition-all">
+            <div className="p-4 bg-slate-100 dark:bg-slate-800 border-t border-slate-200 dark:border-slate-700">
+                <div className="flex items-center gap-2 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-xl px-4 py-2 focus-within:border-indigo-500 focus-within:ring-1 focus-within:ring-indigo-500 transition-all">
                     <textarea
                         value={inputValue}
                         onChange={(e) => setInputValue(e.target.value)}
                         onKeyDown={handleKeyPress}
                         placeholder="Ask a question..."
                         rows={1}
-                        className="flex-1 bg-transparent text-slate-200 placeholder-slate-500 text-sm resize-none focus:outline-none py-2"
+                        className="flex-1 bg-transparent text-slate-800 dark:text-slate-200 placeholder-slate-400 dark:placeholder-slate-500 text-sm resize-none focus:outline-none py-2"
                     />
                     <button
                         onClick={handleSendMessage}
@@ -156,3 +156,4 @@ const TutorChat: React.FC<TutorChatProps> = ({ slug, messages, setMessages }) =>
 };
 
 export default TutorChat;
+
