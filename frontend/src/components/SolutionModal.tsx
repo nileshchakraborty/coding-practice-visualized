@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import type { Solution, TestCaseResult } from '../types';
+import { PlaygroundAPI } from '../models/api';
 import SmartVisualizer from './SmartVisualizer';
 import TutorChat from './TutorChat';
 import { X, Code as CodeIcon, BookOpen, Terminal, Play, ExternalLink, Youtube, FileText, MessageCircle, Plus, Trash2 } from 'lucide-react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
-import axios from 'axios';
 import Editor from '@monaco-editor/react';
 
 interface SolutionModalProps {
@@ -62,19 +62,15 @@ const SolutionModal: React.FC<SolutionModalProps> = ({ isOpen, onClose, solution
                 allTestCases.push(customTestCase);
             }
 
-            const res = await axios.post('/api/run', {
-                code: code,
-                slug: slug,
-                testCases: allTestCases.length > 0 ? allTestCases : undefined
-            });
+            const res = await PlaygroundAPI.runCode(code, slug, allTestCases.length > 0 ? allTestCases : undefined);
 
-            if (res.data.success) {
+            if (res.success) {
                 // Determine logic based on runner response structure
                 // Runner returns { results: [...], success: bool }
                 // Let's format it nicel
-                if (res.data.results) {
-                    const allPassed = res.data.results.every((r: TestCaseResult) => r.passed);
-                    const outputMsg = res.data.results.map((r: TestCaseResult, i: number) => {
+                if (res.results) {
+                    const allPassed = res.results.every((r: TestCaseResult) => r.passed);
+                    const outputMsg = res.results.map((r: TestCaseResult, i: number) => {
                         if (r.error) {
                             return `Test Case ${i + 1}: ERROR ⚠️\nInput: ${r.input}\nError: ${r.error}\n`;
                         }
@@ -82,13 +78,13 @@ const SolutionModal: React.FC<SolutionModalProps> = ({ isOpen, onClose, solution
                     }).join('\n-------------------\n');
 
                     setOutput(allPassed ? `All Test Cases Passed! 🎉\n\n${outputMsg}` : `Some Tests Failed.\n\n${outputMsg}`);
-                } else if (res.data.error) {
-                    setOutput(`Error: ${res.data.error}`);
+                } else if (res.error) {
+                    setOutput(`Error: ${res.error}`);
                 } else {
-                    setOutput(JSON.stringify(res.data, null, 2));
+                    setOutput(JSON.stringify(res, null, 2));
                 }
             } else {
-                setOutput(`Execution Failed:\n${res.data.error || 'Unknown error'}`);
+                setOutput(`Execution Failed:\n${res.error || 'Unknown error'}`);
             }
         } catch (err: unknown) {
             const errorMessage = err instanceof Error ? err.message : String(err);
