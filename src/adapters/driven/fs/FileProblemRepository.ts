@@ -8,9 +8,13 @@ export class FileProblemRepository implements ProblemRepository {
     private solutionsFile: string;
 
     constructor() {
-        const DATA_DIR = path.join(process.cwd(), 'api', 'data');
-        // Note: process.cwd() is used because we run from root in dev. 
-        // In prod Vercel, this might need adjust, but we follow previous findings.
+        // Try to find data relative to current file first (prod), then fallback to root (dev)
+        const prodPath = path.join(__dirname, '..', '..', '..', '..', 'api', 'data');
+        const devPath = path.join(process.cwd(), 'api', 'data');
+
+        const DATA_DIR = fs.existsSync(prodPath) ? prodPath : devPath;
+        console.log(`FileProblemRepository initialized with DATA_DIR: ${DATA_DIR}`);
+
         this.problemsFile = path.join(DATA_DIR, 'problems.json');
         this.solutionsFile = path.join(DATA_DIR, 'solutions.json');
     }
