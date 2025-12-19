@@ -158,6 +158,46 @@ app.post('/api/generate', async (req, res) => {
     }
 });
 
+app.get('/api/debug', (req, res) => {
+    try {
+        const cwd = process.cwd();
+        const dirName = __dirname;
+        const dataPathCandidates = [
+            path.join(cwd, 'api', 'data'),
+            path.join(dirName, 'api', 'data'),
+            path.join(dirName, '..', '..', '..', '..', 'api', 'data'),
+            path.join('/var/task/api/data')
+        ];
+
+        const activeCandidate = dataPathCandidates.find(p => fs.existsSync(p));
+        const problemsFile = activeCandidate ? path.join(activeCandidate, 'problems.json') : 'NOT_FOUND';
+        const problemsExists = fs.existsSync(problemsFile);
+
+        res.json({
+            status: 'debug',
+            env: {
+                cwd,
+                dirName,
+                NODE_ENV: process.env.NODE_ENV,
+                AI_PROVIDER: process.env.AI_PROVIDER,
+                OPENAI_API_KEY_SET: !!process.env.OPENAI_API_KEY,
+            },
+            paths: {
+                candidates: dataPathCandidates,
+                activeCandidate,
+                problemsFile,
+                problemsExists
+            },
+            ai: {
+                provider: aiProvider,
+                serviceType: aiService.constructor.name
+            }
+        });
+    } catch (e: any) {
+        res.status(500).json({ error: e.message, stack: e.stack });
+    }
+});
+
 // Start for local dev
 const PORT = process.env.PORT || 3001;
 if (process.env.NODE_ENV !== 'production') {
