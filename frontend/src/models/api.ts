@@ -72,7 +72,7 @@ export const PlaygroundAPI = {
         slug: string,
         testCases?: { input: string; output: string }[]
     ): Promise<RunResponse> {
-        const response = await axios.post<RunResponse>(`${API_BASE}/run`, {
+        const response = await axios.post<RunResponse>(`${API_BASE}/execute`, {
             code,
             slug,
             testCases,
