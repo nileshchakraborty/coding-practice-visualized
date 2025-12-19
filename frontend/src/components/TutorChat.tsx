@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
-import axios from 'axios';
+
+import { TutorAPI } from '../models/api';
 import { Send, Bot, User, Loader2 } from 'lucide-react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
@@ -45,18 +46,16 @@ const TutorChat: React.FC<TutorChatProps> = ({ slug, messages, setMessages }) =>
 
             const history = messages.map(m => ({ role: m.role, content: m.content }));
 
-            const res = await axios.post('/api/tutor', {
-                slug,
-                message: userMsg,
-                history: history
-            });
 
-            if (res.data.response) {
-                setMessages(prev => [...prev, { role: 'assistant', content: res.data.response }]);
-            } else if (res.data.error) {
-                setMessages(prev => [...prev, { role: 'assistant', content: `Error: ${res.data.error}` }]);
+            // Use Centralized API
+            const res = await TutorAPI.chat(slug, userMsg, history);
+
+            if (res.response) {
+                setMessages(prev => [...prev, { role: 'assistant', content: res.response || '' }]);
+            } else if (res.error) {
+                setMessages(prev => [...prev, { role: 'assistant', content: `Error: ${res.error}` }]);
             }
-        } catch (err) {
+        } catch {
             setMessages(prev => [...prev, { role: 'assistant', content: "Sorry, I couldn't reach the AI server." }]);
         } finally {
             setIsLoading(false);
