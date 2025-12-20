@@ -58,10 +58,55 @@ function App() {
   }, [allProblems]);
 
   const searchResults = useMemo(() => {
-    if (!problems.filter.search) return null;
-    const results = searchEngine.search(problems.filter.search);
-    return new Set(results.map(p => p.slug));
-  }, [searchEngine, problems.filter.search]);
+    const query = problems.filter.search;
+    if (!query) return null;
+
+    // 1. Search Problems
+    const results = searchEngine.search(query);
+    if (results.length > 0) {
+      return new Set(results.map(p => p.slug));
+    }
+
+    // 2. Fallback: Search Categories (if no problems matched)
+    if (!stats) return new Set();
+
+    const categoryAliases: Record<string, string[]> = {
+      "1-D Dynamic Programming": ["dp", "dynamic programming"],
+      "Multidimensional DP": ["dp", "matrix", "2d"],
+      "Breadth-First Search": ["bfs"],
+      "Depth-First Search": ["dfs"],
+      "Binary Search Tree": ["bst"],
+      "Bit Manipulation": ["bit"],
+      "Linked List": ["list", "node"],
+      "Two Pointers": ["pointer"],
+      "Sliding Window": ["window"],
+      "Backtracking": ["recursion"],
+      "Trie": ["prefix tree"]
+    };
+
+    // Create a temporary Category Search Engine
+    // Note: In production, consider memoizing this if stats don't change often.
+    // However, stats is a dependency, so we could define this search engine in a separate useMemo if needed.
+    // For now, creating it inside the effect is okay if stats array is small (it is, < 30 categories).
+    // Actually, let's just use the memoized 'allCategories' if we had one, or create it here.
+
+    const catSearchEngine = new SearchEngine(stats.categories, (cat) => {
+      const phrases = [cat.name];
+      if (categoryAliases[cat.name]) {
+        phrases.push(...categoryAliases[cat.name]);
+      }
+      return phrases;
+    });
+
+    const matchedCategories = catSearchEngine.search(query);
+
+    if (matchedCategories.length > 0) {
+      const catProblems = matchedCategories.flatMap(c => c.problems);
+      return new Set(catProblems.map(p => p.slug));
+    }
+
+    return new Set();
+  }, [searchEngine, problems.filter.search, stats]);
 
   // Toggle subtopic selection
   const toggleSubTopic = useCallback((subTopic: string) => {

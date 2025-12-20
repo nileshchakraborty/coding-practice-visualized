@@ -2,7 +2,7 @@
   "categories": [
     {
       "name": "Array / String",
-      "icon": "📝",
+      "icon": "\ud83d\udcdd",
       "problems": [
         {
           "title": "Merge Sorted Array",
@@ -74,7 +74,7 @@
           "url": "https://leetcode.com/problems/majority-element/",
           "slug": "majority-element",
           "subTopic": "Array / String",
-          "description": "Given an array nums of size n, return the majority element. The majority element is the element that appears more than ⌊n / 2⌋ times. You may assume that the majority element always exists in the array.",
+          "description": "Given an array nums of size n, return the majority element. The majority element is the element that appears more than \u230an / 2\u230b times. You may assume that the majority element always exists in the array.",
           "pattern": "Boyer-Moore Voting",
           "has_solution": true,
           "algorithmHint": "Consider sorting, two pointers, or hash-based approaches.",
@@ -448,7 +448,7 @@
     },
     {
       "name": "Two Pointers",
-      "icon": "👆",
+      "icon": "\ud83d\udc46",
       "problems": [
         {
           "title": "Valid Palindrome",
@@ -585,7 +585,7 @@
     },
     {
       "name": "Sliding Window",
-      "icon": "🪟",
+      "icon": "\ud83e\ude9f",
       "problems": [
         {
           "title": "Minimum Size Subarray Sum",
@@ -695,7 +695,7 @@
     },
     {
       "name": "Matrix",
-      "icon": "🔢",
+      "icon": "\ud83d\udd22",
       "problems": [
         {
           "title": "Valid Sudoku",
@@ -729,7 +729,7 @@
           "url": "https://leetcode.com/problems/rotate-image/",
           "slug": "rotate-image",
           "subTopic": "Matrix",
-          "description": "Transpose matrix, then reverse each row.\n\nRotate matrix 90° clockwise in-place.\nTranspose: swap matrix[i][j] with matrix[j][i].",
+          "description": "Transpose matrix, then reverse each row.\n\nRotate matrix 90\u00b0 clockwise in-place.\nTranspose: swap matrix[i][j] with matrix[j][i].",
           "pattern": "Transpose + Reverse",
           "has_solution": true,
           "algorithmHint": "Analyze the constraints and look for patterns.",
@@ -766,7 +766,7 @@
     },
     {
       "name": "Hashmap",
-      "icon": "🗂️",
+      "icon": "\ud83d\uddc2\ufe0f",
       "problems": [
         {
           "title": "Ransom Note",
@@ -944,7 +944,7 @@
     },
     {
       "name": "Intervals",
-      "icon": "📊",
+      "icon": "\ud83d\udcca",
       "problems": [
         {
           "title": "Summary Ranges",
@@ -1054,7 +1054,7 @@
     },
     {
       "name": "Stack",
-      "icon": "📚",
+      "icon": "\ud83d\udcda",
       "problems": [
         {
           "title": "Valid Parentheses",
@@ -1185,7 +1185,7 @@
           "url": "https://leetcode.com/problems/largest-rectangle-in-histogram/",
           "slug": "largest-rectangle-in-histogram",
           "subTopic": "Stack",
-          "description": "Given an array of integers `heights` representing the histogram's bar height where the width of each bar is 1, return the area of the largest rectangle in the histogram.\n\nA histogram is a graphical display of data using bars of different heights. Each bar has a width of 1 unit and a height specified by the input array. The task is to find the maximum rectangular area that can be formed within this histogram, where the rectangle must be aligned with the bars (i.e., its bottom edge must lie on the x-axis and it cannot extend beyond the boundaries of the bars).\n\nThe area of a rectangle is calculated as width × height, where the height is determined by the minimum height of the bars that the rectangle spans, and the width is the number of consecutive bars it covers.",
+          "description": "Given an array of integers `heights` representing the histogram's bar height where the width of each bar is 1, return the area of the largest rectangle in the histogram.\n\nA histogram is a graphical display of data using bars of different heights. Each bar has a width of 1 unit and a height specified by the input array. The task is to find the maximum rectangular area that can be formed within this histogram, where the rectangle must be aligned with the bars (i.e., its bottom edge must lie on the x-axis and it cannot extend beyond the boundaries of the bars).\n\nThe area of a rectangle is calculated as width \u00d7 height, where the height is determined by the minimum height of the bars that the rectangle spans, and the width is the number of consecutive bars it covers.",
           "pattern": "Stack",
           "has_solution": true,
           "algorithmHint": "Use stack for matching pairs or monotonic sequences.",
@@ -1198,7 +1198,7 @@
     },
     {
       "name": "Linked List",
-      "icon": "🔗",
+      "icon": "\ud83d\udd17",
       "problems": [
         {
           "title": "Linked List Cycle",
@@ -1371,7 +1371,7 @@
           "url": "https://leetcode.com/problems/reorder-list/",
           "slug": "reorder-list",
           "subTopic": "Linked List",
-          "description": "You are given the head of a singly linked list. Reorder the list such that it follows the pattern: L0 → Ln → L1 → Ln-1 → L2 → Ln-2 → ...\n\nThe reordering must be done by actually moving nodes, not just changing their values.\n\nReturn the reordered list's head node.",
+          "description": "You are given the head of a singly linked list. Reorder the list such that it follows the pattern: L0 \u2192 Ln \u2192 L1 \u2192 Ln-1 \u2192 L2 \u2192 Ln-2 \u2192 ...\n\nThe reordering must be done by actually moving nodes, not just changing their values.\n\nReturn the reordered list's head node.",
           "pattern": "Linked List",
           "has_solution": true,
           "algorithmHint": "Use dummy node, slow/fast pointers, or reverse in-place.",
@@ -1395,7 +1395,7 @@
     },
     {
       "name": "Binary Tree General",
-      "icon": "🌳",
+      "icon": "\ud83c\udf33",
       "problems": [
         {
           "title": "Maximum Depth of Binary Tree",
@@ -1678,7 +1678,7 @@
     },
     {
       "name": "Binary Tree BFS",
-      "icon": "🌊",
+      "icon": "\ud83c\udf0a",
       "problems": [
         {
           "title": "Binary Tree Right Side View",
@@ -1744,7 +1744,7 @@
     },
     {
       "name": "Binary Search Tree",
-      "icon": "🔍",
+      "icon": "\ud83d\udd0d",
       "problems": [
         {
           "title": "Minimum Absolute Difference in BST",
@@ -1841,7 +1841,7 @@
     },
     {
       "name": "Graph General",
-      "icon": "🕸️",
+      "icon": "\ud83d\udd78\ufe0f",
       "problems": [
         {
           "title": "Number of Islands",
@@ -2123,7 +2123,7 @@
     },
     {
       "name": "Graph BFS",
-      "icon": "🌐",
+      "icon": "\ud83c\udf10",
       "problems": [
         {
           "title": "Snakes and Ladders",
@@ -2131,7 +2131,7 @@
           "url": "https://leetcode.com/problems/snakes-and-ladders/",
           "slug": "snakes-and-ladders",
           "subTopic": "Graph",
-          "description": "BFS from square 1. Follow snakes/ladders. Min moves to n².\n\nMin dice rolls to reach last square.\nBFS level = number of moves.",
+          "description": "BFS from square 1. Follow snakes/ladders. Min moves to n\u00b2.\n\nMin dice rolls to reach last square.\nBFS level = number of moves.",
           "pattern": "BFS",
           "has_solution": true,
           "algorithmHint": "Use BFS for shortest path, DFS for exploration, Union-Find for connectivity.",
@@ -2198,7 +2198,7 @@
     },
     {
       "name": "Trie",
-      "icon": "🌿",
+      "icon": "\ud83c\udf3f",
       "problems": [
         {
           "title": "Implement Trie (Prefix Tree)",
@@ -2251,7 +2251,7 @@
     },
     {
       "name": "Backtracking",
-      "icon": "🔙",
+      "icon": "\ud83d\udd19",
       "problems": [
         {
           "title": "Letter Combinations of a Phone Number",
@@ -2457,7 +2457,7 @@
           "url": "https://leetcode.com/problems/n-queens/",
           "slug": "n-queens",
           "subTopic": "Backtracking",
-          "description": "The n-queens puzzle is the problem of placing n queens on an n×n chessboard such that no two queens attack each other. Given an integer n, return all distinct solutions to the n-queens puzzle. Each solution contains a distinct board configuration where 'Q' represents a queen and '.' represents an empty space.",
+          "description": "The n-queens puzzle is the problem of placing n queens on an n\u00d7n chessboard such that no two queens attack each other. Given an integer n, return all distinct solutions to the n-queens puzzle. Each solution contains a distinct board configuration where 'Q' represents a queen and '.' represents an empty space.",
           "pattern": "Backtracking",
           "has_solution": true,
           "algorithmHint": "Try all possibilities, prune invalid branches early.",
@@ -2472,7 +2472,7 @@
     },
     {
       "name": "Divide & Conquer",
-      "icon": "✂️",
+      "icon": "\u2702\ufe0f",
       "problems": [
         {
           "title": "Convert Sorted Array to Binary Search Tree",
@@ -2510,7 +2510,7 @@
           "url": "https://leetcode.com/problems/construct-quad-tree/",
           "slug": "construct-quad-tree",
           "subTopic": "Divide & Conquer",
-          "description": "If all same value, leaf. Else divide into 4 quadrants.\n\nBuild quad-tree from n×n grid.\nIf entire region same value, make leaf.",
+          "description": "If all same value, leaf. Else divide into 4 quadrants.\n\nBuild quad-tree from n\u00d7n grid.\nIf entire region same value, make leaf.",
           "pattern": "Divide and Conquer",
           "has_solution": true,
           "algorithmHint": "Analyze the constraints and look for patterns.",
@@ -2538,7 +2538,7 @@
     },
     {
       "name": "Kadane's Algorithm",
-      "icon": "📈",
+      "icon": "\ud83d\udcc8",
       "problems": [
         {
           "title": "Maximum Subarray",
@@ -2570,7 +2570,7 @@
     },
     {
       "name": "Binary Search",
-      "icon": "🎯",
+      "icon": "\ud83c\udfaf",
       "problems": [
         {
           "title": "Binary Search",
@@ -2755,7 +2755,7 @@
     },
     {
       "name": "Heap",
-      "icon": "⛰️",
+      "icon": "\u26f0\ufe0f",
       "problems": [
         {
           "title": "Kth Largest Element in an Array",
@@ -2902,7 +2902,7 @@
     },
     {
       "name": "Bit Manipulation",
-      "icon": "🔢",
+      "icon": "\ud83d\udd22",
       "problems": [
         {
           "title": "Add Binary",
@@ -2997,7 +2997,7 @@
           "url": "https://leetcode.com/problems/minimum-operations-to-reduce-an-integer-to-0/solutions/?submissionId=1806256289",
           "slug": "minimum-operations-to-reduce-an-integer-to-0",
           "subTopic": "Greedy",
-          "description": "Add/subtract powers of 2. Handle consecutive 1s.\n\nMin operations to make n = 0 using ±2^k.\nConsecutive 1s: add to clear, else subtract.",
+          "description": "Add/subtract powers of 2. Handle consecutive 1s.\n\nMin operations to make n = 0 using \u00b12^k.\nConsecutive 1s: add to clear, else subtract.",
           "pattern": "Bit Manipulation",
           "has_solution": true,
           "algorithmHint": "Make locally optimal choice at each step.",
@@ -3045,7 +3045,7 @@
           "url": "https://leetcode.com/problems/reverse-integer/",
           "slug": "reverse-integer",
           "subTopic": "Bit Manipulation",
-          "description": "Given a signed 32-bit integer x, return x with its digits reversed. If reversing x causes the value to go outside the signed 32-bit integer range [-2³¹, 2³¹ - 1], then return 0.\n\nAssume the environment does not allow you to store 64-bit integers (signed or unsigned).",
+          "description": "Given a signed 32-bit integer x, return x with its digits reversed. If reversing x causes the value to go outside the signed 32-bit integer range [-2\u00b3\u00b9, 2\u00b3\u00b9 - 1], then return 0.\n\nAssume the environment does not allow you to store 64-bit integers (signed or unsigned).",
           "pattern": "Bit Manipulation",
           "has_solution": true,
           "algorithmHint": "Use XOR, AND, OR operations. Think binary representation.",
@@ -3059,7 +3059,7 @@
     },
     {
       "name": "Math",
-      "icon": "🧮",
+      "icon": "\ud83e\uddee",
       "problems": [
         {
           "title": "Palindrome Number",
@@ -3195,223 +3195,41 @@
       ]
     },
     {
-      "name": "1D DP",
-      "icon": "📐",
-      "problems": [
-        {
-          "title": "Climbing Stairs",
-          "difficulty": "Easy",
-          "url": "https://leetcode.com/problems/climbing-stairs/",
-          "slug": "climbing-stairs",
-          "subTopic": "1-D Dynamic Programming",
-          "description": "You are climbing a staircase. It takes n steps to reach the top.\n\nEach time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?",
-          "pattern": "DP (Fibonacci)",
-          "has_solution": true,
-          "algorithmHint": "Define state, find recurrence relation, handle base cases.",
-          "difficultyReason": "Single technique, straightforward logic, minimal edge cases.",
-          "relatedProblems": []
-        },
-        {
-          "title": "House Robber",
-          "difficulty": "Medium",
-          "url": "https://leetcode.com/problems/house-robber/",
-          "slug": "house-robber",
-          "subTopic": "1-D Dynamic Programming",
-          "description": "You are a professional robber planning to rob houses along a street. Each house has a certain amount of money stashed, the only constraint stopping you from robbing each of them is that adjacent houses have security systems connected and it will automatically contact the police if two adjacent houses were broken into on the same night.\n\nGiven an integer array nums representing the amount of money of each house, return the maximum amount of money you can rob tonight without alerting the police.",
-          "pattern": "1D DP",
-          "has_solution": true,
-          "algorithmHint": "Define state, find recurrence relation, handle base cases.",
-          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
-          "relatedProblems": [
-            "coin-change",
-            "word-break",
-            "decode-ways"
-          ]
-        },
-        {
-          "title": "Word Break",
-          "difficulty": "Medium",
-          "url": "https://leetcode.com/problems/word-break/",
-          "slug": "word-break",
-          "subTopic": "1-D Dynamic Programming",
-          "description": "dp[i] = any(dp[j] and s[j:i] in wordDict).\n\nCan s be segmented into dictionary words?\ndp[i] = True if s[:i] can be segmented.",
-          "pattern": "1D DP",
-          "has_solution": true,
-          "algorithmHint": "Define state, find recurrence relation, handle base cases.",
-          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
-          "relatedProblems": [
-            "coin-change",
-            "house-robber",
-            "decode-ways"
-          ]
-        },
-        {
-          "title": "Coin Change",
-          "difficulty": "Medium",
-          "url": "https://leetcode.com/problems/coin-change/",
-          "slug": "coin-change",
-          "subTopic": "1-D Dynamic Programming",
-          "description": "You are given an integer array coins representing coins of different denominations and an integer amount representing a total amount of money.\n\nReturn the fewest number of coins that you need to make up that amount. If that amount of money cannot be made up by any combination of the coins, return -1.\n\nYou may assume that you have an infinite number of each kind of coin.",
-          "pattern": "1D DP",
-          "has_solution": true,
-          "algorithmHint": "Define state, find recurrence relation, handle base cases.",
-          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
-          "relatedProblems": [
-            "house-robber",
-            "word-break",
-            "decode-ways"
-          ]
-        },
-        {
-          "title": "Longest Increasing Subsequence",
-          "difficulty": "Medium",
-          "url": "https://leetcode.com/problems/longest-increasing-subsequence/",
-          "slug": "longest-increasing-subsequence",
-          "subTopic": "1-D Dynamic Programming",
-          "description": "Maintain sorted 'tails' array. Binary search insertion point.\n\nFind LIS length.\nO(n log n): maintain smallest tail for each length.",
-          "pattern": "DP / Binary Search",
-          "has_solution": true,
-          "algorithmHint": "If sorted, use binary search. Eliminate half the search space each step.",
-          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
-          "relatedProblems": []
-        },
-        {
-          "id": "338",
-          "title": "Counting Bits",
-          "difficulty": "Easy",
-          "url": "https://leetcode.com/problems/counting-bits/description/",
-          "slug": "counting-bits",
-          "subTopic": "Bit DP",
-          "description": "dp[i] = dp[i >> 1] + (i & 1). Use previous result.\n\nCount 1s in binary for 0 to n.\ni has same bits as i/2, plus LSB.",
-          "pattern": "DP",
-          "has_solution": true,
-          "algorithmHint": "Analyze the constraints and look for patterns.",
-          "difficultyReason": "Single technique, straightforward logic, minimal edge cases.",
-          "relatedProblems": [
-            "number-of-longest-increasing-subsequence",
-            "best-time-to-buy-and-sell-stock-iv"
-          ]
-        },
-        {
-          "id": "673",
-          "title": "Number of Longest Increasing Subsequence",
-          "difficulty": "Medium",
-          "url": "https://leetcode.com/problems/number-of-longest-increasing-subsequence/description/",
-          "slug": "number-of-longest-increasing-subsequence",
-          "subTopic": "Lis + Counts",
-          "description": "Track both length and count at each position.\n\nCount all LIS.\ndp[i] = (length, count) of LIS ending at i.",
-          "pattern": "DP",
-          "has_solution": true,
-          "algorithmHint": "Analyze the constraints and look for patterns.",
-          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
-          "relatedProblems": [
-            "counting-bits",
-            "best-time-to-buy-and-sell-stock-iv"
-          ]
-        },
-        {
-          "id": "91",
-          "title": "Decode Ways",
-          "difficulty": "Medium",
-          "url": "https://leetcode.com/problems/decode-ways/",
-          "slug": "decode-ways",
-          "subTopic": "String",
-          "description": "dp[i] = dp[i-1] (if valid single) + dp[i-2] (if valid pair).\n\nCount ways to decode digit string.\nSingle digit: 1-9 valid. Two digits: 10-26 valid.",
-          "pattern": "1D DP",
-          "has_solution": true,
-          "algorithmHint": "Analyze the constraints and look for patterns.",
-          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
-          "relatedProblems": [
-            "coin-change",
-            "house-robber",
-            "word-break"
-          ]
-        }
-      ]
-    },
-    {
       "name": "Multidimensional DP",
-      "icon": "🧊",
+      "icon": "\ud83e\uddca",
       "problems": [
         {
-          "title": "Triangle",
+          "title": "Best Time to Buy and Sell Stock with Cooldown",
           "difficulty": "Medium",
-          "url": "https://leetcode.com/problems/triangle/",
-          "slug": "triangle",
-          "subTopic": "Multidimensional DP",
-          "description": "Given a triangle array, return the minimum path sum from top to bottom. For each step, you may move to an adjacent number of the row below. More formally, if you are on index i on the current row, you may move to either index i or index i + 1 on the next row.",
-          "pattern": "Dynamic Programming",
+          "url": "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/",
+          "slug": "best-time-to-buy-and-sell-stock-with-cooldown",
+          "subTopic": "Stock Trading",
+          "description": "You are given an array `prices` where `prices[i]` is the price of a given stock on the ith day.\n\nFind the maximum profit you can achieve. You may complete as many transactions as you like (i.e., buy one and sell one share of the stock multiple times) with the following restrictions:\n\nAfter you sell your stock, you cannot buy stock on the next day (i.e., cooldown one day).\n\nYou may not engage in multiple transactions simultaneously (i.e., you must sell the stock before you buy again).",
+          "pattern": "2-D Dynamic Programming",
           "has_solution": true,
           "algorithmHint": "Define state, find recurrence relation, handle base cases.",
           "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
           "relatedProblems": [
+            "triangle",
             "min-cost-climbing-stairs",
-            "house-robber-ii",
-            "maximum-product-subarray"
+            "house-robber-ii"
           ]
         },
         {
-          "title": "Minimum Path Sum",
+          "title": "Coin Change II",
           "difficulty": "Medium",
-          "url": "https://leetcode.com/problems/minimum-path-sum/",
-          "slug": "minimum-path-sum",
-          "subTopic": "Multidimensional DP",
-          "description": "dp[i][j] = grid[i][j] + min(dp[i-1][j], dp[i][j-1]).\n\nMin sum path from top-left to bottom-right.\nCan only move right or down.",
-          "pattern": "2D DP",
+          "url": "https://leetcode.com/problems/coin-change-ii/",
+          "slug": "coin-change-ii",
+          "subTopic": "Knapsack",
+          "description": "You are given an integer array `coins` representing coins of different denominations and an integer `amount` representing a total amount of money.\n\nReturn the number of combinations that make up that amount. If that amount of money cannot be made up by any combination of the coins, return 0.\n\nYou may assume that you have an infinite number of each kind of coin.\n\nThe answer is guaranteed to fit into a signed 32-bit integer.",
+          "pattern": "2-D Dynamic Programming",
           "has_solution": true,
-          "algorithmHint": "Analyze the constraints and look for patterns.",
+          "algorithmHint": "Define state, find recurrence relation, handle base cases.",
           "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
           "relatedProblems": [
-            "unique-paths-ii",
-            "interleaving-string",
-            "edit-distance"
-          ]
-        },
-        {
-          "title": "Unique Paths II",
-          "difficulty": "Medium",
-          "url": "https://leetcode.com/problems/unique-paths-ii/",
-          "slug": "unique-paths-ii",
-          "subTopic": "Multidimensional DP",
-          "description": "dp[i][j] = 0 if obstacle, else dp[i-1][j] + dp[i][j-1].\n\nCount paths with obstacles.\nObstacle = 0 paths through that cell.",
-          "pattern": "2D DP",
-          "has_solution": true,
-          "algorithmHint": "Analyze the constraints and look for patterns.",
-          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
-          "relatedProblems": [
-            "minimum-path-sum",
-            "interleaving-string",
-            "edit-distance"
-          ]
-        },
-        {
-          "title": "Longest Palindromic Substring",
-          "difficulty": "Medium",
-          "url": "https://leetcode.com/problems/longest-palindromic-substring/",
-          "slug": "longest-palindromic-substring",
-          "subTopic": "Multidimensional DP",
-          "description": "Expand from each center (2n-1 centers).\n\nFind longest palindromic substring.\nExpand from each center (odd and even length).",
-          "pattern": "Expand Around Center",
-          "has_solution": true,
-          "algorithmHint": "Analyze the constraints and look for patterns.",
-          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
-          "relatedProblems": []
-        },
-        {
-          "title": "Interleaving String",
-          "difficulty": "Medium",
-          "url": "https://leetcode.com/problems/interleaving-string/",
-          "slug": "interleaving-string",
-          "subTopic": "Multidimensional DP",
-          "description": "dp[i][j] = True if s3[:i+j] can be formed by s1[:i] and s2[:j].\n\nCan s3 be formed by interleaving s1 and s2?\ndp[i][j] = can form s3[:i+j] from s1[:i], s2[:j].",
-          "pattern": "2D DP",
-          "has_solution": true,
-          "algorithmHint": "Analyze the constraints and look for patterns.",
-          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
-          "relatedProblems": [
-            "minimum-path-sum",
-            "unique-paths-ii",
-            "edit-distance"
+            "triangle",
+            "min-cost-climbing-stairs",
+            "house-robber-ii"
           ]
         },
         {
@@ -3419,7 +3237,7 @@
           "difficulty": "Medium",
           "url": "https://leetcode.com/problems/edit-distance/",
           "slug": "edit-distance",
-          "subTopic": "Multidimensional DP",
+          "subTopic": "String Matching",
           "description": "dp[i][j] = min(insert, delete, replace) + 1.\n\nMin operations to convert word1 to word2.\nThree operations: insert, delete, replace.",
           "pattern": "2D DP",
           "has_solution": true,
@@ -3432,40 +3250,58 @@
           ]
         },
         {
-          "title": "Best Time to Buy and Sell Stock III",
-          "difficulty": "Hard",
-          "url": "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/",
-          "slug": "best-time-to-buy-and-sell-stock-iii",
-          "subTopic": "Multidimensional DP",
-          "description": "Track 4 states: buy1, sell1, buy2, sell2.\n\nMax profit with at most 2 transactions.\n4 states: after 1st buy, 1st sell, 2nd buy, 2nd sell.",
-          "pattern": "State Machine DP",
+          "title": "Interleaving String",
+          "difficulty": "Medium",
+          "url": "https://leetcode.com/problems/interleaving-string/",
+          "slug": "interleaving-string",
+          "subTopic": "String Matching",
+          "description": "dp[i][j] = True if s3[:i+j] can be formed by s1[:i] and s2[:j].\n\nCan s3 be formed by interleaving s1 and s2?\ndp[i][j] = can form s3[:i+j] from s1[:i], s2[:j].",
+          "pattern": "2D DP",
           "has_solution": true,
           "algorithmHint": "Analyze the constraints and look for patterns.",
-          "difficultyReason": "Multiple advanced techniques, complex state management, many edge cases.",
-          "relatedProblems": []
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": [
+            "minimum-path-sum",
+            "unique-paths-ii",
+            "edit-distance"
+          ]
         },
         {
-          "title": "Best Time to Buy and Sell Stock IV",
-          "difficulty": "Hard",
-          "url": "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv/",
-          "slug": "best-time-to-buy-and-sell-stock-iv",
-          "subTopic": "Multidimensional DP",
-          "description": "Generalize to k transactions with 2k states.\n\nMax profit with at most k transactions.\ndp[i] = max profit after i-th transaction.",
-          "pattern": "DP",
+          "title": "Longest Common Subsequence",
+          "difficulty": "Medium",
+          "url": "https://leetcode.com/problems/longest-common-subsequence/",
+          "slug": "longest-common-subsequence",
+          "subTopic": "String Matching",
+          "description": "Given two strings text1 and text2, return the length of their longest common subsequence. A subsequence is a sequence that appears in the same relative order, but not necessarily contiguous. If there is no common subsequence, return 0.",
+          "pattern": "2-D Dynamic Programming",
+          "has_solution": true,
+          "algorithmHint": "Define state, find recurrence relation, handle base cases.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": [
+            "triangle",
+            "min-cost-climbing-stairs",
+            "house-robber-ii"
+          ]
+        },
+        {
+          "title": "Longest Palindromic Substring",
+          "difficulty": "Medium",
+          "url": "https://leetcode.com/problems/longest-palindromic-substring/",
+          "slug": "longest-palindromic-substring",
+          "subTopic": "Palindrome",
+          "description": "Expand from each center (2n-1 centers).\n\nFind longest palindromic substring.\nExpand from each center (odd and even length).",
+          "pattern": "Expand Around Center",
           "has_solution": true,
           "algorithmHint": "Analyze the constraints and look for patterns.",
-          "difficultyReason": "Multiple advanced techniques, complex state management, many edge cases.",
-          "relatedProblems": [
-            "counting-bits",
-            "number-of-longest-increasing-subsequence"
-          ]
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": []
         },
         {
           "title": "Maximal Square",
           "difficulty": "Medium",
           "url": "https://leetcode.com/problems/maximal-square/",
           "slug": "maximal-square",
-          "subTopic": "Multidimensional DP",
+          "subTopic": "Grid Patterns",
           "description": "dp[i][j] = min(top, left, diag) + 1 if matrix[i][j] == '1'.\n\nLargest square of 1s in binary matrix.\ndp[i][j] = side length of largest square ending at (i,j).",
           "pattern": "2D DP",
           "has_solution": true,
@@ -3478,12 +3314,63 @@
           ]
         },
         {
+          "title": "Minimum Path Sum",
+          "difficulty": "Medium",
+          "url": "https://leetcode.com/problems/minimum-path-sum/",
+          "slug": "minimum-path-sum",
+          "subTopic": "Grid Paths",
+          "description": "dp[i][j] = grid[i][j] + min(dp[i-1][j], dp[i][j-1]).\n\nMin sum path from top-left to bottom-right.\nCan only move right or down.",
+          "pattern": "2D DP",
+          "has_solution": true,
+          "algorithmHint": "Analyze the constraints and look for patterns.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": [
+            "unique-paths-ii",
+            "interleaving-string",
+            "edit-distance"
+          ]
+        },
+        {
+          "title": "Target Sum",
+          "difficulty": "Medium",
+          "url": "https://leetcode.com/problems/target-sum/",
+          "slug": "target-sum",
+          "subTopic": "Knapsack",
+          "description": "You are given an integer array nums and an integer target. You want to build an expression out of nums by adding one of the symbols '+' and '-' before each integer in nums and then concatenate all the integers. Return the number of different expressions that you can build, which evaluates to target.",
+          "pattern": "2-D Dynamic Programming",
+          "has_solution": true,
+          "algorithmHint": "Define state, find recurrence relation, handle base cases.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": [
+            "triangle",
+            "min-cost-climbing-stairs",
+            "house-robber-ii"
+          ]
+        },
+        {
+          "title": "Triangle",
+          "difficulty": "Medium",
+          "url": "https://leetcode.com/problems/triangle/",
+          "slug": "triangle",
+          "subTopic": "Grid Paths",
+          "description": "Given a triangle array, return the minimum path sum from top to bottom. For each step, you may move to an adjacent number of the row below. More formally, if you are on index i on the current row, you may move to either index i or index i + 1 on the next row.",
+          "pattern": "Dynamic Programming",
+          "has_solution": true,
+          "algorithmHint": "Define state, find recurrence relation, handle base cases.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": [
+            "min-cost-climbing-stairs",
+            "house-robber-ii",
+            "maximum-product-subarray"
+          ]
+        },
+        {
           "id": "62",
           "title": "Unique Paths",
           "difficulty": "Medium",
           "url": "https://leetcode.com/problems/unique-paths/",
           "slug": "unique-paths",
-          "subTopic": "Grid DP (Paths Count)",
+          "subTopic": "Grid Paths",
           "description": "dp[i][j] = dp[i-1][j] + dp[i][j-1]. Or use combinatorics.\n\nCount paths from top-left to bottom-right.\nCan only move right or down.",
           "pattern": "2D DP",
           "has_solution": true,
@@ -3494,12 +3381,122 @@
             "unique-paths-ii",
             "interleaving-string"
           ]
+        },
+        {
+          "title": "Unique Paths II",
+          "difficulty": "Medium",
+          "url": "https://leetcode.com/problems/unique-paths-ii/",
+          "slug": "unique-paths-ii",
+          "subTopic": "Grid Paths",
+          "description": "dp[i][j] = 0 if obstacle, else dp[i-1][j] + dp[i][j-1].\n\nCount paths with obstacles.\nObstacle = 0 paths through that cell.",
+          "pattern": "2D DP",
+          "has_solution": true,
+          "algorithmHint": "Analyze the constraints and look for patterns.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": [
+            "minimum-path-sum",
+            "interleaving-string",
+            "edit-distance"
+          ]
+        },
+        {
+          "title": "Best Time to Buy and Sell Stock III",
+          "difficulty": "Hard",
+          "url": "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/",
+          "slug": "best-time-to-buy-and-sell-stock-iii",
+          "subTopic": "Stock Trading",
+          "description": "Track 4 states: buy1, sell1, buy2, sell2.\n\nMax profit with at most 2 transactions.\n4 states: after 1st buy, 1st sell, 2nd buy, 2nd sell.",
+          "pattern": "State Machine DP",
+          "has_solution": true,
+          "algorithmHint": "Analyze the constraints and look for patterns.",
+          "difficultyReason": "Multiple advanced techniques, complex state management, many edge cases.",
+          "relatedProblems": []
+        },
+        {
+          "title": "Best Time to Buy and Sell Stock IV",
+          "difficulty": "Hard",
+          "url": "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv/",
+          "slug": "best-time-to-buy-and-sell-stock-iv",
+          "subTopic": "Stock Trading",
+          "description": "Generalize to k transactions with 2k states.\n\nMax profit with at most k transactions.\ndp[i] = max profit after i-th transaction.",
+          "pattern": "DP",
+          "has_solution": true,
+          "algorithmHint": "Analyze the constraints and look for patterns.",
+          "difficultyReason": "Multiple advanced techniques, complex state management, many edge cases.",
+          "relatedProblems": [
+            "counting-bits",
+            "number-of-longest-increasing-subsequence"
+          ]
+        },
+        {
+          "title": "Burst Balloons",
+          "difficulty": "Hard",
+          "url": "https://leetcode.com/problems/burst-balloons/",
+          "slug": "burst-balloons",
+          "subTopic": "Interval DP",
+          "description": "You are given n balloons, indexed from 0 to n - 1. Each balloon has a number on it represented by an array nums. If you burst the ith balloon, you get nums[i - 1] * nums[i] * nums[i + 1] coins. If i - 1 or i + 1 goes out of bounds, treat it as if there is a balloon with a 1 painted on it.\n\nReturn the maximum coins you can collect by bursting the balloons optimally.",
+          "pattern": "2-D Dynamic Programming",
+          "has_solution": true,
+          "algorithmHint": "Define state, find recurrence relation, handle base cases.",
+          "difficultyReason": "Multiple advanced techniques, complex state management, many edge cases.",
+          "relatedProblems": [
+            "triangle",
+            "min-cost-climbing-stairs",
+            "house-robber-ii"
+          ]
+        },
+        {
+          "title": "Distinct Subsequences",
+          "difficulty": "Hard",
+          "url": "https://leetcode.com/problems/distinct-subsequences/",
+          "slug": "distinct-subsequences",
+          "subTopic": "String Matching",
+          "description": "Given two strings s and t, return the number of distinct subsequences of s which equals t.\n\nA subsequence is a sequence that can be derived from another sequence by deleting some or no elements without changing the order of the remaining elements.\n\nThe answer is guaranteed to fit within a 32-bit signed integer.",
+          "pattern": "2-D Dynamic Programming",
+          "has_solution": true,
+          "algorithmHint": "Define state, find recurrence relation, handle base cases.",
+          "difficultyReason": "Multiple advanced techniques, complex state management, many edge cases.",
+          "relatedProblems": [
+            "triangle",
+            "min-cost-climbing-stairs",
+            "house-robber-ii"
+          ]
+        },
+        {
+          "title": "Longest Increasing Path in a Matrix",
+          "difficulty": "Hard",
+          "url": "https://leetcode.com/problems/longest-increasing-path-in-a-matrix/",
+          "slug": "longest-increasing-path-in-a-matrix",
+          "subTopic": "Grid DFS/DP",
+          "description": "Given an m x n integers matrix, return the length of the longest increasing path in the matrix. From each cell, you can move in four directions (up, down, left, right) to adjacent cells. You cannot move diagonally or move outside the boundaries. The path must be strictly increasing.",
+          "pattern": "2-D Dynamic Programming",
+          "has_solution": true,
+          "algorithmHint": "Define state, find recurrence relation, handle base cases.",
+          "difficultyReason": "Multiple advanced techniques, complex state management, many edge cases.",
+          "relatedProblems": []
+        },
+        {
+          "title": "Regular Expression Matching",
+          "difficulty": "Hard",
+          "url": "https://leetcode.com/problems/regular-expression-matching/",
+          "slug": "regular-expression-matching",
+          "subTopic": "String Matching",
+          "description": "Given an input string `s` and a pattern `p`, implement regular expression matching with support for '.' and '*':\n\n- '.' Matches any single character.\n- '*' Matches zero or more of the preceding element.\n\nThe matching must cover the entire input string (not partial). Return true if the pattern matches the entire string, false otherwise.",
+          "pattern": "2-D Dynamic Programming",
+          "has_solution": true,
+          "algorithmHint": "Define state, find recurrence relation, handle base cases.",
+          "difficultyReason": "Multiple advanced techniques, complex state management, many edge cases.",
+          "relatedProblems": [
+            "triangle",
+            "min-cost-climbing-stairs",
+            "house-robber-ii"
+          ]
         }
       ]
     },
     {
       "name": "Prefix Sums",
-      "icon": "📁",
+      "icon": "\ud83d\udcc1",
       "problems": [
         {
           "id": "268",
@@ -3522,7 +3519,7 @@
     },
     {
       "name": "Geometry",
-      "icon": "📁",
+      "icon": "\ud83d\udcc1",
       "problems": [
         {
           "id": "1266",
@@ -3546,7 +3543,7 @@
     },
     {
       "name": "Implementation",
-      "icon": "📁",
+      "icon": "\ud83d\udcc1",
       "problems": [
         {
           "id": "412",
@@ -3594,7 +3591,7 @@
     },
     {
       "name": "Queue",
-      "icon": "📁",
+      "icon": "\ud83d\udcc1",
       "problems": [
         {
           "id": "2073",
@@ -3618,7 +3615,7 @@
     },
     {
       "name": "Sorting",
-      "icon": "📁",
+      "icon": "\ud83d\udcc1",
       "problems": [
         {
           "id": "1200",
@@ -3642,14 +3639,44 @@
     },
     {
       "name": "1-D Dynamic Programming",
-      "icon": "📝",
+      "icon": "\ud83d\udcdd",
       "problems": [
+        {
+          "title": "Climbing Stairs",
+          "difficulty": "Easy",
+          "url": "https://leetcode.com/problems/climbing-stairs/",
+          "slug": "climbing-stairs",
+          "subTopic": "Fibonacci Style",
+          "description": "You are climbing a staircase. It takes n steps to reach the top.\n\nEach time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?",
+          "pattern": "DP (Fibonacci)",
+          "has_solution": true,
+          "algorithmHint": "Define state, find recurrence relation, handle base cases.",
+          "difficultyReason": "Single technique, straightforward logic, minimal edge cases.",
+          "relatedProblems": []
+        },
+        {
+          "id": "338",
+          "title": "Counting Bits",
+          "difficulty": "Easy",
+          "url": "https://leetcode.com/problems/counting-bits/description/",
+          "slug": "counting-bits",
+          "subTopic": "Bit DP",
+          "description": "dp[i] = dp[i >> 1] + (i & 1). Use previous result.\n\nCount 1s in binary for 0 to n.\ni has same bits as i/2, plus LSB.",
+          "pattern": "DP",
+          "has_solution": true,
+          "algorithmHint": "Analyze the constraints and look for patterns.",
+          "difficultyReason": "Single technique, straightforward logic, minimal edge cases.",
+          "relatedProblems": [
+            "number-of-longest-increasing-subsequence",
+            "best-time-to-buy-and-sell-stock-iv"
+          ]
+        },
         {
           "title": "Min Cost Climbing Stairs",
           "difficulty": "Easy",
           "url": "https://leetcode.com/problems/min-cost-climbing-stairs/",
           "slug": "min-cost-climbing-stairs",
-          "subTopic": "1-D Dynamic Programming",
+          "subTopic": "Fibonacci Style",
           "description": "You are given an integer array `cost` where `cost[i]` is the cost of the ith step on a staircase. Once you pay the cost, you can either climb one or two steps. You can either start from the step with index 0 or the step with index 1. Return the minimum cost to reach the top of the floor.",
           "pattern": "1-D Dynamic Programming",
           "has_solution": true,
@@ -3662,11 +3689,63 @@
           ]
         },
         {
+          "title": "Coin Change",
+          "difficulty": "Medium",
+          "url": "https://leetcode.com/problems/coin-change/",
+          "slug": "coin-change",
+          "subTopic": "Knapsack",
+          "description": "You are given an integer array coins representing coins of different denominations and an integer amount representing a total amount of money.\n\nReturn the fewest number of coins that you need to make up that amount. If that amount of money cannot be made up by any combination of the coins, return -1.\n\nYou may assume that you have an infinite number of each kind of coin.",
+          "pattern": "1D DP",
+          "has_solution": true,
+          "algorithmHint": "Define state, find recurrence relation, handle base cases.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": [
+            "house-robber",
+            "word-break",
+            "decode-ways"
+          ]
+        },
+        {
+          "id": "91",
+          "title": "Decode Ways",
+          "difficulty": "Medium",
+          "url": "https://leetcode.com/problems/decode-ways/",
+          "slug": "decode-ways",
+          "subTopic": "String Partition",
+          "description": "dp[i] = dp[i-1] (if valid single) + dp[i-2] (if valid pair).\n\nCount ways to decode digit string.\nSingle digit: 1-9 valid. Two digits: 10-26 valid.",
+          "pattern": "1D DP",
+          "has_solution": true,
+          "algorithmHint": "Analyze the constraints and look for patterns.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": [
+            "coin-change",
+            "house-robber",
+            "word-break"
+          ]
+        },
+        {
+          "title": "House Robber",
+          "difficulty": "Medium",
+          "url": "https://leetcode.com/problems/house-robber/",
+          "slug": "house-robber",
+          "subTopic": "House Robber",
+          "description": "You are a professional robber planning to rob houses along a street. Each house has a certain amount of money stashed, the only constraint stopping you from robbing each of them is that adjacent houses have security systems connected and it will automatically contact the police if two adjacent houses were broken into on the same night.\n\nGiven an integer array nums representing the amount of money of each house, return the maximum amount of money you can rob tonight without alerting the police.",
+          "pattern": "1D DP",
+          "has_solution": true,
+          "algorithmHint": "Define state, find recurrence relation, handle base cases.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": [
+            "coin-change",
+            "word-break",
+            "decode-ways"
+          ]
+        },
+        {
           "title": "House Robber II",
           "difficulty": "Medium",
           "url": "https://leetcode.com/problems/house-robber-ii/",
           "slug": "house-robber-ii",
-          "subTopic": "1-D Dynamic Programming",
+          "subTopic": "House Robber",
           "description": "You are a professional robber planning to rob houses arranged in a circle. Each house contains a certain amount of money. All the houses are connected in a circle, meaning the first house is adjacent to the last house. Adjacent houses have a security system that will automatically contact the police if two adjacent houses are robbed on the same night.\n\nGiven an integer array `nums` representing the amount of money in each house, return the maximum amount of money you can rob without alerting the police.",
           "pattern": "1-D Dynamic Programming",
           "has_solution": true,
@@ -3679,15 +3758,15 @@
           ]
         },
         {
-          "title": "Palindromic Substrings",
+          "title": "Longest Increasing Subsequence",
           "difficulty": "Medium",
-          "url": "https://leetcode.com/problems/palindromic-substrings/",
-          "slug": "palindromic-substrings",
-          "subTopic": "1-D Dynamic Programming",
-          "description": "Given a string s, return the number of palindromic substrings in it.\n\nA string is a palindrome when it reads the same backward as forward. A substring is a contiguous sequence of characters within the string.",
-          "pattern": "1-D Dynamic Programming",
+          "url": "https://leetcode.com/problems/longest-increasing-subsequence/",
+          "slug": "longest-increasing-subsequence",
+          "subTopic": "LIS",
+          "description": "Maintain sorted 'tails' array. Binary search insertion point.\n\nFind LIS length.\nO(n log n): maintain smallest tail for each length.",
+          "pattern": "DP / Binary Search",
           "has_solution": true,
-          "algorithmHint": "Define state, find recurrence relation, handle base cases.",
+          "algorithmHint": "If sorted, use binary search. Eliminate half the search space each step.",
           "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
           "relatedProblems": []
         },
@@ -3696,7 +3775,7 @@
           "difficulty": "Medium",
           "url": "https://leetcode.com/problems/maximum-product-subarray/",
           "slug": "maximum-product-subarray",
-          "subTopic": "1-D Dynamic Programming",
+          "subTopic": "Maximum Subarray",
           "description": "Given an integer array `nums`, find the contiguous subarray within it that has the largest product and return that product.\n\nThe subarray must contain at least one number, and the product of any prefix or suffix of the array is guaranteed to fit in a 32-bit integer.",
           "pattern": "1-D Dynamic Programming",
           "has_solution": true,
@@ -3709,11 +3788,41 @@
           ]
         },
         {
+          "id": "673",
+          "title": "Number of Longest Increasing Subsequence",
+          "difficulty": "Medium",
+          "url": "https://leetcode.com/problems/number-of-longest-increasing-subsequence/description/",
+          "slug": "number-of-longest-increasing-subsequence",
+          "subTopic": "LIS",
+          "description": "Track both length and count at each position.\n\nCount all LIS.\ndp[i] = (length, count) of LIS ending at i.",
+          "pattern": "DP",
+          "has_solution": true,
+          "algorithmHint": "Analyze the constraints and look for patterns.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": [
+            "counting-bits",
+            "best-time-to-buy-and-sell-stock-iv"
+          ]
+        },
+        {
+          "title": "Palindromic Substrings",
+          "difficulty": "Medium",
+          "url": "https://leetcode.com/problems/palindromic-substrings/",
+          "slug": "palindromic-substrings",
+          "subTopic": "Palindrome",
+          "description": "Given a string s, return the number of palindromic substrings in it.\n\nA string is a palindrome when it reads the same backward as forward. A substring is a contiguous sequence of characters within the string.",
+          "pattern": "1-D Dynamic Programming",
+          "has_solution": true,
+          "algorithmHint": "Define state, find recurrence relation, handle base cases.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": []
+        },
+        {
           "title": "Partition Equal Subset Sum",
           "difficulty": "Medium",
           "url": "https://leetcode.com/problems/partition-equal-subset-sum/",
           "slug": "partition-equal-subset-sum",
-          "subTopic": "1-D Dynamic Programming",
+          "subTopic": "Knapsack",
           "description": "Given an integer array nums, return true if you can partition the array into two subsets such that the sum of the elements in both subsets is equal, or false otherwise.",
           "pattern": "1-D Dynamic Programming",
           "has_solution": true,
@@ -3724,150 +3833,29 @@
             "min-cost-climbing-stairs",
             "house-robber-ii"
           ]
-        }
-      ]
-    },
-    {
-      "name": "2-D Dynamic Programming",
-      "icon": "📝",
-      "problems": [
+        },
         {
-          "title": "Longest Common Subsequence",
+          "title": "Word Break",
           "difficulty": "Medium",
-          "url": "https://leetcode.com/problems/longest-common-subsequence/",
-          "slug": "longest-common-subsequence",
-          "subTopic": "2-D Dynamic Programming",
-          "description": "Given two strings text1 and text2, return the length of their longest common subsequence. A subsequence is a sequence that appears in the same relative order, but not necessarily contiguous. If there is no common subsequence, return 0.",
-          "pattern": "2-D Dynamic Programming",
+          "url": "https://leetcode.com/problems/word-break/",
+          "slug": "word-break",
+          "subTopic": "String Partition",
+          "description": "dp[i] = any(dp[j] and s[j:i] in wordDict).\n\nCan s be segmented into dictionary words?\ndp[i] = True if s[:i] can be segmented.",
+          "pattern": "1D DP",
           "has_solution": true,
           "algorithmHint": "Define state, find recurrence relation, handle base cases.",
           "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
           "relatedProblems": [
-            "triangle",
-            "min-cost-climbing-stairs",
-            "house-robber-ii"
-          ]
-        },
-        {
-          "title": "Best Time to Buy and Sell Stock with Cooldown",
-          "difficulty": "Medium",
-          "url": "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/",
-          "slug": "best-time-to-buy-and-sell-stock-with-cooldown",
-          "subTopic": "2-D Dynamic Programming",
-          "description": "You are given an array `prices` where `prices[i]` is the price of a given stock on the ith day.\n\nFind the maximum profit you can achieve. You may complete as many transactions as you like (i.e., buy one and sell one share of the stock multiple times) with the following restrictions:\n\nAfter you sell your stock, you cannot buy stock on the next day (i.e., cooldown one day).\n\nYou may not engage in multiple transactions simultaneously (i.e., you must sell the stock before you buy again).",
-          "pattern": "2-D Dynamic Programming",
-          "has_solution": true,
-          "algorithmHint": "Define state, find recurrence relation, handle base cases.",
-          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
-          "relatedProblems": [
-            "triangle",
-            "min-cost-climbing-stairs",
-            "house-robber-ii"
-          ]
-        },
-        {
-          "title": "Coin Change II",
-          "difficulty": "Medium",
-          "url": "https://leetcode.com/problems/coin-change-ii/",
-          "slug": "coin-change-ii",
-          "subTopic": "2-D Dynamic Programming",
-          "description": "You are given an integer array `coins` representing coins of different denominations and an integer `amount` representing a total amount of money.\n\nReturn the number of combinations that make up that amount. If that amount of money cannot be made up by any combination of the coins, return 0.\n\nYou may assume that you have an infinite number of each kind of coin.\n\nThe answer is guaranteed to fit into a signed 32-bit integer.",
-          "pattern": "2-D Dynamic Programming",
-          "has_solution": true,
-          "algorithmHint": "Define state, find recurrence relation, handle base cases.",
-          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
-          "relatedProblems": [
-            "triangle",
-            "min-cost-climbing-stairs",
-            "house-robber-ii"
-          ]
-        },
-        {
-          "title": "Target Sum",
-          "difficulty": "Medium",
-          "url": "https://leetcode.com/problems/target-sum/",
-          "slug": "target-sum",
-          "subTopic": "2-D Dynamic Programming",
-          "description": "You are given an integer array nums and an integer target. You want to build an expression out of nums by adding one of the symbols '+' and '-' before each integer in nums and then concatenate all the integers. Return the number of different expressions that you can build, which evaluates to target.",
-          "pattern": "2-D Dynamic Programming",
-          "has_solution": true,
-          "algorithmHint": "Define state, find recurrence relation, handle base cases.",
-          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
-          "relatedProblems": [
-            "triangle",
-            "min-cost-climbing-stairs",
-            "house-robber-ii"
-          ]
-        },
-        {
-          "title": "Longest Increasing Path in a Matrix",
-          "difficulty": "Hard",
-          "url": "https://leetcode.com/problems/longest-increasing-path-in-a-matrix/",
-          "slug": "longest-increasing-path-in-a-matrix",
-          "subTopic": "2-D Dynamic Programming",
-          "description": "Given an m x n integers matrix, return the length of the longest increasing path in the matrix. From each cell, you can move in four directions (up, down, left, right) to adjacent cells. You cannot move diagonally or move outside the boundaries. The path must be strictly increasing.",
-          "pattern": "2-D Dynamic Programming",
-          "has_solution": true,
-          "algorithmHint": "Define state, find recurrence relation, handle base cases.",
-          "difficultyReason": "Multiple advanced techniques, complex state management, many edge cases.",
-          "relatedProblems": []
-        },
-        {
-          "title": "Distinct Subsequences",
-          "difficulty": "Hard",
-          "url": "https://leetcode.com/problems/distinct-subsequences/",
-          "slug": "distinct-subsequences",
-          "subTopic": "2-D Dynamic Programming",
-          "description": "Given two strings s and t, return the number of distinct subsequences of s which equals t.\n\nA subsequence is a sequence that can be derived from another sequence by deleting some or no elements without changing the order of the remaining elements.\n\nThe answer is guaranteed to fit within a 32-bit signed integer.",
-          "pattern": "2-D Dynamic Programming",
-          "has_solution": true,
-          "algorithmHint": "Define state, find recurrence relation, handle base cases.",
-          "difficultyReason": "Multiple advanced techniques, complex state management, many edge cases.",
-          "relatedProblems": [
-            "triangle",
-            "min-cost-climbing-stairs",
-            "house-robber-ii"
-          ]
-        },
-        {
-          "title": "Burst Balloons",
-          "difficulty": "Hard",
-          "url": "https://leetcode.com/problems/burst-balloons/",
-          "slug": "burst-balloons",
-          "subTopic": "2-D Dynamic Programming",
-          "description": "You are given n balloons, indexed from 0 to n - 1. Each balloon has a number on it represented by an array nums. If you burst the ith balloon, you get nums[i - 1] * nums[i] * nums[i + 1] coins. If i - 1 or i + 1 goes out of bounds, treat it as if there is a balloon with a 1 painted on it.\n\nReturn the maximum coins you can collect by bursting the balloons optimally.",
-          "pattern": "2-D Dynamic Programming",
-          "has_solution": true,
-          "algorithmHint": "Define state, find recurrence relation, handle base cases.",
-          "difficultyReason": "Multiple advanced techniques, complex state management, many edge cases.",
-          "relatedProblems": [
-            "triangle",
-            "min-cost-climbing-stairs",
-            "house-robber-ii"
-          ]
-        },
-        {
-          "title": "Regular Expression Matching",
-          "difficulty": "Hard",
-          "url": "https://leetcode.com/problems/regular-expression-matching/",
-          "slug": "regular-expression-matching",
-          "subTopic": "2-D Dynamic Programming",
-          "description": "Given an input string `s` and a pattern `p`, implement regular expression matching with support for '.' and '*':\n\n- '.' Matches any single character.\n- '*' Matches zero or more of the preceding element.\n\nThe matching must cover the entire input string (not partial). Return true if the pattern matches the entire string, false otherwise.",
-          "pattern": "2-D Dynamic Programming",
-          "has_solution": true,
-          "algorithmHint": "Define state, find recurrence relation, handle base cases.",
-          "difficultyReason": "Multiple advanced techniques, complex state management, many edge cases.",
-          "relatedProblems": [
-            "triangle",
-            "min-cost-climbing-stairs",
-            "house-robber-ii"
+            "coin-change",
+            "house-robber",
+            "decode-ways"
           ]
         }
       ]
     },
     {
       "name": "Greedy",
-      "icon": "📝",
+      "icon": "\ud83d\udcdd",
       "problems": [
         {
           "title": "Hand of Straights",
