@@ -1,5 +1,5 @@
 {
-    "name": "leetcode-visual-backend",
+    "name": "@codenium/backend",
     "version": "1.0.0",
     "description": "Node.js Express backend for LeetCode Visual",
     "main": "dist/index.js",
