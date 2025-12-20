@@ -2,8 +2,8 @@
 
 A next-generation platform for visualizing algorithms and data structures. Built with high-performance visualization engines and a vast library of interactive content.
 
-![Demo Video](assets/demo.webp)
-*Interactive Visualization Demo*
+![Walkthrough Demo](.agent/walkthrough_final.webp)
+*Interactive Walkthrough: Unified Filter System & Responsive Design*
 
 ## 🌟 Key Features
 
@@ -12,10 +12,10 @@ A next-generation platform for visualizing algorithms and data structures. Built
 - **100% Enhanced**: Every single problem features detailed, step-by-step animations.
 - **Interactive**: Scrub, replay, and speed control for every visualization.
 
-### 2. **Structured Learning Paths** 🧠
-- **Pattern-Based Progression**: Problems are linked by pattern (e.g., *Two Pointers*).
+### 2. **Unified Filter System** 🔍
+- **Consistent UX**: A streamlined, collapsible filter menu works identically across all devices.
+- **Pattern-Based Progression**: Easily filter problems by pattern (e.g., *Two Pointers*, *Sliding Window*).
 - **Difficulty Ladders**: Master concepts by progressing from **Easy** -> **Medium** -> **Hard**.
-- **Next Question Guided Flow**: The UI suggests the next logical problem to solve.
 
 ### 3. **Cognitive & Accessibility Tools** 🎤
 - **Voiceover Mode**: Text-to-Speech narration of the problem intuition.
@@ -25,81 +25,106 @@ A next-generation platform for visualizing algorithms and data structures. Built
 ### 4. **High-Performance Architecture**
 - **Trie-Based Search Engine**: Instant fuzzy search with **O(L)** complexity and memoization.
 - **SmartVisualizer™ Engine**: Unified rendering for Arrays, Matrices, Trees, and Graphs.
-  - **Dynamic State Panel**: Real-time tracking of variable values (i, j, left, right).
+- **Dynamic State Panel**: Real-time tracking of variable values (i, j, left, right).
 
-![Screenshot](assets/screen.png)
-*Graph Visualization Example*
+## 🎨 Design & Experience
+
+### Premium Light & Dark Modes
+The platform features a fully responsive design with native Light and Dark mode support, now enhanced with a unified toolset.
+
+| Light Mode (Desktop) | Filters Open (Dashboard) |
+|------------|-----------|
+| ![Light Mode](.agent/desktop_light.png) | ![Filters Open](.agent/desktop_filter_view.png) |
+
+### Mobile Responsiveness
+Optimized for all devices. The filter system adapts its layout while maintaining full functionality on smaller screens.
+
+![Mobile Filter](.agent/mobile_filter_view.png)
 
 ## 🏗️ Architecture Overview
 
-The system follows a clean **MVVM (Model-View-ViewModel)** architecture with a focus on static data performance.
+The system follows a Hexagonal Architecture pattern, separating the core domain logic from the driving (UI/API) and driven (AI/DB) adapters.
 
 ```mermaid
 graph TD
-    User[User] -->|Search/Filter| ViewModel[useProblems ViewModel]
-    ViewModel -->|Query| Trie[SearchEngine (Trie + Cache)]
-    ViewModel -->|Data| App[App Component]
-    
-    App -->|Select Problem| SolutionModal[Solution Modal]
-    SolutionModal -->|Navigation| NextProblem[Next Question Logic]
-    SolutionModal -->|Voice| Speech[Web Speech API]
-    
-    SolutionModal -->|Render| SmartViz[SmartVisualizer Component]
-    SmartViz -->|Render| MatrixViz[Matrix Visualizer]
-    SmartViz -->|Render| GraphViz[Graph Visualizer]
-    SmartViz -->|Render| TreeViz[Tree Visualizer]
-    
-    Data[Solutions.json] -->|Load| ViewModel
-    Data -->|Index| Trie
+    subgraph Frontend [React PWA (Port 3000)]
+        User[User] -->|Interact| View[UI Components]
+        View -->|Query| ViewModel[ViewModels (MVVM)]
+        
+        ViewModel -->|Fast Search| Trie[Local Search Engine]
+        ViewModel -->|Data fetch| APIClient[API Client]
+    end
+
+    subgraph Backend [Node.js Express (Port 3001)]
+        APIClient -->|REST| Controller[API Controllers]
+        
+        Controller -->|Use Case| Service[Problem Service]
+        
+        Service -->|Load| AdapterFS[File Repository Adapter]
+        Service -->|Execute| AdapterExec[Execution Service]
+        Service -->|Inference| AdapterAI[AI Service (OpenAI/Ollama)]
+        
+        AdapterFS --> JSON[(JSON Data Store)]
+        AdapterExec --> Python[Python Runtime]
+        AdapterAI --> LLM[LLM Provider]
+    end
 ```
 
 ### Core Modules
 | Module | Description |
 |--------|-------------|
-| **frontend/src/viewmodels** | Handles business logic, filtering, and state management. |
-| **frontend/src/models** | Data access layer (API wrappers). |
-| **frontend/src/utils/SearchEngine.ts** | Highly optimized Trie implementation for search. |
-| **api/data/** | Static JSON content serving as the database. |
+| **frontend/src/viewmodels** | Handles business logic, filtering, and local state management. |
+| **api/src/application** | Core business rules and service orchestration. |
+| **api/src/adapters** | Interfaces to external systems (File System, AI, Code Execution). |
+| **frontend/src/utils/SearchEngine.ts** | Highly optimized Trie implementation for client-side search. |
+| **api/data/** | Static JSON content serving as the primary database. |
 
 ## 📘 Runbook / Operations
 
-### 1. Setup & Installation
-```bash
-# Install dependencies
-npm install
+### 1. Prerequisites
+- Node.js (v18+)
+- Python 3.9+ (for backend operations)
+- `pip` (Python package manager)
 
-# Start Development Server
+### 2. Setup & Installation
+```bash
+# Install dependencies for both Frontend and Backend
+make install
+```
+
+### 3. Start Development Environment
+This command starts both the React Frontend (Port 3000) and the Node.js Backend (Port 3001) concurrently.
+
+```bash
+# Start Development Server (Full Stack)
+make dev
+# OR equivalently
 ./start.sh
 ```
-Access at `http://localhost:3000`.
 
-### 2. Maintenance Scripts
+**Access Points:**
+- **Frontend App**: `http://localhost:3000`
+- **Backend API**: `http://localhost:3001`
+
+### 4. Maintenance Scripts
 The `scripts/` directory contains tools to manage the 250+ problem dataset.
 
 | Script | Purpose | Run Command |
 |--------|---------|-------------|
-| **validate-all-data.js** | Audits dataset integrity (missing fields, broken links). | `node scripts/validate-all-data.js` |
-| **inject-mental-models.js** | Injects analogies into solutions based on patterns. | `node scripts/inject-mental-models.js` |
+| **validate-all-data.js** | Audits dataset integrity (missing fields, broken links). | `make test` |
 | **generate-learning-paths.js** | Links problems (Easy->Hard) and generates 'Suggested Next'. | `node scripts/generate-learning-paths.js` |
-| **sync-difficulty.js** | Syncs difficulty ratings between listing and details. | `node scripts/sync-difficulty.js` |
-
-### 3. Adding New Content
-1. Add entry to `api/data/problems.json`.
-2. Add detailed solution to `api/data/solutions.json`.
-3. Run `node scripts/generate-learning-paths.js` to link it into the graph.
-4. Run `node scripts/validate-all-data.js` to ensure quality.
 
 ## 🧪 Tech Stack
 
-- **Frontend**: React 18, TypeScript, Vite
-- **Styling**: TailwindCSS (Dark/Light Mode)
-- **State**: MVVM Hooks + React Context
-- **Visualization**: Custom SVG/HTML5 renderers (No heavy canvas libs)
-- **Data**: JSON-based static content (Pre-computed steps for performance)
+- **Frontend**: React 18, TypeScript, Vite, TailwindCSS
+- **Backend**: Node.js, Express, TypeScript
+- **Architecture**: Hexagonal (Ports & Adapters)
+- **AI Integration**: OpenAI / Ollama (Pluggable Adapter)
+- **Data**: JSON-based static content + Runtime In-Memory Cache
 
 ## ✅ Validation Status
 
 - **Build**: Passing (Vite Prod Build)
 - **Coverage**: 252/252 Solutions Enhanced
 - **Mental Models**: 100% Saturation (252/252)
-- **Features**: Voiceover, Search, Learning Paths Verified.
+- **Features**: Unified Filter, Search, Learning Paths Verified.

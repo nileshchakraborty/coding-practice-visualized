@@ -10,7 +10,7 @@ import SolutionModal from './components/SolutionModal';
 import { ThemeToggle } from './components/ThemeToggle';
 import { LoginButton } from './components/LoginButton';
 import CodeniumLogo from './assets/logo.svg';
-import { Search, Zap, X } from 'lucide-react';
+import { Search, Filter, ChevronUp, ChevronDown, Check, Zap } from 'lucide-react';
 
 function App() {
   // ViewModels
@@ -21,6 +21,7 @@ function App() {
   const [selectedSlug, setSelectedSlug] = useState<string | null>(null);
   const [selectedSolution, setSelectedSolution] = useState<Solution | null>(null);
   const [loadingSlug, setLoadingSlug] = useState<string | null>(null);
+  const [showMobileFilters, setShowMobileFilters] = useState(false);
 
   // Local filter state for subtopic - now supports multiple selection
   const [selectedSubTopics, setSelectedSubTopics] = useState<Set<string>>(new Set());
@@ -264,43 +265,60 @@ function App() {
             </div>
           </div>
 
-          {/* Subtopic Filter - Clean inline design with word wrap */}
+          {/* Subtopic Filter */}
           {allSubTopics.length > 0 && (
-            <div className="flex flex-wrap items-center gap-2">
-              {/* Reset Button - Minimal, inline with separator */}
+            <div className="relative z-20">
               <button
-                onClick={resetSubTopicFilters}
-                disabled={selectedSubTopics.size === 0}
-                className={`flex items-center gap-1 text-xs font-medium transition-all ${selectedSubTopics.size > 0
-                  ? 'text-rose-600 dark:text-rose-400 hover:text-rose-700 dark:hover:text-rose-300 cursor-pointer'
-                  : 'text-slate-300 dark:text-slate-600 cursor-not-allowed'
+                onClick={() => setShowMobileFilters(!showMobileFilters)}
+                className={`w-full flex items-center justify-between px-4 py-3 rounded-xl border transition-all ${showMobileFilters || selectedSubTopics.size > 0
+                  ? 'bg-indigo-50 dark:bg-indigo-500/10 border-indigo-200 dark:border-indigo-500/30 text-indigo-700 dark:text-indigo-300'
+                  : 'bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300'
                   }`}
               >
-                <X size={14} strokeWidth={2.5} />
-                <span>Reset</span>
-                {selectedSubTopics.size > 0 && (
-                  <span className="ml-0.5 bg-rose-500/20 text-rose-600 dark:text-rose-400 px-1.5 py-0.5 rounded text-[10px] font-bold">
-                    {selectedSubTopics.size}
-                  </span>
-                )}
+                <div className="flex items-center gap-2">
+                  <Filter size={18} />
+                  <span className="font-medium text-sm">Filter Topics</span>
+                  {selectedSubTopics.size > 0 && (
+                    <span className="bg-indigo-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">
+                      {selectedSubTopics.size}
+                    </span>
+                  )}
+                </div>
+                {showMobileFilters ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
               </button>
 
-              {/* Separator */}
-              <div className="h-4 w-px bg-slate-300 dark:bg-slate-700" />
-
-              {/* Subtopic Pills - Wrapped */}
-              {allSubTopics.map(st => (
-                <button
-                  key={st}
-                  onClick={() => toggleSubTopic(st)}
-                  className={`px-2.5 py-1 rounded-md text-xs font-medium transition-all ${selectedSubTopics.has(st)
-                    ? 'bg-indigo-500 text-white shadow-sm'
-                    : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700'
-                    }`}
-                >
-                  {st}
-                </button>
-              ))}
+              {/* Filter Dropdown */}
+              <div className={`mt-2 w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl shadow-xl overflow-hidden transition-all duration-300 origin-top ${showMobileFilters ? 'max-h-[500px] opacity-100 scale-100' : 'max-h-0 opacity-0 scale-95 border-none'
+                }`}>
+                <div className="p-4 bg-slate-50/50 dark:bg-slate-900/50">
+                  <div className="flex items-center justify-between mb-3">
+                    <span className="text-xs font-bold uppercase text-slate-500 tracking-wider">Select Patterns</span>
+                    {selectedSubTopics.size > 0 && (
+                      <button
+                        onClick={resetSubTopicFilters}
+                        className="text-xs text-rose-500 font-semibold hover:text-rose-600 flex items-center gap-1"
+                      >
+                        Reset All
+                      </button>
+                    )}
+                  </div>
+                  <div className="flex flex-wrap gap-2">
+                    {allSubTopics.map(st => (
+                      <button
+                        key={st}
+                        onClick={() => toggleSubTopic(st)}
+                        className={`flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium transition-all border ${selectedSubTopics.has(st)
+                          ? 'bg-indigo-500 border-indigo-500 text-white shadow-md'
+                          : 'bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 hover:border-indigo-300 dark:hover:border-indigo-700'
+                          }`}
+                      >
+                        {st}
+                        {selectedSubTopics.has(st) && <Check size={14} className="opacity-75" />}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              </div>
             </div>
           )}
         </div>
