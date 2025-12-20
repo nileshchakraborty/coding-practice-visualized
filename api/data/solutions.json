@@ -7000,7 +7000,8 @@
           "indices": [
             0
           ],
-          "color": "accent"
+          "color": "accent",
+          "transientMessage": "Updating index 0."
         },
         {
           "step": 2,
@@ -7016,7 +7017,8 @@
           "indices": [
             1
           ],
-          "color": "accent"
+          "color": "accent",
+          "transientMessage": "Updating index 1."
         },
         {
           "step": 3,
@@ -7032,7 +7034,8 @@
           "indices": [
             2
           ],
-          "color": "accent"
+          "color": "accent",
+          "transientMessage": "Updating index 2."
         }
       ],
       "description": "Implement the RandomizedSet class: RandomizedSet() Initializes the object. bool insert(int val) Inserts an item val if not present. Returns true if not present, false otherwise. bool remove(int val) Removes an item val if present. Returns true if present, false otherwise. int getRandom() Returns a random element from the current set. Each element must have the same probability of being returned.",
@@ -7140,7 +7143,8 @@
           "indices": [
             0
           ],
-          "color": "accent"
+          "color": "accent",
+          "transientMessage": "Updating index 0."
         },
         {
           "step": 2,
@@ -7157,7 +7161,8 @@
           "indices": [
             1
           ],
-          "color": "accent"
+          "color": "accent",
+          "transientMessage": "Updating index 1."
         },
         {
           "step": 3,
@@ -7174,7 +7179,8 @@
           "indices": [
             2
           ],
-          "color": "accent"
+          "color": "accent",
+          "transientMessage": "Updating index 2."
         }
       ],
       "description": "Given the array nums, for each nums[i] find out how many numbers in the array are smaller than it. That is, for each nums[i] you have to count the number of valid j's such that j != i and nums[j] < nums[i].",
@@ -7859,7 +7865,8 @@
           "indices": [
             0
           ],
-          "color": "accent"
+          "color": "accent",
+          "transientMessage": "Updating index 0."
         },
         {
           "step": 2,
@@ -7890,7 +7897,8 @@
           "indices": [
             1
           ],
-          "color": "accent"
+          "color": "accent",
+          "transientMessage": "Updating index 1."
         },
         {
           "step": 3,
@@ -7921,7 +7929,8 @@
           "indices": [
             2
           ],
-          "color": "accent"
+          "color": "accent",
+          "transientMessage": "Updating index 2."
         }
       ],
       "description": "Given a string s representing a valid expression, implement a basic calculator to evaluate it, and return the result of the evaluation. Note: You are not allowed to use any built-in function which evaluates strings as mathematical expressions.",
@@ -13604,7 +13613,8 @@
           "indices": [
             0
           ],
-          "color": "accent"
+          "color": "accent",
+          "transientMessage": "Checking if value fits current symbol..."
         },
         {
           "step": 2,
@@ -13620,7 +13630,8 @@
           "indices": [
             1
           ],
-          "color": "accent"
+          "color": "accent",
+          "transientMessage": "Checking if value fits current symbol..."
         },
         {
           "step": 3,
@@ -13636,7 +13647,8 @@
           "indices": [
             2
           ],
-          "color": "accent"
+          "color": "accent",
+          "transientMessage": "Checking if value fits current symbol..."
         }
       ],
       "description": "Greedily subtract largest possible value and append symbol.\n\nConvert integer to Roman numeral.\nUse a list of (value, symbol) pairs in descending order.",
@@ -14242,7 +14254,8 @@
           "indices": [
             0
           ],
-          "color": "accent"
+          "color": "accent",
+          "transientMessage": "Placing character at current grid position."
         },
         {
           "step": 2,
@@ -14268,7 +14281,8 @@
           "indices": [
             1
           ],
-          "color": "accent"
+          "color": "accent",
+          "transientMessage": "Placing character at current grid position."
         },
         {
           "step": 3,
@@ -14294,7 +14308,8 @@
           "indices": [
             2
           ],
-          "color": "accent"
+          "color": "accent",
+          "transientMessage": "Placing character at current grid position."
         }
       ],
       "description": "Use row index and direction flag. Toggle direction at bounds.\n\nWrite string in zigzag pattern, read row by row.\nTrack current row, direction (up/down).",
@@ -14400,7 +14415,8 @@
           "indices": [
             0
           ],
-          "color": "accent"
+          "color": "accent",
+          "transientMessage": "Updating index 0."
         },
         {
           "step": 2,
@@ -14421,7 +14437,8 @@
           "indices": [
             1
           ],
-          "color": "accent"
+          "color": "accent",
+          "transientMessage": "Updating index 1."
         },
         {
           "step": 3,
@@ -14442,7 +14459,8 @@
           "indices": [
             2
           ],
-          "color": "accent"
+          "color": "accent",
+          "transientMessage": "Updating index 2."
         }
       ],
       "description": "Slide needle over haystack, check for match.\n\nFind first occurrence of needle in haystack.\nSimple: check each starting position.",
@@ -14552,7 +14570,8 @@
           "indices": [
             0
           ],
-          "color": "accent"
+          "color": "accent",
+          "transientMessage": "Updating index 0."
         },
         {
           "step": 2,
@@ -14568,7 +14587,8 @@
           "indices": [
             1
           ],
-          "color": "accent"
+          "color": "accent",
+          "transientMessage": "Updating index 1."
         },
         {
           "step": 3,
@@ -14584,7 +14604,8 @@
           "indices": [
             2
           ],
-          "color": "accent"
+          "color": "accent",
+          "transientMessage": "Updating index 2."
         }
       ],
       "description": "Greedily pack words, distribute spaces evenly. Left-justify last line.\n\nFully justify text to maxWidth.\nPack as many words as fit, distribute extra spaces.",
@@ -14694,7 +14715,8 @@
           "indices": [
             0
           ],
-          "color": "accent"
+          "color": "accent",
+          "transientMessage": "Updating index 0."
         },
         {
           "step": 2,
@@ -14714,7 +14736,8 @@
           "indices": [
             1
           ],
-          "color": "accent"
+          "color": "accent",
+          "transientMessage": "Updating index 1."
         },
         {
           "step": 3,
@@ -14734,7 +14757,8 @@
           "indices": [
             2
           ],
-          "color": "accent"
+          "color": "accent",
+          "transientMessage": "Updating index 2."
         }
       ],
       "description": "Mark visited indices negative. Return indices still positive.\n\nFind numbers 1..n missing from array.\nUse indices as markers: negate nums[nums[i]-1].",
@@ -15055,7 +15079,8 @@
           "indices": [
             0
           ],
-          "color": "accent"
+          "color": "accent",
+          "transientMessage": "Updating index 0."
         },
         {
           "step": 2,
@@ -15071,7 +15096,8 @@
           "indices": [
             1
           ],
-          "color": "accent"
+          "color": "accent",
+          "transientMessage": "Updating index 1."
         },
         {
           "step": 3,
@@ -15087,7 +15113,8 @@
           "indices": [
             2
           ],
-          "color": "accent"
+          "color": "accent",
+          "transientMessage": "Updating index 2."
         }
       ],
       "description": "Left and right pointers. Move left up if sum too small, right down if too big.\n\nFind two numbers that add up to target (1-indexed).\nSince sorted, use two pointers from ends.",
@@ -15605,7 +15632,8 @@
           "indices": [
             0
           ],
-          "color": "accent"
+          "color": "accent",
+          "transientMessage": "Updating index 0."
         },
         {
           "step": 2,
@@ -15622,7 +15650,8 @@
           "indices": [
             1
           ],
-          "color": "accent"
+          "color": "accent",
+          "transientMessage": "Updating index 1."
         },
         {
           "step": 3,
@@ -15639,7 +15668,8 @@
           "indices": [
             2
           ],
-          "color": "accent"
+          "color": "accent",
+          "transientMessage": "Updating index 2."
         }
       ],
       "description": "Compare absolute values at ends, place larger square at end of result.\n\nSquare each element, return sorted array.\nLargest squares at ends (negative or positive).",
@@ -15751,7 +15781,8 @@
           "indices": [
             0
           ],
-          "color": "accent"
+          "color": "accent",
+          "transientMessage": "Updating index 0."
         },
         {
           "step": 2,
@@ -15770,7 +15801,8 @@
           "indices": [
             1
           ],
-          "color": "accent"
+          "color": "accent",
+          "transientMessage": "Updating index 1."
         },
         {
           "step": 3,
@@ -15789,7 +15821,8 @@
           "indices": [
             2
           ],
-          "color": "accent"
+          "color": "accent",
+          "transientMessage": "Updating index 2."
         }
       ],
       "description": "Find peak, expand left (strictly decreasing), expand right (strictly decreasing).\n\nFind longest mountain subarray (up then down).\nAt each peak, extend left and right.",
@@ -15905,7 +15938,8 @@
           "indices": [
             5
           ],
-          "color": "accent"
+          "color": "accent",
+          "transientMessage": "Updating index 5."
         },
         {
           "step": 2,
@@ -15924,7 +15958,8 @@
           "indices": [
             3
           ],
-          "color": "accent"
+          "color": "accent",
+          "transientMessage": "Updating index 3."
         },
         {
           "step": 3,
@@ -15943,7 +15978,8 @@
           "indices": [
             6
           ],
-          "color": "accent"
+          "color": "accent",
+          "transientMessage": "Updating index 6."
         }
       ],
       "description": "Find node, replace with successor (leftmost in right subtree).\n\nDelete node with given key from BST.\nThree cases: leaf, one child, two children.",
@@ -16051,7 +16087,8 @@
           "indices": [
             4
           ],
-          "color": "accent"
+          "color": "accent",
+          "transientMessage": "Updating index 4."
         },
         {
           "step": 2,
@@ -16068,7 +16105,8 @@
           "indices": [
             2
           ],
-          "color": "accent"
+          "color": "accent",
+          "transientMessage": "Updating index 2."
         },
         {
           "step": 3,
@@ -16085,7 +16123,8 @@
           "indices": [
             7
           ],
-          "color": "accent"
+          "color": "accent",
+          "transientMessage": "Updating index 7."
         }
       ],
       "description": "Navigate BST, insert at null position.\n\nInsert value into BST maintaining property.\nGo left if val < root, right otherwise.",
@@ -16198,7 +16237,8 @@
             0,
             0
           ],
-          "color": "accent"
+          "color": "accent",
+          "transientMessage": "Updating index 0, 0."
         },
         {
           "step": 2,
@@ -16225,7 +16265,8 @@
             1,
             2
           ],
-          "color": "accent"
+          "color": "accent",
+          "transientMessage": "Updating index 1, 2."
         },
         {
           "step": 3,
@@ -16252,7 +16293,8 @@
             2,
             3
           ],
-          "color": "accent"
+          "color": "accent",
+          "transientMessage": "Updating index 2, 3."
         }
       ],
       "description": "Find middle, reverse second half, compare.\n\nCheck if linked list is a palindrome.\nFast/slow to find middle, reverse second half.",
@@ -16360,7 +16402,8 @@
           "indices": [
             0
           ],
-          "color": "accent"
+          "color": "accent",
+          "transientMessage": "Updating index 0."
         },
         {
           "step": 2,
@@ -16377,7 +16420,8 @@
           "indices": [
             1
           ],
-          "color": "accent"
+          "color": "accent",
+          "transientMessage": "Updating index 1."
         },
         {
           "step": 3,
@@ -16394,7 +16438,8 @@
           "indices": [
             2
           ],
-          "color": "accent"
+          "color": "accent",
+          "transientMessage": "Updating index 2."
         }
       ],
       "description": "Use stack to reverse first k, then cycle remaining elements.\n\nReverse first k elements of a queue.\nPop k to stack, push back, cycle n-k elements.",
@@ -22558,7 +22603,8 @@
           "indices": [
             6
           ],
-          "color": "accent"
+          "color": "accent",
+          "transientMessage": "Updating index 6."
         },
         {
           "step": 2,
@@ -22576,7 +22622,8 @@
           "indices": [
             2
           ],
-          "color": "accent"
+          "color": "accent",
+          "transientMessage": "Updating index 2."
         },
         {
           "step": 3,
@@ -22594,7 +22641,8 @@
           "indices": [
             8
           ],
-          "color": "accent"
+          "color": "accent",
+          "transientMessage": "Updating index 8."
         }
       ],
       "description": "If both p,q < node, go left. If both > node, go right. Else LCA.\n\nFind LCA in BST (not general tree).\nUse BST property: p < node < q means split.",
@@ -23110,7 +23158,8 @@
               "b",
               "c"
             ]
-          ]
+          ],
+          "transientMessage": "Proceeding to next logical step."
         },
         {
           "step": 2,
@@ -23125,7 +23174,8 @@
               "b",
               "c"
             ]
-          ]
+          ],
+          "transientMessage": "Proceeding to next logical step."
         },
         {
           "step": 3,
@@ -23140,7 +23190,8 @@
               "b",
               "c"
             ]
-          ]
+          ],
+          "transientMessage": "Proceeding to next logical step."
         }
       ],
       "description": "Build graph of ratios. DFS/BFS to find path and multiply.\n\nEvaluate queries given equations with values.\nBuild weighted graph: a/b = k means edge a->b with weight k.",
@@ -23549,7 +23600,8 @@
             1,
             2,
             3
-          ]
+          ],
+          "transientMessage": "Proceeding to next logical step."
         },
         {
           "step": 2,
@@ -23560,7 +23612,8 @@
             1,
             2,
             3
-          ]
+          ],
+          "transientMessage": "Proceeding to next logical step."
         },
         {
           "step": 3,
@@ -23571,7 +23624,8 @@
             1,
             2,
             3
-          ]
+          ],
+          "transientMessage": "Proceeding to next logical step."
         }
       ],
       "description": "Modified Bellman-Ford: k+1 iterations. Or BFS with level tracking.\n\nCheapest flight with at most k stops.\nBellman-Ford with k+1 relaxations.",
@@ -23656,7 +23710,8 @@
               "36",
               "25"
             ]
-          ]
+          ],
+          "transientMessage": "Proceeding to next logical step."
         },
         {
           "step": 2,
@@ -23671,7 +23726,8 @@
               "36",
               "25"
             ]
-          ]
+          ],
+          "transientMessage": "Proceeding to next logical step."
         },
         {
           "step": 3,
@@ -23686,7 +23742,8 @@
               "36",
               "25"
             ]
-          ]
+          ],
+          "transientMessage": "Proceeding to next logical step."
         }
       ],
       "description": "BFS from square 1. Follow snakes/ladders. Min moves to n².\n\nMin dice rolls to reach last square.\nBFS level = number of moves.",
@@ -24498,7 +24555,8 @@
           "indices": [
             1
           ],
-          "color": "accent"
+          "color": "accent",
+          "transientMessage": "Updating index 1."
         },
         {
           "step": 2,
@@ -24513,7 +24571,8 @@
           "indices": [
             2
           ],
-          "color": "accent"
+          "color": "accent",
+          "transientMessage": "Updating index 2."
         },
         {
           "step": 3,
@@ -24528,7 +24587,8 @@
           "indices": [
             3
           ],
-          "color": "accent"
+          "color": "accent",
+          "transientMessage": "Updating index 3."
         }
       ],
       "description": "Backtrack choosing k elements from 1 to n.\n\nAll combinations of k numbers from 1 to n.\nBacktrack: pick or skip each number.",
@@ -32526,7 +32586,8 @@
             "r",
             "s",
             "e"
-          ]
+          ],
+          "transientMessage": "Proceeding to next logical step."
         },
         {
           "step": 2,
@@ -32538,7 +32599,8 @@
             "r",
             "s",
             "e"
-          ]
+          ],
+          "transientMessage": "Proceeding to next logical step."
         },
         {
           "step": 3,
@@ -32550,7 +32612,8 @@
             "r",
             "s",
             "e"
-          ]
+          ],
+          "transientMessage": "Proceeding to next logical step."
         }
       ],
       "description": "dp[i][j] = min(insert, delete, replace) + 1.\n\nMin operations to convert word1 to word2.\nThree operations: insert, delete, replace.",
@@ -35874,17 +35937,20 @@
         {
           "step": 1,
           "description": "Initialize",
-          "action": "init"
+          "action": "init",
+          "transientMessage": "Proceeding to next logical step."
         },
         {
           "step": 2,
           "description": "Process",
-          "action": "process"
+          "action": "process",
+          "transientMessage": "Proceeding to next logical step."
         },
         {
           "step": 3,
           "description": "Return result",
-          "action": "result"
+          "action": "result",
+          "transientMessage": "Proceeding to next logical step."
         }
       ],
       "description": "dp[i][j] = dp[i-1][j] + dp[i][j-1]. Or use combinatorics.\n\nCount paths from top-left to bottom-right.\nCan only move right or down.",
@@ -36002,7 +36068,8 @@
             0,
             -1
           ],
-          "color": "accent"
+          "color": "accent",
+          "transientMessage": "Updating index 0, -1."
         },
         {
           "step": 2,
@@ -36022,7 +36089,8 @@
             0,
             -1
           ],
-          "color": "accent"
+          "color": "accent",
+          "transientMessage": "Updating index 0, -1."
         },
         {
           "step": 3,
@@ -36042,7 +36110,8 @@
             0,
             -1
           ],
-          "color": "accent"
+          "color": "accent",
+          "transientMessage": "Updating index 0, -1."
         }
       ],
       "approach": "Hash Map + Doubly Linked List: Use a hashmap for O(1) lookup and a doubly-linked list for O(1) eviction ordering."
@@ -36113,7 +36182,8 @@
           "indices": [
             0
           ],
-          "color": "accent"
+          "color": "accent",
+          "transientMessage": "Updating index 0."
         },
         {
           "step": 2,
@@ -36122,7 +36192,8 @@
           "indices": [
             1
           ],
-          "color": "accent"
+          "color": "accent",
+          "transientMessage": "Updating index 1."
         },
         {
           "step": 3,
@@ -36131,7 +36202,8 @@
           "indices": [
             2
           ],
-          "color": "accent"
+          "color": "accent",
+          "transientMessage": "Updating index 2."
         }
       ],
       "approach": "Trie: Implement a trie with insert, search, and startsWith methods."
@@ -36203,7 +36275,8 @@
           "indices": [
             0
           ],
-          "color": "accent"
+          "color": "accent",
+          "transientMessage": "Updating index 0."
         },
         {
           "step": 2,
@@ -36212,7 +36285,8 @@
           "indices": [
             1
           ],
-          "color": "accent"
+          "color": "accent",
+          "transientMessage": "Updating index 1."
         },
         {
           "step": 3,
@@ -36221,7 +36295,8 @@
           "indices": [
             2
           ],
-          "color": "accent"
+          "color": "accent",
+          "transientMessage": "Updating index 2."
         }
       ],
       "approach": "Trie: Design a data structure that supports adding words and searching with '.' wildcard."
@@ -36293,7 +36368,8 @@
           "indices": [
             0
           ],
-          "color": "accent"
+          "color": "accent",
+          "transientMessage": "Updating index 0."
         },
         {
           "step": 2,
@@ -36302,7 +36378,8 @@
           "indices": [
             1
           ],
-          "color": "accent"
+          "color": "accent",
+          "transientMessage": "Updating index 1."
         },
         {
           "step": 3,
@@ -36311,7 +36388,8 @@
           "indices": [
             2
           ],
-          "color": "accent"
+          "color": "accent",
+          "transientMessage": "Updating index 2."
         }
       ],
       "approach": "Backtracking: Find all words from a dictionary that can be formed by adjacent cells in a grid."
@@ -36383,7 +36461,8 @@
           "indices": [
             0
           ],
-          "color": "accent"
+          "color": "accent",
+          "transientMessage": "Updating index 0."
         },
         {
           "step": 2,
@@ -36392,7 +36471,8 @@
           "indices": [
             1
           ],
-          "color": "accent"
+          "color": "accent",
+          "transientMessage": "Updating index 1."
         },
         {
           "step": 3,
@@ -36401,7 +36481,8 @@
           "indices": [
             2
           ],
-          "color": "accent"
+          "color": "accent",
+          "transientMessage": "Updating index 2."
         }
       ],
       "approach": "Tree: Implement an iterator over a BST that returns nodes in ascending order."
@@ -38821,7 +38902,8 @@
           "indices": [
             6
           ],
-          "color": "accent"
+          "color": "accent",
+          "transientMessage": "Updating index 6."
         },
         {
           "step": 2,
@@ -38843,7 +38925,8 @@
           "indices": [
             2
           ],
-          "color": "accent"
+          "color": "accent",
+          "transientMessage": "Updating index 2."
         },
         {
           "step": 3,
@@ -38865,7 +38948,8 @@
           "indices": [
             8
           ],
-          "color": "accent"
+          "color": "accent",
+          "transientMessage": "Updating index 8."
         }
       ],
       "code": "def lowestCommonAncestor(root, p, q):\n    while root:\n        if p.val < root.val and q.val < root.val:\n            root = root.left\n        elif p.val > root.val and q.val > root.val:\n            root = root.right\n        else:\n            return root\n    return None",
