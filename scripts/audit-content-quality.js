@@ -1,100 +1,93 @@
-/**
- * Audit Content Quality Script
- * Scans all solutions to score them on "Ease of Understanding".
- * Metrics:
- * - Intuition Depth (Length of intuition array)
- * - Conceptual Clarity (Presence of oneliner, keyInsight)
- * - Visual Narrative (Avg transientMessage length, Step count)
- * - Completeness (Missing fields)
- */
-
 const fs = require('fs');
 const path = require('path');
 
-const PROBLEMS_PATH = path.join(__dirname, '../api/data/problems.json');
 const SOLUTIONS_PATH = path.join(__dirname, '../api/data/solutions.json');
 
 function main() {
-    console.log("Loading data...");
-    const problems = JSON.parse(fs.readFileSync(PROBLEMS_PATH, 'utf8'));
-    const solutions = JSON.parse(fs.readFileSync(SOLUTIONS_PATH, 'utf8')).solutions;
+    console.log("=== Content Quality Audit ===\n");
+    const data = JSON.parse(fs.readFileSync(SOLUTIONS_PATH, 'utf8'));
 
-    let report = {
-        total: 0,
-        weakIntuition: [], // < 2 items
+    const issues = {
+        missingOneliner: [],
+        shortOneliner: [],
+        missingIntuition: [],
+        shortIntuition: [],
         missingKeyInsight: [],
-        shortWalkthrough: [], // < 3 steps
-        lowVisualNarrative: [], // Steps have empty messages
-        byCategory: {}
+        missingDescription: [],
+        shortDescription: [],
+        missingExamples: [],
+        missingConstraints: [],
+        missingHints: [],
+        missingMentalModel: [],
+        placeholderText: [],
+        missingTestCases: [],
+        emptyApproachIntuition: []
     };
 
-    problems.categories.forEach(cat => {
-        if (!report.byCategory[cat.name]) {
-            report.byCategory[cat.name] = { total: 0, weakCount: 0 };
+    Object.entries(data.solutions).forEach(([slug, sol]) => {
+        // Oneliner
+        if (!sol.oneliner) issues.missingOneliner.push(slug);
+        else if (sol.oneliner.length < 20) issues.shortOneliner.push({ slug, len: sol.oneliner.length });
+
+        // Intuition
+        if (!sol.intuition || sol.intuition.length === 0) issues.missingIntuition.push(slug);
+        else if (sol.intuition.length < 2) issues.shortIntuition.push({ slug, count: sol.intuition.length });
+
+        // Key Insight
+        if (!sol.keyInsight || sol.keyInsight.length < 10) issues.missingKeyInsight.push(slug);
+
+        // Description
+        if (!sol.description && !sol.problemStatement) issues.missingDescription.push(slug);
+        else if ((sol.description || sol.problemStatement || '').length < 50) issues.shortDescription.push(slug);
+
+        // Examples
+        if (!sol.examples || sol.examples.length === 0) issues.missingExamples.push(slug);
+
+        // Constraints
+        if (!sol.constraints || sol.constraints.length === 0) issues.missingConstraints.push(slug);
+
+        // Hints
+        if (!sol.hints || sol.hints.length === 0) issues.missingHints.push(slug);
+
+        // Mental Model
+        if (!sol.mentalModel) issues.missingMentalModel.push(slug);
+
+        // Test Cases
+        if (!sol.testCases || sol.testCases.length === 0) issues.missingTestCases.push(slug);
+
+        // Placeholder text
+        const allText = JSON.stringify(sol).toLowerCase();
+        if (allText.includes('todo') || allText.includes('coming soon') || allText.includes('placeholder')) {
+            issues.placeholderText.push(slug);
         }
 
-        cat.problems.forEach(p => {
-            report.total++;
-            report.byCategory[cat.name].total++;
-
-            const sol = solutions[p.slug];
-            if (!sol) return;
-
-            // 1. Intuition Check
-            if (!sol.intuition || sol.intuition.length < 2) {
-                report.weakIntuition.push({ slug: p.slug, title: p.title, count: sol.intuition?.length || 0 });
-            }
-
-            // 2. Key Insight Check
-            if (!sol.keyInsight || sol.keyInsight.length < 10) {
-                report.missingKeyInsight.push({ slug: p.slug, title: p.title });
-            }
-
-            // 3. Walkthrough Check
-            if (!sol.walkthrough || sol.walkthrough.length < 3) {
-                report.shortWalkthrough.push({ slug: p.slug, title: p.title });
-            }
-
-            // 4. Visual Narrative Check (Transient Messages)
-            if (sol.animationSteps) {
-                const messageCount = sol.animationSteps.filter(s => s.transientMessage && s.transientMessage.length > 5).length;
-                const ratio = messageCount / sol.animationSteps.length;
-                if (ratio < 0.5) {
-                    report.lowVisualNarrative.push({ slug: p.slug, title: p.title, ratio: ratio.toFixed(2) });
+        // Approach intuition check
+        if (sol.approaches) {
+            sol.approaches.forEach((app, i) => {
+                if (!app.intuition || app.intuition.length === 0) {
+                    issues.emptyApproachIntuition.push(`${slug}:${app.name}`);
                 }
+            });
+        }
+    });
+
+    // Report
+    console.log("📊 QUALITY AUDIT RESULTS\n");
+
+    Object.entries(issues).forEach(([key, arr]) => {
+        if (arr.length > 0) {
+            console.log(`[${key}]: ${arr.length} issues`);
+            if (arr.length <= 5) {
+                arr.forEach(item => console.log(`  - ${typeof item === 'string' ? item : JSON.stringify(item)}`));
+            } else {
+                arr.slice(0, 3).forEach(item => console.log(`  - ${typeof item === 'string' ? item : JSON.stringify(item)}`));
+                console.log(`  ... and ${arr.length - 3} more`);
             }
-        });
+        }
     });
 
-    // 5. Aggregate Scores
-    console.log(`\n=== Content Quality Audit (${report.total} Problems) ===`);
-    console.log(`Weak Intuition: ${report.weakIntuition.length} (Needs more analogies/bullets)`);
-    console.log(`Missing Key Insights: ${report.missingKeyInsight.length}`);
-    console.log(`Short/Abstract Walkthroughs: ${report.shortWalkthrough.length}`);
-    console.log(`Low Visual Narrative: ${report.lowVisualNarrative.length} (Visuals lack text explanation)`);
-
-    console.log('\n=== Top Priority Improvements (Weak Intuition + Low Narrative) ===');
-    const priority = report.weakIntuition.filter(w => report.lowVisualNarrative.find(l => l.slug === w.slug));
-    priority.slice(0, 10).forEach(p => console.log(`- [${p.slug}] ${p.title}`));
-
-    console.log('\n=== Category Weakness (Percent of problems with issues) ===');
-    Object.keys(report.byCategory).forEach(cat => {
-        const stats = report.byCategory[cat];
-        // Rough heuristic: count weak intuition as "issue"
-        const weakInCat = report.weakIntuition.filter(w => {
-            // inefficient find, but dataset small
-            // We need category context. 
-            return true; // Simplified for log output
-        }).length;
-        // console.log(`${cat}: ...`); 
-    });
-
-    // Detailed list dump for first 5 of each issue (to avoid massive log)
-    console.log('\n--- Examples of Weak Intuition ---');
-    report.weakIntuition.slice(0, 5).forEach(x => console.log(`  ${x.title}`));
-
-    console.log('\n--- Examples of Low Narrative ---');
-    report.lowVisualNarrative.slice(0, 5).forEach(x => console.log(`  ${x.title}`));
+    const totalIssues = Object.values(issues).reduce((sum, arr) => sum + arr.length, 0);
+    console.log(`\n🎯 Total Issues: ${totalIssues}`);
 }
 
 main();

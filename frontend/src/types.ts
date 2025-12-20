@@ -35,6 +35,15 @@ export interface AnimationStep {
     title?: string; // Legacy support
 }
 
+export interface Approach {
+    name: 'bruteforce' | 'optimal' | 'best';
+    label: string;
+    timeComplexity: string;
+    spaceComplexity: string;
+    intuition: string[];
+    code: string;
+}
+
 export interface Solution {
     title: string;
     pattern: string;
@@ -46,6 +55,8 @@ export interface Solution {
     keyInsight: string;
     mentalModel?: string;
     code: string;
+    initialCode?: string;
+    approaches?: Approach[];
 
     // Smart Visualization
     visualizationType?: 'array' | 'string' | 'matrix' | 'tree' | 'linkedlist' | 'graph' | 'grid';

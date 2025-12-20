@@ -12,7 +12,10 @@
           "subTopic": "Array / String",
           "description": "You are given two integer arrays nums1 and nums2, sorted in non-decreasing order, and two integers m and n, representing the number of elements in nums1 and nums2 respectively.\n\nMerge nums1 and nums2 into a single array sorted in non-decreasing order.\n\nThe final sorted array should not be returned by the function, but instead be stored inside the array nums1. To accommodate this, nums1 has a length of m + n, where the first m elements denote the elements that should be merged, and the last n elements are set to 0 and should be ignored. nums2 has a length of n.",
           "pattern": "Three Pointers (Reverse)",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Consider sorting, two pointers, or hash-based approaches.",
+          "difficultyReason": "Single technique, straightforward logic, minimal edge cases.",
+          "relatedProblems": []
         },
         {
           "title": "Remove Element",
@@ -22,7 +25,14 @@
           "subTopic": "Array / String",
           "description": "Given an integer array nums and an integer val, remove all occurrences of val in nums in-place. The order of the elements may be changed. Then return the number of elements in nums which are not equal to val.",
           "pattern": "Two Pointers",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Use left/right pointers moving toward each other or same direction.",
+          "difficultyReason": "Single technique, straightforward logic, minimal edge cases.",
+          "relatedProblems": [
+            "valid-palindrome",
+            "middle-of-the-linked-list",
+            "time-needed-to-buy-tickets"
+          ]
         },
         {
           "title": "Remove Duplicates from Sorted Array",
@@ -32,7 +42,14 @@
           "subTopic": "Array / String",
           "description": "Given an integer array nums sorted in non-decreasing order, remove the duplicates in-place such that each unique element appears only once. The relative order of the elements should be kept the same. Since it is impossible to change the length of the array in some languages, you must instead have the result be placed in the first part of the array nums.",
           "pattern": "Two Pointers",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Use left/right pointers moving toward each other or same direction.",
+          "difficultyReason": "Single technique, straightforward logic, minimal edge cases.",
+          "relatedProblems": [
+            "valid-palindrome",
+            "remove-element",
+            "middle-of-the-linked-list"
+          ]
         },
         {
           "title": "Remove Duplicates from Sorted Array II",
@@ -42,7 +59,14 @@
           "subTopic": "Array / String",
           "description": "Given an integer array nums sorted in non-decreasing order, remove some duplicates in-place such that each unique element appears at most twice. The relative order of the elements should be kept the same.",
           "pattern": "Two Pointers",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Use left/right pointers moving toward each other or same direction.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": [
+            "valid-palindrome",
+            "remove-element",
+            "middle-of-the-linked-list"
+          ]
         },
         {
           "title": "Majority Element",
@@ -52,7 +76,10 @@
           "subTopic": "Array / String",
           "description": "Given an array nums of size n, return the majority element. The majority element is the element that appears more than ⌊n / 2⌋ times. You may assume that the majority element always exists in the array.",
           "pattern": "Boyer-Moore Voting",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Consider sorting, two pointers, or hash-based approaches.",
+          "difficultyReason": "Single technique, straightforward logic, minimal edge cases.",
+          "relatedProblems": []
         },
         {
           "title": "Rotate Array",
@@ -62,7 +89,10 @@
           "subTopic": "Array / String",
           "description": "Given an integer array nums, rotate the array to the right by k steps, where k is non-negative.",
           "pattern": "Reverse Trick",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Consider sorting, two pointers, or hash-based approaches.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": []
         },
         {
           "title": "Best Time to Buy and Sell Stock",
@@ -72,7 +102,10 @@
           "subTopic": "Array / String",
           "description": "You are given an array prices where prices[i] is the price of a given stock on the ith day.\n\nYou want to maximize your profit by choosing a single day to buy one stock and choosing a different day in the future to sell that stock.\n\nReturn the maximum profit you can achieve from this transaction. If you cannot achieve any profit, return 0.",
           "pattern": "Track Minimum",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Consider sorting, two pointers, or hash-based approaches.",
+          "difficultyReason": "Single technique, straightforward logic, minimal edge cases.",
+          "relatedProblems": []
         },
         {
           "title": "Best Time to Buy and Sell Stock II",
@@ -82,7 +115,14 @@
           "subTopic": "Array / String",
           "description": "You are given an integer array prices where prices[i] is the price of a given stock on the ith day. On each day, you may decide to buy and/or sell the stock. You can only hold at most one share of the stock at any time. However, you can buy it then immediately sell it on the same day. Find and return the maximum profit you can achieve.",
           "pattern": "Greedy",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Make locally optimal choice at each step.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": [
+            "jump-game",
+            "gas-station",
+            "integer-to-roman"
+          ]
         },
         {
           "title": "Jump Game",
@@ -92,7 +132,14 @@
           "subTopic": "Array / String",
           "description": "You are given an integer array nums. You are initially positioned at the array's first index, and each element in the array represents your maximum jump length at that position. Return true if you can reach the last index, or false otherwise.",
           "pattern": "Greedy",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Make locally optimal choice at each step.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": [
+            "best-time-to-buy-and-sell-stock-ii",
+            "gas-station",
+            "integer-to-roman"
+          ]
         },
         {
           "title": "Jump Game II",
@@ -102,7 +149,10 @@
           "subTopic": "Array / String",
           "description": "You are given a 0-indexed array of integers nums of length n. You are initially positioned at nums[0]. Each element nums[i] represents the maximum length of a forward jump from index i. Return the minimum number of jumps to reach nums[n - 1].",
           "pattern": "Greedy BFS",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Make locally optimal choice at each step.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": []
         },
         {
           "title": "H-Index",
@@ -112,7 +162,10 @@
           "subTopic": "Array / String",
           "description": "Count papers at each citation level. Scan from high to low.\n\nH-index: h papers with at least h citations.\nUse counting sort bucket. papers[i] = count of papers with i citations.",
           "pattern": "Counting Sort / Binary Search",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "If sorted, use binary search. Eliminate half the search space each step.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": []
         },
         {
           "title": "Product of Array Except Self",
@@ -122,7 +175,10 @@
           "subTopic": "Array / String",
           "description": "Given an integer array nums, return an array answer such that answer[i] is equal to the product of all the elements of nums except nums[i].\n\nThe product of any prefix or suffix of nums is guaranteed to fit in a 32-bit integer.\n\nYou must write an algorithm that runs in O(n) time and without using the division operation.",
           "pattern": "Prefix/Suffix Products",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Consider sorting, two pointers, or hash-based approaches.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": []
         },
         {
           "title": "Gas Station",
@@ -132,7 +188,14 @@
           "subTopic": "Array / String",
           "description": "There are n gas stations along a circular route, where the amount of gas at the ith station is gas[i]. You have a car with an unlimited gas tank and it costs cost[i] of gas to travel from the ith station to its next (i + 1)th station. Return the starting gas station's index if you can travel around the circuit once in the clockwise direction, otherwise return -1.",
           "pattern": "Greedy",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Make locally optimal choice at each step.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": [
+            "best-time-to-buy-and-sell-stock-ii",
+            "jump-game",
+            "integer-to-roman"
+          ]
         },
         {
           "title": "Candy",
@@ -142,7 +205,10 @@
           "subTopic": "Array / String",
           "description": "Left pass: satisfy left neighbor rule. Right pass: satisfy right rule.\n\nEach child gets at least 1 candy. Higher rating = more than neighbors.\nLeft-to-right: if ratings[i] > ratings[i-1], candy[i] = candy[i-1]+1.",
           "pattern": "Two Pass Greedy",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Make locally optimal choice at each step.",
+          "difficultyReason": "Multiple advanced techniques, complex state management, many edge cases.",
+          "relatedProblems": []
         },
         {
           "title": "Trapping Rain Water",
@@ -152,7 +218,14 @@
           "subTopic": "Array / String",
           "description": "Given n non-negative integers representing an elevation map where the width of each bar is 1, compute how much water it can trap after raining.",
           "pattern": "Two Pointers",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Use left/right pointers moving toward each other or same direction.",
+          "difficultyReason": "Multiple advanced techniques, complex state management, many edge cases.",
+          "relatedProblems": [
+            "valid-palindrome",
+            "remove-element",
+            "middle-of-the-linked-list"
+          ]
         },
         {
           "title": "Roman to Integer",
@@ -162,7 +235,13 @@
           "subTopic": "Array / String",
           "description": "Roman numerals are represented by seven different symbols: I, V, X, L, C, D and M. Given a roman numeral, convert it to an integer.",
           "pattern": "Hash Map",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Use hash map for O(1) lookup. Store complements or counts.",
+          "difficultyReason": "Single technique, straightforward logic, minimal edge cases.",
+          "relatedProblems": [
+            "two-sum",
+            "group-anagrams"
+          ]
         },
         {
           "title": "Integer to Roman",
@@ -172,7 +251,14 @@
           "subTopic": "Array / String",
           "description": "Greedily subtract largest possible value and append symbol.\n\nConvert integer to Roman numeral.\nUse a list of (value, symbol) pairs in descending order.",
           "pattern": "Greedy",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Make locally optimal choice at each step.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": [
+            "best-time-to-buy-and-sell-stock-ii",
+            "jump-game",
+            "gas-station"
+          ]
         },
         {
           "title": "Length of Last Word",
@@ -182,7 +268,10 @@
           "subTopic": "Array / String",
           "description": "Strip trailing spaces, find last space, return len - last_space - 1.\n\nFind length of last word.\nIterate from end, skip trailing spaces, count letters.",
           "pattern": "String Traversal",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Consider sorting, two pointers, or hash-based approaches.",
+          "difficultyReason": "Single technique, straightforward logic, minimal edge cases.",
+          "relatedProblems": []
         },
         {
           "title": "Longest Common Prefix",
@@ -192,7 +281,10 @@
           "subTopic": "Array / String",
           "description": "Compare characters at same position across all strings.\n\nFind the longest common prefix among all strings.\nIterate character by character.",
           "pattern": "Horizontal Scan",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Consider sorting, two pointers, or hash-based approaches.",
+          "difficultyReason": "Single technique, straightforward logic, minimal edge cases.",
+          "relatedProblems": []
         },
         {
           "title": "Reverse Words in a String",
@@ -202,7 +294,10 @@
           "subTopic": "Array / String",
           "description": "Split by spaces, reverse, join with single space.\n\nReverse the order of words in a string.\nSplit removes extra spaces, reverse list, join.",
           "pattern": "Two Pointers / Split",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Use left/right pointers moving toward each other or same direction.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": []
         },
         {
           "title": "Zigzag Conversion",
@@ -212,7 +307,13 @@
           "subTopic": "Array / String",
           "description": "Use row index and direction flag. Toggle direction at bounds.\n\nWrite string in zigzag pattern, read row by row.\nTrack current row, direction (up/down).",
           "pattern": "Simulation",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Consider sorting, two pointers, or hash-based approaches.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": [
+            "plus-one",
+            "multiply-strings"
+          ]
         },
         {
           "title": "Find the Index of the First Occurrence in a String",
@@ -222,7 +323,10 @@
           "subTopic": "Array / String",
           "description": "Slide needle over haystack, check for match.\n\nFind first occurrence of needle in haystack.\nSimple: check each starting position.",
           "pattern": "KMP / Simple Search",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Consider sorting, two pointers, or hash-based approaches.",
+          "difficultyReason": "Single technique, straightforward logic, minimal edge cases.",
+          "relatedProblems": []
         },
         {
           "title": "Text Justification",
@@ -232,7 +336,10 @@
           "subTopic": "Array / String",
           "description": "Greedily pack words, distribute spaces evenly. Left-justify last line.\n\nFully justify text to maxWidth.\nPack as many words as fit, distribute extra spaces.",
           "pattern": "Greedy + Simulation",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Make locally optimal choice at each step.",
+          "difficultyReason": "Multiple advanced techniques, complex state management, many edge cases.",
+          "relatedProblems": []
         },
         {
           "id": "448",
@@ -243,7 +350,10 @@
           "subTopic": "Set / Marking Indices",
           "description": "Mark visited indices negative. Return indices still positive.\n\nFind numbers 1..n missing from array.\nUse indices as markers: negate nums[nums[i]-1].",
           "pattern": "Index Marking",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Analyze the constraints and look for patterns.",
+          "difficultyReason": "Single technique, straightforward logic, minimal edge cases.",
+          "relatedProblems": []
         },
         {
           "id": "450",
@@ -254,7 +364,13 @@
           "subTopic": "Deletion",
           "description": "Find node, replace with successor (leftmost in right subtree).\n\nDelete node with given key from BST.\nThree cases: leaf, one child, two children.",
           "pattern": "BST Traversal",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Analyze the constraints and look for patterns.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": [
+            "insert-into-a-binary-search-tree",
+            "search-in-a-binary-search-tree"
+          ]
         },
         {
           "id": "701",
@@ -265,7 +381,13 @@
           "subTopic": "Insert",
           "description": "Navigate BST, insert at null position.\n\nInsert value into BST maintaining property.\nGo left if val < root, right otherwise.",
           "pattern": "BST Traversal",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Analyze the constraints and look for patterns.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": [
+            "delete-node-in-a-bst",
+            "search-in-a-binary-search-tree"
+          ]
         },
         {
           "id": "206",
@@ -276,7 +398,10 @@
           "subTopic": "Reversal",
           "description": "Given the head of a singly linked list, reverse the list, and return the reversed list.",
           "pattern": "Iterative Pointer Swap",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Analyze the constraints and look for patterns.",
+          "difficultyReason": "Single technique, straightforward logic, minimal edge cases.",
+          "relatedProblems": []
         },
         {
           "id": "234",
@@ -287,7 +412,10 @@
           "subTopic": "Palindrome Check",
           "description": "Find middle, reverse second half, compare.\n\nCheck if linked list is a palindrome.\nFast/slow to find middle, reverse second half.",
           "pattern": "Fast/Slow + Reverse",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Analyze the constraints and look for patterns.",
+          "difficultyReason": "Single technique, straightforward logic, minimal edge cases.",
+          "relatedProblems": []
         },
         {
           "id": null,
@@ -298,7 +426,10 @@
           "subTopic": "Reverse K Elements",
           "description": "Use stack to reverse first k, then cycle remaining elements.\n\nReverse first k elements of a queue.\nPop k to stack, push back, cycle n-k elements.",
           "pattern": "Stack + Queue",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Use stack for matching pairs or monotonic sequences.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": []
         },
         {
           "title": "Encode and Decode Strings",
@@ -308,7 +439,10 @@
           "subTopic": "Array / String",
           "description": "Design an algorithm to encode a list of strings to a string and decode the string back to the original list of strings. The encoded string should be efficiently decodable without any ambiguity, handling all possible characters including empty strings and special characters.",
           "pattern": "Arrays & Hashing",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Consider sorting, two pointers, or hash-based approaches.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": []
         }
       ]
     },
@@ -324,7 +458,14 @@
           "subTopic": "Two Pointers",
           "description": "A phrase is a palindrome if, after converting all uppercase letters into lowercase letters and removing all non-alphanumeric characters, it reads the same forward and backward. Alphanumeric characters include letters and numbers.\n\nGiven a string s, return true if it is a palindrome, or false otherwise.",
           "pattern": "Two Pointers",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Use left/right pointers moving toward each other or same direction.",
+          "difficultyReason": "Single technique, straightforward logic, minimal edge cases.",
+          "relatedProblems": [
+            "remove-element",
+            "middle-of-the-linked-list",
+            "time-needed-to-buy-tickets"
+          ]
         },
         {
           "title": "Is Subsequence",
@@ -334,7 +475,14 @@
           "subTopic": "Two Pointers",
           "description": "Use pointer for s, advance when char matches in t.\n\nIs s a subsequence of t?\nTwo pointers: advance s pointer on match.",
           "pattern": "Two Pointers",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Use left/right pointers moving toward each other or same direction.",
+          "difficultyReason": "Single technique, straightforward logic, minimal edge cases.",
+          "relatedProblems": [
+            "valid-palindrome",
+            "remove-element",
+            "middle-of-the-linked-list"
+          ]
         },
         {
           "title": "Two Sum II - Input Array Is Sorted",
@@ -344,7 +492,14 @@
           "subTopic": "Two Pointers",
           "description": "Left and right pointers. Move left up if sum too small, right down if too big.\n\nFind two numbers that add up to target (1-indexed).\nSince sorted, use two pointers from ends.",
           "pattern": "Two Pointers",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Use left/right pointers moving toward each other or same direction.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": [
+            "valid-palindrome",
+            "remove-element",
+            "middle-of-the-linked-list"
+          ]
         },
         {
           "title": "Container With Most Water",
@@ -354,7 +509,14 @@
           "subTopic": "Two Pointers",
           "description": "Two pointers from ends. Move the shorter one inward.\n\nMaximize water container area.\nArea = min(height[l], height[r]) * (r - l).",
           "pattern": "Two Pointers",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Use left/right pointers moving toward each other or same direction.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": [
+            "valid-palindrome",
+            "remove-element",
+            "middle-of-the-linked-list"
+          ]
         },
         {
           "title": "3Sum",
@@ -364,7 +526,10 @@
           "subTopic": "Two Pointers",
           "description": "Sort, fix one element, two-pointer for remaining two.\n\nFind all triplets summing to 0.\nSort array. For each i, use two pointers on [i+1, n-1].",
           "pattern": "Two Pointers + Sort",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Use left/right pointers moving toward each other or same direction.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": []
         },
         {
           "id": "876",
@@ -375,7 +540,14 @@
           "subTopic": "Fast/Slow Pointer",
           "description": "Given the head of a singly linked list, return the middle node of the linked list. If there are two middle nodes, return the second middle node.",
           "pattern": "Two Pointers",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Use left/right pointers moving toward each other or same direction.",
+          "difficultyReason": "Single technique, straightforward logic, minimal edge cases.",
+          "relatedProblems": [
+            "valid-palindrome",
+            "remove-element",
+            "time-needed-to-buy-tickets"
+          ]
         },
         {
           "id": "977",
@@ -386,7 +558,14 @@
           "subTopic": "Two Pointers",
           "description": "Compare absolute values at ends, place larger square at end of result.\n\nSquare each element, return sorted array.\nLargest squares at ends (negative or positive).",
           "pattern": "Two Pointers",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Use left/right pointers moving toward each other or same direction.",
+          "difficultyReason": "Single technique, straightforward logic, minimal edge cases.",
+          "relatedProblems": [
+            "valid-palindrome",
+            "remove-element",
+            "middle-of-the-linked-list"
+          ]
         },
         {
           "id": "845",
@@ -397,7 +576,10 @@
           "subTopic": "Two Pointers",
           "description": "Find peak, expand left (strictly decreasing), expand right (strictly decreasing).\n\nFind longest mountain subarray (up then down).\nAt each peak, extend left and right.",
           "pattern": "Two Pointers / Expand",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Use left/right pointers moving toward each other or same direction.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": []
         }
       ]
     },
@@ -413,7 +595,13 @@
           "subTopic": "Sliding Window",
           "description": "Expand right until sum >= target, shrink left while valid.\n\nFind minimal length subarray with sum >= target.\nSliding window: expand right, shrink left when valid.",
           "pattern": "Sliding Window",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Maintain a window, expand right, shrink left when condition breaks.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": [
+            "longest-repeating-character-replacement",
+            "permutation-in-string"
+          ]
         },
         {
           "title": "Longest Substring Without Repeating Characters",
@@ -423,7 +611,10 @@
           "subTopic": "Sliding Window",
           "description": "Given a string s, find the length of the longest substring without repeating characters.",
           "pattern": "Sliding Window + Hash Set",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Maintain a window, expand right, shrink left when condition breaks.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": []
         },
         {
           "title": "Substring with Concatenation of All Words",
@@ -433,7 +624,12 @@
           "subTopic": "Sliding Window",
           "description": "Sliding window of size wordLen*numWords, check if all words match.\n\nFind all starting indices of concatenated substrings.\nAll words have same length, total window = len*count.",
           "pattern": "Sliding Window + Hash Map",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Maintain a window, expand right, shrink left when condition breaks.",
+          "difficultyReason": "Multiple advanced techniques, complex state management, many edge cases.",
+          "relatedProblems": [
+            "minimum-window-substring"
+          ]
         },
         {
           "title": "Minimum Window Substring",
@@ -443,7 +639,12 @@
           "subTopic": "Sliding Window",
           "description": "Expand right to include all t chars, shrink left to minimize.\n\nFind minimum window in s containing all chars of t.\nCount required chars, expand right until all satisfied.",
           "pattern": "Sliding Window + Hash Map",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Maintain a window, expand right, shrink left when condition breaks.",
+          "difficultyReason": "Multiple advanced techniques, complex state management, many edge cases.",
+          "relatedProblems": [
+            "substring-with-concatenation-of-all-words"
+          ]
         },
         {
           "title": "Longest Repeating Character Replacement",
@@ -453,7 +654,13 @@
           "subTopic": "Sliding Window",
           "description": "You are given a string `s` and an integer `k`. You can choose any character of the string and change it to any other uppercase English character. You can perform this operation at most `k` times.\n\nReturn the length of the longest substring containing the same letter you can get after performing the above operations.",
           "pattern": "Sliding Window",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Maintain a window, expand right, shrink left when condition breaks.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": [
+            "minimum-size-subarray-sum",
+            "permutation-in-string"
+          ]
         },
         {
           "title": "Permutation in String",
@@ -463,7 +670,13 @@
           "subTopic": "Sliding Window",
           "description": "Given two strings s1 and s2, return true if s2 contains a permutation of s1, or false otherwise. In other words, return true if one of s1's permutations is a substring of s2.",
           "pattern": "Sliding Window",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Maintain a window, expand right, shrink left when condition breaks.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": [
+            "minimum-size-subarray-sum",
+            "longest-repeating-character-replacement"
+          ]
         },
         {
           "title": "Sliding Window Maximum",
@@ -473,7 +686,10 @@
           "subTopic": "Sliding Window",
           "description": "You are given an array of integers `nums`, there is a sliding window of size `k` which is moving from the very left of the array to the very right. You can only see the `k` numbers in the window. Each time the sliding window moves right by one position.\n\nReturn the max sliding window.",
           "pattern": "Sliding Window",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Maintain a window, expand right, shrink left when condition breaks.",
+          "difficultyReason": "Multiple advanced techniques, complex state management, many edge cases.",
+          "relatedProblems": []
         }
       ]
     },
@@ -489,7 +705,10 @@
           "subTopic": "Matrix",
           "description": "Check each row, column, and 3x3 box for duplicates.\n\nValidate a partially filled Sudoku board.\nUse sets for each row, column, and 3x3 box.",
           "pattern": "Hash Set per Row/Col/Box",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Analyze the constraints and look for patterns.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": []
         },
         {
           "title": "Spiral Matrix",
@@ -499,7 +718,10 @@
           "subTopic": "Matrix",
           "description": "Process layer by layer: right, down, left, up, shrink bounds.\n\nReturn matrix elements in spiral order.\nMaintain top/bottom/left/right boundaries.",
           "pattern": "Layer by Layer",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Analyze the constraints and look for patterns.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": []
         },
         {
           "title": "Rotate Image",
@@ -509,7 +731,10 @@
           "subTopic": "Matrix",
           "description": "Transpose matrix, then reverse each row.\n\nRotate matrix 90° clockwise in-place.\nTranspose: swap matrix[i][j] with matrix[j][i].",
           "pattern": "Transpose + Reverse",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Analyze the constraints and look for patterns.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": []
         },
         {
           "title": "Set Matrix Zeroes",
@@ -519,7 +744,10 @@
           "subTopic": "Matrix",
           "description": "Use first row/col as markers. Track if they need zeroing separately.\n\nIf cell is 0, set entire row and column to 0.\nUse first row/col to mark which rows/cols to zero.",
           "pattern": "First Row/Col as Markers",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Analyze the constraints and look for patterns.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": []
         },
         {
           "title": "Game of Life",
@@ -529,7 +757,10 @@
           "subTopic": "Matrix",
           "description": "Encode transitions: 2 = live->dead, 3 = dead->live. Then decode.\n\nApply Conway's Game of Life rules.\nUse extra states to encode old->new: 2=was live, 3=was dead now live.",
           "pattern": "State Encoding",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Analyze the constraints and look for patterns.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": []
         }
       ]
     },
@@ -545,7 +776,10 @@
           "subTopic": "Hash Map",
           "description": "Given two strings ransomNote and magazine, return true if ransomNote can be constructed by using the letters from magazine and false otherwise. Each letter in magazine can only be used once in ransomNote.",
           "pattern": "Hash Map / Counter",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Use hash map for O(1) lookup. Store complements or counts.",
+          "difficultyReason": "Single technique, straightforward logic, minimal edge cases.",
+          "relatedProblems": []
         },
         {
           "title": "Isomorphic Strings",
@@ -555,7 +789,12 @@
           "subTopic": "Hash Map",
           "description": "Given two strings s and t, determine if they are isomorphic. Two strings s and t are isomorphic if the characters in s can be replaced to get t. All occurrences of a character must be replaced with another character while preserving the order of characters. No two characters may map to the same character, but a character may map to itself.",
           "pattern": "Hash Map (Bi-directional)",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Use hash map for O(1) lookup. Store complements or counts.",
+          "difficultyReason": "Single technique, straightforward logic, minimal edge cases.",
+          "relatedProblems": [
+            "word-pattern"
+          ]
         },
         {
           "title": "Word Pattern",
@@ -565,7 +804,12 @@
           "subTopic": "Hash Map",
           "description": "Given a pattern and a string s, find if s follows the same pattern. Here follow means a full match, such that there is a bijection between a letter in pattern and a non-empty word in s.",
           "pattern": "Hash Map (Bi-directional)",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Use hash map for O(1) lookup. Store complements or counts.",
+          "difficultyReason": "Single technique, straightforward logic, minimal edge cases.",
+          "relatedProblems": [
+            "isomorphic-strings"
+          ]
         },
         {
           "title": "Valid Anagram",
@@ -575,7 +819,10 @@
           "subTopic": "Hash Map",
           "description": "Given two strings s and t, return true if t is an anagram of s, and false otherwise. An Anagram is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.",
           "pattern": "Hash Map / Sorting",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Use hash map for O(1) lookup. Store complements or counts.",
+          "difficultyReason": "Single technique, straightforward logic, minimal edge cases.",
+          "relatedProblems": []
         },
         {
           "title": "Group Anagrams",
@@ -585,7 +832,13 @@
           "subTopic": "Hash Map",
           "description": "Given an array of strings strs, group the anagrams together. You can return the answer in any order. An Anagram is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.",
           "pattern": "Hash Map",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Use hash map for O(1) lookup. Store complements or counts.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": [
+            "two-sum",
+            "roman-to-integer"
+          ]
         },
         {
           "title": "Two Sum",
@@ -595,7 +848,13 @@
           "subTopic": "Hash Map",
           "description": "Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.\n\nYou may assume that each input would have exactly one solution, and you may not use the same element twice.\n\nYou can return the answer in any order.",
           "pattern": "Hash Map",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Use hash map for O(1) lookup. Store complements or counts.",
+          "difficultyReason": "Single technique, straightforward logic, minimal edge cases.",
+          "relatedProblems": [
+            "group-anagrams",
+            "roman-to-integer"
+          ]
         },
         {
           "title": "Happy Number",
@@ -605,7 +864,10 @@
           "subTopic": "Hash Map",
           "description": "Write an algorithm to determine if a number n is happy. A happy number is a number defined by the following process: Starting with any positive integer, replace the number by the sum of the squares of its digits. Repeat the process until the number equals 1 (where it will stay), or it loops endlessly in a cycle which does not include 1.",
           "pattern": "Floyd's Cycle Finding",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Use hash map for O(1) lookup. Store complements or counts.",
+          "difficultyReason": "Single technique, straightforward logic, minimal edge cases.",
+          "relatedProblems": []
         },
         {
           "title": "Contains Duplicate II",
@@ -615,7 +877,10 @@
           "subTopic": "Hash Map",
           "description": "Given an integer array nums and an integer k, return true if there are two distinct indices i and j in the array such that nums[i] == nums[j] and abs(i - j) <= k.",
           "pattern": "Sliding Window / Hash Map",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Maintain a window, expand right, shrink left when condition breaks.",
+          "difficultyReason": "Single technique, straightforward logic, minimal edge cases.",
+          "relatedProblems": []
         },
         {
           "title": "Longest Consecutive Sequence",
@@ -625,7 +890,12 @@
           "subTopic": "Hash Map",
           "description": "Given an unsorted array of integers nums, return the length of the longest consecutive elements sequence. You must write an algorithm that runs in O(n) time.",
           "pattern": "Hash Set",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Use hash map for O(1) lookup. Store complements or counts.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": [
+            "contains-duplicate"
+          ]
         },
         {
           "title": "Insert Delete GetRandom O(1)",
@@ -635,7 +905,10 @@
           "subTopic": "Hash Map",
           "description": "Implement the RandomizedSet class: RandomizedSet() Initializes the object. bool insert(int val) Inserts an item val if not present. Returns true if not present, false otherwise. bool remove(int val) Removes an item val if present. Returns true if present, false otherwise. int getRandom() Returns a random element from the current set. Each element must have the same probability of being returned.",
           "pattern": "Hash Map + Dynamic Array",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Use hash map for O(1) lookup. Store complements or counts.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": []
         },
         {
           "id": "217",
@@ -646,7 +919,12 @@
           "subTopic": "Set / Frequency",
           "description": "Given an integer array nums, return true if any value appears at least twice in the array, and return false if every element is distinct.",
           "pattern": "Hash Set",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Analyze the constraints and look for patterns.",
+          "difficultyReason": "Single technique, straightforward logic, minimal edge cases.",
+          "relatedProblems": [
+            "longest-consecutive-sequence"
+          ]
         },
         {
           "id": "1365",
@@ -657,7 +935,10 @@
           "subTopic": "Hash Map",
           "description": "Given the array nums, for each nums[i] find out how many numbers in the array are smaller than it. That is, for each nums[i] you have to count the number of valid j's such that j != i and nums[j] < nums[i].",
           "pattern": "Bucket Sort / Counting",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Use hash map for O(1) lookup. Store complements or counts.",
+          "difficultyReason": "Single technique, straightforward logic, minimal edge cases.",
+          "relatedProblems": []
         }
       ]
     },
@@ -673,7 +954,10 @@
           "subTopic": "Intervals",
           "description": "Track start, extend while consecutive, format range.\n\nReturn smallest sorted list of ranges covering all numbers.\nStart a range, extend while nums[i]+1 == nums[i+1].",
           "pattern": "Linear Scan",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Analyze the constraints and look for patterns.",
+          "difficultyReason": "Single technique, straightforward logic, minimal edge cases.",
+          "relatedProblems": []
         },
         {
           "title": "Merge Intervals",
@@ -683,7 +967,10 @@
           "subTopic": "Intervals",
           "description": "Sort by start, merge overlaps into result.\n\nMerge all overlapping intervals.\nSort by start. If current overlaps last, extend end.",
           "pattern": "Sort + Merge",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Analyze the constraints and look for patterns.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": []
         },
         {
           "title": "Insert Interval",
@@ -693,7 +980,10 @@
           "subTopic": "Intervals",
           "description": "Add all before, merge overlaps, add all after.\n\nInsert and merge new interval into sorted list.\nThree phases: before, during overlap, after.",
           "pattern": "Merge on Insert",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Analyze the constraints and look for patterns.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": []
         },
         {
           "title": "Minimum Number of Arrows to Burst Balloons",
@@ -703,7 +993,10 @@
           "subTopic": "Intervals",
           "description": "Sort by end. Shoot at end of first, skip all overlapping.\n\nMinimum arrows to burst all balloons.\nSort by end point. Each arrow at end pops all touching.",
           "pattern": "Greedy Interval",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Make locally optimal choice at each step.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": []
         },
         {
           "title": "Non-overlapping Intervals",
@@ -713,7 +1006,10 @@
           "subTopic": "Intervals",
           "description": "Given a collection of intervals, return the minimum number of intervals you need to remove to make the rest of the intervals non-overlapping.",
           "pattern": "Intervals",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Make locally optimal choice at each step.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": []
         },
         {
           "title": "Meeting Rooms",
@@ -723,7 +1019,10 @@
           "subTopic": "Intervals",
           "description": "Given an array of meeting time intervals where intervals[i] = [start_i, end_i], determine if a person could attend all meetings.\n\nReturn true if all meetings can be attended without overlap, false otherwise.",
           "pattern": "Intervals",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Analyze the constraints and look for patterns.",
+          "difficultyReason": "Single technique, straightforward logic, minimal edge cases.",
+          "relatedProblems": []
         },
         {
           "title": "Meeting Rooms II",
@@ -733,7 +1032,10 @@
           "subTopic": "Intervals",
           "description": "Given an array of meeting time intervals where intervals[i] = [start_i, end_i], return the minimum number of conference rooms required to host all meetings without overlap.",
           "pattern": "Intervals",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Use left/right pointers moving toward each other or same direction.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": []
         },
         {
           "title": "Minimum Interval to Include Each Query",
@@ -743,7 +1045,10 @@
           "subTopic": "Intervals",
           "description": "You are given a 2D integer array `intervals` where `intervals[i] = [left_i, right_i]` represents an interval. You are also given an integer array `queries`. For each query, you need to find the length of the smallest interval that contains the query value. If no such interval exists, return -1 for that query. Return an array of answers for all queries.",
           "pattern": "Intervals",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Use heap for top-k problems or priority-based processing.",
+          "difficultyReason": "Multiple advanced techniques, complex state management, many edge cases.",
+          "relatedProblems": []
         }
       ]
     },
@@ -759,7 +1064,14 @@
           "subTopic": "Stack",
           "description": "Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.\n\nAn input string is valid if:\n1. Open brackets must be closed by the same type of brackets.\n2. Open brackets must be closed in the correct order.\n3. Every close bracket has a corresponding open bracket of the same type.",
           "pattern": "Stack",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Use stack for matching pairs or monotonic sequences.",
+          "difficultyReason": "Single technique, straightforward logic, minimal edge cases.",
+          "relatedProblems": [
+            "simplify-path",
+            "evaluate-reverse-polish-notation",
+            "car-fleet"
+          ]
         },
         {
           "title": "Simplify Path",
@@ -769,7 +1081,14 @@
           "subTopic": "Stack",
           "description": "Given a string path, which is an absolute path (starting with a slash '/') to a file or directory in a Unix-style file system, convert it to the simplified canonical path.",
           "pattern": "Stack",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Use stack for matching pairs or monotonic sequences.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": [
+            "valid-parentheses",
+            "evaluate-reverse-polish-notation",
+            "car-fleet"
+          ]
         },
         {
           "title": "Min Stack",
@@ -779,7 +1098,10 @@
           "subTopic": "Stack",
           "description": "Design a stack that supports push, pop, top, and retrieving the minimum element in constant time.",
           "pattern": "Stack (Two Stacks)",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Use stack for matching pairs or monotonic sequences.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": []
         },
         {
           "title": "Evaluate Reverse Polish Notation",
@@ -789,7 +1111,14 @@
           "subTopic": "Stack",
           "description": "Evaluate the value of an arithmetic expression in Reverse Polish Notation. Valid operators are +, -, *, and /. Each operand may be an integer or another expression.",
           "pattern": "Stack",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Use stack for matching pairs or monotonic sequences.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": [
+            "valid-parentheses",
+            "simplify-path",
+            "car-fleet"
+          ]
         },
         {
           "title": "Basic Calculator",
@@ -799,7 +1128,10 @@
           "subTopic": "Stack",
           "description": "Given a string s representing a valid expression, implement a basic calculator to evaluate it, and return the result of the evaluation. Note: You are not allowed to use any built-in function which evaluates strings as mathematical expressions.",
           "pattern": "Stack (Signs)",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Use stack for matching pairs or monotonic sequences.",
+          "difficultyReason": "Multiple advanced techniques, complex state management, many edge cases.",
+          "relatedProblems": []
         },
         {
           "id": "225",
@@ -810,7 +1142,10 @@
           "subTopic": "Stack Via Queue",
           "description": "Implement a last-in-first-out (LIFO) stack using only two queues. The implemented stack should support all the functions of a normal stack (push, top, pop, and empty).",
           "pattern": "Queue Rotation",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Use stack for matching pairs or monotonic sequences.",
+          "difficultyReason": "Single technique, straightforward logic, minimal edge cases.",
+          "relatedProblems": []
         },
         {
           "title": "Daily Temperatures",
@@ -820,7 +1155,12 @@
           "subTopic": "Stack",
           "description": "Given an array of integers `temperatures` representing daily temperatures, return an array `answer` such that `answer[i]` is the number of days you have to wait after the `i-th` day to get a warmer temperature. If there is no future day for which this is possible, set `answer[i] = 0`.",
           "pattern": "Stack",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Use stack for matching pairs or monotonic sequences.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": [
+            "largest-rectangle-in-histogram"
+          ]
         },
         {
           "title": "Car Fleet",
@@ -830,7 +1170,14 @@
           "subTopic": "Stack",
           "description": "There are n cars at given miles away from the starting mile 0, traveling to reach the mile target.\n\nYou are given two integer arrays position and speed, both of length n, where position[i] is the starting mile of the ith car and speed[i] is the speed of the ith car in miles per hour.\n\nA car cannot pass another car, but it can catch up and then travel next to it at the speed of the slower car. A car fleet is a group of cars driving next to each other. The speed of the car fleet is the minimum speed of any car in the fleet.\n\nIf a car catches up to a car fleet at the mile target, it will still be considered as part of the car fleet.\n\nReturn the number of car fleets that will arrive at the destination.",
           "pattern": "Stack",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Use stack for matching pairs or monotonic sequences.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": [
+            "valid-parentheses",
+            "simplify-path",
+            "evaluate-reverse-polish-notation"
+          ]
         },
         {
           "title": "Largest Rectangle in Histogram",
@@ -840,7 +1187,12 @@
           "subTopic": "Stack",
           "description": "Given an array of integers `heights` representing the histogram's bar height where the width of each bar is 1, return the area of the largest rectangle in the histogram.\n\nA histogram is a graphical display of data using bars of different heights. Each bar has a width of 1 unit and a height specified by the input array. The task is to find the maximum rectangular area that can be formed within this histogram, where the rectangle must be aligned with the bars (i.e., its bottom edge must lie on the x-axis and it cannot extend beyond the boundaries of the bars).\n\nThe area of a rectangle is calculated as width × height, where the height is determined by the minimum height of the bars that the rectangle spans, and the width is the number of consecutive bars it covers.",
           "pattern": "Stack",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Use stack for matching pairs or monotonic sequences.",
+          "difficultyReason": "Multiple advanced techniques, complex state management, many edge cases.",
+          "relatedProblems": [
+            "daily-temperatures"
+          ]
         }
       ]
     },
@@ -856,7 +1208,10 @@
           "subTopic": "Linked List",
           "description": "Given head, the head of a linked list, determine if the linked list has a cycle in it.\n\nThere is a cycle in a linked list if there is some node in the list that can be reached again by continuously following the next pointer. Internally, pos is used to denote the index of the node that tail's next pointer is connected to. Note that pos is not passed as a parameter.\n\nReturn true if there is a cycle in the linked list. Otherwise, return false.",
           "pattern": "Fast & Slow Pointers",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Use dummy node, slow/fast pointers, or reverse in-place.",
+          "difficultyReason": "Single technique, straightforward logic, minimal edge cases.",
+          "relatedProblems": []
         },
         {
           "title": "Add Two Numbers",
@@ -866,7 +1221,10 @@
           "subTopic": "Linked List",
           "description": "You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order, and each of their nodes contains a single digit. Add the two numbers and return the sum as a linked list.",
           "pattern": "Linked List Math",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Use dummy node, slow/fast pointers, or reverse in-place.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": []
         },
         {
           "title": "Merge Two Sorted Lists",
@@ -876,7 +1234,10 @@
           "subTopic": "Linked List",
           "description": "You are given the heads of two sorted linked lists list1 and list2.\n\nMerge the two lists into one sorted list. The list should be made by splicing together the nodes of the first two lists.\n\nReturn the head of the merged linked list.",
           "pattern": "Linked List / Two Pointers",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Use left/right pointers moving toward each other or same direction.",
+          "difficultyReason": "Single technique, straightforward logic, minimal edge cases.",
+          "relatedProblems": []
         },
         {
           "title": "Copy List with Random Pointer",
@@ -886,7 +1247,10 @@
           "subTopic": "Linked List",
           "description": "A linked list of length n is given such that each node contains an additional random pointer, which could point to any node in the list, or null. Construct a deep copy of the list.",
           "pattern": "Hash Map / Interweaving",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Use hash map for O(1) lookup. Store complements or counts.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": []
         },
         {
           "title": "Reverse Linked List II",
@@ -896,7 +1260,10 @@
           "subTopic": "Linked List",
           "description": "Given the head of a singly linked list and two integers left and right where left <= right, reverse the nodes of the list from position left to position right, and return the reversed list.",
           "pattern": "Linked List Manipulation",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Use dummy node, slow/fast pointers, or reverse in-place.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": []
         },
         {
           "title": "Reverse Nodes in k-Group",
@@ -906,7 +1273,10 @@
           "subTopic": "Linked List",
           "description": "Reverse k nodes at a time, connect reversed groups.\n\nReverse every k nodes, leave remainder as-is.\nFind kth node, reverse that segment, connect.",
           "pattern": "Iterative Reversal",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Use dummy node, slow/fast pointers, or reverse in-place.",
+          "difficultyReason": "Multiple advanced techniques, complex state management, many edge cases.",
+          "relatedProblems": []
         },
         {
           "title": "Remove Nth Node From End of List",
@@ -916,7 +1286,14 @@
           "subTopic": "Linked List",
           "description": "Advance fast by n, then move both until fast reaches end.\n\nRemove nth node from end in one pass.\nFast pointer leads by n. When fast ends, slow is at target.",
           "pattern": "Two Pointers",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Use left/right pointers moving toward each other or same direction.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": [
+            "valid-palindrome",
+            "remove-element",
+            "middle-of-the-linked-list"
+          ]
         },
         {
           "title": "Remove Duplicates from Sorted List II",
@@ -926,7 +1303,14 @@
           "subTopic": "Linked List",
           "description": "Skip all nodes with duplicate values, keep only unique.\n\nRemove all duplicated nodes (not just extra copies).\nIf cur.val == cur.next.val, skip all with that value.",
           "pattern": "Two Pointers",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Use left/right pointers moving toward each other or same direction.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": [
+            "valid-palindrome",
+            "remove-element",
+            "middle-of-the-linked-list"
+          ]
         },
         {
           "title": "Rotate List",
@@ -936,7 +1320,10 @@
           "subTopic": "Linked List",
           "description": "Make cycle, find new tail at (len - k % len - 1), break.\n\nRotate list right by k places.\nConnect tail to head, find new tail, break there.",
           "pattern": "Cycle + Break",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Use dummy node, slow/fast pointers, or reverse in-place.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": []
         },
         {
           "title": "Partition List",
@@ -946,7 +1333,10 @@
           "subTopic": "Linked List",
           "description": "Build two lists: less than x, greater or equal. Concatenate.\n\nPartition around x, preserving relative order.\nTwo dummy heads for less and greater-or-equal lists.",
           "pattern": "Two Dummy Lists",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Use dummy node, slow/fast pointers, or reverse in-place.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": []
         },
         {
           "title": "LRU Cache",
@@ -956,7 +1346,10 @@
           "subTopic": "Linked List",
           "description": "Design a data structure that follows the constraints of a Least Recently Used (LRU) cache. Implement the LRUCache class with get and put operations in O(1) time complexity.",
           "pattern": "Design",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Use dummy node, slow/fast pointers, or reverse in-place.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": []
         },
         {
           "id": "203",
@@ -967,7 +1360,10 @@
           "subTopic": "Deletion With Dummy Head",
           "description": "Use dummy head. Skip nodes with target value.\n\nRemove all nodes with given value.\nDummy head handles removing actual head.",
           "pattern": "Linked List",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Use dummy node, slow/fast pointers, or reverse in-place.",
+          "difficultyReason": "Single technique, straightforward logic, minimal edge cases.",
+          "relatedProblems": []
         },
         {
           "title": "Reorder List",
@@ -977,7 +1373,10 @@
           "subTopic": "Linked List",
           "description": "You are given the head of a singly linked list. Reorder the list such that it follows the pattern: L0 → Ln → L1 → Ln-1 → L2 → Ln-2 → ...\n\nThe reordering must be done by actually moving nodes, not just changing their values.\n\nReturn the reordered list's head node.",
           "pattern": "Linked List",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Use dummy node, slow/fast pointers, or reverse in-place.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": []
         },
         {
           "title": "Find the Duplicate Number",
@@ -987,7 +1386,10 @@
           "subTopic": "Linked List",
           "description": "Given an array of integers nums containing n + 1 integers where each integer is in the range [1, n] inclusive, there is only one repeated number in nums. Return this repeated number.\n\nYou must solve the problem without modifying the array nums and use only constant extra space.",
           "pattern": "Linked List",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Use dummy node, slow/fast pointers, or reverse in-place.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": []
         }
       ]
     },
@@ -1003,7 +1405,13 @@
           "subTopic": "Tree",
           "description": "Given the root of a binary tree, return its maximum depth. A binary tree's maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.",
           "pattern": "DFS (Recursion)",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Consider DFS (pre/in/post-order) or BFS (level-order).",
+          "difficultyReason": "Single technique, straightforward logic, minimal edge cases.",
+          "relatedProblems": [
+            "invert-binary-tree",
+            "same-tree"
+          ]
         },
         {
           "title": "Same Tree",
@@ -1013,7 +1421,13 @@
           "subTopic": "Tree",
           "description": "Given the roots of two binary trees p and q, write a function to check if they are the same or not. Two binary trees are considered the same if they are structurally identical, and the nodes have the same value.",
           "pattern": "DFS (Recursion)",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Consider DFS (pre/in/post-order) or BFS (level-order).",
+          "difficultyReason": "Single technique, straightforward logic, minimal edge cases.",
+          "relatedProblems": [
+            "invert-binary-tree",
+            "maximum-depth-of-binary-tree"
+          ]
         },
         {
           "title": "Invert Binary Tree",
@@ -1023,7 +1437,13 @@
           "subTopic": "Tree",
           "description": "Given the root of a binary tree, invert the tree, and return its root.",
           "pattern": "DFS (Recursion)",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Consider DFS (pre/in/post-order) or BFS (level-order).",
+          "difficultyReason": "Single technique, straightforward logic, minimal edge cases.",
+          "relatedProblems": [
+            "maximum-depth-of-binary-tree",
+            "same-tree"
+          ]
         },
         {
           "title": "Symmetric Tree",
@@ -1033,7 +1453,10 @@
           "subTopic": "Tree",
           "description": "Given the root of a binary tree, check whether it is a mirror of itself (i.e., symmetric around its center).",
           "pattern": "DFS (Helpers)",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Consider DFS (pre/in/post-order) or BFS (level-order).",
+          "difficultyReason": "Single technique, straightforward logic, minimal edge cases.",
+          "relatedProblems": []
         },
         {
           "title": "Construct Binary Tree from Preorder and Inorder Traversal",
@@ -1043,7 +1466,14 @@
           "subTopic": "Tree",
           "description": "Preorder first is root. Find it in inorder to split left/right.\n\nBuild tree from preorder and inorder.\nPreorder[0] = root. Find in inorder to know left/right sizes.",
           "pattern": "Divide and Conquer",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Consider DFS (pre/in/post-order) or BFS (level-order).",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": [
+            "construct-binary-tree-from-inorder-and-postorder-traversal",
+            "convert-sorted-array-to-binary-search-tree",
+            "construct-quad-tree"
+          ]
         },
         {
           "title": "Construct Binary Tree from Inorder and Postorder Traversal",
@@ -1053,7 +1483,14 @@
           "subTopic": "Tree",
           "description": "Postorder last is root. Build right subtree first (reverse postorder).\n\nBuild tree from inorder and postorder.\nPostorder[-1] = root. Process right subtree first.",
           "pattern": "Divide and Conquer",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Consider DFS (pre/in/post-order) or BFS (level-order).",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": [
+            "construct-binary-tree-from-preorder-and-inorder-traversal",
+            "convert-sorted-array-to-binary-search-tree",
+            "construct-quad-tree"
+          ]
         },
         {
           "title": "Populating Next Right Pointers in Each Node II",
@@ -1063,7 +1500,10 @@
           "subTopic": "Tree",
           "description": "Use next pointers to traverse level. Connect children as you go.\n\nConnect each node to its next right node.\nUse existing next pointers as queue-like traversal.",
           "pattern": "Level Order Traversal",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Consider DFS (pre/in/post-order) or BFS (level-order).",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": []
         },
         {
           "title": "Flatten Binary Tree to Linked List",
@@ -1073,7 +1513,10 @@
           "subTopic": "Tree",
           "description": "Find rightmost of left subtree, connect to right, move left to right.\n\nFlatten tree to right-skewed linked list (preorder).\nFor each node: find rightmost of left, connect to right.",
           "pattern": "Preorder + Pointer Manipulation",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Consider DFS (pre/in/post-order) or BFS (level-order).",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": []
         },
         {
           "title": "Path Sum",
@@ -1083,7 +1526,13 @@
           "subTopic": "Tree",
           "description": "DFS, subtract node value, check leaf with remaining 0.\n\nDoes any root-to-leaf path sum to target?\nDFS: subtract current value, recurse.",
           "pattern": "DFS",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Consider DFS (pre/in/post-order) or BFS (level-order).",
+          "difficultyReason": "Single technique, straightforward logic, minimal edge cases.",
+          "relatedProblems": [
+            "sum-root-to-leaf-numbers",
+            "lowest-common-ancestor-of-a-binary-tree"
+          ]
         },
         {
           "title": "Sum Root to Leaf Numbers",
@@ -1093,7 +1542,13 @@
           "subTopic": "Tree",
           "description": "DFS carrying current number. At leaf, add to sum.\n\nSum all root-to-leaf numbers.\nPass current number * 10 + node.val down.",
           "pattern": "DFS",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Consider DFS (pre/in/post-order) or BFS (level-order).",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": [
+            "path-sum",
+            "lowest-common-ancestor-of-a-binary-tree"
+          ]
         },
         {
           "title": "Binary Tree Maximum Path Sum",
@@ -1103,7 +1558,12 @@
           "subTopic": "Tree",
           "description": "For each node, compute max path through it. Update global max.\n\nFind max path sum (any path in tree).\nAt each node: max = node + left + right. Return node + max(left, right).",
           "pattern": "DFS + Global Max",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Consider DFS (pre/in/post-order) or BFS (level-order).",
+          "difficultyReason": "Multiple advanced techniques, complex state management, many edge cases.",
+          "relatedProblems": [
+            "diameter-of-binary-tree"
+          ]
         },
         {
           "title": "Binary Search Tree Iterator",
@@ -1113,7 +1573,10 @@
           "subTopic": "Tree",
           "description": "Implement the BSTIterator class that represents an iterator over the in-order traversal of a binary search tree (BST).",
           "pattern": "Tree",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Consider DFS (pre/in/post-order) or BFS (level-order).",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": []
         },
         {
           "title": "Count Complete Tree Nodes",
@@ -1123,7 +1586,10 @@
           "subTopic": "Tree",
           "description": "Compare left/right depths. If equal, left is perfect. Otherwise right is.\n\nCount nodes in complete binary tree efficiently.\nIf left depth == right depth, left is perfect (2^d - 1 nodes).",
           "pattern": "Binary Search on Tree",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "If sorted, use binary search. Eliminate half the search space each step.",
+          "difficultyReason": "Single technique, straightforward logic, minimal edge cases.",
+          "relatedProblems": []
         },
         {
           "title": "Lowest Common Ancestor of a Binary Tree",
@@ -1133,7 +1599,13 @@
           "subTopic": "Tree",
           "description": "Return node if matched. If both subtrees return non-null, node is LCA.\n\nFind LCA of two nodes.\nIf node == p or q, return it. Recurse left/right.",
           "pattern": "DFS",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Consider DFS (pre/in/post-order) or BFS (level-order).",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": [
+            "path-sum",
+            "sum-root-to-leaf-numbers"
+          ]
         },
         {
           "title": "Balanced Binary Tree",
@@ -1143,7 +1615,10 @@
           "subTopic": "Tree",
           "description": "Given a binary tree, determine if it is height-balanced.\n\nA height-balanced binary tree is defined as a binary tree in which the depth of the two subtrees of every node never differs by more than one.",
           "pattern": "Trees",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Consider DFS (pre/in/post-order) or BFS (level-order).",
+          "difficultyReason": "Single technique, straightforward logic, minimal edge cases.",
+          "relatedProblems": []
         },
         {
           "title": "Subtree of Another Tree",
@@ -1153,7 +1628,10 @@
           "subTopic": "Tree",
           "description": "Given the roots of two binary trees `root` and `subRoot`, return `true` if there is a subtree of `root` with the same structure and node values as `subRoot`, and `false` otherwise.\n\nA subtree of a binary tree `tree` is a tree that consists of a node in `tree` and all of this node's descendants. The tree `tree` could also be considered as a subtree of itself.",
           "pattern": "Trees",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Consider DFS (pre/in/post-order) or BFS (level-order).",
+          "difficultyReason": "Single technique, straightforward logic, minimal edge cases.",
+          "relatedProblems": []
         },
         {
           "title": "Lowest Common Ancestor of a Binary Search Tree",
@@ -1163,7 +1641,12 @@
           "subTopic": "Tree",
           "description": "Given a binary search tree (BST), find the lowest common ancestor (LCA) node of two given nodes in the BST.\n\nAccording to the definition of LCA on Wikipedia: \"The lowest common ancestor is defined between two nodes p and q as the lowest node in T that has both p and q as descendants (where we allow a node to be a descendant of itself).\"\n\nThe solution should return the LCA node reference.",
           "pattern": "Trees",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Consider DFS (pre/in/post-order) or BFS (level-order).",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": [
+            "lowest-common-ancestor-of-a-bst"
+          ]
         },
         {
           "title": "Count Good Nodes in Binary Tree",
@@ -1173,7 +1656,10 @@
           "subTopic": "Tree",
           "description": "Given a binary tree root, a node X in the tree is named *good* if in the path from root to X there are no nodes with a value greater than X. Return the number of good nodes in the binary tree.",
           "pattern": "Trees",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Consider DFS (pre/in/post-order) or BFS (level-order).",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": []
         },
         {
           "title": "Serialize and Deserialize Binary Tree",
@@ -1183,7 +1669,10 @@
           "subTopic": "Tree",
           "description": "Design an algorithm to serialize and deserialize a binary tree. Serialization is the process of converting a data structure or object into a sequence of bits so that it can be stored in a file or memory buffer, or transmitted across a network connection link to be reconstructed later in the same or another computer environment.\n\nImplement the `serialize` and `deserialize` methods for a binary tree. The `serialize` method should convert the binary tree into a string representation, and the `deserialize` method should reconstruct the original binary tree from the string representation.\n\nThe encoded string should be as compact as possible, and the serialization/deserialization algorithms should handle all valid binary tree structures including empty trees and trees with duplicate values.",
           "pattern": "Trees",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Consider DFS (pre/in/post-order) or BFS (level-order).",
+          "difficultyReason": "Multiple advanced techniques, complex state management, many edge cases.",
+          "relatedProblems": []
         }
       ]
     },
@@ -1199,7 +1688,14 @@
           "subTopic": "Tree",
           "description": "BFS level by level, take last node of each level.\n\nReturn rightmost node at each level.\nBFS: at each level, record last node.",
           "pattern": "BFS",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Consider DFS (pre/in/post-order) or BFS (level-order).",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": [
+            "average-of-levels-in-binary-tree",
+            "snakes-and-ladders",
+            "minimum-genetic-mutation"
+          ]
         },
         {
           "title": "Average of Levels in Binary Tree",
@@ -1209,7 +1705,14 @@
           "subTopic": "Tree",
           "description": "BFS level by level, compute average per level.\n\nReturn average value at each level.\nBFS: sum nodes at each level, divide by count.",
           "pattern": "BFS",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Consider DFS (pre/in/post-order) or BFS (level-order).",
+          "difficultyReason": "Single technique, straightforward logic, minimal edge cases.",
+          "relatedProblems": [
+            "binary-tree-right-side-view",
+            "snakes-and-ladders",
+            "minimum-genetic-mutation"
+          ]
         },
         {
           "title": "Binary Tree Level Order Traversal",
@@ -1219,7 +1722,10 @@
           "subTopic": "Tree",
           "description": "Given the root of a binary tree, return the level order traversal of its nodes' values. (i.e., from left to right, level by level).",
           "pattern": "BFS (Queue)",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Consider DFS (pre/in/post-order) or BFS (level-order).",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": []
         },
         {
           "title": "Binary Tree Zigzag Level Order Traversal",
@@ -1229,7 +1735,10 @@
           "subTopic": "Tree",
           "description": "BFS, alternate direction each level (reverse odd levels).\n\nLevel order but alternating left-right direction.\nBFS with direction flag. Reverse level if needed.",
           "pattern": "BFS + Direction Flag",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Consider DFS (pre/in/post-order) or BFS (level-order).",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": []
         }
       ]
     },
@@ -1245,7 +1754,12 @@
           "subTopic": "Binary Search Tree",
           "description": "Inorder gives sorted order. Track prev, compare adjacent.\n\nFind min diff between any two nodes.\nInorder traversal gives sorted values.",
           "pattern": "Inorder Traversal",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "If sorted, use binary search. Eliminate half the search space each step.",
+          "difficultyReason": "Single technique, straightforward logic, minimal edge cases.",
+          "relatedProblems": [
+            "kth-smallest-element-in-a-bst"
+          ]
         },
         {
           "title": "Kth Smallest Element in a BST",
@@ -1255,7 +1769,12 @@
           "subTopic": "Binary Search Tree",
           "description": "Inorder traversal, return kth element.\n\nFind kth smallest element in BST.\nInorder = sorted order. Count until k.",
           "pattern": "Inorder Traversal",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "If sorted, use binary search. Eliminate half the search space each step.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": [
+            "minimum-absolute-difference-in-bst"
+          ]
         },
         {
           "title": "Validate Binary Search Tree",
@@ -1265,7 +1784,10 @@
           "subTopic": "Binary Search Tree",
           "description": "DFS with min/max bounds. Node must be in (min, max).\n\nIs this a valid BST?\nEach node has a valid range (min, max).",
           "pattern": "DFS with Range",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "If sorted, use binary search. Eliminate half the search space each step.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": []
         },
         {
           "id": "235",
@@ -1276,7 +1798,12 @@
           "subTopic": "Tree",
           "description": "If both p,q < node, go left. If both > node, go right. Else LCA.\n\nFind LCA in BST (not general tree).\nUse BST property: p < node < q means split.",
           "pattern": "BST Property",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Consider DFS (pre/in/post-order) or BFS (level-order).",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": [
+            "lowest-common-ancestor-of-a-binary-search-tree"
+          ]
         },
         {
           "id": "653",
@@ -1287,7 +1814,14 @@
           "subTopic": "Two Pointers",
           "description": "Given the root of a Binary Search Tree and a target number k, return true if there exist two elements in the BST such that their sum is equal to the given target.",
           "pattern": "Two Pointers",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Use left/right pointers moving toward each other or same direction.",
+          "difficultyReason": "Single technique, straightforward logic, minimal edge cases.",
+          "relatedProblems": [
+            "valid-palindrome",
+            "remove-element",
+            "middle-of-the-linked-list"
+          ]
         },
         {
           "id": "1382",
@@ -1298,7 +1832,10 @@
           "subTopic": "Tree",
           "description": "Inorder to sorted array. Build balanced BST from array.\n\nConvert BST to balanced BST.\nExtract sorted array via inorder.",
           "pattern": "Inorder + Rebuild",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Consider DFS (pre/in/post-order) or BFS (level-order).",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": []
         }
       ]
     },
@@ -1314,7 +1851,10 @@
           "subTopic": "Graph",
           "description": "Given an m x n 2D binary grid grid which represents a map of '1's (land) and '0's (water), return the number of islands.\n\nAn island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically. You may assume all four edges of the grid are all surrounded by water.",
           "pattern": "Matrix DFS / BFS",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Use BFS for shortest path, DFS for exploration, Union-Find for connectivity.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": []
         },
         {
           "title": "Surrounded Regions",
@@ -1324,7 +1864,10 @@
           "subTopic": "Graph",
           "description": "DFS from border Os to mark safe. Flip remaining Os to Xs.\n\nFlip all O regions NOT connected to border.\nMark border-connected Os as safe.",
           "pattern": "DFS from Border",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Use BFS for shortest path, DFS for exploration, Union-Find for connectivity.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": []
         },
         {
           "title": "Clone Graph",
@@ -1334,7 +1877,10 @@
           "subTopic": "Graph",
           "description": "Given a reference of a node in a connected undirected graph, return a deep copy (clone) of the graph. Each node in the graph contains a value (int) and a list (List[Node]) of its neighbors.",
           "pattern": "Graph (Hashtable + DFS)",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Use BFS for shortest path, DFS for exploration, Union-Find for connectivity.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": []
         },
         {
           "title": "Evaluate Division",
@@ -1344,7 +1890,10 @@
           "subTopic": "Graph",
           "description": "Build graph of ratios. DFS/BFS to find path and multiply.\n\nEvaluate queries given equations with values.\nBuild weighted graph: a/b = k means edge a->b with weight k.",
           "pattern": "Graph BFS/DFS",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Use BFS for shortest path, DFS for exploration, Union-Find for connectivity.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": []
         },
         {
           "title": "Course Schedule",
@@ -1354,7 +1903,10 @@
           "subTopic": "Graph",
           "description": "There are a total of numCourses courses you have to take, labeled from 0 to numCourses - 1. You are given an array prerequisites where prerequisites[i] = [ai, bi] indicates that you must take course bi first if you want to take course ai. Return true if you can finish all courses. Otherwise, return false.",
           "pattern": "Topological Sort (DFS/BFS)",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Use BFS for shortest path, DFS for exploration, Union-Find for connectivity.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": []
         },
         {
           "title": "Course Schedule II",
@@ -1364,7 +1916,12 @@
           "subTopic": "Graph",
           "description": "Kahn's algorithm: BFS with indegree. Return order or [].\n\nReturn valid course order or [] if impossible.\nTopological sort using indegree.",
           "pattern": "Topological Sort",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Use BFS for shortest path, DFS for exploration, Union-Find for connectivity.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": [
+            "alien-dictionary"
+          ]
         },
         {
           "id": "543",
@@ -1375,7 +1932,12 @@
           "subTopic": "Depth-First Search",
           "description": "For each node, diameter through it = left_height + right_height.\n\nLongest path between any two nodes.\nAt each node: path through it = left + right heights.",
           "pattern": "DFS + Global Max",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Analyze the constraints and look for patterns.",
+          "difficultyReason": "Single technique, straightforward logic, minimal edge cases.",
+          "relatedProblems": [
+            "binary-tree-maximum-path-sum"
+          ]
         },
         {
           "id": "787",
@@ -1386,7 +1948,10 @@
           "subTopic": "Shortest Path With Stops",
           "description": "Modified Bellman-Ford: k+1 iterations. Or BFS with level tracking.\n\nCheapest flight with at most k stops.\nBellman-Ford with k+1 relaxations.",
           "pattern": "BFS / Bellman-Ford",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Analyze the constraints and look for patterns.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": []
         },
         {
           "title": "Max Area of Island",
@@ -1396,7 +1961,10 @@
           "subTopic": "Graph",
           "description": "You are given an m x n binary matrix grid. An island is a group of 1's (representing land) connected 4-directionally (horizontal or vertical). All four edges of the grid are surrounded by water.\n\nThe area of an island is the number of cells with a value 1 in the island.\n\nReturn the maximum area of an island in grid. If there is no island, return 0.",
           "pattern": "Graphs",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Use BFS for shortest path, DFS for exploration, Union-Find for connectivity.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": []
         },
         {
           "title": "Pacific Atlantic Water Flow",
@@ -1406,7 +1974,12 @@
           "subTopic": "Graph",
           "description": "There is an m x n rectangular island that borders both the Pacific Ocean and Atlantic Ocean. The Pacific Ocean touches the island's left and top edges, and the Atlantic Ocean touches the island's right and bottom edges.\n\nThe island is partitioned into a grid of square cells. You are given an m x n integer matrix heights where heights[r][c] represents the height above sea level of the cell at coordinate (r, c).\n\nThe island receives a lot of rain, and the rain water can flow to neighboring cells directly north, south, east, and west if the neighboring cell's height is less than or equal to the current cell's height. Water can flow from any cell adjacent to an ocean into the ocean.\n\nReturn a 2D list of grid coordinates result where result[i] = [ri, ci] denotes that rain water can flow from cell (ri, ci) to both the Pacific and Atlantic oceans.",
           "pattern": "Graphs",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Use BFS for shortest path, DFS for exploration, Union-Find for connectivity.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": [
+            "walls-and-gates"
+          ]
         },
         {
           "title": "Rotting Oranges",
@@ -1416,7 +1989,14 @@
           "subTopic": "Graph",
           "description": "You are given an m x n grid where each cell can have one of three values:\n- 0 representing an empty cell,\n- 1 representing a fresh orange, or\n- 2 representing a rotten orange.\n\nEvery minute, any fresh orange that is 4-directionally adjacent to a rotten orange becomes rotten.\n\nReturn the minimum number of minutes that must elapse until no cell has a fresh orange. If this is impossible, return -1.",
           "pattern": "Graphs",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Use BFS for shortest path, DFS for exploration, Union-Find for connectivity.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": [
+            "binary-tree-right-side-view",
+            "average-of-levels-in-binary-tree",
+            "snakes-and-ladders"
+          ]
         },
         {
           "title": "Walls And Gates",
@@ -1426,7 +2006,12 @@
           "subTopic": "Graph",
           "description": "You are given an m x n grid where each cell can be:\n- -1 representing a wall or obstacle\n- 0 representing a gate\n- 2147483647 (INF) representing an empty room\n\nFill each empty room with the distance to its nearest gate. If it's impossible to reach a gate, it should remain INF.",
           "pattern": "Graphs",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Use BFS for shortest path, DFS for exploration, Union-Find for connectivity.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": [
+            "pacific-atlantic-water-flow"
+          ]
         },
         {
           "title": "Redundant Connection",
@@ -1436,7 +2021,10 @@
           "subTopic": "Graph",
           "description": "In this problem, a tree is an undirected graph that is connected and has no cycles. You are given a graph that started as a tree with n nodes labeled from 1 to n, with one additional edge added. The task is to find and return the redundant edge that can be removed to make the graph a valid tree again. If there are multiple answers, return the one that appears last in the input.",
           "pattern": "Graphs",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Use BFS for shortest path, DFS for exploration, Union-Find for connectivity.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": []
         },
         {
           "title": "Number of Connected Components In An Undirected Graph",
@@ -1446,7 +2034,10 @@
           "subTopic": "Graph",
           "description": "You are given an undirected graph with `n` nodes and a list of edges. Each edge connects two nodes. Return the number of connected components in the graph.\n\nA connected component is a subgraph where all nodes are connected to each other through some path, and no node in the subgraph is connected to any node outside the subgraph.",
           "pattern": "Graphs",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Use BFS for shortest path, DFS for exploration, Union-Find for connectivity.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": []
         },
         {
           "title": "Graph Valid Tree",
@@ -1456,7 +2047,10 @@
           "subTopic": "Graph",
           "description": "You have a graph of n nodes labeled from 0 to n - 1. You are given an integer n and a list of edges where edges[i] = [ai, bi] indicates that there is an undirected edge between nodes ai and bi.\n\nReturn true if the edges of the given graph make up a valid tree, and false otherwise.\n\nA valid tree must satisfy two conditions:\n1. It must be connected (all nodes reachable from each other)\n2. It must contain no cycles",
           "pattern": "Graphs",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Use BFS for shortest path, DFS for exploration, Union-Find for connectivity.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": []
         },
         {
           "title": "Reconstruct Itinerary",
@@ -1466,7 +2060,10 @@
           "subTopic": "Graph",
           "description": "You are given a list of airline tickets where `tickets[i] = [fromi, toi]` represents the departure and arrival airports of one flight. Reconstruct the itinerary in order and return it.\n\nAll of the tickets belong to a man who departs from \"JFK\", so the itinerary must begin with \"JFK\". If there are multiple valid itineraries, return the one with the smallest lexical order when read as a single string. Assume all tickets form at least one valid itinerary and all tickets must be used exactly once.",
           "pattern": "Advanced Graphs",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Use BFS for shortest path, DFS for exploration, Union-Find for connectivity.",
+          "difficultyReason": "Multiple advanced techniques, complex state management, many edge cases.",
+          "relatedProblems": []
         },
         {
           "title": "Min Cost to Connect All Points",
@@ -1476,7 +2073,10 @@
           "subTopic": "Graph",
           "description": "You are given an array `points` representing integer coordinates of some points on a 2D-plane, where `points[i] = [xi, yi]`.\n\nThe cost of connecting two points `[xi, yi]` and `[xj, yj]` is the Manhattan distance between them: `|xi - xj| + |yi - yj|`.\n\nReturn the minimum cost to make all points connected such that there is exactly one simple path between any two points.",
           "pattern": "Advanced Graphs",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Consider DFS (pre/in/post-order) or BFS (level-order).",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": []
         },
         {
           "title": "Network Delay Time",
@@ -1486,7 +2086,10 @@
           "subTopic": "Graph",
           "description": "You are given a network of n nodes labeled from 1 to n, and a list of travel times as directed edges times[i] = (ui, vi, wi), where ui is the source node, vi is the target node, and wi is the time it takes for a signal to travel from source to target.\n\nWe will send a signal from a given node k. Return the minimum time it takes for all the n nodes to receive the signal. If it is impossible for all the n nodes to receive the signal, return -1.",
           "pattern": "Advanced Graphs",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Use BFS for shortest path, DFS for exploration, Union-Find for connectivity.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": []
         },
         {
           "title": "Swim in Rising Water",
@@ -1496,7 +2099,10 @@
           "subTopic": "Graph",
           "description": "You are given an n x n integer matrix grid where each value grid[i][j] represents the elevation at that point (i, j). The rain starts to fall. At time t, the depth of the water everywhere is t. You can swim from a square to another 4-directionally adjacent square if and only if the elevation of both squares are at most t. You begin at the top-left square (0, 0). Return the least time until you can reach the bottom-right square (n-1, n-1).",
           "pattern": "Advanced Graphs",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "If sorted, use binary search. Eliminate half the search space each step.",
+          "difficultyReason": "Multiple advanced techniques, complex state management, many edge cases.",
+          "relatedProblems": []
         },
         {
           "title": "Alien Dictionary",
@@ -1506,7 +2112,12 @@
           "subTopic": "Graph",
           "description": "There is a new alien language that uses the English alphabet. However, the order of the letters is unknown to you. You are given a list of strings `words` from the alien language's dictionary, where the strings are sorted lexicographically according to the rules of this new language.\n\nReturn a string of the unique letters in the new alien language sorted in lexicographically increasing order by the new language's rules. If there is no valid ordering of letters, return an empty string. If there are multiple valid orderings, return any one of them.\n\nThe lexicographical ordering follows the same rules as English, where each character is compared sequentially, and if one word is a prefix of another, the shorter word comes first.",
           "pattern": "Advanced Graphs",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Use BFS for shortest path, DFS for exploration, Union-Find for connectivity.",
+          "difficultyReason": "Multiple advanced techniques, complex state management, many edge cases.",
+          "relatedProblems": [
+            "course-schedule-ii"
+          ]
         }
       ]
     },
@@ -1522,7 +2133,14 @@
           "subTopic": "Graph",
           "description": "BFS from square 1. Follow snakes/ladders. Min moves to n².\n\nMin dice rolls to reach last square.\nBFS level = number of moves.",
           "pattern": "BFS",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Use BFS for shortest path, DFS for exploration, Union-Find for connectivity.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": [
+            "binary-tree-right-side-view",
+            "average-of-levels-in-binary-tree",
+            "minimum-genetic-mutation"
+          ]
         },
         {
           "title": "Minimum Genetic Mutation",
@@ -1532,7 +2150,14 @@
           "subTopic": "Graph",
           "description": "BFS from startGene. Each level = 1 mutation. Valid if in bank.\n\nMin mutations to reach endGene.\nBFS where edges are single char changes in bank.",
           "pattern": "BFS",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Use BFS for shortest path, DFS for exploration, Union-Find for connectivity.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": [
+            "binary-tree-right-side-view",
+            "average-of-levels-in-binary-tree",
+            "snakes-and-ladders"
+          ]
         },
         {
           "title": "Word Ladder",
@@ -1542,7 +2167,14 @@
           "subTopic": "Graph",
           "description": "BFS from beginWord. Valid moves = 1 char diff in wordList.\n\nMin transformations to endWord.\nBFS where each level = 1 transformation.",
           "pattern": "BFS",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Use BFS for shortest path, DFS for exploration, Union-Find for connectivity.",
+          "difficultyReason": "Multiple advanced techniques, complex state management, many edge cases.",
+          "relatedProblems": [
+            "binary-tree-right-side-view",
+            "average-of-levels-in-binary-tree",
+            "snakes-and-ladders"
+          ]
         },
         {
           "id": "111",
@@ -1553,7 +2185,14 @@
           "subTopic": "Breadth-First Search",
           "description": "BFS level by level. Return level when first leaf found.\n\nMin depth to a leaf node.\nBFS finds closest leaf first.",
           "pattern": "BFS",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Analyze the constraints and look for patterns.",
+          "difficultyReason": "Single technique, straightforward logic, minimal edge cases.",
+          "relatedProblems": [
+            "binary-tree-right-side-view",
+            "average-of-levels-in-binary-tree",
+            "snakes-and-ladders"
+          ]
         }
       ]
     },
@@ -1569,7 +2208,12 @@
           "subTopic": "Trie",
           "description": "A trie (pronounced as 'try') or prefix tree is a tree data structure used to efficiently store and retrieve keys in a dataset of strings.",
           "pattern": "Trie",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Analyze the constraints and look for patterns.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": [
+            "design-add-and-search-words-data-structure"
+          ]
         },
         {
           "title": "Design Add and Search Words Data Structure",
@@ -1579,7 +2223,12 @@
           "subTopic": "Trie",
           "description": "Design a data structure that supports adding new words and finding if a string matches any previously added string. The search can contain '.' which matches any single character.",
           "pattern": "Trie",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Analyze the constraints and look for patterns.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": [
+            "implement-trie-prefix-tree"
+          ]
         },
         {
           "title": "Word Search II",
@@ -1589,7 +2238,14 @@
           "subTopic": "Trie",
           "description": "Given an m x n board of characters and a list of strings words, return all words on the board. Each word must be constructed from letters of sequentially adjacent cells.",
           "pattern": "Backtracking",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Try all possibilities, prune invalid branches early.",
+          "difficultyReason": "Multiple advanced techniques, complex state management, many edge cases.",
+          "relatedProblems": [
+            "permutations",
+            "letter-combinations-of-a-phone-number",
+            "combinations"
+          ]
         }
       ]
     },
@@ -1605,7 +2261,14 @@
           "subTopic": "Backtracking",
           "description": "Map digits to letters. Backtrack all combinations.\n\nAll letter combinations from digits.\nDigit -> letters mapping. Backtrack choices.",
           "pattern": "Backtracking",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Try all possibilities, prune invalid branches early.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": [
+            "permutations",
+            "combinations",
+            "n-queens-ii"
+          ]
         },
         {
           "title": "Combinations",
@@ -1615,7 +2278,14 @@
           "subTopic": "Backtracking",
           "description": "Backtrack choosing k elements from 1 to n.\n\nAll combinations of k numbers from 1 to n.\nBacktrack: pick or skip each number.",
           "pattern": "Backtracking",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Try all possibilities, prune invalid branches early.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": [
+            "permutations",
+            "letter-combinations-of-a-phone-number",
+            "n-queens-ii"
+          ]
         },
         {
           "title": "Permutations",
@@ -1625,7 +2295,14 @@
           "subTopic": "Backtracking",
           "description": "Given an array nums of distinct integers, return all the possible permutations. You can return the answer in any order.",
           "pattern": "Backtracking",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Try all possibilities, prune invalid branches early.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": [
+            "letter-combinations-of-a-phone-number",
+            "combinations",
+            "n-queens-ii"
+          ]
         },
         {
           "title": "Combination Sum",
@@ -1635,7 +2312,10 @@
           "subTopic": "Backtracking",
           "description": "Given an array of distinct integers candidates and a target integer target, return a list of all unique combinations of candidates where the chosen numbers sum to target. You may return the combinations in any order. The same number may be chosen from candidates an unlimited number of times.",
           "pattern": "Backtracking (Decision Tree)",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Consider DFS (pre/in/post-order) or BFS (level-order).",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": []
         },
         {
           "title": "N-Queens II",
@@ -1645,7 +2325,14 @@
           "subTopic": "Backtracking",
           "description": "Place queens row by row. Track cols and diagonals.\n\nCount valid n-queens placements.\nTrack used columns, diagonals, anti-diagonals.",
           "pattern": "Backtracking",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Try all possibilities, prune invalid branches early.",
+          "difficultyReason": "Multiple advanced techniques, complex state management, many edge cases.",
+          "relatedProblems": [
+            "permutations",
+            "letter-combinations-of-a-phone-number",
+            "combinations"
+          ]
         },
         {
           "title": "Generate Parentheses",
@@ -1655,7 +2342,14 @@
           "subTopic": "Backtracking",
           "description": "Add '(' if open < n. Add ')' if close < open.\n\nGenerate all valid parentheses of n pairs.\nCan add '(' if count < n. Can add ')' if close < open.",
           "pattern": "Backtracking",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Try all possibilities, prune invalid branches early.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": [
+            "permutations",
+            "letter-combinations-of-a-phone-number",
+            "combinations"
+          ]
         },
         {
           "title": "Word Search",
@@ -1665,7 +2359,10 @@
           "subTopic": "Backtracking",
           "description": "Given an m x n grid of characters board and a string word, return true if word exists in the grid. The word can be constructed from letters of sequentially adjacent cells, where adjacent cells are horizontally or vertically neighboring. The same letter cell may not be used more than once.",
           "pattern": "Backtracking (Matrix)",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Try all possibilities, prune invalid branches early.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": []
         },
         {
           "id": "78",
@@ -1676,7 +2373,14 @@
           "subTopic": "Subsets / Power Set",
           "description": "Backtrack: include or exclude each element.\n\nAll subsets of a set.\nFor each element: include or exclude.",
           "pattern": "Backtracking",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Try all possibilities, prune invalid branches early.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": [
+            "permutations",
+            "letter-combinations-of-a-phone-number",
+            "combinations"
+          ]
         },
         {
           "id": "784",
@@ -1687,7 +2391,14 @@
           "subTopic": "Case Permutations",
           "description": "For each letter, branch on lower and upper case.\n\nAll case permutations of letters.\nDigits: no choice. Letters: lower or upper.",
           "pattern": "Backtracking",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Try all possibilities, prune invalid branches early.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": [
+            "permutations",
+            "letter-combinations-of-a-phone-number",
+            "combinations"
+          ]
         },
         {
           "title": "Subsets II",
@@ -1697,7 +2408,14 @@
           "subTopic": "Backtracking",
           "description": "Given an integer array `nums` that may contain duplicates, return all possible subsets (the power set). The solution set must not contain duplicate subsets. Return the solution in any order.",
           "pattern": "Backtracking",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Try all possibilities, prune invalid branches early.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": [
+            "permutations",
+            "letter-combinations-of-a-phone-number",
+            "combinations"
+          ]
         },
         {
           "title": "Combination Sum II",
@@ -1707,7 +2425,14 @@
           "subTopic": "Backtracking",
           "description": "Given a collection of candidate numbers (candidates) and a target number (target), find all unique combinations in candidates where the candidate numbers sum to target.\n\nEach number in candidates may only be used once in the combination.\n\nThe solution set must not contain duplicate combinations.",
           "pattern": "Backtracking",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Try all possibilities, prune invalid branches early.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": [
+            "permutations",
+            "letter-combinations-of-a-phone-number",
+            "combinations"
+          ]
         },
         {
           "title": "Palindrome Partitioning",
@@ -1717,7 +2442,14 @@
           "subTopic": "Backtracking",
           "description": "Given a string s, partition s such that every substring of the partition is a palindrome. Return all possible palindrome partitioning of s.\n\nA palindrome string is a string that reads the same backward as forward.",
           "pattern": "Backtracking",
-          "has_solution": false
+          "has_solution": false,
+          "algorithmHint": "Try all possibilities, prune invalid branches early.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": [
+            "permutations",
+            "letter-combinations-of-a-phone-number",
+            "combinations"
+          ]
         },
         {
           "title": "N-Queens",
@@ -1727,7 +2459,14 @@
           "subTopic": "Backtracking",
           "description": "The n-queens puzzle is the problem of placing n queens on an n×n chessboard such that no two queens attack each other. Given an integer n, return all distinct solutions to the n-queens puzzle. Each solution contains a distinct board configuration where 'Q' represents a queen and '.' represents an empty space.",
           "pattern": "Backtracking",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Try all possibilities, prune invalid branches early.",
+          "difficultyReason": "Multiple advanced techniques, complex state management, many edge cases.",
+          "relatedProblems": [
+            "permutations",
+            "letter-combinations-of-a-phone-number",
+            "combinations"
+          ]
         }
       ]
     },
@@ -1743,7 +2482,14 @@
           "subTopic": "Divide & Conquer",
           "description": "Recursively pick middle as root. Left half -> left subtree, right half -> right subtree.\n\nConvert sorted array to height-balanced BST.\nMiddle element is root. Recurse on halves.",
           "pattern": "Divide and Conquer",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Analyze the constraints and look for patterns.",
+          "difficultyReason": "Single technique, straightforward logic, minimal edge cases.",
+          "relatedProblems": [
+            "construct-binary-tree-from-preorder-and-inorder-traversal",
+            "construct-binary-tree-from-inorder-and-postorder-traversal",
+            "construct-quad-tree"
+          ]
         },
         {
           "title": "Sort List",
@@ -1753,7 +2499,10 @@
           "subTopic": "Divide & Conquer",
           "description": "Find middle, split, recursively sort, merge.\n\nSort linked list in O(n log n) time.\nMerge sort: split at middle, recurse, merge.",
           "pattern": "Merge Sort",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Analyze the constraints and look for patterns.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": []
         },
         {
           "title": "Construct Quad Tree",
@@ -1763,7 +2512,14 @@
           "subTopic": "Divide & Conquer",
           "description": "If all same value, leaf. Else divide into 4 quadrants.\n\nBuild quad-tree from n×n grid.\nIf entire region same value, make leaf.",
           "pattern": "Divide and Conquer",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Analyze the constraints and look for patterns.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": [
+            "construct-binary-tree-from-preorder-and-inorder-traversal",
+            "construct-binary-tree-from-inorder-and-postorder-traversal",
+            "convert-sorted-array-to-binary-search-tree"
+          ]
         },
         {
           "title": "Merge k Sorted Lists",
@@ -1773,7 +2529,10 @@
           "subTopic": "Divide & Conquer",
           "description": "Use min-heap to always get smallest head. Or divide-conquer merge pairs.\n\nMerge k sorted linked lists.\nMin-heap keeps track of smallest head.",
           "pattern": "Divide and Conquer / Heap",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Use heap for top-k problems or priority-based processing.",
+          "difficultyReason": "Multiple advanced techniques, complex state management, many edge cases.",
+          "relatedProblems": []
         }
       ]
     },
@@ -1789,7 +2548,10 @@
           "subTopic": "Kadane's Algorithm",
           "description": "Given an integer array nums, find the subarray with the largest sum, and return its sum.\n\nA subarray is a contiguous non-empty sequence of elements within an array.",
           "pattern": "Kadane's Algorithm",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Analyze the constraints and look for patterns.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": []
         },
         {
           "title": "Maximum Sum Circular Subarray",
@@ -1799,7 +2561,10 @@
           "subTopic": "Kadane's Algorithm",
           "description": "Max is either normal Kadane OR total - min subarray.\n\nMax subarray sum in circular array.\nTwo cases: normal subarray OR wrapping subarray.",
           "pattern": "Kadane's",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Analyze the constraints and look for patterns.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": []
         }
       ]
     },
@@ -1815,7 +2580,10 @@
           "subTopic": "Binary Search",
           "description": "Given an array of integers nums which is sorted in ascending order, and an integer target, write a function to search target in nums. If target exists, then return its index. Otherwise, return -1.\n\nYou must write an algorithm with O(log n) runtime complexity.",
           "pattern": "Divide & Conquer",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "If sorted, use binary search. Eliminate half the search space each step.",
+          "difficultyReason": "Single technique, straightforward logic, minimal edge cases.",
+          "relatedProblems": []
         },
         {
           "title": "Search Insert Position",
@@ -1825,7 +2593,14 @@
           "subTopic": "Binary Search",
           "description": "Binary search. If not found, left pointer is insert position.\n\nFind index to insert target in sorted array.\nBinary search: if exact match, return. Else return left.",
           "pattern": "Binary Search",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "If sorted, use binary search. Eliminate half the search space each step.",
+          "difficultyReason": "Single technique, straightforward logic, minimal edge cases.",
+          "relatedProblems": [
+            "search-a-2d-matrix",
+            "find-peak-element",
+            "search-in-rotated-sorted-array"
+          ]
         },
         {
           "title": "Search a 2D Matrix",
@@ -1835,7 +2610,14 @@
           "subTopic": "Binary Search",
           "description": "Treat matrix as 1D sorted array. Binary search with coordinate conversion.\n\nSearch target in row-sorted matrix.\nFlatten conceptually: idx -> (idx//n, idx%n).",
           "pattern": "Binary Search",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "If sorted, use binary search. Eliminate half the search space each step.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": [
+            "search-insert-position",
+            "find-peak-element",
+            "search-in-rotated-sorted-array"
+          ]
         },
         {
           "title": "Find Peak Element",
@@ -1845,7 +2627,14 @@
           "subTopic": "Binary Search",
           "description": "Move towards larger neighbor. Guaranteed to find peak.\n\nFind any peak (greater than neighbors).\nIf mid < mid+1, peak is on right. Else on left.",
           "pattern": "Binary Search",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "If sorted, use binary search. Eliminate half the search space each step.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": [
+            "search-insert-position",
+            "search-a-2d-matrix",
+            "search-in-rotated-sorted-array"
+          ]
         },
         {
           "title": "Search in Rotated Sorted Array",
@@ -1855,7 +2644,14 @@
           "subTopic": "Binary Search",
           "description": "Determine which half is sorted. Check if target is in that half.\n\nSearch in rotated sorted array.\nOne half is always sorted. Check if target is there.",
           "pattern": "Binary Search",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "If sorted, use binary search. Eliminate half the search space each step.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": [
+            "search-insert-position",
+            "search-a-2d-matrix",
+            "find-peak-element"
+          ]
         },
         {
           "title": "Find First and Last Position of Element in Sorted Array",
@@ -1865,7 +2661,10 @@
           "subTopic": "Binary Search",
           "description": "Two binary searches: find left bound and right bound.\n\nFind start and end indices of target.\nBinary search for leftmost occurrence.",
           "pattern": "Binary Search (Bisect)",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "If sorted, use binary search. Eliminate half the search space each step.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": []
         },
         {
           "title": "Find Minimum in Rotated Sorted Array",
@@ -1875,7 +2674,14 @@
           "subTopic": "Binary Search",
           "description": "Compare mid with right. If mid > right, min is on right. Else on left.\n\nFind minimum in rotated sorted array.\nCompare mid with rightmost element.",
           "pattern": "Binary Search",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "If sorted, use binary search. Eliminate half the search space each step.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": [
+            "search-insert-position",
+            "search-a-2d-matrix",
+            "find-peak-element"
+          ]
         },
         {
           "title": "Median of Two Sorted Arrays",
@@ -1885,7 +2691,14 @@
           "subTopic": "Binary Search",
           "description": "Binary search on smaller array. Find partition where left <= right.\n\nFind median of two sorted arrays in O(log(m+n)).\nPartition both arrays such that left halves = right halves.",
           "pattern": "Binary Search",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "If sorted, use binary search. Eliminate half the search space each step.",
+          "difficultyReason": "Multiple advanced techniques, complex state management, many edge cases.",
+          "relatedProblems": [
+            "search-insert-position",
+            "search-a-2d-matrix",
+            "find-peak-element"
+          ]
         },
         {
           "id": "700",
@@ -1896,7 +2709,13 @@
           "subTopic": "Search",
           "description": "If val < root, go left. If val > root, go right.\n\nFind node with given value in BST.\nUse BST property to navigate.",
           "pattern": "BST Traversal",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Analyze the constraints and look for patterns.",
+          "difficultyReason": "Single technique, straightforward logic, minimal edge cases.",
+          "relatedProblems": [
+            "delete-node-in-a-bst",
+            "insert-into-a-binary-search-tree"
+          ]
         },
         {
           "title": "Koko Eating Bananas",
@@ -1906,7 +2725,14 @@
           "subTopic": "Binary Search",
           "description": "Koko loves to eat bananas. There are n piles of bananas, the ith pile has piles[i] bananas. The guards have gone and will come back in h hours.\n\nKoko can decide her bananas-per-hour eating speed of k. Each hour, she chooses some pile of bananas and eats k bananas from that pile. If the pile has less than k bananas, she eats all of them instead and will not eat any more bananas during this hour.\n\nKoko likes to eat slowly but still wants to finish eating all the bananas before the guards return.\n\nReturn the minimum integer k such that she can eat all the bananas within h hours.",
           "pattern": "Binary Search",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "If sorted, use binary search. Eliminate half the search space each step.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": [
+            "search-insert-position",
+            "search-a-2d-matrix",
+            "find-peak-element"
+          ]
         },
         {
           "title": "Time Based Key-Value Store",
@@ -1916,7 +2742,14 @@
           "subTopic": "Binary Search",
           "description": "Design a time-based key-value data structure that can store multiple values for the same key at different time stamps and retrieve the key's value at a certain timestamp.\n\nImplement the TimeMap class:\n- TimeMap() Initializes the object of the data structure.\n- void set(String key, String value, int timestamp) Stores the key with the value at the given timestamp.\n- String get(String key, int timestamp) Returns the value associated with the largest timestamp less than or equal to the given timestamp. If no such value exists, return an empty string.",
           "pattern": "Binary Search",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "If sorted, use binary search. Eliminate half the search space each step.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": [
+            "search-insert-position",
+            "search-a-2d-matrix",
+            "find-peak-element"
+          ]
         }
       ]
     },
@@ -1932,7 +2765,10 @@
           "subTopic": "Heap",
           "description": "Given an integer array nums and an integer k, return the kth largest element in the array. Note that it is the kth largest element in the sorted order, not the kth distinct element. Can you solve it without sorting?",
           "pattern": "Heap / QuickSelect",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Use heap for top-k problems or priority-based processing.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": []
         },
         {
           "title": "IPO",
@@ -1942,7 +2778,12 @@
           "subTopic": "Heap",
           "description": "Sort by capital needed. Use max-heap for affordable projects.\n\nMaximize capital after k projects.\nMin-heap for capital, max-heap for profit.",
           "pattern": "Two Heaps",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Use heap for top-k problems or priority-based processing.",
+          "difficultyReason": "Multiple advanced techniques, complex state management, many edge cases.",
+          "relatedProblems": [
+            "find-median-from-data-stream"
+          ]
         },
         {
           "title": "Find K Pairs with Smallest Sums",
@@ -1952,7 +2793,12 @@
           "subTopic": "Heap",
           "description": "Min-heap starting from (nums1[0], nums2[0]). Expand to neighbors.\n\nFind k pairs with smallest sums.\nStart with (0,0), push (i+1,j) and (i,j+1).",
           "pattern": "Heap",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Use heap for top-k problems or priority-based processing.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": [
+            "k-closest-points-to-origin"
+          ]
         },
         {
           "title": "Find Median from Data Stream",
@@ -1962,7 +2808,12 @@
           "subTopic": "Heap",
           "description": "Max-heap for lower half, min-heap for upper half.\n\nMaintain running median.\nTwo heaps: small (max-heap), large (min-heap).",
           "pattern": "Two Heaps",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Use heap for top-k problems or priority-based processing.",
+          "difficultyReason": "Multiple advanced techniques, complex state management, many edge cases.",
+          "relatedProblems": [
+            "ipo"
+          ]
         },
         {
           "id": "621",
@@ -1973,7 +2824,10 @@
           "subTopic": "Task Scheduling",
           "description": "Count max frequency. Result = max((maxCount-1)*(n+1)+numMaxCount, len(tasks)).\n\nMinimum intervals to complete all tasks with cooldown.\nMost frequent task determines frame size.",
           "pattern": "Greedy / Math",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Make locally optimal choice at each step.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": []
         },
         {
           "id": "347",
@@ -1984,7 +2838,10 @@
           "subTopic": "Heap",
           "description": "Given an integer array nums and an integer k, return the k most frequent elements. You may return the answer in any order.",
           "pattern": "Bucket Sort / Heap",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Use heap for top-k problems or priority-based processing.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": []
         },
         {
           "id": "973",
@@ -1995,7 +2852,12 @@
           "subTopic": "Heap",
           "description": "Max-heap of size k. Keep k smallest distances.\n\nFind k closest points to origin.\nUse max-heap of size k.",
           "pattern": "Heap",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Use heap for top-k problems or priority-based processing.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": [
+            "find-k-pairs-with-smallest-sums"
+          ]
         },
         {
           "title": "Kth Largest Element in a Stream",
@@ -2005,7 +2867,10 @@
           "subTopic": "Heap",
           "description": "Design a class to find the kth largest element in a stream. Note that it is the kth largest element in the sorted order, not the kth distinct element.\n\nImplement KthLargest class:\n- KthLargest(int k, int[] nums) Initializes the object with the integer k and the stream of integers nums.\n- int add(int val) Appends the integer val to the stream and returns the element representing the kth largest element in the stream.",
           "pattern": "Heap / Priority Queue",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Use heap for top-k problems or priority-based processing.",
+          "difficultyReason": "Single technique, straightforward logic, minimal edge cases.",
+          "relatedProblems": []
         },
         {
           "title": "Last Stone Weight",
@@ -2015,7 +2880,10 @@
           "subTopic": "Heap",
           "description": "You are given an array of integers representing the weights of stones. In each turn, you choose the two heaviest stones and smash them together. If their weights are equal, both are destroyed. If they differ, the lighter stone is destroyed and the heavier stone's weight becomes the difference between the two weights. Continue until at most one stone remains. Return the weight of the last remaining stone, or 0 if none remain.",
           "pattern": "Heap / Priority Queue",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Use heap for top-k problems or priority-based processing.",
+          "difficultyReason": "Single technique, straightforward logic, minimal edge cases.",
+          "relatedProblems": []
         },
         {
           "title": "Design Twitter",
@@ -2025,7 +2893,10 @@
           "subTopic": "Heap",
           "description": "Design a simplified version of Twitter where users can post tweets, follow/unfollow another user, and see the 10 most recent tweets from users they follow (including themselves) in their news feed.\n\nImplement the Twitter class with the following methods:\n\n- `Twitter()` Initializes your twitter object.\n- `void postTweet(int userId, int tweetId)` Composes a new tweet with ID tweetId by the user userId.\n- `List<Integer> getNewsFeed(int userId)` Retrieves the 10 most recent tweet IDs in the user's news feed. Each item must be posted by users the user follows or by the user themselves. Tweets must be ordered from most recent to least recent.\n- `void follow(int followerId, int followeeId)` The user with ID followerId starts following the user with ID followeeId.\n- `void unfollow(int followerId, int followeeId)` The user with ID followerId stops following the user with ID followeeId.",
           "pattern": "Heap / Priority Queue",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Use hash map for O(1) lookup. Store complements or counts.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": []
         }
       ]
     },
@@ -2041,7 +2912,10 @@
           "subTopic": "Bit Manipulation",
           "description": "Add digits from right, track carry.\n\nAdd two binary strings.\nProcess from right, handle carry.",
           "pattern": "Bit by Bit",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Use XOR, AND, OR operations. Think binary representation.",
+          "difficultyReason": "Single technique, straightforward logic, minimal edge cases.",
+          "relatedProblems": []
         },
         {
           "title": "Reverse Bits",
@@ -2051,7 +2925,14 @@
           "subTopic": "Bit Manipulation",
           "description": "Shift result left, add LSB of n, shift n right. Repeat 32 times.\n\nReverse all 32 bits of an integer.\nExtract LSB of n, add to result, shift both.",
           "pattern": "Bit Manipulation",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Use XOR, AND, OR operations. Think binary representation.",
+          "difficultyReason": "Single technique, straightforward logic, minimal edge cases.",
+          "relatedProblems": [
+            "number-of-1-bits",
+            "minimum-operations-to-reduce-an-integer-to-0",
+            "sum-of-two-integers"
+          ]
         },
         {
           "title": "Number of 1 Bits",
@@ -2061,7 +2942,14 @@
           "subTopic": "Bit Manipulation",
           "description": "n & (n-1) clears rightmost 1 bit. Count iterations.\n\nCount set bits (Hamming weight).\nn & (n-1) removes rightmost 1.",
           "pattern": "Bit Manipulation",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Use XOR, AND, OR operations. Think binary representation.",
+          "difficultyReason": "Single technique, straightforward logic, minimal edge cases.",
+          "relatedProblems": [
+            "reverse-bits",
+            "minimum-operations-to-reduce-an-integer-to-0",
+            "sum-of-two-integers"
+          ]
         },
         {
           "title": "Single Number",
@@ -2071,7 +2959,10 @@
           "subTopic": "Bit Manipulation",
           "description": "Given a non-empty array of integers nums, every element appears twice except for one. Find that single one.\n\nYou must implement a solution with a linear runtime complexity and use only constant extra space.",
           "pattern": "XOR",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Use XOR, AND, OR operations. Think binary representation.",
+          "difficultyReason": "Single technique, straightforward logic, minimal edge cases.",
+          "relatedProblems": []
         },
         {
           "title": "Single Number II",
@@ -2081,7 +2972,10 @@
           "subTopic": "Bit Manipulation",
           "description": "Count bits mod 3 for each position.\n\nFind element appearing once (others 3 times).\nFor each bit position, count 1s mod 3.",
           "pattern": "Bit Counting",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Use XOR, AND, OR operations. Think binary representation.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": []
         },
         {
           "title": "Bitwise AND of Numbers Range",
@@ -2091,7 +2985,10 @@
           "subTopic": "Bit Manipulation",
           "description": "AND of range = common prefix of left and right.\n\nAND of all numbers from left to right.\nResult is the common prefix bits.",
           "pattern": "Common Prefix",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Use XOR, AND, OR operations. Think binary representation.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": []
         },
         {
           "id": "2571",
@@ -2102,7 +2999,14 @@
           "subTopic": "Greedy",
           "description": "Add/subtract powers of 2. Handle consecutive 1s.\n\nMin operations to make n = 0 using ±2^k.\nConsecutive 1s: add to clear, else subtract.",
           "pattern": "Bit Manipulation",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Make locally optimal choice at each step.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": [
+            "reverse-bits",
+            "number-of-1-bits",
+            "sum-of-two-integers"
+          ]
         },
         {
           "id": "397",
@@ -2113,7 +3017,10 @@
           "subTopic": "Greedy",
           "description": "If even, divide. If odd, prefer +1 if it creates more trailing zeros.\n\nMin steps to reduce n to 1.\nEven: n/2. Odd: n+1 or n-1.",
           "pattern": "Bit Manipulation / BFS",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Make locally optimal choice at each step.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": []
         },
         {
           "title": "Sum of Two Integers",
@@ -2123,7 +3030,14 @@
           "subTopic": "Bit Manipulation",
           "description": "Given two integers a and b, return the sum of the two integers without using the operators + and -.",
           "pattern": "Bit Manipulation",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Use XOR, AND, OR operations. Think binary representation.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": [
+            "reverse-bits",
+            "number-of-1-bits",
+            "minimum-operations-to-reduce-an-integer-to-0"
+          ]
         },
         {
           "title": "Reverse Integer",
@@ -2133,7 +3047,13 @@
           "subTopic": "Bit Manipulation",
           "description": "Given a signed 32-bit integer x, return x with its digits reversed. If reversing x causes the value to go outside the signed 32-bit integer range [-2³¹, 2³¹ - 1], then return 0.\n\nAssume the environment does not allow you to store 64-bit integers (signed or unsigned).",
           "pattern": "Bit Manipulation",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Use XOR, AND, OR operations. Think binary representation.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": [
+            "missing-number",
+            "factorial-trailing-zeroes"
+          ]
         }
       ]
     },
@@ -2149,7 +3069,10 @@
           "subTopic": "Math",
           "description": "Reverse half the number and compare.\n\nCheck if number is palindrome without string.\nReverse last half of digits.",
           "pattern": "Number Reversal",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Look for patterns, use modular arithmetic, or mathematical formulas.",
+          "difficultyReason": "Single technique, straightforward logic, minimal edge cases.",
+          "relatedProblems": []
         },
         {
           "title": "Plus One",
@@ -2159,7 +3082,13 @@
           "subTopic": "Math",
           "description": "Add 1 to last digit, propagate carry.\n\nAdd 1 to a number represented as array.\nHandle carry from rightmost digit.",
           "pattern": "Simulation",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Look for patterns, use modular arithmetic, or mathematical formulas.",
+          "difficultyReason": "Single technique, straightforward logic, minimal edge cases.",
+          "relatedProblems": [
+            "zigzag-conversion",
+            "multiply-strings"
+          ]
         },
         {
           "title": "Factorial Trailing Zeroes",
@@ -2169,7 +3098,13 @@
           "subTopic": "Math",
           "description": "Count factors of 5 in n!\n\nTrailing zeros = count of (2*5) pairs.\nMore 2s than 5s, so count 5s.",
           "pattern": "Math",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Look for patterns, use modular arithmetic, or mathematical formulas.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": [
+            "missing-number",
+            "reverse-integer"
+          ]
         },
         {
           "title": "Sqrt(x)",
@@ -2179,7 +3114,14 @@
           "subTopic": "Math",
           "description": "Binary search for largest k where k*k <= x.\n\nFind integer square root.\nBinary search: if mid*mid <= x, go right.",
           "pattern": "Binary Search",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "If sorted, use binary search. Eliminate half the search space each step.",
+          "difficultyReason": "Single technique, straightforward logic, minimal edge cases.",
+          "relatedProblems": [
+            "search-insert-position",
+            "search-a-2d-matrix",
+            "find-peak-element"
+          ]
         },
         {
           "title": "Pow(x, n)",
@@ -2189,7 +3131,10 @@
           "subTopic": "Math",
           "description": "x^n = (x^(n/2))^2. Handle negative n.\n\nCompute x^n efficiently.\nSquare and halve: x^n = (x^2)^(n/2).",
           "pattern": "Binary Exponentiation",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Look for patterns, use modular arithmetic, or mathematical formulas.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": []
         },
         {
           "title": "Max Points on a Line",
@@ -2199,7 +3144,10 @@
           "subTopic": "Math",
           "description": "For each point, count slopes to all others.\n\nMax collinear points.\nFor each point, map slopes to counts.",
           "pattern": "Hash Map + Slopes",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Use hash map for O(1) lookup. Store complements or counts.",
+          "difficultyReason": "Multiple advanced techniques, complex state management, many edge cases.",
+          "relatedProblems": []
         },
         {
           "id": "303",
@@ -2210,7 +3158,10 @@
           "subTopic": "Prefix Sum",
           "description": "Precompute prefix sums. Range sum = prefix[r+1] - prefix[l].\n\nSum of elements in range [left, right].\nPrefix sum array enables O(1) queries.",
           "pattern": "Prefix Sum",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Analyze the constraints and look for patterns.",
+          "difficultyReason": "Single technique, straightforward logic, minimal edge cases.",
+          "relatedProblems": []
         },
         {
           "title": "Multiply Strings",
@@ -2220,7 +3171,13 @@
           "subTopic": "Math",
           "description": "Given two non-negative integers num1 and num2 represented as strings, return the product of num1 and num2, also represented as a string.\n\nYou must not use any built-in BigInteger library or convert the inputs to integer directly.",
           "pattern": "Math & Geometry",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Look for patterns, use modular arithmetic, or mathematical formulas.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": [
+            "zigzag-conversion",
+            "plus-one"
+          ]
         },
         {
           "title": "Detect Squares",
@@ -2230,7 +3187,10 @@
           "subTopic": "Math",
           "description": "You are given a stream of points on the X-Y plane and need to design an algorithm that can efficiently count the number of ways to form axis-aligned squares with a given query point.\n\nImplement the `DetectSquares` class:\n\n- `DetectSquares()` Initializes the object with an empty data structure.\n- `void add(int[] point)` Adds a new point to the data structure.\n- `int count(int[] point)` Counts the number of ways to form axis-aligned squares using the query point and three other points from the data structure.\n\nAn axis-aligned square has edges of equal length and aligned with the axes. The square can be formed in any orientation as long as it's axis-aligned.",
           "pattern": "Math & Geometry",
-          "has_solution": false
+          "has_solution": false,
+          "algorithmHint": "Use hash map for O(1) lookup. Store complements or counts.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": []
         }
       ]
     },
@@ -2246,7 +3206,10 @@
           "subTopic": "1-D Dynamic Programming",
           "description": "You are climbing a staircase. It takes n steps to reach the top.\n\nEach time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?",
           "pattern": "DP (Fibonacci)",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Define state, find recurrence relation, handle base cases.",
+          "difficultyReason": "Single technique, straightforward logic, minimal edge cases.",
+          "relatedProblems": []
         },
         {
           "title": "House Robber",
@@ -2256,7 +3219,14 @@
           "subTopic": "1-D Dynamic Programming",
           "description": "You are a professional robber planning to rob houses along a street. Each house has a certain amount of money stashed, the only constraint stopping you from robbing each of them is that adjacent houses have security systems connected and it will automatically contact the police if two adjacent houses were broken into on the same night.\n\nGiven an integer array nums representing the amount of money of each house, return the maximum amount of money you can rob tonight without alerting the police.",
           "pattern": "1D DP",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Define state, find recurrence relation, handle base cases.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": [
+            "coin-change",
+            "word-break",
+            "decode-ways"
+          ]
         },
         {
           "title": "Word Break",
@@ -2266,7 +3236,14 @@
           "subTopic": "1-D Dynamic Programming",
           "description": "dp[i] = any(dp[j] and s[j:i] in wordDict).\n\nCan s be segmented into dictionary words?\ndp[i] = True if s[:i] can be segmented.",
           "pattern": "1D DP",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Define state, find recurrence relation, handle base cases.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": [
+            "coin-change",
+            "house-robber",
+            "decode-ways"
+          ]
         },
         {
           "title": "Coin Change",
@@ -2276,7 +3253,14 @@
           "subTopic": "1-D Dynamic Programming",
           "description": "You are given an integer array coins representing coins of different denominations and an integer amount representing a total amount of money.\n\nReturn the fewest number of coins that you need to make up that amount. If that amount of money cannot be made up by any combination of the coins, return -1.\n\nYou may assume that you have an infinite number of each kind of coin.",
           "pattern": "1D DP",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Define state, find recurrence relation, handle base cases.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": [
+            "house-robber",
+            "word-break",
+            "decode-ways"
+          ]
         },
         {
           "title": "Longest Increasing Subsequence",
@@ -2286,7 +3270,10 @@
           "subTopic": "1-D Dynamic Programming",
           "description": "Maintain sorted 'tails' array. Binary search insertion point.\n\nFind LIS length.\nO(n log n): maintain smallest tail for each length.",
           "pattern": "DP / Binary Search",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "If sorted, use binary search. Eliminate half the search space each step.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": []
         },
         {
           "id": "338",
@@ -2297,7 +3284,13 @@
           "subTopic": "Bit DP",
           "description": "dp[i] = dp[i >> 1] + (i & 1). Use previous result.\n\nCount 1s in binary for 0 to n.\ni has same bits as i/2, plus LSB.",
           "pattern": "DP",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Analyze the constraints and look for patterns.",
+          "difficultyReason": "Single technique, straightforward logic, minimal edge cases.",
+          "relatedProblems": [
+            "number-of-longest-increasing-subsequence",
+            "best-time-to-buy-and-sell-stock-iv"
+          ]
         },
         {
           "id": "673",
@@ -2308,7 +3301,13 @@
           "subTopic": "Lis + Counts",
           "description": "Track both length and count at each position.\n\nCount all LIS.\ndp[i] = (length, count) of LIS ending at i.",
           "pattern": "DP",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Analyze the constraints and look for patterns.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": [
+            "counting-bits",
+            "best-time-to-buy-and-sell-stock-iv"
+          ]
         },
         {
           "id": "91",
@@ -2319,7 +3318,14 @@
           "subTopic": "String",
           "description": "dp[i] = dp[i-1] (if valid single) + dp[i-2] (if valid pair).\n\nCount ways to decode digit string.\nSingle digit: 1-9 valid. Two digits: 10-26 valid.",
           "pattern": "1D DP",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Analyze the constraints and look for patterns.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": [
+            "coin-change",
+            "house-robber",
+            "word-break"
+          ]
         }
       ]
     },
@@ -2335,7 +3341,14 @@
           "subTopic": "Multidimensional DP",
           "description": "Given a triangle array, return the minimum path sum from top to bottom. For each step, you may move to an adjacent number of the row below. More formally, if you are on index i on the current row, you may move to either index i or index i + 1 on the next row.",
           "pattern": "Dynamic Programming",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Define state, find recurrence relation, handle base cases.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": [
+            "min-cost-climbing-stairs",
+            "house-robber-ii",
+            "maximum-product-subarray"
+          ]
         },
         {
           "title": "Minimum Path Sum",
@@ -2345,7 +3358,14 @@
           "subTopic": "Multidimensional DP",
           "description": "dp[i][j] = grid[i][j] + min(dp[i-1][j], dp[i][j-1]).\n\nMin sum path from top-left to bottom-right.\nCan only move right or down.",
           "pattern": "2D DP",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Analyze the constraints and look for patterns.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": [
+            "unique-paths-ii",
+            "interleaving-string",
+            "edit-distance"
+          ]
         },
         {
           "title": "Unique Paths II",
@@ -2355,7 +3375,14 @@
           "subTopic": "Multidimensional DP",
           "description": "dp[i][j] = 0 if obstacle, else dp[i-1][j] + dp[i][j-1].\n\nCount paths with obstacles.\nObstacle = 0 paths through that cell.",
           "pattern": "2D DP",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Analyze the constraints and look for patterns.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": [
+            "minimum-path-sum",
+            "interleaving-string",
+            "edit-distance"
+          ]
         },
         {
           "title": "Longest Palindromic Substring",
@@ -2365,7 +3392,10 @@
           "subTopic": "Multidimensional DP",
           "description": "Expand from each center (2n-1 centers).\n\nFind longest palindromic substring.\nExpand from each center (odd and even length).",
           "pattern": "Expand Around Center",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Analyze the constraints and look for patterns.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": []
         },
         {
           "title": "Interleaving String",
@@ -2375,7 +3405,14 @@
           "subTopic": "Multidimensional DP",
           "description": "dp[i][j] = True if s3[:i+j] can be formed by s1[:i] and s2[:j].\n\nCan s3 be formed by interleaving s1 and s2?\ndp[i][j] = can form s3[:i+j] from s1[:i], s2[:j].",
           "pattern": "2D DP",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Analyze the constraints and look for patterns.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": [
+            "minimum-path-sum",
+            "unique-paths-ii",
+            "edit-distance"
+          ]
         },
         {
           "title": "Edit Distance",
@@ -2385,7 +3422,14 @@
           "subTopic": "Multidimensional DP",
           "description": "dp[i][j] = min(insert, delete, replace) + 1.\n\nMin operations to convert word1 to word2.\nThree operations: insert, delete, replace.",
           "pattern": "2D DP",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Analyze the constraints and look for patterns.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": [
+            "minimum-path-sum",
+            "unique-paths-ii",
+            "interleaving-string"
+          ]
         },
         {
           "title": "Best Time to Buy and Sell Stock III",
@@ -2395,7 +3439,10 @@
           "subTopic": "Multidimensional DP",
           "description": "Track 4 states: buy1, sell1, buy2, sell2.\n\nMax profit with at most 2 transactions.\n4 states: after 1st buy, 1st sell, 2nd buy, 2nd sell.",
           "pattern": "State Machine DP",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Analyze the constraints and look for patterns.",
+          "difficultyReason": "Multiple advanced techniques, complex state management, many edge cases.",
+          "relatedProblems": []
         },
         {
           "title": "Best Time to Buy and Sell Stock IV",
@@ -2405,7 +3452,13 @@
           "subTopic": "Multidimensional DP",
           "description": "Generalize to k transactions with 2k states.\n\nMax profit with at most k transactions.\ndp[i] = max profit after i-th transaction.",
           "pattern": "DP",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Analyze the constraints and look for patterns.",
+          "difficultyReason": "Multiple advanced techniques, complex state management, many edge cases.",
+          "relatedProblems": [
+            "counting-bits",
+            "number-of-longest-increasing-subsequence"
+          ]
         },
         {
           "title": "Maximal Square",
@@ -2415,7 +3468,14 @@
           "subTopic": "Multidimensional DP",
           "description": "dp[i][j] = min(top, left, diag) + 1 if matrix[i][j] == '1'.\n\nLargest square of 1s in binary matrix.\ndp[i][j] = side length of largest square ending at (i,j).",
           "pattern": "2D DP",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Analyze the constraints and look for patterns.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": [
+            "minimum-path-sum",
+            "unique-paths-ii",
+            "interleaving-string"
+          ]
         },
         {
           "id": "62",
@@ -2426,7 +3486,14 @@
           "subTopic": "Grid DP (Paths Count)",
           "description": "dp[i][j] = dp[i-1][j] + dp[i][j-1]. Or use combinatorics.\n\nCount paths from top-left to bottom-right.\nCan only move right or down.",
           "pattern": "2D DP",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Analyze the constraints and look for patterns.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": [
+            "minimum-path-sum",
+            "unique-paths-ii",
+            "interleaving-string"
+          ]
         }
       ]
     },
@@ -2443,7 +3510,13 @@
           "subTopic": "Prefix Sum",
           "description": "Given an array nums containing n distinct numbers in the range [0, n], return the only number in the range that is missing from the array.",
           "pattern": "Math",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Look for patterns, use modular arithmetic, or mathematical formulas.",
+          "difficultyReason": "Single technique, straightforward logic, minimal edge cases.",
+          "relatedProblems": [
+            "factorial-trailing-zeroes",
+            "reverse-integer"
+          ]
         }
       ]
     },
@@ -2460,7 +3533,14 @@
           "subTopic": "Geometry / Chebyshev Distance",
           "description": "On a 2D plane, there are n points with integer coordinates points[i] = [xi, yi]. Return the minimum time in seconds to visit all the points in the order given by points. You can move diagonally 1 unit in 1 second, or move horizontally or vertically 1 unit in 1 second.",
           "pattern": "Two Pointers",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Use left/right pointers moving toward each other or same direction.",
+          "difficultyReason": "Single technique, straightforward logic, minimal edge cases.",
+          "relatedProblems": [
+            "valid-palindrome",
+            "remove-element",
+            "middle-of-the-linked-list"
+          ]
         }
       ]
     },
@@ -2477,7 +3557,10 @@
           "subTopic": "Fizzbuzz Pattern",
           "description": "Given an integer n, return a string array answer (1-indexed) where: answer[i] == \"FizzBuzz\" if i is divisible by 3 and 5, answer[i] == \"Fizz\" if i is divisible by 3, answer[i] == \"Buzz\" if i is divisible by 5, answer[i] == i (as a string) if none of the above conditions are true.",
           "pattern": "Iterative",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Analyze the constraints and look for patterns.",
+          "difficultyReason": "Single technique, straightforward logic, minimal edge cases.",
+          "relatedProblems": []
         },
         {
           "id": "3379",
@@ -2488,7 +3571,10 @@
           "subTopic": "Implementation / Transformation",
           "description": "Given an array, apply transformation rules to create a new array. Common transformations include prefix sums, differences, or element-wise operations.",
           "pattern": "Array",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Analyze the constraints and look for patterns.",
+          "difficultyReason": "Single technique, straightforward logic, minimal edge cases.",
+          "relatedProblems": []
         },
         {
           "id": "38",
@@ -2499,7 +3585,10 @@
           "subTopic": "String",
           "description": "The count-and-say sequence is a sequence of digit strings defined by the recursive formula: countAndSay(1) = \"1\", countAndSay(n) is the way you would \"say\" the digit string from countAndSay(n-1). To determine how you \"say\" a digit string, group it into runs of consecutive identical digits. Then for each group, say the number of digits, then the digit.",
           "pattern": "Iterative with String Manipulation",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Analyze the constraints and look for patterns.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": []
         }
       ]
     },
@@ -2516,7 +3605,14 @@
           "subTopic": "Simulation / Queue",
           "description": "There are n people in a line queuing to buy tickets, where the 0th person is at the front of the line and the (n - 1)th person is at the back of the line. You are given a 0-indexed integer array tickets of length n where the number of tickets that the ith person would like to buy is tickets[i]. Each person takes exactly 1 second to buy a ticket. A person can only buy 1 ticket at a time and has to go back to the end of the line to buy more tickets. Return the time taken for the person at position k to finish buying all their tickets.",
           "pattern": "Two Pointers",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Use left/right pointers moving toward each other or same direction.",
+          "difficultyReason": "Single technique, straightforward logic, minimal edge cases.",
+          "relatedProblems": [
+            "valid-palindrome",
+            "remove-element",
+            "middle-of-the-linked-list"
+          ]
         }
       ]
     },
@@ -2533,7 +3629,14 @@
           "subTopic": "Sorting",
           "description": "Given an array of distinct integers arr, find all pairs of elements with the minimum absolute difference of any two elements. Return a list of pairs in ascending order (with respect to pairs), each pair [a, b] follows a < b.",
           "pattern": "Two Pointers",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Use left/right pointers moving toward each other or same direction.",
+          "difficultyReason": "Single technique, straightforward logic, minimal edge cases.",
+          "relatedProblems": [
+            "valid-palindrome",
+            "remove-element",
+            "middle-of-the-linked-list"
+          ]
         }
       ]
     },
@@ -2549,7 +3652,14 @@
           "subTopic": "1-D Dynamic Programming",
           "description": "You are given an integer array `cost` where `cost[i]` is the cost of the ith step on a staircase. Once you pay the cost, you can either climb one or two steps. You can either start from the step with index 0 or the step with index 1. Return the minimum cost to reach the top of the floor.",
           "pattern": "1-D Dynamic Programming",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Define state, find recurrence relation, handle base cases.",
+          "difficultyReason": "Single technique, straightforward logic, minimal edge cases.",
+          "relatedProblems": [
+            "triangle",
+            "house-robber-ii",
+            "maximum-product-subarray"
+          ]
         },
         {
           "title": "House Robber II",
@@ -2559,7 +3669,14 @@
           "subTopic": "1-D Dynamic Programming",
           "description": "You are a professional robber planning to rob houses arranged in a circle. Each house contains a certain amount of money. All the houses are connected in a circle, meaning the first house is adjacent to the last house. Adjacent houses have a security system that will automatically contact the police if two adjacent houses are robbed on the same night.\n\nGiven an integer array `nums` representing the amount of money in each house, return the maximum amount of money you can rob without alerting the police.",
           "pattern": "1-D Dynamic Programming",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Define state, find recurrence relation, handle base cases.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": [
+            "triangle",
+            "min-cost-climbing-stairs",
+            "maximum-product-subarray"
+          ]
         },
         {
           "title": "Palindromic Substrings",
@@ -2569,7 +3686,10 @@
           "subTopic": "1-D Dynamic Programming",
           "description": "Given a string s, return the number of palindromic substrings in it.\n\nA string is a palindrome when it reads the same backward as forward. A substring is a contiguous sequence of characters within the string.",
           "pattern": "1-D Dynamic Programming",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Define state, find recurrence relation, handle base cases.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": []
         },
         {
           "title": "Maximum Product Subarray",
@@ -2579,7 +3699,14 @@
           "subTopic": "1-D Dynamic Programming",
           "description": "Given an integer array `nums`, find the contiguous subarray within it that has the largest product and return that product.\n\nThe subarray must contain at least one number, and the product of any prefix or suffix of the array is guaranteed to fit in a 32-bit integer.",
           "pattern": "1-D Dynamic Programming",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Define state, find recurrence relation, handle base cases.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": [
+            "triangle",
+            "min-cost-climbing-stairs",
+            "house-robber-ii"
+          ]
         },
         {
           "title": "Partition Equal Subset Sum",
@@ -2589,7 +3716,14 @@
           "subTopic": "1-D Dynamic Programming",
           "description": "Given an integer array nums, return true if you can partition the array into two subsets such that the sum of the elements in both subsets is equal, or false otherwise.",
           "pattern": "1-D Dynamic Programming",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Define state, find recurrence relation, handle base cases.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": [
+            "triangle",
+            "min-cost-climbing-stairs",
+            "house-robber-ii"
+          ]
         }
       ]
     },
@@ -2605,7 +3739,14 @@
           "subTopic": "2-D Dynamic Programming",
           "description": "Given two strings text1 and text2, return the length of their longest common subsequence. A subsequence is a sequence that appears in the same relative order, but not necessarily contiguous. If there is no common subsequence, return 0.",
           "pattern": "2-D Dynamic Programming",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Define state, find recurrence relation, handle base cases.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": [
+            "triangle",
+            "min-cost-climbing-stairs",
+            "house-robber-ii"
+          ]
         },
         {
           "title": "Best Time to Buy and Sell Stock with Cooldown",
@@ -2615,7 +3756,14 @@
           "subTopic": "2-D Dynamic Programming",
           "description": "You are given an array `prices` where `prices[i]` is the price of a given stock on the ith day.\n\nFind the maximum profit you can achieve. You may complete as many transactions as you like (i.e., buy one and sell one share of the stock multiple times) with the following restrictions:\n\nAfter you sell your stock, you cannot buy stock on the next day (i.e., cooldown one day).\n\nYou may not engage in multiple transactions simultaneously (i.e., you must sell the stock before you buy again).",
           "pattern": "2-D Dynamic Programming",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Define state, find recurrence relation, handle base cases.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": [
+            "triangle",
+            "min-cost-climbing-stairs",
+            "house-robber-ii"
+          ]
         },
         {
           "title": "Coin Change II",
@@ -2625,7 +3773,14 @@
           "subTopic": "2-D Dynamic Programming",
           "description": "You are given an integer array `coins` representing coins of different denominations and an integer `amount` representing a total amount of money.\n\nReturn the number of combinations that make up that amount. If that amount of money cannot be made up by any combination of the coins, return 0.\n\nYou may assume that you have an infinite number of each kind of coin.\n\nThe answer is guaranteed to fit into a signed 32-bit integer.",
           "pattern": "2-D Dynamic Programming",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Define state, find recurrence relation, handle base cases.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": [
+            "triangle",
+            "min-cost-climbing-stairs",
+            "house-robber-ii"
+          ]
         },
         {
           "title": "Target Sum",
@@ -2635,7 +3790,14 @@
           "subTopic": "2-D Dynamic Programming",
           "description": "You are given an integer array nums and an integer target. You want to build an expression out of nums by adding one of the symbols '+' and '-' before each integer in nums and then concatenate all the integers. Return the number of different expressions that you can build, which evaluates to target.",
           "pattern": "2-D Dynamic Programming",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Define state, find recurrence relation, handle base cases.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": [
+            "triangle",
+            "min-cost-climbing-stairs",
+            "house-robber-ii"
+          ]
         },
         {
           "title": "Longest Increasing Path in a Matrix",
@@ -2645,7 +3807,10 @@
           "subTopic": "2-D Dynamic Programming",
           "description": "Given an m x n integers matrix, return the length of the longest increasing path in the matrix. From each cell, you can move in four directions (up, down, left, right) to adjacent cells. You cannot move diagonally or move outside the boundaries. The path must be strictly increasing.",
           "pattern": "2-D Dynamic Programming",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Define state, find recurrence relation, handle base cases.",
+          "difficultyReason": "Multiple advanced techniques, complex state management, many edge cases.",
+          "relatedProblems": []
         },
         {
           "title": "Distinct Subsequences",
@@ -2655,7 +3820,14 @@
           "subTopic": "2-D Dynamic Programming",
           "description": "Given two strings s and t, return the number of distinct subsequences of s which equals t.\n\nA subsequence is a sequence that can be derived from another sequence by deleting some or no elements without changing the order of the remaining elements.\n\nThe answer is guaranteed to fit within a 32-bit signed integer.",
           "pattern": "2-D Dynamic Programming",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Define state, find recurrence relation, handle base cases.",
+          "difficultyReason": "Multiple advanced techniques, complex state management, many edge cases.",
+          "relatedProblems": [
+            "triangle",
+            "min-cost-climbing-stairs",
+            "house-robber-ii"
+          ]
         },
         {
           "title": "Burst Balloons",
@@ -2665,7 +3837,14 @@
           "subTopic": "2-D Dynamic Programming",
           "description": "You are given n balloons, indexed from 0 to n - 1. Each balloon has a number on it represented by an array nums. If you burst the ith balloon, you get nums[i - 1] * nums[i] * nums[i + 1] coins. If i - 1 or i + 1 goes out of bounds, treat it as if there is a balloon with a 1 painted on it.\n\nReturn the maximum coins you can collect by bursting the balloons optimally.",
           "pattern": "2-D Dynamic Programming",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Define state, find recurrence relation, handle base cases.",
+          "difficultyReason": "Multiple advanced techniques, complex state management, many edge cases.",
+          "relatedProblems": [
+            "triangle",
+            "min-cost-climbing-stairs",
+            "house-robber-ii"
+          ]
         },
         {
           "title": "Regular Expression Matching",
@@ -2675,7 +3854,14 @@
           "subTopic": "2-D Dynamic Programming",
           "description": "Given an input string `s` and a pattern `p`, implement regular expression matching with support for '.' and '*':\n\n- '.' Matches any single character.\n- '*' Matches zero or more of the preceding element.\n\nThe matching must cover the entire input string (not partial). Return true if the pattern matches the entire string, false otherwise.",
           "pattern": "2-D Dynamic Programming",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Define state, find recurrence relation, handle base cases.",
+          "difficultyReason": "Multiple advanced techniques, complex state management, many edge cases.",
+          "relatedProblems": [
+            "triangle",
+            "min-cost-climbing-stairs",
+            "house-robber-ii"
+          ]
         }
       ]
     },
@@ -2691,7 +3877,10 @@
           "subTopic": "Greedy",
           "description": "Alice has some number of cards and she wants to rearrange the cards into groups so that each group is of size groupSize, and consists of groupSize consecutive cards.\n\nGiven an integer array hand where hand[i] is the value written on the ith card and an integer groupSize, return true if she can rearrange the cards, or false otherwise.",
           "pattern": "Greedy",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Make locally optimal choice at each step.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": []
         },
         {
           "title": "Merge Triplets to Form Target Triplet",
@@ -2701,7 +3890,14 @@
           "subTopic": "Greedy",
           "description": "A triplet is an array of three integers. You are given a 2D array of triplets and a target triplet. You can perform the following operation any number of times: choose two different triplets and update one of them to be the maximum of each corresponding element from both triplets. Return true if it's possible to obtain the target triplet as an element of the triplets array after performing these operations, or false otherwise.",
           "pattern": "Greedy",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Make locally optimal choice at each step.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": [
+            "best-time-to-buy-and-sell-stock-ii",
+            "jump-game",
+            "gas-station"
+          ]
         },
         {
           "title": "Partition Labels",
@@ -2711,7 +3907,10 @@
           "subTopic": "Greedy",
           "description": "You are given a string `s`. We want to partition the string into as many parts as possible so that each letter appears in at most one part. Return a list of integers representing the size of these parts.",
           "pattern": "Greedy",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Make locally optimal choice at each step.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": []
         },
         {
           "title": "Valid Parenthesis String",
@@ -2721,7 +3920,10 @@
           "subTopic": "Greedy",
           "description": "Given a string containing only three types of characters: '(', ')', and '*', determine if the string is valid.\n\nA valid string must satisfy the following conditions:\n- Any left parenthesis '(' must have a corresponding right parenthesis ')'\n- Any right parenthesis ')' must have a corresponding left parenthesis '('\n- Left parenthesis '(' must come before the corresponding right parenthesis ')'\n- '*' can be treated as a single right parenthesis ')', a single left parenthesis '(', or an empty string \"\"",
           "pattern": "Greedy",
-          "has_solution": true
+          "has_solution": true,
+          "algorithmHint": "Make locally optimal choice at each step.",
+          "difficultyReason": "Combines techniques, requires careful implementation, multiple edge cases.",
+          "relatedProblems": []
         }
       ]
     }

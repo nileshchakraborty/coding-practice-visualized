@@ -44,6 +44,7 @@ export interface Solution {
     intuition: string[];
     keyInsight: string;
     code: string;
+    initialCode?: string;
 
     // Smart Visualization
     visualizationType?: 'array' | 'string' | 'matrix' | 'tree';

@@ -3,7 +3,7 @@ import type { Solution, TestCaseResult } from '../types';
 import { PlaygroundAPI } from '../models/api';
 import SmartVisualizer from './SmartVisualizer';
 import TutorChat from './TutorChat';
-import { X, Code as CodeIcon, BookOpen, Terminal, Play, ExternalLink, Youtube, FileText, MessageCircle, Plus, Trash2, Brain, Volume2, Square } from 'lucide-react';
+import { X, Code as CodeIcon, BookOpen, Terminal, Play, ExternalLink, Youtube, FileText, MessageCircle, Plus, Trash2, Brain, Volume2, Square, Copy } from 'lucide-react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
@@ -19,6 +19,7 @@ interface SolutionModalProps {
 
 const SolutionModal: React.FC<SolutionModalProps> = ({ isOpen, onClose, solution, slug, onSelectProblem }) => {
     const [activeTab, setActiveTab] = useState<'problem' | 'explanation' | 'playground' | 'tutor'>('problem');
+    const [activeApproach, setActiveApproach] = useState<'bruteforce' | 'optimal'>('optimal');
     const [code, setCode] = useState(solution?.code || '');
     const [output, setOutput] = useState('');
     const [isRunning, setIsRunning] = useState(false);
@@ -33,9 +34,12 @@ const SolutionModal: React.FC<SolutionModalProps> = ({ isOpen, onClose, solution
     // actually better to just reset on open?
     // for now let's use a key or effect
     React.useEffect(() => {
-        if (solution?.code) {
-            // Fix: Unescape newlines if they are literal string characters (common from some JSON sources)
-            const formattedCode = solution.code.replace(/\\n/g, '\n');
+        if (solution) {
+            // Use skeleton code (initialCode) if available, otherwise full code
+            // But if user wants to see the full code in playground, they can use the "Copy to Playground" feature
+            // So default state is skeleton.
+            const rawCode = solution.initialCode || solution.code || '';
+            const formattedCode = rawCode.replace(/\\n/g, '\n');
             setCode(formattedCode);
             setOutput('');
         }
@@ -452,7 +456,25 @@ const SolutionModal: React.FC<SolutionModalProps> = ({ isOpen, onClose, solution
                                 </div>
                             )}
 
-                            {/* One-liner */}
+                            {/* Approach Sub-Tabs */}
+                            {solution.approaches && solution.approaches.length > 0 && (
+                                <div className="flex gap-2 p-1 rounded-lg bg-slate-100 dark:bg-slate-800">
+                                    {solution.approaches.map((approach) => (
+                                        <button
+                                            key={approach.name}
+                                            onClick={() => setActiveApproach(approach.name as 'bruteforce' | 'optimal')}
+                                            className={`flex-1 px-4 py-2 text-sm font-medium rounded-md transition-all ${activeApproach === approach.name
+                                                ? 'bg-white dark:bg-slate-700 text-indigo-600 dark:text-indigo-400 shadow-sm'
+                                                : 'text-slate-500 hover:text-slate-700 dark:text-slate-400'
+                                                }`}
+                                        >
+                                            {approach.label}
+                                            <span className="ml-2 text-xs opacity-60">{approach.timeComplexity}</span>
+                                        </button>
+                                    ))}
+                                </div>
+                            )}
+
                             <div className="p-4 sm:p-6 rounded-xl border-l-4 border-indigo-500 bg-gradient-to-r from-indigo-500/10 to-purple-500/10">
                                 <div className="flex justify-between items-start mb-1">
                                     <h3 className="text-base sm:text-lg font-semibold text-indigo-600 dark:text-indigo-300">💡 Quick Summary</h3>
@@ -468,18 +490,24 @@ const SolutionModal: React.FC<SolutionModalProps> = ({ isOpen, onClose, solution
                             </div>
 
                             {/* Intuition */}
-                            <div className="space-y-3 sm:space-y-4">
-                                <h3 className="text-xs sm:text-sm uppercase tracking-wider text-slate-500 font-bold flex items-center gap-2">
-                                    🧠 Core Intuition
-                                </h3>
-                                <div className="grid gap-2 sm:gap-3">
-                                    {solution.intuition?.map((item, i) => (
-                                        <div key={i} className="p-3 sm:p-4 rounded-lg bg-slate-100 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/50 text-slate-600 dark:text-slate-300 text-sm sm:text-base">
-                                            {item}
+                            {(() => {
+                                const currentApproach = solution.approaches?.find(a => a.name === activeApproach) || solution.approaches?.[0];
+                                const intuitionItems = currentApproach?.intuition || solution.intuition || [];
+                                return (
+                                    <div className="space-y-3 sm:space-y-4">
+                                        <h3 className="text-xs sm:text-sm uppercase tracking-wider text-slate-500 font-bold flex items-center gap-2">
+                                            🧠 {currentApproach?.label || 'Core'} Intuition
+                                        </h3>
+                                        <div className="grid gap-2 sm:gap-3">
+                                            {intuitionItems.map((item, i) => (
+                                                <div key={i} className="p-3 sm:p-4 rounded-lg bg-slate-100 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/50 text-slate-600 dark:text-slate-300 text-sm sm:text-base">
+                                                    {item}
+                                                </div>
+                                            ))}
                                         </div>
-                                    ))}
-                                </div>
-                            </div>
+                                    </div>
+                                );
+                            })()}
 
                             {/* Mental Model (Analogy) */}
                             {solution.mentalModel && (
@@ -521,20 +549,37 @@ const SolutionModal: React.FC<SolutionModalProps> = ({ isOpen, onClose, solution
                             </div>
 
                             {/* Code Read-only */}
-                            <div className="space-y-3 sm:space-y-4">
-                                <h3 className="text-xs sm:text-sm uppercase tracking-wider text-slate-500 font-bold flex items-center gap-2">
-                                    <CodeIcon size={14} className="sm:w-4 sm:h-4" /> Python Code
-                                </h3>
-                                <div className="rounded-xl overflow-hidden border border-slate-200 dark:border-slate-700">
-                                    <SyntaxHighlighter
-                                        language="python"
-                                        style={vscDarkPlus}
-                                        customStyle={{ margin: 0, padding: '1rem', fontSize: '0.8rem' }}
-                                    >
-                                        {solution.code}
-                                    </SyntaxHighlighter>
-                                </div>
-                            </div>
+                            {(() => {
+                                const currentApproach = solution.approaches?.find(a => a.name === activeApproach) || solution.approaches?.[0];
+                                const displayCode = currentApproach?.code || solution.code || '';
+                                return (
+                                    <div className="space-y-3 sm:space-y-4">
+                                        <div className="flex items-center justify-between">
+                                            <h3 className="text-xs sm:text-sm uppercase tracking-wider text-slate-500 font-bold flex items-center gap-2">
+                                                <CodeIcon size={14} className="sm:w-4 sm:h-4" /> {currentApproach?.label || 'Python'} Code
+                                            </h3>
+                                            <button
+                                                onClick={() => {
+                                                    setCode(displayCode.replace(/\\n/g, '\n'));
+                                                    setActiveTab('playground');
+                                                }}
+                                                className="text-xs flex items-center gap-1 text-indigo-400 hover:text-indigo-300 transition-colors"
+                                            >
+                                                <Copy size={12} /> Copy to Playground
+                                            </button>
+                                        </div>
+                                        <div className="rounded-xl overflow-hidden border border-slate-200 dark:border-slate-700">
+                                            <SyntaxHighlighter
+                                                language="python"
+                                                style={vscDarkPlus}
+                                                customStyle={{ margin: 0, padding: '1rem', fontSize: '0.8rem' }}
+                                            >
+                                                {displayCode}
+                                            </SyntaxHighlighter>
+                                        </div>
+                                    </div>
+                                );
+                            })()}
 
                             {/* External Resources */}
                             <div className="space-y-4 pt-4 border-t border-slate-700/50">
@@ -765,7 +810,7 @@ const SolutionModal: React.FC<SolutionModalProps> = ({ isOpen, onClose, solution
                     )}
                 </div>
             </div>
-        </div>
+        </div >
     );
 };
 
