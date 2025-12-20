@@ -13,8 +13,15 @@ export class SearchEngine<T> {
     private root: TrieNode<T> = new TrieNode();
     private cache: Map<string, T[]> = new Map();
 
-    constructor(items: T[], getSearchableText: (item: T) => string) {
-        items.forEach(item => this.insert(item, getSearchableText(item)));
+    constructor(items: T[], getSearchableText: (item: T) => string | string[]) {
+        items.forEach(item => {
+            const texts = getSearchableText(item);
+            if (Array.isArray(texts)) {
+                texts.forEach(text => this.insert(item, text));
+            } else {
+                this.insert(item, texts);
+            }
+        });
     }
 
     /**
