@@ -28,6 +28,7 @@ const defaultFilter: ProblemsFilter = {
     subTopic: null,
 };
 
+
 export function useProblems() {
     const [stats, setStats] = useState<Stats | null>(null);
     const [loading, setLoading] = useState(true);
@@ -96,6 +97,8 @@ export function useProblems() {
         });
         return Array.from(topicsSet).sort();
     }, [stats]);
+
+    // Patterns useMemo removed
 
     // Actions
     const updateFilter = useCallback((updates: Partial<ProblemsFilter>) => {
