@@ -184,7 +184,7 @@
         "difficulty": "Medium",
         "pattern": "Dynamic Programming"
       },
-      "mentalModel": "Like filling out a form where each answer depends on the previous answers. You never calculate the same thing twice!"
+      "mentalModel": "Like solving a puzzle. Break it down into pieces and assemble the logic."
     },
     "best-time-to-buy-and-sell-stock": {
       "title": "Best Time to Buy and Sell Stock",
@@ -400,7 +400,8 @@
         6,
         4
       ],
-      "approach": "Track Minimum: Track the minimum price seen so far, maximize profit at each step!"
+      "approach": "Track Minimum: Track the minimum price seen so far, maximize profit at each step!",
+      "mentalModel": "Buy low, sell high. You are looking for the biggest difference between a valley and a subsequent peak."
     },
     "valid-palindrome": {
       "title": "Valid Palindrome",
@@ -1206,7 +1207,8 @@
         0,
         0
       ],
-      "approach": "Three Pointers (Reverse): Fill from the END to avoid overwriting!"
+      "approach": "Three Pointers (Reverse): Fill from the END to avoid overwriting!",
+      "mentalModel": "Like using your fingers to track two different positions in a book at once."
     },
     "valid-parentheses": {
       "title": "Valid Parentheses",
@@ -1463,7 +1465,7 @@
         "Process remaining stack elements if needed"
       ],
       "approach": "Stack: Push open brackets; pop and match close brackets.",
-      "mentalModel": "Like a stack of plates. You can only add or remove the top plate (LIFO)."
+      "mentalModel": "Like a stack of pancakes. Last one cooked is the first one eaten (LIFO)."
     },
     "maximum-subarray": {
       "title": "Maximum Subarray",
@@ -1736,7 +1738,8 @@
         -5,
         4
       ],
-      "approach": "Kadane's Algorithm: Extend current sum OR start fresh - pick the better option!"
+      "approach": "Kadane's Algorithm: Extend current sum OR start fresh - pick the better option!",
+      "mentalModel": "Like finding the sunniest part of the day. If the clouds (negative) get too heavy, you restart your streak."
     },
     "climbing-stairs": {
       "title": "Climbing Stairs",
@@ -1927,7 +1930,7 @@
         "difficulty": "Easy",
         "pattern": "Dynamic Programming"
       },
-      "mentalModel": "Like a Fibonacci sequence. To get to step N, you must have come from step N-1 or N-2."
+      "mentalModel": "Like a Fibonacci sequence. Step N depends on N-1 and N-2."
     },
     "linked-list-cycle": {
       "title": "Linked List Cycle",
@@ -2151,7 +2154,8 @@
         "title": "Merge Two Sorted Lists",
         "difficulty": "Easy",
         "pattern": "Two Pointers"
-      }
+      },
+      "mentalModel": "Like using your fingers to track two different positions in a book at once."
     },
     "binary-search": {
       "title": "Binary Search",
@@ -2369,7 +2373,8 @@
         9,
         12
       ],
-      "approach": "Divide & Conquer: Half the search space each time by checking the middle!"
+      "approach": "Divide & Conquer: Half the search space each time by checking the middle!",
+      "mentalModel": "Like breaking a bundle of sticks. Hard to break together, easy to break one by one."
     },
     "number-of-islands": {
       "title": "Number of Islands",
@@ -2974,7 +2979,8 @@
         4,
         5
       ],
-      "approach": "Iterative Pointer Swap: Change each node's pointer to point backwards!"
+      "approach": "Iterative Pointer Swap: Change each node's pointer to point backwards!",
+      "mentalModel": "Like using your fingers to track two different positions in a book at once."
     },
     "contains-duplicate": {
       "title": "Contains Duplicate",
@@ -3204,7 +3210,8 @@
         "title": "Copy List with Random Pointer",
         "difficulty": "Medium",
         "pattern": "Arrays & Hashing"
-      }
+      },
+      "mentalModel": "Like a coat check. You give a unique token (key) and get your specific item (value) back instantly."
     },
     "invert-binary-tree": {
       "title": "Invert Binary Tree",
@@ -3697,7 +3704,8 @@
         "title": "Coin Change II",
         "difficulty": "Medium",
         "pattern": "Dynamic Programming"
-      }
+      },
+      "mentalModel": "Like filling out a form where each answer depends on previous answers."
     },
     "two-sum": {
       "title": "Two Sum",
@@ -3887,7 +3895,8 @@
         "title": "Valid Anagram",
         "difficulty": "Easy",
         "pattern": "Arrays & Hashing"
-      }
+      },
+      "mentalModel": "Like a coat check. You give a unique token (key) and get your specific item (value) back instantly."
     },
     "remove-element": {
       "title": "Remove Element",
@@ -4279,7 +4288,8 @@
         2,
         3
       ],
-      "approach": "Boyer-Moore Voting: Cancel out different elements; the majority always survives!"
+      "approach": "Boyer-Moore Voting: Cancel out different elements; the majority always survives!",
+      "mentalModel": "Like solving a puzzle. Break it down into pieces and assemble the logic."
     },
     "ransom-note": {
       "title": "Ransom Note",
@@ -4425,7 +4435,8 @@
         "title": "Roman to Integer",
         "difficulty": "Easy",
         "pattern": "Arrays & Hashing"
-      }
+      },
+      "mentalModel": "Like a coat check. You give a unique token (key) and get your specific item (value) back instantly."
     },
     "valid-anagram": {
       "title": "Valid Anagram",
@@ -4591,7 +4602,8 @@
         "title": "Word Pattern",
         "difficulty": "Easy",
         "pattern": "Arrays & Hashing"
-      }
+      },
+      "mentalModel": "Like a coat check. You give a unique token (key) and get your specific item (value) back instantly."
     },
     "happy-number": {
       "title": "Happy Number",
@@ -4761,7 +4773,8 @@
         "title": "Is Subsequence",
         "difficulty": "Easy",
         "pattern": "Two Pointers"
-      }
+      },
+      "mentalModel": "Like a race track. If you keep running, you will eventually pass the start line again."
     },
     "middle-of-the-linked-list": {
       "pattern": "Two Pointers",
@@ -5401,7 +5414,8 @@
         "Optimize with mathematical properties",
         "Return computed result"
       ],
-      "approach": "Math: Calculate the expected sum and subtract the actual sum."
+      "approach": "Math: Calculate the expected sum and subtract the actual sum.",
+      "mentalModel": "Like finding the underlying formula that governs the universe, rather than simulating every step."
     },
     "minimum-time-visiting-all-points": {
       "pattern": "Two Pointers",
@@ -5776,7 +5790,8 @@
         "Handle edge cases",
         "Return the result"
       ],
-      "approach": "Iterative: Iterate through numbers 1 to n, appending 'Fizz', 'Buzz', or 'FizzBuzz' based on divisibility."
+      "approach": "Iterative: Iterate through numbers 1 to n, appending 'Fizz', 'Buzz', or 'FizzBuzz' based on divisibility.",
+      "mentalModel": "Like solving a puzzle. Break it down into pieces and assemble the logic."
     },
     "count-and-say": {
       "pattern": "Iterative with String Manipulation",
@@ -5904,7 +5919,8 @@
         "Handle edge cases",
         "Return the result"
       ],
-      "approach": "Iterative with String Manipulation: Iteratively build each sequence by counting and saying the previous one."
+      "approach": "Iterative with String Manipulation: Iteratively build each sequence by counting and saying the previous one.",
+      "mentalModel": "Like organizing items on a shelf. Fast to read, slow to shift."
     },
     "two-sum-iv---input-is-a-bst": {
       "pattern": "Two Pointers",
@@ -6227,7 +6243,8 @@
         "title": "Ransom Note",
         "difficulty": "Easy",
         "pattern": "Arrays & Hashing"
-      }
+      },
+      "mentalModel": "Like a coat check. You give a unique token (key) and get your specific item (value) back instantly."
     },
     "word-pattern": {
       "title": "Word Pattern",
@@ -6419,7 +6436,8 @@
         "title": "Contains Duplicate",
         "difficulty": "Medium",
         "pattern": "Arrays & Hashing"
-      }
+      },
+      "mentalModel": "Like a coat check. You give a unique token (key) and get your specific item (value) back instantly."
     },
     "group-anagrams": {
       "title": "Group Anagrams",
@@ -6646,7 +6664,8 @@
         "title": "Insert Delete GetRandom O(1)",
         "difficulty": "Medium",
         "pattern": "Arrays & Hashing"
-      }
+      },
+      "mentalModel": "Like a coat check. You give a unique token (key) and get your specific item (value) back instantly."
     },
     "contains-duplicate-ii": {
       "title": "Contains Duplicate II",
@@ -7087,7 +7106,8 @@
         "title": "Range Sum Query - Immutable",
         "difficulty": "Medium",
         "pattern": "Arrays & Hashing"
-      }
+      },
+      "mentalModel": "Like a coat check. You give a unique token (key) and get your specific item (value) back instantly."
     },
     "insert-delete-getrandom-o1": {
       "title": "Insert Delete GetRandom O(1)",
@@ -7226,7 +7246,8 @@
         "title": "Longest Consecutive Sequence",
         "difficulty": "Medium",
         "pattern": "Arrays & Hashing"
-      }
+      },
+      "mentalModel": "Like a coat check. You give a unique token (key) and get your specific item (value) back instantly."
     },
     "how-many-numbers-are-smaller-than-the-current-number": {
       "title": "How Many Numbers Are Smaller Than the Current Number",
@@ -7376,7 +7397,8 @@
         "Handle edge cases",
         "Return the result"
       ],
-      "approach": "Bucket Sort / Counting: Count occurrences, prefix sum to find cumulative count smaller."
+      "approach": "Bucket Sort / Counting: Count occurrences, prefix sum to find cumulative count smaller.",
+      "mentalModel": "Like tallying votes. Frequency matters more than order."
     },
     "simplify-path": {
       "title": "Simplify Path",
@@ -7548,7 +7570,7 @@
         "Process remaining stack elements if needed"
       ],
       "approach": "Stack: Split by '/'. Stack keeps directories. '..' pops, '.' ignores.",
-      "mentalModel": "Like a stack of plates. You can only add or remove the top plate (LIFO)."
+      "mentalModel": "Like a stack of pancakes. Last one cooked is the first one eaten (LIFO)."
     },
     "min-stack": {
       "title": "Min Stack",
@@ -7742,7 +7764,7 @@
         "Return the result"
       ],
       "approach": "Stack (Two Stacks): Maintain a second stack tracking the minimum value at each depth.",
-      "mentalModel": "Like a stack of plates. You can only add or remove the top plate (LIFO)."
+      "mentalModel": "Like a stack of pancakes. Last one cooked is the first one eaten (LIFO)."
     },
     "evaluate-reverse-polish-notation": {
       "title": "Evaluate Reverse Polish Notation",
@@ -7943,7 +7965,7 @@
         "Process remaining stack elements if needed"
       ],
       "approach": "Stack: Push numbers. Operator? Pop two, apply, push result.",
-      "mentalModel": "Like a stack of plates. You can only add or remove the top plate (LIFO)."
+      "mentalModel": "Like a stack of pancakes. Last one cooked is the first one eaten (LIFO)."
     },
     "basic-calculator": {
       "title": "Basic Calculator",
@@ -8133,7 +8155,7 @@
         "Return the result"
       ],
       "approach": "Stack (Signs): Track result and sign. Parenthesis? Push current result & sign, reset.",
-      "mentalModel": "Like a stack of plates. You can only add or remove the top plate (LIFO)."
+      "mentalModel": "Like a stack of pancakes. Last one cooked is the first one eaten (LIFO)."
     },
     "implement-stack-using-queues": {
       "title": "Implement Stack using Queues",
@@ -8271,7 +8293,7 @@
         "Return the result"
       ],
       "approach": "Queue Rotation: Push to queue, then rotate (pop & push back) all previous elements to keep new element at front.",
-      "mentalModel": "Like a line at a grocery store. First person in line is the first one served (FIFO)."
+      "mentalModel": "Like a grocery line. First come, first served (FIFO)."
     },
     "add-two-numbers": {
       "title": "Add Two Numbers",
@@ -8900,7 +8922,8 @@
         "title": "Design Twitter",
         "difficulty": "Medium",
         "pattern": "Arrays & Hashing"
-      }
+      },
+      "mentalModel": "Like a coat check. You give a unique token (key) and get your specific item (value) back instantly."
     },
     "reverse-linked-list-ii": {
       "title": "Reverse Linked List II",
@@ -11187,7 +11210,8 @@
         "Handle edge cases",
         "Return the result"
       ],
-      "approach": "Heap / QuickSelect: QuickSelect for O(N) OR Min-Heap of size K (keep K largest seen)."
+      "approach": "Heap / QuickSelect: QuickSelect for O(N) OR Min-Heap of size K (keep K largest seen).",
+      "mentalModel": "Like a VIP club line where the most important person (max/min) always skips to the front."
     },
     "top-k-frequent-elements": {
       "title": "Top K Frequent Elements",
@@ -11357,7 +11381,8 @@
         "Handle edge cases",
         "Return the result"
       ],
-      "approach": "Bucket Sort / Heap: Count freqs. Use Bucket Sort (freq is index, list of numbers is val) to get results in O(N)."
+      "approach": "Bucket Sort / Heap: Count freqs. Use Bucket Sort (freq is index, list of numbers is val) to get results in O(N).",
+      "mentalModel": "Like a VIP club line where the most important person (max/min) always skips to the front."
     },
     "remove-duplicates-from-sorted-array": {
       "title": "Remove Duplicates from Sorted Array",
@@ -12044,7 +12069,8 @@
         "Handle edge cases",
         "Return the result"
       ],
-      "approach": "Reverse Trick: Reverse entire array, then reverse first k, then reverse rest."
+      "approach": "Reverse Trick: Reverse entire array, then reverse first k, then reverse rest.",
+      "mentalModel": "Like solving a puzzle. Break it down into pieces and assemble the logic."
     },
     "best-time-to-buy-and-sell-stock-ii": {
       "title": "Best Time to Buy and Sell Stock II",
@@ -12271,7 +12297,7 @@
         "difficulty": "Medium",
         "pattern": "Greedy"
       },
-      "mentalModel": "Like a cashier making change. Always pick the biggest coin that fits, hoping it leads to the fewest coins total."
+      "mentalModel": "Buy low, sell high. You are looking for the biggest difference between a valley and a subsequent peak."
     },
     "jump-game": {
       "title": "Jump Game",
@@ -13039,7 +13065,8 @@
         "Handle edge cases",
         "Return the result"
       ],
-      "approach": "Prefix/Suffix Products: Two passes: left products, then right products multiplied in."
+      "approach": "Prefix/Suffix Products: Two passes: left products, then right products multiplied in.",
+      "mentalModel": "Like a running total on a receipt. You can tell the cost of items 5-10 by subtracting total(4) from total(10)."
     },
     "gas-station": {
       "title": "Gas Station",
@@ -13644,7 +13671,7 @@
       ],
       "approach": "Two Pointers: Two pointers from ends. Water at i = min(leftMax, rightMax) - height[i].",
       "suggestedNextQuestion": null,
-      "mentalModel": "Imagine filling a landscape with water. The water level at any point is determined by the shortest 'wall' enclosing it."
+      "mentalModel": "Imagine filling a landscape with water. The water level is determined by the shortest enclosing wall."
     },
     "roman-to-integer": {
       "title": "Roman to Integer",
@@ -13861,7 +13888,8 @@
         "title": "Two Sum",
         "difficulty": "Easy",
         "pattern": "Arrays & Hashing"
-      }
+      },
+      "mentalModel": "Like a coat check. You give a unique token (key) and get your specific item (value) back instantly."
     },
     "integer-to-roman": {
       "title": "Integer to Roman",
@@ -14193,7 +14221,8 @@
         "Handle edge cases",
         "Return the result"
       ],
-      "approach": "String Traversal: Strip trailing spaces, find last space, return len - last_space - 1."
+      "approach": "String Traversal: Strip trailing spaces, find last space, return len - last_space - 1.",
+      "mentalModel": "Like exploring a maze. You visit every corner systematically."
     },
     "longest-common-prefix": {
       "title": "Longest Common Prefix",
@@ -14359,7 +14388,8 @@
         "Handle edge cases",
         "Return the result"
       ],
-      "approach": "Horizontal Scan: Compare characters at same position across all strings."
+      "approach": "Horizontal Scan: Compare characters at same position across all strings.",
+      "mentalModel": "Like solving a puzzle. Break it down into pieces and assemble the logic."
     },
     "reverse-words-in-a-string": {
       "title": "Reverse Words in a String",
@@ -14672,7 +14702,8 @@
         "Handle edge cases",
         "Return the result"
       ],
-      "approach": "Simulation: Use row index and direction flag. Toggle direction at bounds."
+      "approach": "Simulation: Use row index and direction flag. Toggle direction at bounds.",
+      "mentalModel": "Like following a recipe step-by-step. Do exactly what the problem says."
     },
     "find-the-index-of-the-first-occurrence-in-a-string": {
       "title": "Find the Index of the First Occurrence in a String",
@@ -14823,7 +14854,8 @@
         "Handle edge cases",
         "Return the result"
       ],
-      "approach": "KMP / Simple Search: Slide needle over haystack, check for match."
+      "approach": "KMP / Simple Search: Slide needle over haystack, check for match.",
+      "mentalModel": "Like looking for a needle in a haystack."
     },
     "text-justification": {
       "title": "Text Justification",
@@ -15123,7 +15155,8 @@
         "Handle edge cases",
         "Return the result"
       ],
-      "approach": "Index Marking: Mark visited indices negative. Return indices still positive."
+      "approach": "Index Marking: Mark visited indices negative. Return indices still positive.",
+      "mentalModel": "Like solving a puzzle. Break it down into pieces and assemble the logic."
     },
     "is-subsequence": {
       "title": "Is Subsequence",
@@ -16388,7 +16421,8 @@
         "title": "Flatten Binary Tree to Linked List",
         "difficulty": "Medium",
         "pattern": "Trees"
-      }
+      },
+      "mentalModel": "Like a phone book. If the name is after 'M', you ignore the entire first half."
     },
     "insert-into-a-binary-search-tree": {
       "title": "Insert into a Binary Search Tree",
@@ -16539,7 +16573,8 @@
         "title": "Kth Smallest Element in a BST",
         "difficulty": "Medium",
         "pattern": "Trees"
-      }
+      },
+      "mentalModel": "Like a phone book. If the name is after 'M', you ignore the entire first half."
     },
     "palindrome-linked-list": {
       "title": "Palindrome Linked List",
@@ -16713,7 +16748,8 @@
         "Handle edge cases",
         "Return the result"
       ],
-      "approach": "Fast/Slow + Reverse: Find middle, reverse second half, compare."
+      "approach": "Fast/Slow + Reverse: Find middle, reverse second half, compare.",
+      "mentalModel": "Like solving a puzzle. Break it down into pieces and assemble the logic."
     },
     "gfg---reverse-first-k-elements-of-a-queue": {
       "title": "GFG - Reverse first K elements of a Queue",
@@ -16854,7 +16890,7 @@
         "Return the result"
       ],
       "approach": "Stack + Queue: Use stack to reverse first k, then cycle remaining elements.",
-      "mentalModel": "Like a stack of plates. You can only add or remove the top plate (LIFO)."
+      "mentalModel": "Like a stack of pancakes. Last one cooked is the first one eaten (LIFO)."
     },
     "minimum-size-subarray-sum": {
       "title": "Minimum Size Subarray Sum",
@@ -18482,7 +18518,8 @@
         "title": "Max Points on a Line",
         "difficulty": "Hard",
         "pattern": "Arrays & Hashing"
-      }
+      },
+      "mentalModel": "Like a coat check. You give a unique token (key) and get your specific item (value) back instantly."
     },
     "spiral-matrix": {
       "title": "Spiral Matrix",
@@ -18639,7 +18676,8 @@
         "Handle edge cases",
         "Return the result"
       ],
-      "approach": "Layer by Layer: Process layer by layer: right, down, left, up, shrink bounds."
+      "approach": "Layer by Layer: Process layer by layer: right, down, left, up, shrink bounds.",
+      "mentalModel": "Like solving a puzzle. Break it down into pieces and assemble the logic."
     },
     "rotate-image": {
       "title": "Rotate Image",
@@ -18796,7 +18834,8 @@
         "Handle edge cases",
         "Return the result"
       ],
-      "approach": "Transpose + Reverse: Transpose matrix, then reverse each row."
+      "approach": "Transpose + Reverse: Transpose matrix, then reverse each row.",
+      "mentalModel": "Like solving a puzzle. Break it down into pieces and assemble the logic."
     },
     "set-matrix-zeroes": {
       "title": "Set Matrix Zeroes",
@@ -18953,7 +18992,8 @@
         "Handle edge cases",
         "Return the result"
       ],
-      "approach": "First Row/Col as Markers: Use first row/col as markers. Track if they need zeroing separately."
+      "approach": "First Row/Col as Markers: Use first row/col as markers. Track if they need zeroing separately.",
+      "mentalModel": "Like solving a puzzle. Break it down into pieces and assemble the logic."
     },
     "game-of-life": {
       "title": "Game of Life",
@@ -19132,7 +19172,8 @@
         "Handle edge cases",
         "Return the result"
       ],
-      "approach": "State Encoding: Encode transitions: 2 = live->dead, 3 = dead->live. Then decode."
+      "approach": "State Encoding: Encode transitions: 2 = live->dead, 3 = dead->live. Then decode.",
+      "mentalModel": "Like solving a puzzle. Break it down into pieces and assemble the logic."
     },
     "summary-ranges": {
       "title": "Summary Ranges",
@@ -19458,7 +19499,8 @@
         "Handle edge cases",
         "Return the result"
       ],
-      "approach": "Linear Scan: Track start, extend while consecutive, format range."
+      "approach": "Linear Scan: Track start, extend while consecutive, format range.",
+      "mentalModel": "Like solving a puzzle. Break it down into pieces and assemble the logic."
     },
     "merge-intervals": {
       "title": "Merge Intervals",
@@ -19782,7 +19824,8 @@
         "Handle edge cases",
         "Return the result"
       ],
-      "approach": "Sort + Merge: Sort by start, merge overlaps into result."
+      "approach": "Sort + Merge: Sort by start, merge overlaps into result.",
+      "mentalModel": "Like arranging a hand of cards by rank and suit."
     },
     "insert-interval": {
       "title": "Insert Interval",
@@ -20020,7 +20063,8 @@
         "Handle edge cases",
         "Return the result"
       ],
-      "approach": "Merge on Insert: Add all before, merge overlaps, add all after."
+      "approach": "Merge on Insert: Add all before, merge overlaps, add all after.",
+      "mentalModel": "Like combining two sorted piles of papers into one sorted stack."
     },
     "minimum-number-of-arrows-to-burst-balloons": {
       "title": "Minimum Number of Arrows to Burst Balloons",
@@ -20418,7 +20462,8 @@
         "Handle edge cases",
         "Return the result"
       ],
-      "approach": "Iterative Reversal: Reverse k nodes at a time, connect reversed groups."
+      "approach": "Iterative Reversal: Reverse k nodes at a time, connect reversed groups.",
+      "mentalModel": "Like solving a puzzle. Break it down into pieces and assemble the logic."
     },
     "remove-nth-node-from-end-of-list": {
       "title": "Remove Nth Node From End of List",
@@ -20868,7 +20913,8 @@
         "Handle edge cases",
         "Return the result"
       ],
-      "approach": "Cycle + Break: Make cycle, find new tail at (len - k % len - 1), break."
+      "approach": "Cycle + Break: Make cycle, find new tail at (len - k % len - 1), break.",
+      "mentalModel": "Like a race track. If you keep running, you will eventually pass the start line again."
     },
     "partition-list": {
       "title": "Partition List",
@@ -21024,7 +21070,8 @@
         "Handle edge cases",
         "Return the result"
       ],
-      "approach": "Two Dummy Lists: Build two lists: less than x, greater or equal. Concatenate."
+      "approach": "Two Dummy Lists: Build two lists: less than x, greater or equal. Concatenate.",
+      "mentalModel": "Like a scavenger hunt. Each clue points to the location of the next clue."
     },
     "sort-list": {
       "title": "Sort List",
@@ -21161,7 +21208,8 @@
         "Handle edge cases",
         "Return the result"
       ],
-      "approach": "Merge Sort: Find middle, split, recursively sort, merge."
+      "approach": "Merge Sort: Find middle, split, recursively sort, merge.",
+      "mentalModel": "Like arranging a hand of cards by rank and suit."
     },
     "construct-binary-tree-from-preorder-and-inorder-traversal": {
       "title": "Construct Binary Tree from Preorder and Inorder Traversal",
@@ -21292,7 +21340,8 @@
         "Handle edge cases",
         "Return the result"
       ],
-      "approach": "Divide and Conquer: Preorder first is root. Find it in inorder to split left/right."
+      "approach": "Divide and Conquer: Preorder first is root. Find it in inorder to split left/right.",
+      "mentalModel": "Like breaking a bundle of sticks. Hard to break together, easy to break one by one."
     },
     "construct-binary-tree-from-inorder-and-postorder-traversal": {
       "title": "Construct Binary Tree from Inorder and Postorder Traversal",
@@ -21423,7 +21472,8 @@
         "Handle edge cases",
         "Return the result"
       ],
-      "approach": "Divide and Conquer: Postorder last is root. Build right subtree first (reverse postorder)."
+      "approach": "Divide and Conquer: Postorder last is root. Build right subtree first (reverse postorder).",
+      "mentalModel": "Like breaking a bundle of sticks. Hard to break together, easy to break one by one."
     },
     "flatten-binary-tree-to-linked-list": {
       "title": "Flatten Binary Tree to Linked List",
@@ -21564,7 +21614,8 @@
         "title": "Insert into a Binary Search Tree",
         "difficulty": "Medium",
         "pattern": "Trees"
-      }
+      },
+      "mentalModel": "Like using your fingers to track two different positions in a book at once."
     },
     "path-sum": {
       "title": "Path Sum",
@@ -22806,7 +22857,8 @@
         "title": "Subtree of Another Tree",
         "difficulty": "Easy",
         "pattern": "Trees"
-      }
+      },
+      "mentalModel": "Like exploring a maze. You visit every corner systematically."
     },
     "kth-smallest-element-in-a-bst": {
       "title": "Kth Smallest Element in a BST",
@@ -22932,7 +22984,8 @@
         "title": "Lowest Common Ancestor of a Binary Search Tree",
         "difficulty": "Medium",
         "pattern": "Trees"
-      }
+      },
+      "mentalModel": "Like exploring a maze. You visit every corner systematically."
     },
     "validate-binary-search-tree": {
       "title": "Validate Binary Search Tree",
@@ -23189,7 +23242,8 @@
         "title": "Min Cost to Connect All Points",
         "difficulty": "Medium",
         "pattern": "Trees"
-      }
+      },
+      "mentalModel": "Like a phone book. If the name is after 'M', you ignore the entire first half."
     },
     "balance-a-binary-search-tree": {
       "title": "Balance a Binary Search Tree",
@@ -23326,7 +23380,8 @@
         "title": "Binary Search Tree Iterator",
         "difficulty": "Medium",
         "pattern": "Trees"
-      }
+      },
+      "mentalModel": "Like solving a puzzle. Break it down into pieces and assemble the logic."
     },
     "surrounded-regions": {
       "title": "Surrounded Regions",
@@ -23971,7 +24026,8 @@
         "title": "Diameter of Binary Tree",
         "difficulty": "Medium",
         "pattern": "Graphs"
-      }
+      },
+      "mentalModel": "Like putting on clothes. Socks before shoes. Order matters based on dependencies."
     },
     "diameter-of-binary-tree": {
       "title": "Diameter of Binary Tree",
@@ -26070,7 +26126,8 @@
         "Handle edge cases",
         "Return the result"
       ],
-      "approach": "Divide and Conquer / Heap: Use min-heap to always get smallest head. Or divide-conquer merge pairs."
+      "approach": "Divide and Conquer / Heap: Use min-heap to always get smallest head. Or divide-conquer merge pairs.",
+      "mentalModel": "Like a VIP club line where the most important person (max/min) always skips to the front."
     },
     "search-insert-position": {
       "title": "Search Insert Position",
@@ -27871,7 +27928,8 @@
         "Handle edge cases",
         "Return the result"
       ],
-      "approach": "Kadane's: Max is either normal Kadane OR total - min subarray."
+      "approach": "Kadane's: Max is either normal Kadane OR total - min subarray.",
+      "mentalModel": "Like finding the sunniest part of the day. If the clouds (negative) get too heavy, you restart your streak."
     },
     "add-binary": {
       "title": "Add Binary",
@@ -28111,7 +28169,8 @@
         "Handle edge cases",
         "Return the result"
       ],
-      "approach": "Bit by Bit: Add digits from right, track carry."
+      "approach": "Bit by Bit: Add digits from right, track carry.",
+      "mentalModel": "Like digital DNA. You are flipping the fundamental switches (0s and 1s) that make up the number."
     },
     "reverse-bits": {
       "title": "Reverse Bits",
@@ -28301,7 +28360,8 @@
         "Combine results using bit operations",
         "Return final bit result"
       ],
-      "approach": "Bit Manipulation: Shift result left, add LSB of n, shift n right. Repeat 32 times."
+      "approach": "Bit Manipulation: Shift result left, add LSB of n, shift n right. Repeat 32 times.",
+      "mentalModel": "Like digital DNA. You are flipping the fundamental switches (0s and 1s) that make up the number."
     },
     "number-of-1-bits": {
       "title": "Number of 1 Bits",
@@ -28495,7 +28555,8 @@
         "Combine results using bit operations",
         "Return final bit result"
       ],
-      "approach": "Bit Manipulation: n & (n-1) clears rightmost 1 bit. Count iterations."
+      "approach": "Bit Manipulation: n & (n-1) clears rightmost 1 bit. Count iterations.",
+      "mentalModel": "Like digital DNA. You are flipping the fundamental switches (0s and 1s) that make up the number."
     },
     "single-number": {
       "title": "Single Number",
@@ -28728,7 +28789,8 @@
         "Handle edge cases",
         "Return the result"
       ],
-      "approach": "XOR: XOR all elements. Pairs cancel out, leaving single."
+      "approach": "XOR: XOR all elements. Pairs cancel out, leaving single.",
+      "mentalModel": "Like solving a puzzle. Break it down into pieces and assemble the logic."
     },
     "single-number-ii": {
       "title": "Single Number II",
@@ -29036,7 +29098,8 @@
         "Handle edge cases",
         "Return the result"
       ],
-      "approach": "Bit Counting: Count bits mod 3 for each position."
+      "approach": "Bit Counting: Count bits mod 3 for each position.",
+      "mentalModel": "Like digital DNA. You are flipping the fundamental switches (0s and 1s) that make up the number."
     },
     "bitwise-and-of-numbers-range": {
       "title": "Bitwise AND of Numbers Range",
@@ -29244,7 +29307,8 @@
         "Handle edge cases",
         "Return the result"
       ],
-      "approach": "Common Prefix: AND of range = common prefix of left and right."
+      "approach": "Common Prefix: AND of range = common prefix of left and right.",
+      "mentalModel": "Like a running total on a receipt. You can tell the cost of items 5-10 by subtracting total(4) from total(10)."
     },
     "counting-bits": {
       "title": "Counting Bits",
@@ -29469,7 +29533,8 @@
         "title": "Decode Ways",
         "difficulty": "Medium",
         "pattern": "Dynamic Programming"
-      }
+      },
+      "mentalModel": "Like filling out a form where each answer depends on previous answers."
     },
     "powx,-n": {
       "title": "Pow(x, n)",
@@ -29825,7 +29890,8 @@
         "Handle edge cases",
         "Return the result"
       ],
-      "approach": "Binary Exponentiation: x^n = (x^(n/2))^2. Handle negative n."
+      "approach": "Binary Exponentiation: x^n = (x^(n/2))^2. Handle negative n.",
+      "mentalModel": "Like solving a puzzle. Break it down into pieces and assemble the logic."
     },
     "palindrome-number": {
       "title": "Palindrome Number",
@@ -30051,7 +30117,8 @@
         "Handle edge cases",
         "Return the result"
       ],
-      "approach": "Number Reversal: Reverse half the number and compare."
+      "approach": "Number Reversal: Reverse half the number and compare.",
+      "mentalModel": "Like solving a puzzle. Break it down into pieces and assemble the logic."
     },
     "plus-one": {
       "title": "Plus One",
@@ -30187,7 +30254,8 @@
         "Handle edge cases",
         "Return the result"
       ],
-      "approach": "Simulation: Add 1 to last digit, propagate carry."
+      "approach": "Simulation: Add 1 to last digit, propagate carry.",
+      "mentalModel": "Like following a recipe step-by-step. Do exactly what the problem says."
     },
     "factorial-trailing-zeroes": {
       "title": "Factorial Trailing Zeroes",
@@ -30430,7 +30498,8 @@
         "Optimize with mathematical properties",
         "Return computed result"
       ],
-      "approach": "Math: Count factors of 5 in n!"
+      "approach": "Math: Count factors of 5 in n!",
+      "mentalModel": "Like finding the underlying formula that governs the universe, rather than simulating every step."
     },
     "sqrtx": {
       "title": "Sqrt(x)",
@@ -30890,7 +30959,8 @@
         "Return the result"
       ],
       "approach": "Hash Map + Slopes: For each point, count slopes to all others.",
-      "suggestedNextQuestion": null
+      "suggestedNextQuestion": null,
+      "mentalModel": "Like a coat check. You give a unique token (key) and get your specific item (value) back instantly."
     },
     "house-robber": {
       "title": "House Robber",
@@ -31117,7 +31187,8 @@
         "title": "House Robber II",
         "difficulty": "Medium",
         "pattern": "Dynamic Programming"
-      }
+      },
+      "mentalModel": "Like filling out a form where each answer depends on previous answers."
     },
     "word-break": {
       "title": "Word Break",
@@ -31444,7 +31515,8 @@
         "title": "Best Time to Buy and Sell Stock III",
         "difficulty": "Hard",
         "pattern": "Dynamic Programming"
-      }
+      },
+      "mentalModel": "Like filling out a form where each answer depends on previous answers."
     },
     "longest-increasing-subsequence": {
       "title": "Longest Increasing Subsequence",
@@ -32018,7 +32090,8 @@
         "title": "Partition Equal Subset Sum",
         "difficulty": "Medium",
         "pattern": "Dynamic Programming"
-      }
+      },
+      "mentalModel": "Like filling out a form where each answer depends on previous answers."
     },
     "decode-ways": {
       "title": "Decode Ways",
@@ -32262,7 +32335,8 @@
         "title": "Edit Distance",
         "difficulty": "Medium",
         "pattern": "Dynamic Programming"
-      }
+      },
+      "mentalModel": "Like filling out a form where each answer depends on previous answers."
     },
     "minimum-path-sum": {
       "title": "Minimum Path Sum",
@@ -32425,7 +32499,8 @@
         "title": "Number of Longest Increasing Subsequence",
         "difficulty": "Medium",
         "pattern": "Dynamic Programming"
-      }
+      },
+      "mentalModel": "Like filling out a form where each answer depends on previous answers."
     },
     "unique-paths-ii": {
       "title": "Unique Paths II",
@@ -32588,7 +32663,8 @@
         "title": "Word Break",
         "difficulty": "Medium",
         "pattern": "Dynamic Programming"
-      }
+      },
+      "mentalModel": "Like filling out a form where each answer depends on previous answers."
     },
     "longest-palindromic-substring": {
       "title": "Longest Palindromic Substring",
@@ -32929,7 +33005,8 @@
         "Handle edge cases",
         "Return the result"
       ],
-      "approach": "Expand Around Center: Expand from each center (2n-1 centers)."
+      "approach": "Expand Around Center: Expand from each center (2n-1 centers).",
+      "mentalModel": "Like solving a puzzle. Break it down into pieces and assemble the logic."
     },
     "interleaving-string": {
       "title": "Interleaving String",
@@ -33265,7 +33342,8 @@
         "title": "Longest Common Subsequence",
         "difficulty": "Medium",
         "pattern": "Dynamic Programming"
-      }
+      },
+      "mentalModel": "Like filling out a form where each answer depends on previous answers."
     },
     "edit-distance": {
       "title": "Edit Distance",
@@ -33377,7 +33455,8 @@
         "title": "House Robber",
         "difficulty": "Medium",
         "pattern": "Dynamic Programming"
-      }
+      },
+      "mentalModel": "Like filling out a form where each answer depends on previous answers."
     },
     "best-time-to-buy-and-sell-stock-iii": {
       "title": "Best Time to Buy and Sell Stock III",
@@ -33649,7 +33728,8 @@
         "title": "Best Time to Buy and Sell Stock IV",
         "difficulty": "Hard",
         "pattern": "Dynamic Programming"
-      }
+      },
+      "mentalModel": "Buy low, sell high. You are looking for the biggest difference between a valley and a subsequent peak."
     },
     "best-time-to-buy-and-sell-stock-iv": {
       "title": "Best Time to Buy and Sell Stock IV",
@@ -33930,7 +34010,8 @@
         "title": "Burst Balloons",
         "difficulty": "Hard",
         "pattern": "Dynamic Programming"
-      }
+      },
+      "mentalModel": "Buy low, sell high. You are looking for the biggest difference between a valley and a subsequent peak."
     },
     "maximal-square": {
       "title": "Maximal Square",
@@ -34092,7 +34173,8 @@
         "title": "Maximum Product Subarray",
         "difficulty": "Medium",
         "pattern": "Dynamic Programming"
-      }
+      },
+      "mentalModel": "Like filling out a form where each answer depends on previous answers."
     },
     "remove-linked-list-elements": {
       "title": "Remove Linked List Elements",
@@ -34586,7 +34668,8 @@
         "title": "Search in a Binary Search Tree",
         "difficulty": "Medium",
         "pattern": "Trees"
-      }
+      },
+      "mentalModel": "Like exploring a maze. You visit every corner systematically."
     },
     "convert-sorted-array-to-binary-search-tree": {
       "title": "Convert Sorted Array to Binary Search Tree",
@@ -34706,7 +34789,8 @@
         "Base case: if left > right, return None",
         "This ensures height-balanced BST"
       ],
-      "approach": "Divide and Conquer: Recursively pick middle as root. Left half -> left subtree, right half -> right subtree."
+      "approach": "Divide and Conquer: Recursively pick middle as root. Left half -> left subtree, right half -> right subtree.",
+      "mentalModel": "Like breaking a bundle of sticks. Hard to break together, easy to break one by one."
     },
     "construct-quad-tree": {
       "title": "Construct Quad Tree",
@@ -34834,7 +34918,8 @@
         "Recursively construct each quadrant",
         "Combine into parent node with isLeaf=False"
       ],
-      "approach": "Divide and Conquer: If all same value, leaf. Else divide into 4 quadrants."
+      "approach": "Divide and Conquer: If all same value, leaf. Else divide into 4 quadrants.",
+      "mentalModel": "Like breaking a bundle of sticks. Hard to break together, easy to break one by one."
     },
     "search-in-a-binary-search-tree": {
       "title": "Search in a Binary Search Tree",
@@ -34960,7 +35045,8 @@
         "title": "Serialize And Deserialize Binary Tree",
         "difficulty": "Hard",
         "pattern": "Trees"
-      }
+      },
+      "mentalModel": "Like a phone book. If the name is after 'M', you ignore the entire first half."
     },
     "ipo": {
       "title": "IPO",
@@ -35161,7 +35247,8 @@
         "Handle edge cases",
         "Return the result"
       ],
-      "approach": "Two Heaps: Sort by capital needed. Use max-heap for affordable projects."
+      "approach": "Two Heaps: Sort by capital needed. Use max-heap for affordable projects.",
+      "mentalModel": "Like a VIP club line where the most important person (max/min) always skips to the front."
     },
     "find-k-pairs-with-smallest-sums": {
       "title": "Find K Pairs with Smallest Sums",
@@ -35418,7 +35505,8 @@
         "Maintain heap size if needed (top K)",
         "Return final result"
       ],
-      "approach": "Heap: Min-heap starting from (nums1[0], nums2[0]). Expand to neighbors."
+      "approach": "Heap: Min-heap starting from (nums1[0], nums2[0]). Expand to neighbors.",
+      "mentalModel": "Like a VIP club line where the most important person (max/min) always skips to the front."
     },
     "find-median-from-data-stream": {
       "title": "Find Median from Data Stream",
@@ -35610,7 +35698,8 @@
         "Handle edge cases",
         "Return the result"
       ],
-      "approach": "Two Heaps: Max-heap for lower half, min-heap for upper half."
+      "approach": "Two Heaps: Max-heap for lower half, min-heap for upper half.",
+      "mentalModel": "Like a VIP club line where the most important person (max/min) always skips to the front."
     },
     "task-scheduler": {
       "title": "Task Scheduler",
@@ -36004,7 +36093,8 @@
         "Maintain heap size if needed (top K)",
         "Return final result"
       ],
-      "approach": "Heap: Max-heap of size k. Keep k smallest distances."
+      "approach": "Heap: Max-heap of size k. Keep k smallest distances.",
+      "mentalModel": "Like a VIP club line where the most important person (max/min) always skips to the front."
     },
     "minimum-operations-to-reduce-an-integer-to-0": {
       "title": "Minimum Operations to Reduce an Integer to 0",
@@ -36247,7 +36337,8 @@
         "Combine results using bit operations",
         "Return final bit result"
       ],
-      "approach": "Bit Manipulation: Add/subtract powers of 2. Handle consecutive 1s."
+      "approach": "Bit Manipulation: Add/subtract powers of 2. Handle consecutive 1s.",
+      "mentalModel": "Like digital DNA. You are flipping the fundamental switches (0s and 1s) that make up the number."
     },
     "integer-replacement": {
       "title": "Integer Replacement",
@@ -36699,7 +36790,8 @@
         "title": "Transformed Array",
         "difficulty": "Medium",
         "pattern": "Arrays & Hashing"
-      }
+      },
+      "mentalModel": "Like a running total on a receipt. You can tell the cost of items 5-10 by subtracting total(4) from total(10)."
     },
     "unique-paths": {
       "title": "Unique Paths",
@@ -36788,7 +36880,8 @@
         "title": "Unique Paths II",
         "difficulty": "Medium",
         "pattern": "Dynamic Programming"
-      }
+      },
+      "mentalModel": "Like filling out a form where each answer depends on previous answers."
     },
     "lru-cache": {
       "title": "LRU Cache",
@@ -36914,7 +37007,8 @@
           "transientMessage": "Updating index 0, -1."
         }
       ],
-      "approach": "Hash Map + Doubly Linked List: Use a hashmap for O(1) lookup and a doubly-linked list for O(1) eviction ordering."
+      "approach": "Hash Map + Doubly Linked List: Use a hashmap for O(1) lookup and a doubly-linked list for O(1) eviction ordering.",
+      "mentalModel": "Like building a custom machine. You decide how the gears (data structures) fit together."
     },
     "implement-trie-prefix-tree": {
       "title": "Implement Trie (Prefix Tree)",
@@ -37007,7 +37101,7 @@
         }
       ],
       "approach": "Trie: Implement a trie with insert, search, and startsWith methods.",
-      "mentalModel": "Like an autocomplete system. As you type each letter, you walk down a specific path of the word tree."
+      "mentalModel": "Like autocomplete. Typing 'c-a-t' walks down the 'c' -> 'a' -> 't' path."
     },
     "design-add-and-search-words-data-structure": {
       "title": "Design Add and Search Words Data Structure",
@@ -37101,7 +37195,7 @@
         }
       ],
       "approach": "Trie: Design a data structure that supports adding words and searching with '.' wildcard.",
-      "mentalModel": "Like an autocomplete system. As you type each letter, you walk down a specific path of the word tree."
+      "mentalModel": "Like autocomplete. Typing 'c-a-t' walks down the 'c' -> 'a' -> 't' path."
     },
     "word-search-ii": {
       "title": "Word Search II",
@@ -37295,7 +37389,8 @@
         "title": "Delete Node in a BST",
         "difficulty": "Medium",
         "pattern": "Trees"
-      }
+      },
+      "mentalModel": "Like a family tree. Every node has a parent and children."
     },
     "transformed-array": {
       "title": "Transformed Array",
@@ -37417,7 +37512,8 @@
         "title": "Valid Sudoku",
         "difficulty": "Medium",
         "pattern": "Arrays & Hashing"
-      }
+      },
+      "mentalModel": "Like organizing items on a shelf. Fast to read, slow to shift."
     },
     "encode-and-decode-strings": {
       "id": "encode-and-decode-strings",
@@ -37526,7 +37622,8 @@
         "🔍 Handle edge cases carefully"
       ],
       "approach": "String Encoding: Prefix each string with its length followed by a delimiter.",
-      "videoId": "B1k_sxOSgv8"
+      "videoId": "B1k_sxOSgv8",
+      "mentalModel": "Like organizing items on a shelf. Fast to read, slow to shift."
     },
     "two-sum-ii-input-array-is-sorted": {
       "id": "two-sum-ii-input-array-is-sorted",
@@ -38002,7 +38099,7 @@
       ],
       "approach": "Monotonic Queue: Use a deque to maintain decreasing elements in the current window.",
       "videoId": "DfljaUwZsOk",
-      "mentalModel": "Like a line at a grocery store. First person in line is the first one served (FIFO)."
+      "mentalModel": "Like a grocery line. First come, first served (FIFO)."
     },
     "non-overlapping-intervals": {
       "id": "non-overlapping-intervals",
@@ -38301,7 +38398,8 @@
         "🔍 Handle edge cases carefully"
       ],
       "approach": "Sorting: Sort by start times and check for overlaps.",
-      "videoId": "PaJxqZVPhbg"
+      "videoId": "PaJxqZVPhbg",
+      "mentalModel": "Like arranging a hand of cards by rank and suit."
     },
     "meeting-rooms-ii": {
       "id": "meeting-rooms-ii",
@@ -38591,7 +38689,8 @@
         "🔍 Handle edge cases carefully"
       ],
       "approach": "Sorting + Min Heap: Sort intervals and queries, use min heap to track valid intervals.",
-      "videoId": "5hQ5WWW5AWQ"
+      "videoId": "5hQ5WWW5AWQ",
+      "mentalModel": "Like a VIP club line where the most important person (max/min) always skips to the front."
     },
     "daily-temperatures": {
       "id": "daily-temperatures",
@@ -38749,7 +38848,7 @@
       ],
       "approach": "Monotonic Stack: Use a stack to track indices of decreasing temperatures.",
       "videoId": "cTBiBSnjO3c",
-      "mentalModel": "Like a stack of plates. You can only add or remove the top plate (LIFO)."
+      "mentalModel": "Like a stack of pancakes. Last one cooked is the first one eaten (LIFO)."
     },
     "car-fleet": {
       "id": "car-fleet",
@@ -38962,7 +39061,7 @@
       ],
       "approach": "Stack: Sort cars by position and use stack to count fleets based on arrival times.",
       "videoId": "Pr6T-3yB9RM",
-      "mentalModel": "Like a stack of plates. You can only add or remove the top plate (LIFO)."
+      "mentalModel": "Like a stack of pancakes. Last one cooked is the first one eaten (LIFO)."
     },
     "largest-rectangle-in-histogram": {
       "id": "largest-rectangle-in-histogram",
@@ -39089,7 +39188,7 @@
       ],
       "approach": "Monotonic Stack: Use a stack to track increasing bar heights and calculate areas when heights decrease.",
       "videoId": "zx5Sw9130L0",
-      "mentalModel": "Like a stack of plates. You can only add or remove the top plate (LIFO)."
+      "mentalModel": "Like a stack of pancakes. Last one cooked is the first one eaten (LIFO)."
     },
     "reorder-list": {
       "id": "reorder-list",
@@ -39377,7 +39476,8 @@
         "title": "Longest Mountain in Array",
         "difficulty": "Medium",
         "pattern": "Two Pointers"
-      }
+      },
+      "mentalModel": "Like a race track. If you keep running, you will eventually pass the start line again."
     },
     "balanced-binary-tree": {
       "id": "balanced-binary-tree",
@@ -39543,7 +39643,8 @@
         "title": "Count Complete Tree Nodes",
         "difficulty": "Easy",
         "pattern": "Trees"
-      }
+      },
+      "mentalModel": "Like Russian dolls. Open one to find a smaller version inside, until you hit the center."
     },
     "subtree-of-another-tree": {
       "id": "subtree-of-another-tree",
@@ -39715,7 +39816,8 @@
         "title": "Balance a Binary Search Tree",
         "difficulty": "Medium",
         "pattern": "Trees"
-      }
+      },
+      "mentalModel": "Like exploring a maze. You visit every corner systematically."
     },
     "lowest-common-ancestor-of-a-binary-search-tree": {
       "id": "lowest-common-ancestor-of-a-binary-search-tree",
@@ -39855,7 +39957,8 @@
         "title": "Lowest Common Ancestor of a BST",
         "difficulty": "Medium",
         "pattern": "Trees"
-      }
+      },
+      "mentalModel": "Like a phone book. If the name is after 'M', you ignore the entire first half."
     },
     "count-good-nodes-in-binary-tree": {
       "id": "count-good-nodes-in-binary-tree",
@@ -40132,7 +40235,8 @@
       ],
       "approach": "Tree Traversal: Use preorder traversal with null markers for serialization and reconstruction.",
       "videoId": "u4JAi2JJhI8",
-      "suggestedNextQuestion": null
+      "suggestedNextQuestion": null,
+      "mentalModel": "Like exploring a maze. You visit every corner systematically."
     },
     "max-area-of-island": {
       "id": "max-area-of-island",
@@ -41372,7 +41476,8 @@
         "title": "Rotting Oranges",
         "difficulty": "Medium",
         "pattern": "Graphs"
-      }
+      },
+      "mentalModel": "Like a club guest list. It only checks if you are 'in' or 'out', duplicates aren't allowed."
     },
     "number-of-connected-components-in-an-undirected-graph": {
       "id": "number-of-connected-components-in-an-undirected-graph",
@@ -41639,7 +41744,8 @@
         "title": "Integer Replacement",
         "difficulty": "Medium",
         "pattern": "Graphs"
-      }
+      },
+      "mentalModel": "Like connecting cities with roads. You track which cities belong to the same network."
     },
     "reconstruct-itinerary": {
       "id": "reconstruct-itinerary",
@@ -41895,7 +42001,8 @@
         "title": "Populating Next Right Pointers in Each Node II",
         "difficulty": "Medium",
         "pattern": "Trees"
-      }
+      },
+      "mentalModel": "Like a family tree. Every node has a parent and children."
     },
     "network-delay-time": {
       "id": "network-delay-time",
@@ -42038,7 +42145,8 @@
         "title": "Number of Connected Components In An Undirected Graph",
         "difficulty": "Medium",
         "pattern": "Graphs"
-      }
+      },
+      "mentalModel": "Like solving a puzzle. Break it down into pieces and assemble the logic."
     },
     "swim-in-rising-water": {
       "id": "swim-in-rising-water",
@@ -42427,7 +42535,8 @@
         "title": "Binary Tree Maximum Path Sum",
         "difficulty": "Hard",
         "pattern": "Graphs"
-      }
+      },
+      "mentalModel": "Like putting on clothes. Socks before shoes. Order matters based on dependencies."
     },
     "subsets-ii": {
       "id": "subsets-ii",
@@ -43417,7 +43526,8 @@
         "🔍 Handle edge cases carefully"
       ],
       "approach": "Min Heap: Use a min-heap of size k to track the kth largest element.",
-      "videoId": "hOjcdrqMoQ8"
+      "videoId": "hOjcdrqMoQ8",
+      "mentalModel": "Like a VIP club line where the most important person (max/min) always skips to the front."
     },
     "last-stone-weight": {
       "id": "last-stone-weight",
@@ -43531,7 +43641,7 @@
       ],
       "approach": "Heap (Priority Queue): Use a max heap to efficiently retrieve the two heaviest stones.",
       "videoId": "B-QCq79-Vfw",
-      "mentalModel": "Like a line at a grocery store. First person in line is the first one served (FIFO)."
+      "mentalModel": "Like a VIP club line where the most important person (max/min) always skips to the front."
     },
     "design-twitter": {
       "id": "design-twitter",
@@ -43627,7 +43737,8 @@
         "title": "Detect Squares",
         "difficulty": "Medium",
         "pattern": "Arrays & Hashing"
-      }
+      },
+      "mentalModel": "Like a VIP club line where the most important person (max/min) always skips to the front."
     },
     "sum-of-two-integers": {
       "id": "sum-of-two-integers",
@@ -43734,7 +43845,8 @@
         "🔍 Handle edge cases carefully"
       ],
       "approach": "Bit Manipulation: Use XOR for sum without carry and AND+shift for carry.",
-      "videoId": "gVUrDV4tZfY"
+      "videoId": "gVUrDV4tZfY",
+      "mentalModel": "Like digital DNA. You are flipping the fundamental switches (0s and 1s) that make up the number."
     },
     "reverse-integer": {
       "id": "reverse-integer",
@@ -43832,7 +43944,8 @@
         "🔍 Handle edge cases carefully"
       ],
       "approach": "Math: Build reversed number digit by digit, checking overflow early.",
-      "videoId": "HAgLH58IgJQ"
+      "videoId": "HAgLH58IgJQ",
+      "mentalModel": "Like finding the underlying formula that governs the universe, rather than simulating every step."
     },
     "powx-n": {
       "id": "powx-n",
@@ -43926,7 +44039,8 @@
         "🔍 Handle edge cases carefully"
       ],
       "approach": "Binary Exponentiation: Use binary exponentiation to reduce multiplication steps.",
-      "videoId": "g9YQyYi4IQQ"
+      "videoId": "g9YQyYi4IQQ",
+      "mentalModel": "Like solving a puzzle. Break it down into pieces and assemble the logic."
     },
     "multiply-strings": {
       "id": "multiply-strings",
@@ -44031,7 +44145,8 @@
         "🔍 Handle edge cases carefully"
       ],
       "approach": "Simulation: Simulate multiplication digit by digit like elementary school math.",
-      "videoId": "1vJRj0dFnl8"
+      "videoId": "1vJRj0dFnl8",
+      "mentalModel": "Like following a recipe step-by-step. Do exactly what the problem says."
     },
     "detect-squares": {
       "id": "detect-squares",
@@ -44166,7 +44281,8 @@
         "title": "Group Anagrams",
         "difficulty": "Medium",
         "pattern": "Arrays & Hashing"
-      }
+      },
+      "mentalModel": "Like a coat check. You give a unique token (key) and get your specific item (value) back instantly."
     },
     "min-cost-climbing-stairs": {
       "id": "min-cost-climbing-stairs",
@@ -44316,7 +44432,7 @@
         "difficulty": "Medium",
         "pattern": "Dynamic Programming"
       },
-      "mentalModel": "Like filling out a form where each answer depends on the previous answers. You never calculate the same thing twice!"
+      "mentalModel": "Like solving a puzzle. Break it down into pieces and assemble the logic."
     },
     "house-robber-ii": {
       "id": "house-robber-ii",
@@ -44464,7 +44580,7 @@
         "difficulty": "Medium",
         "pattern": "Dynamic Programming"
       },
-      "mentalModel": "Like filling out a form where each answer depends on the previous answers. You never calculate the same thing twice!"
+      "mentalModel": "Like solving a puzzle. Break it down into pieces and assemble the logic."
     },
     "palindromic-substrings": {
       "id": "palindromic-substrings",
@@ -44578,7 +44694,8 @@
         "🔍 Handle edge cases carefully"
       ],
       "approach": "Expand Around Centers: Check odd/even length palindromes by expanding around each center.",
-      "videoId": "4RACzI5-du8"
+      "videoId": "4RACzI5-du8",
+      "mentalModel": "Like solving a puzzle. Break it down into pieces and assemble the logic."
     },
     "maximum-product-subarray": {
       "id": "maximum-product-subarray",
@@ -44718,7 +44835,7 @@
         "difficulty": "Medium",
         "pattern": "Dynamic Programming"
       },
-      "mentalModel": "Like filling out a form where each answer depends on the previous answers. You never calculate the same thing twice!"
+      "mentalModel": "Like solving a puzzle. Break it down into pieces and assemble the logic."
     },
     "partition-equal-subset-sum": {
       "id": "partition-equal-subset-sum",
@@ -44813,7 +44930,7 @@
         "difficulty": "Medium",
         "pattern": "Dynamic Programming"
       },
-      "mentalModel": "Like filling out a form where each answer depends on the previous answers. You never calculate the same thing twice!"
+      "mentalModel": "Like solving a puzzle. Break it down into pieces and assemble the logic."
     },
     "longest-common-subsequence": {
       "id": "longest-common-subsequence",
@@ -45159,7 +45276,7 @@
         "difficulty": "Medium",
         "pattern": "Dynamic Programming"
       },
-      "mentalModel": "Like filling out a form where each answer depends on the previous answers. You never calculate the same thing twice!"
+      "mentalModel": "Like solving a puzzle. Break it down into pieces and assemble the logic."
     },
     "best-time-to-buy-and-sell-stock-with-cooldown": {
       "id": "best-time-to-buy-and-sell-stock-with-cooldown",
@@ -45325,7 +45442,7 @@
         "difficulty": "Medium",
         "pattern": "Dynamic Programming"
       },
-      "mentalModel": "Like filling out a form where each answer depends on the previous answers. You never calculate the same thing twice!"
+      "mentalModel": "Buy low, sell high. You are looking for the biggest difference between a valley and a subsequent peak."
     },
     "coin-change-ii": {
       "id": "coin-change-ii",
@@ -45493,7 +45610,7 @@
         "difficulty": "Medium",
         "pattern": "Dynamic Programming"
       },
-      "mentalModel": "Like filling out a form where each answer depends on the previous answers. You never calculate the same thing twice!"
+      "mentalModel": "Like solving a puzzle. Break it down into pieces and assemble the logic."
     },
     "target-sum": {
       "id": "target-sum",
@@ -45584,7 +45701,7 @@
         "difficulty": "Medium",
         "pattern": "Dynamic Programming"
       },
-      "mentalModel": "Like filling out a form where each answer depends on the previous answers. You never calculate the same thing twice!"
+      "mentalModel": "Like solving a puzzle. Break it down into pieces and assemble the logic."
     },
     "longest-increasing-path-in-a-matrix": {
       "id": "longest-increasing-path-in-a-matrix",
@@ -46322,7 +46439,7 @@
         "difficulty": "Hard",
         "pattern": "Dynamic Programming"
       },
-      "mentalModel": "Like filling out a form where each answer depends on the previous answers. You never calculate the same thing twice!"
+      "mentalModel": "Like solving a puzzle. Break it down into pieces and assemble the logic."
     },
     "burst-balloons": {
       "id": "burst-balloons",
@@ -46432,7 +46549,7 @@
         "difficulty": "Hard",
         "pattern": "Dynamic Programming"
       },
-      "mentalModel": "Like filling out a form where each answer depends on the previous answers. You never calculate the same thing twice!"
+      "mentalModel": "Like solving a puzzle. Break it down into pieces and assemble the logic."
     },
     "regular-expression-matching": {
       "id": "regular-expression-matching",
@@ -46643,7 +46760,7 @@
       "approach": "Dynamic Programming: Use a 2D DP table to track matching substrings.",
       "videoId": "HAA8mgxlov8",
       "suggestedNextQuestion": null,
-      "mentalModel": "Like filling out a form where each answer depends on the previous answers. You never calculate the same thing twice!"
+      "mentalModel": "Like solving a puzzle. Break it down into pieces and assemble the logic."
     },
     "hand-of-straights": {
       "id": "hand-of-straights",
