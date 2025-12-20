@@ -69,32 +69,34 @@ const TreeVisualizer: React.FC<TreeVisualizerProps> = ({
         }
 
         // Draw node
-        <motion.g
-            key={`node-${node.val}-${level}-${x}`}
-            initial={{ scale: 0, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ delay: level * 0.1 + 0.1, type: 'spring', stiffness: 300 }}
-        >
-            <circle
-                cx={x}
-                cy={y}
-                r={nodeSize / 2 - 2}
-                className={highlightedNodes.includes(node.val as number | string)
-                    ? 'fill-emerald-500/20 stroke-emerald-500'
-                    : 'fill-slate-200 stroke-slate-400 dark:fill-slate-800 dark:stroke-slate-600'
-                }
-                strokeWidth="2"
-            />
-            <text
-                x={x}
-                y={y + 5}
-                textAnchor="middle"
-                className="fill-slate-800 dark:fill-white text-sm font-bold"
-                style={{ fontSize: '14px' }}
+        elements.push(
+            <motion.g
+                key={`node-${node.val}-${level}-${x}`}
+                initial={{ scale: 0, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ delay: level * 0.1 + 0.1, type: 'spring', stiffness: 300 }}
             >
-                {node.val}
-            </text>
-        </motion.g>
+                <circle
+                    cx={x}
+                    cy={y}
+                    r={nodeSize / 2 - 2}
+                    className={highlightedNodes.includes(node.val as number | string)
+                        ? 'fill-emerald-500/20 stroke-emerald-500'
+                        : 'fill-slate-200 stroke-slate-400 dark:fill-slate-800 dark:stroke-slate-600'
+                    }
+                    strokeWidth="2"
+                />
+                <text
+                    x={x}
+                    y={y + 5}
+                    textAnchor="middle"
+                    className="fill-slate-800 dark:fill-white text-sm font-bold"
+                    style={{ fontSize: '14px' }}
+                >
+                    {node.val}
+                </text>
+            </motion.g>
+        );
 
         // Recurse to children
         if (node.left) {

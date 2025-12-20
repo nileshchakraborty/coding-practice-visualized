@@ -2,7 +2,7 @@
     "categories": [
         {
             "name": "Array / String",
-            "icon": "\ud83d\udcdd",
+            "icon": "📝",
             "problems": [
                 {
                     "title": "Merge Sorted Array",
@@ -50,7 +50,7 @@
                     "url": "https://leetcode.com/problems/majority-element/",
                     "slug": "majority-element",
                     "subTopic": "Array / String",
-                    "description": "Given an array nums of size n, return the majority element. The majority element is the element that appears more than \u230an / 2\u230b times. You may assume that the majority element always exists in the array.",
+                    "description": "Given an array nums of size n, return the majority element. The majority element is the element that appears more than ⌊n / 2⌋ times. You may assume that the majority element always exists in the array.",
                     "pattern": "Boyer-Moore Voting",
                     "has_solution": true
                 },
@@ -314,7 +314,7 @@
         },
         {
             "name": "Two Pointers",
-            "icon": "\ud83d\udc46",
+            "icon": "👆",
             "problems": [
                 {
                     "title": "Valid Palindrome",
@@ -398,22 +398,12 @@
                     "description": "Find peak, expand left (strictly decreasing), expand right (strictly decreasing).\n\nFind longest mountain subarray (up then down).\nAt each peak, extend left and right.",
                     "pattern": "Two Pointers / Expand",
                     "has_solution": true
-                },
-                {
-                    "title": "Two Sum II Input Array Is Sorted",
-                    "difficulty": "Medium",
-                    "url": "https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/",
-                    "slug": "two-sum-ii-input-array-is-sorted",
-                    "subTopic": "Two Pointers",
-                    "description": "Given a 1-indexed array of integers numbers that is already sorted in non-decreasing order, find two numbers such that they add up to a specific target number. Return the indices of the two numbers, index1 and index2, added by one as an integer array [index1, index2] of length 2.\n\nThe tests are generated such that there is exactly one solution. You may not use the same element twice. Your solution must use only constant extra space.",
-                    "pattern": "Two Pointers",
-                    "has_solution": true
                 }
             ]
         },
         {
             "name": "Sliding Window",
-            "icon": "\ud83e\ude9f",
+            "icon": "🪟",
             "problems": [
                 {
                     "title": "Minimum Size Subarray Sum",
@@ -489,7 +479,7 @@
         },
         {
             "name": "Matrix",
-            "icon": "\ud83d\udd22",
+            "icon": "🔢",
             "problems": [
                 {
                     "title": "Valid Sudoku",
@@ -517,7 +507,7 @@
                     "url": "https://leetcode.com/problems/rotate-image/",
                     "slug": "rotate-image",
                     "subTopic": "Matrix",
-                    "description": "Transpose matrix, then reverse each row.\n\nRotate matrix 90\u00b0 clockwise in-place.\nTranspose: swap matrix[i][j] with matrix[j][i].",
+                    "description": "Transpose matrix, then reverse each row.\n\nRotate matrix 90° clockwise in-place.\nTranspose: swap matrix[i][j] with matrix[j][i].",
                     "pattern": "Transpose + Reverse",
                     "has_solution": true
                 },
@@ -545,7 +535,7 @@
         },
         {
             "name": "Hashmap",
-            "icon": "\ud83d\uddc2\ufe0f",
+            "icon": "🗂️",
             "problems": [
                 {
                     "title": "Ransom Note",
@@ -673,7 +663,7 @@
         },
         {
             "name": "Intervals",
-            "icon": "\ud83d\udcca",
+            "icon": "📊",
             "problems": [
                 {
                     "title": "Summary Ranges",
@@ -759,7 +749,7 @@
         },
         {
             "name": "Stack",
-            "icon": "\ud83d\udcda",
+            "icon": "📚",
             "problems": [
                 {
                     "title": "Valid Parentheses",
@@ -848,7 +838,7 @@
                     "url": "https://leetcode.com/problems/largest-rectangle-in-histogram/",
                     "slug": "largest-rectangle-in-histogram",
                     "subTopic": "Stack",
-                    "description": "Given an array of integers `heights` representing the histogram's bar height where the width of each bar is 1, return the area of the largest rectangle in the histogram.\n\nA histogram is a graphical display of data using bars of different heights. Each bar has a width of 1 unit and a height specified by the input array. The task is to find the maximum rectangular area that can be formed within this histogram, where the rectangle must be aligned with the bars (i.e., its bottom edge must lie on the x-axis and it cannot extend beyond the boundaries of the bars).\n\nThe area of a rectangle is calculated as width \u00d7 height, where the height is determined by the minimum height of the bars that the rectangle spans, and the width is the number of consecutive bars it covers.",
+                    "description": "Given an array of integers `heights` representing the histogram's bar height where the width of each bar is 1, return the area of the largest rectangle in the histogram.\n\nA histogram is a graphical display of data using bars of different heights. Each bar has a width of 1 unit and a height specified by the input array. The task is to find the maximum rectangular area that can be formed within this histogram, where the rectangle must be aligned with the bars (i.e., its bottom edge must lie on the x-axis and it cannot extend beyond the boundaries of the bars).\n\nThe area of a rectangle is calculated as width × height, where the height is determined by the minimum height of the bars that the rectangle spans, and the width is the number of consecutive bars it covers.",
                     "pattern": "Stack",
                     "has_solution": true
                 }
@@ -856,7 +846,7 @@
         },
         {
             "name": "Linked List",
-            "icon": "\ud83d\udd17",
+            "icon": "🔗",
             "problems": [
                 {
                     "title": "Linked List Cycle",
@@ -985,7 +975,7 @@
                     "url": "https://leetcode.com/problems/reorder-list/",
                     "slug": "reorder-list",
                     "subTopic": "Linked List",
-                    "description": "You are given the head of a singly linked list. Reorder the list such that it follows the pattern: L0 \u2192 Ln \u2192 L1 \u2192 Ln-1 \u2192 L2 \u2192 Ln-2 \u2192 ...\n\nThe reordering must be done by actually moving nodes, not just changing their values.\n\nReturn the reordered list's head node.",
+                    "description": "You are given the head of a singly linked list. Reorder the list such that it follows the pattern: L0 → Ln → L1 → Ln-1 → L2 → Ln-2 → ...\n\nThe reordering must be done by actually moving nodes, not just changing their values.\n\nReturn the reordered list's head node.",
                     "pattern": "Linked List",
                     "has_solution": true
                 },
@@ -1003,7 +993,7 @@
         },
         {
             "name": "Binary Tree General",
-            "icon": "\ud83c\udf33",
+            "icon": "🌳",
             "problems": [
                 {
                     "title": "Maximum Depth of Binary Tree",
@@ -1199,7 +1189,7 @@
         },
         {
             "name": "Binary Tree BFS",
-            "icon": "\ud83c\udf0a",
+            "icon": "🌊",
             "problems": [
                 {
                     "title": "Binary Tree Right Side View",
@@ -1245,7 +1235,7 @@
         },
         {
             "name": "Binary Search Tree",
-            "icon": "\ud83d\udd0d",
+            "icon": "🔍",
             "problems": [
                 {
                     "title": "Minimum Absolute Difference in BST",
@@ -1314,7 +1304,7 @@
         },
         {
             "name": "Graph General",
-            "icon": "\ud83d\udd78\ufe0f",
+            "icon": "🕸️",
             "problems": [
                 {
                     "title": "Number of Islands",
@@ -1522,7 +1512,7 @@
         },
         {
             "name": "Graph BFS",
-            "icon": "\ud83c\udf10",
+            "icon": "🌐",
             "problems": [
                 {
                     "title": "Snakes and Ladders",
@@ -1530,7 +1520,7 @@
                     "url": "https://leetcode.com/problems/snakes-and-ladders/",
                     "slug": "snakes-and-ladders",
                     "subTopic": "Graph BFS",
-                    "description": "BFS from square 1. Follow snakes/ladders. Min moves to n\u00b2.\n\nMin dice rolls to reach last square.\nBFS level = number of moves.",
+                    "description": "BFS from square 1. Follow snakes/ladders. Min moves to n².\n\nMin dice rolls to reach last square.\nBFS level = number of moves.",
                     "pattern": "BFS",
                     "has_solution": true
                 },
@@ -1569,7 +1559,7 @@
         },
         {
             "name": "Trie",
-            "icon": "\ud83c\udf3f",
+            "icon": "🌿",
             "problems": [
                 {
                     "title": "Implement Trie (Prefix Tree)",
@@ -1605,7 +1595,7 @@
         },
         {
             "name": "Backtracking",
-            "icon": "\ud83d\udd19",
+            "icon": "🔙",
             "problems": [
                 {
                     "title": "Letter Combinations of a Phone Number",
@@ -1735,7 +1725,7 @@
                     "url": "https://leetcode.com/problems/n-queens/",
                     "slug": "n-queens",
                     "subTopic": "Backtracking",
-                    "description": "The n-queens puzzle is the problem of placing n queens on an n\u00d7n chessboard such that no two queens attack each other. Given an integer n, return all distinct solutions to the n-queens puzzle. Each solution contains a distinct board configuration where 'Q' represents a queen and '.' represents an empty space.",
+                    "description": "The n-queens puzzle is the problem of placing n queens on an n×n chessboard such that no two queens attack each other. Given an integer n, return all distinct solutions to the n-queens puzzle. Each solution contains a distinct board configuration where 'Q' represents a queen and '.' represents an empty space.",
                     "pattern": "Backtracking",
                     "has_solution": true
                 }
@@ -1743,7 +1733,7 @@
         },
         {
             "name": "Divide & Conquer",
-            "icon": "\u2702\ufe0f",
+            "icon": "✂️",
             "problems": [
                 {
                     "title": "Convert Sorted Array to Binary Search Tree",
@@ -1771,7 +1761,7 @@
                     "url": "https://leetcode.com/problems/construct-quad-tree/",
                     "slug": "construct-quad-tree",
                     "subTopic": "Divide & Conquer",
-                    "description": "If all same value, leaf. Else divide into 4 quadrants.\n\nBuild quad-tree from n\u00d7n grid.\nIf entire region same value, make leaf.",
+                    "description": "If all same value, leaf. Else divide into 4 quadrants.\n\nBuild quad-tree from n×n grid.\nIf entire region same value, make leaf.",
                     "pattern": "Divide and Conquer",
                     "has_solution": true
                 },
@@ -1789,7 +1779,7 @@
         },
         {
             "name": "Kadane's Algorithm",
-            "icon": "\ud83d\udcc8",
+            "icon": "📈",
             "problems": [
                 {
                     "title": "Maximum Subarray",
@@ -1815,7 +1805,7 @@
         },
         {
             "name": "Binary Search",
-            "icon": "\ud83c\udfaf",
+            "icon": "🎯",
             "problems": [
                 {
                     "title": "Binary Search",
@@ -1932,7 +1922,7 @@
         },
         {
             "name": "Heap",
-            "icon": "\u26f0\ufe0f",
+            "icon": "⛰️",
             "problems": [
                 {
                     "title": "Kth Largest Element in an Array",
@@ -2041,7 +2031,7 @@
         },
         {
             "name": "Bit Manipulation",
-            "icon": "\ud83d\udd22",
+            "icon": "🔢",
             "problems": [
                 {
                     "title": "Add Binary",
@@ -2110,7 +2100,7 @@
                     "url": "https://leetcode.com/problems/minimum-operations-to-reduce-an-integer-to-0/solutions/?submissionId=1806256289",
                     "slug": "minimum-operations-to-reduce-an-integer-to-0",
                     "subTopic": "Greedy On Bits",
-                    "description": "Add/subtract powers of 2. Handle consecutive 1s.\n\nMin operations to make n = 0 using \u00b12^k.\nConsecutive 1s: add to clear, else subtract.",
+                    "description": "Add/subtract powers of 2. Handle consecutive 1s.\n\nMin operations to make n = 0 using ±2^k.\nConsecutive 1s: add to clear, else subtract.",
                     "pattern": "Bit Manipulation",
                     "has_solution": true
                 },
@@ -2141,7 +2131,7 @@
                     "url": "https://leetcode.com/problems/reverse-integer/",
                     "slug": "reverse-integer",
                     "subTopic": "Bit Manipulation",
-                    "description": "Given a signed 32-bit integer x, return x with its digits reversed. If reversing x causes the value to go outside the signed 32-bit integer range [-2\u00b3\u00b9, 2\u00b3\u00b9 - 1], then return 0.\n\nAssume the environment does not allow you to store 64-bit integers (signed or unsigned).",
+                    "description": "Given a signed 32-bit integer x, return x with its digits reversed. If reversing x causes the value to go outside the signed 32-bit integer range [-2³¹, 2³¹ - 1], then return 0.\n\nAssume the environment does not allow you to store 64-bit integers (signed or unsigned).",
                     "pattern": "Bit Manipulation",
                     "has_solution": true
                 }
@@ -2149,7 +2139,7 @@
         },
         {
             "name": "Math",
-            "icon": "\ud83e\uddee",
+            "icon": "🧮",
             "problems": [
                 {
                     "title": "Palindrome Number",
@@ -2223,16 +2213,6 @@
                     "has_solution": true
                 },
                 {
-                    "title": "Pow(x, n)",
-                    "difficulty": "Medium",
-                    "url": "https://leetcode.com/problems/powx-n/",
-                    "slug": "powx-n",
-                    "subTopic": "Math",
-                    "description": "Implement pow(x, n), which calculates x raised to the power n (i.e., x^n).\n\nYou are given a base number x and an integer exponent n. Return the result of raising x to the power of n.\n\nThe implementation should handle both positive and negative exponents efficiently.",
-                    "pattern": "Math & Geometry",
-                    "has_solution": true
-                },
-                {
                     "title": "Multiply Strings",
                     "difficulty": "Medium",
                     "url": "https://leetcode.com/problems/multiply-strings/",
@@ -2256,7 +2236,7 @@
         },
         {
             "name": "1D DP",
-            "icon": "\ud83d\udcd0",
+            "icon": "📐",
             "problems": [
                 {
                     "title": "Climbing Stairs",
@@ -2345,7 +2325,7 @@
         },
         {
             "name": "Multidimensional DP",
-            "icon": "\ud83e\uddca",
+            "icon": "🧊",
             "problems": [
                 {
                     "title": "Triangle",
@@ -2452,7 +2432,7 @@
         },
         {
             "name": "Prefix Sums",
-            "icon": "\ud83d\udcc1",
+            "icon": "📁",
             "problems": [
                 {
                     "id": "268",
@@ -2469,7 +2449,7 @@
         },
         {
             "name": "Geometry",
-            "icon": "\ud83d\udcc1",
+            "icon": "📁",
             "problems": [
                 {
                     "id": "1266",
@@ -2486,7 +2466,7 @@
         },
         {
             "name": "Implementation",
-            "icon": "\ud83d\udcc1",
+            "icon": "📁",
             "problems": [
                 {
                     "id": "412",
@@ -2525,7 +2505,7 @@
         },
         {
             "name": "Queue",
-            "icon": "\ud83d\udcc1",
+            "icon": "📁",
             "problems": [
                 {
                     "id": "2073",
@@ -2542,7 +2522,7 @@
         },
         {
             "name": "Sorting",
-            "icon": "\ud83d\udcc1",
+            "icon": "📁",
             "problems": [
                 {
                     "id": "1200",
@@ -2559,7 +2539,7 @@
         },
         {
             "name": "1-D Dynamic Programming",
-            "icon": "\ud83d\udcdd",
+            "icon": "📝",
             "problems": [
                 {
                     "title": "Min Cost Climbing Stairs",
@@ -2615,7 +2595,7 @@
         },
         {
             "name": "2-D Dynamic Programming",
-            "icon": "\ud83d\udcdd",
+            "icon": "📝",
             "problems": [
                 {
                     "title": "Longest Common Subsequence",
@@ -2701,7 +2681,7 @@
         },
         {
             "name": "Greedy",
-            "icon": "\ud83d\udcdd",
+            "icon": "📝",
             "problems": [
                 {
                     "title": "Hand of Straights",
