@@ -7,7 +7,7 @@ import type { Solution } from './models';
 import { useProblems } from './viewmodels';
 import SolutionModal from './components/SolutionModal';
 import { ThemeToggle } from './components/ThemeToggle';
-import { Search, Brain, Zap } from 'lucide-react';
+import { Search, Brain, Zap, X } from 'lucide-react';
 
 function App() {
   // ViewModels
@@ -19,8 +19,8 @@ function App() {
   const [selectedSolution, setSelectedSolution] = useState<Solution | null>(null);
   const [loadingSlug, setLoadingSlug] = useState<string | null>(null);
 
-  // Local filter state for subtopic (simplified from useProblems)
-  const [subTopicFilter, setSubTopicFilter] = useState<string>('All');
+  // Local filter state for subtopic - now supports multiple selection
+  const [selectedSubTopics, setSelectedSubTopics] = useState<Set<string>>(new Set());
 
   // Compute stats from viewmodel
   const stats = useMemo(() => {
@@ -45,15 +45,33 @@ function App() {
     };
   }, [problems.stats]);
 
+  // Toggle subtopic selection
+  const toggleSubTopic = useCallback((subTopic: string) => {
+    setSelectedSubTopics(prev => {
+      const newSet = new Set(prev);
+      if (newSet.has(subTopic)) {
+        newSet.delete(subTopic);
+      } else {
+        newSet.add(subTopic);
+      }
+      return newSet;
+    });
+  }, []);
+
+  // Reset all subtopic filters
+  const resetSubTopicFilters = useCallback(() => {
+    setSelectedSubTopics(new Set());
+  }, []);
+
   // Filter problems
   const filterProblems = useCallback((problemList: Array<{ title: string; difficulty: string; subTopic?: string; slug: string; has_solution?: boolean }>) => {
     return problemList.filter(p => {
       const matchesSearch = p.title.toLowerCase().includes(problems.filter.search.toLowerCase());
       const matchesDiff = problems.filter.difficulty === 'All' || p.difficulty === problems.filter.difficulty;
-      const matchesSubTopic = subTopicFilter === 'All' || p.subTopic === subTopicFilter;
+      const matchesSubTopic = selectedSubTopics.size === 0 || (p.subTopic && selectedSubTopics.has(p.subTopic));
       return matchesSearch && matchesDiff && matchesSubTopic;
     });
-  }, [problems.filter, subTopicFilter]);
+  }, [problems.filter, selectedSubTopics]);
 
   // All subtopics
   const allSubTopics = useMemo(() => {
@@ -174,25 +192,38 @@ function App() {
             </div>
           </div>
 
-          {/* Subtopic Filter */}
+          {/* Subtopic Filter - Clean inline design with word wrap */}
           {allSubTopics.length > 0 && (
-            <div className="flex gap-2 overflow-x-auto pb-2 custom-scrollbar">
+            <div className="flex flex-wrap items-center gap-2">
+              {/* Reset Button - Minimal, inline with separator */}
               <button
-                onClick={() => setSubTopicFilter('All')}
-                className={`whitespace-nowrap px-3 py-1.5 rounded-full text-xs font-bold border transition-all ${subTopicFilter === 'All'
-                  ? 'bg-purple-500/20 text-purple-700 dark:text-purple-300 border-purple-500/50'
-                  : 'bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-400 border-slate-300 dark:border-slate-800 hover:border-slate-400 dark:hover:border-slate-600'
+                onClick={resetSubTopicFilters}
+                disabled={selectedSubTopics.size === 0}
+                className={`flex items-center gap-1 text-xs font-medium transition-all ${selectedSubTopics.size > 0
+                    ? 'text-rose-600 dark:text-rose-400 hover:text-rose-700 dark:hover:text-rose-300 cursor-pointer'
+                    : 'text-slate-300 dark:text-slate-600 cursor-not-allowed'
                   }`}
               >
-                All Subtopics
+                <X size={14} strokeWidth={2.5} />
+                <span>Reset</span>
+                {selectedSubTopics.size > 0 && (
+                  <span className="ml-0.5 bg-rose-500/20 text-rose-600 dark:text-rose-400 px-1.5 py-0.5 rounded text-[10px] font-bold">
+                    {selectedSubTopics.size}
+                  </span>
+                )}
               </button>
+
+              {/* Separator */}
+              <div className="h-4 w-px bg-slate-300 dark:bg-slate-700" />
+
+              {/* Subtopic Pills - Wrapped */}
               {allSubTopics.map(st => (
                 <button
                   key={st}
-                  onClick={() => setSubTopicFilter(st)}
-                  className={`whitespace-nowrap px-3 py-1.5 rounded-full text-xs font-bold border transition-all ${subTopicFilter === st
-                    ? 'bg-purple-500/20 text-purple-700 dark:text-purple-300 border-purple-500/50'
-                    : 'bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-400 border-slate-300 dark:border-slate-800 hover:border-slate-400 dark:hover:border-slate-600'
+                  onClick={() => toggleSubTopic(st)}
+                  className={`px-2.5 py-1 rounded-md text-xs font-medium transition-all ${selectedSubTopics.has(st)
+                      ? 'bg-indigo-500 text-white shadow-sm'
+                      : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700'
                     }`}
                 >
                   {st}
