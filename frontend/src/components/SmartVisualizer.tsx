@@ -375,55 +375,56 @@ const SmartVisualizer: React.FC<SmartVisualizerProps> = ({ solution }) => {
             {/* Enhanced Controls */}
             <div className="viz-controls w-full max-w-2xl mb-6 p-3 bg-slate-100 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 space-y-3">
                 {/* Playback Controls Row */}
-                <div className="flex items-center justify-between gap-3">
+                {/* Playback Controls Row */}
+                <div className="flex flex-wrap items-center justify-between gap-3 sm:gap-4">
                     {/* Left: Playback buttons */}
-                    <div className="flex items-center gap-1">
+                    <div className="flex items-center gap-1 order-1">
                         <button
                             onClick={handlePrev}
                             disabled={currentStep === 0}
-                            className="p-2 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-lg transition-colors text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white disabled:opacity-30 disabled:cursor-not-allowed"
+                            className="p-1.5 sm:p-2 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-lg transition-colors text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white disabled:opacity-30 disabled:cursor-not-allowed"
                             title="Previous (←)"
                         >
-                            <SkipBack size={18} />
+                            <SkipBack size={16} className="sm:w-[18px] sm:h-[18px]" />
                         </button>
                         <button
                             onClick={() => setIsPlaying(!isPlaying)}
-                            className="p-2.5 bg-indigo-500 hover:bg-indigo-600 rounded-lg transition-colors text-white shadow-lg shadow-indigo-500/25"
+                            className="p-2 sm:p-2.5 bg-indigo-500 hover:bg-indigo-600 rounded-lg transition-colors text-white shadow-lg shadow-indigo-500/25"
                             title="Play/Pause (Space)"
                         >
-                            {isPlaying ? <Pause size={20} /> : <Play size={20} />}
+                            {isPlaying ? <Pause size={18} className="sm:w-5 sm:h-5" /> : <Play size={18} className="sm:w-5 sm:h-5" />}
                         </button>
                         <button
                             onClick={handleNext}
                             disabled={currentStep >= totalSteps}
-                            className="p-2 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-lg transition-colors text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white disabled:opacity-30 disabled:cursor-not-allowed"
+                            className="p-1.5 sm:p-2 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-lg transition-colors text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white disabled:opacity-30 disabled:cursor-not-allowed"
                             title="Next (→)"
                         >
-                            <SkipForward size={18} />
+                            <SkipForward size={16} className="sm:w-[18px] sm:h-[18px]" />
                         </button>
                         <button
                             onClick={handleReplay}
-                            className="p-2 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-lg transition-colors text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white"
+                            className="p-1.5 sm:p-2 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-lg transition-colors text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white"
                             title="Replay (R)"
                         >
-                            <RotateCcw size={18} />
+                            <RotateCcw size={16} className="sm:w-[18px] sm:h-[18px]" />
                         </button>
                     </div>
 
-                    {/* Center: Step counter */}
-                    <span className="text-sm font-mono text-slate-600 dark:text-slate-400 bg-white dark:bg-slate-900 px-3 py-1 rounded-md border border-slate-200 dark:border-slate-700">
+                    {/* Center: Step counter - Order 2 on mobile (right side), Order 2 on desktop (center) */}
+                    <span className="order-2 sm:order-2 text-xs sm:text-sm font-mono text-slate-600 dark:text-slate-400 bg-white dark:bg-slate-900 px-2 sm:px-3 py-1 rounded-md border border-slate-200 dark:border-slate-700">
                         {currentStep} / {totalSteps}
                     </span>
 
-                    {/* Right: Speed control */}
-                    <div className="flex items-center gap-1.5">
+                    {/* Right: Speed control - Order 3 (new row on mobile potentially) */}
+                    <div className="flex items-center gap-1.5 order-3 w-full sm:w-auto justify-center sm:justify-end mt-2 sm:mt-0 pt-2 sm:pt-0 border-t sm:border-t-0 border-slate-200 dark:border-slate-700">
                         <span className="text-xs text-slate-500 dark:text-slate-400">🐢</span>
                         <div className="flex bg-white dark:bg-slate-900 rounded-md border border-slate-200 dark:border-slate-700 overflow-hidden">
                             {speedOptions.map(s => (
                                 <button
                                     key={s}
                                     onClick={() => setSpeed(s)}
-                                    className={`px-2 py-1 text-xs font-medium transition-colors ${speed === s
+                                    className={`px-2 py-1 text-[10px] sm:text-xs font-medium transition-colors ${speed === s
                                         ? 'bg-indigo-500 text-white'
                                         : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'
                                         }`}
