@@ -3,7 +3,7 @@
  * Uses viewmodel hooks for state management
  */
 import { useState, useMemo, useCallback } from 'react';
-import type { Solution } from './models';
+import type { Solution, Problem } from './models';
 import { useProblems } from './viewmodels';
 import { SearchEngine } from './utils/SearchEngine';
 import SolutionModal from './components/SolutionModal';
@@ -80,7 +80,7 @@ function App() {
   }, []);
 
   // Filter problems
-  const filterProblems = useCallback((problemList: Array<{ title: string; difficulty: string; subTopic?: string; slug: string; has_solution?: boolean }>) => {
+  const filterProblems = useCallback((problemList: Problem[]) => {
     return problemList.filter(p => {
       const matchesSearch = !searchResults || searchResults.has(p.slug);
       const matchesDiff = problems.filter.difficulty === 'All' || p.difficulty === problems.filter.difficulty;

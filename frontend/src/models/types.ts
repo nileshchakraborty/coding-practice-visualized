@@ -7,6 +7,7 @@ export interface Problem {
     url: string;
     has_solution?: boolean;
     subTopic?: string;
+    pattern?: string;
 }
 
 export interface Stats {

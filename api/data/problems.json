@@ -340,7 +340,7 @@
           "title": "Two Sum II - Input Array Is Sorted",
           "difficulty": "Medium",
           "url": "https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/",
-          "slug": "two-sum-ii---input-array-is-sorted",
+          "slug": "two-sum-ii-input-array-is-sorted",
           "subTopic": "Two Pointers",
           "description": "Left and right pointers. Move left up if sum too small, right down if too big.\n\nFind two numbers that add up to target (1-indexed).\nSince sorted, use two pointers from ends.",
           "pattern": "Two Pointers",
@@ -383,7 +383,7 @@
           "difficulty": "Easy",
           "url": "https://leetcode.com/problems/squares-of-a-sorted-array/",
           "slug": "squares-of-a-sorted-array",
-          "subTopic": "Two Pointers + Sorted Array",
+          "subTopic": "Two Pointers",
           "description": "Compare absolute values at ends, place larger square at end of result.\n\nSquare each element, return sorted array.\nLargest squares at ends (negative or positive).",
           "pattern": "Two Pointers",
           "has_solution": true
@@ -394,7 +394,7 @@
           "difficulty": "Medium",
           "url": "https://leetcode.com/problems/longest-mountain-in-array/description/",
           "slug": "longest-mountain-in-array",
-          "subTopic": "Two-Pointer Mountains",
+          "subTopic": "Two Pointers",
           "description": "Find peak, expand left (strictly decreasing), expand right (strictly decreasing).\n\nFind longest mountain subarray (up then down).\nAt each peak, extend left and right.",
           "pattern": "Two Pointers / Expand",
           "has_solution": true
@@ -456,7 +456,7 @@
           "has_solution": true
         },
         {
-          "title": "Permutation In String",
+          "title": "Permutation in String",
           "difficulty": "Medium",
           "url": "https://leetcode.com/problems/permutation-in-string/",
           "slug": "permutation-in-string",
@@ -542,7 +542,7 @@
           "difficulty": "Easy",
           "url": "https://leetcode.com/problems/ransom-note/",
           "slug": "ransom-note",
-          "subTopic": "Hashmap",
+          "subTopic": "Hash Map",
           "description": "Given two strings ransomNote and magazine, return true if ransomNote can be constructed by using the letters from magazine and false otherwise. Each letter in magazine can only be used once in ransomNote.",
           "pattern": "Hash Map / Counter",
           "has_solution": true
@@ -552,7 +552,7 @@
           "difficulty": "Easy",
           "url": "https://leetcode.com/problems/isomorphic-strings/",
           "slug": "isomorphic-strings",
-          "subTopic": "Hashmap",
+          "subTopic": "Hash Map",
           "description": "Given two strings s and t, determine if they are isomorphic. Two strings s and t are isomorphic if the characters in s can be replaced to get t. All occurrences of a character must be replaced with another character while preserving the order of characters. No two characters may map to the same character, but a character may map to itself.",
           "pattern": "Hash Map (Bi-directional)",
           "has_solution": true
@@ -562,7 +562,7 @@
           "difficulty": "Easy",
           "url": "https://leetcode.com/problems/word-pattern/",
           "slug": "word-pattern",
-          "subTopic": "Hashmap",
+          "subTopic": "Hash Map",
           "description": "Given a pattern and a string s, find if s follows the same pattern. Here follow means a full match, such that there is a bijection between a letter in pattern and a non-empty word in s.",
           "pattern": "Hash Map (Bi-directional)",
           "has_solution": true
@@ -572,7 +572,7 @@
           "difficulty": "Easy",
           "url": "https://leetcode.com/problems/valid-anagram/",
           "slug": "valid-anagram",
-          "subTopic": "Hashmap",
+          "subTopic": "Hash Map",
           "description": "Given two strings s and t, return true if t is an anagram of s, and false otherwise. An Anagram is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.",
           "pattern": "Hash Map / Sorting",
           "has_solution": true
@@ -582,7 +582,7 @@
           "difficulty": "Medium",
           "url": "https://leetcode.com/problems/group-anagrams/",
           "slug": "group-anagrams",
-          "subTopic": "Hashmap",
+          "subTopic": "Hash Map",
           "description": "Given an array of strings strs, group the anagrams together. You can return the answer in any order. An Anagram is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.",
           "pattern": "Hash Map",
           "has_solution": true
@@ -592,7 +592,7 @@
           "difficulty": "Easy",
           "url": "https://leetcode.com/problems/two-sum/",
           "slug": "two-sum",
-          "subTopic": "Hashmap",
+          "subTopic": "Hash Map",
           "description": "Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.\n\nYou may assume that each input would have exactly one solution, and you may not use the same element twice.\n\nYou can return the answer in any order.",
           "pattern": "Hash Map",
           "has_solution": true
@@ -602,7 +602,7 @@
           "difficulty": "Easy",
           "url": "https://leetcode.com/problems/happy-number/",
           "slug": "happy-number",
-          "subTopic": "Hashmap",
+          "subTopic": "Hash Map",
           "description": "Write an algorithm to determine if a number n is happy. A happy number is a number defined by the following process: Starting with any positive integer, replace the number by the sum of the squares of its digits. Repeat the process until the number equals 1 (where it will stay), or it loops endlessly in a cycle which does not include 1.",
           "pattern": "Floyd's Cycle Finding",
           "has_solution": true
@@ -612,7 +612,7 @@
           "difficulty": "Easy",
           "url": "https://leetcode.com/problems/contains-duplicate-ii/",
           "slug": "contains-duplicate-ii",
-          "subTopic": "Hashmap",
+          "subTopic": "Hash Map",
           "description": "Given an integer array nums and an integer k, return true if there are two distinct indices i and j in the array such that nums[i] == nums[j] and abs(i - j) <= k.",
           "pattern": "Sliding Window / Hash Map",
           "has_solution": true
@@ -622,7 +622,7 @@
           "difficulty": "Medium",
           "url": "https://leetcode.com/problems/longest-consecutive-sequence/",
           "slug": "longest-consecutive-sequence",
-          "subTopic": "Hashmap",
+          "subTopic": "Hash Map",
           "description": "Given an unsorted array of integers nums, return the length of the longest consecutive elements sequence. You must write an algorithm that runs in O(n) time.",
           "pattern": "Hash Set",
           "has_solution": true
@@ -632,7 +632,7 @@
           "difficulty": "Medium",
           "url": "https://leetcode.com/problems/insert-delete-getrandom-o1/",
           "slug": "insert-delete-getrandom-o1",
-          "subTopic": "Hashmap",
+          "subTopic": "Hash Map",
           "description": "Implement the RandomizedSet class: RandomizedSet() Initializes the object. bool insert(int val) Inserts an item val if not present. Returns true if not present, false otherwise. bool remove(int val) Removes an item val if present. Returns true if present, false otherwise. int getRandom() Returns a random element from the current set. Each element must have the same probability of being returned.",
           "pattern": "Hash Map + Dynamic Array",
           "has_solution": true
@@ -654,7 +654,7 @@
           "difficulty": "Easy",
           "url": "https://leetcode.com/problems/how-many-numbers-are-smaller-than-the-current-number/",
           "slug": "how-many-numbers-are-smaller-than-the-current-number",
-          "subTopic": "Sorting + Hashmap",
+          "subTopic": "Hash Map",
           "description": "Given the array nums, for each nums[i] find out how many numbers in the array are smaller than it. That is, for each nums[i] you have to count the number of valid j's such that j != i and nums[j] < nums[i].",
           "pattern": "Bucket Sort / Counting",
           "has_solution": true
@@ -706,7 +706,7 @@
           "has_solution": true
         },
         {
-          "title": "Non Overlapping Intervals",
+          "title": "Non-overlapping Intervals",
           "difficulty": "Medium",
           "url": "https://leetcode.com/problems/non-overlapping-intervals/",
           "slug": "non-overlapping-intervals",
@@ -833,7 +833,7 @@
           "has_solution": true
         },
         {
-          "title": "Largest Rectangle In Histogram",
+          "title": "Largest Rectangle in Histogram",
           "difficulty": "Hard",
           "url": "https://leetcode.com/problems/largest-rectangle-in-histogram/",
           "slug": "largest-rectangle-in-histogram",
@@ -980,7 +980,7 @@
           "has_solution": true
         },
         {
-          "title": "Find The Duplicate Number",
+          "title": "Find the Duplicate Number",
           "difficulty": "Medium",
           "url": "https://leetcode.com/problems/find-the-duplicate-number/",
           "slug": "find-the-duplicate-number",
@@ -1000,7 +1000,7 @@
           "difficulty": "Easy",
           "url": "https://leetcode.com/problems/maximum-depth-of-binary-tree/",
           "slug": "maximum-depth-of-binary-tree",
-          "subTopic": "Binary Tree General",
+          "subTopic": "Tree",
           "description": "Given the root of a binary tree, return its maximum depth. A binary tree's maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.",
           "pattern": "DFS (Recursion)",
           "has_solution": true
@@ -1010,7 +1010,7 @@
           "difficulty": "Easy",
           "url": "https://leetcode.com/problems/same-tree/",
           "slug": "same-tree",
-          "subTopic": "Binary Tree General",
+          "subTopic": "Tree",
           "description": "Given the roots of two binary trees p and q, write a function to check if they are the same or not. Two binary trees are considered the same if they are structurally identical, and the nodes have the same value.",
           "pattern": "DFS (Recursion)",
           "has_solution": true
@@ -1020,7 +1020,7 @@
           "difficulty": "Easy",
           "url": "https://leetcode.com/problems/invert-binary-tree/",
           "slug": "invert-binary-tree",
-          "subTopic": "Binary Tree General",
+          "subTopic": "Tree",
           "description": "Given the root of a binary tree, invert the tree, and return its root.",
           "pattern": "DFS (Recursion)",
           "has_solution": true
@@ -1030,7 +1030,7 @@
           "difficulty": "Easy",
           "url": "https://leetcode.com/problems/symmetric-tree/",
           "slug": "symmetric-tree",
-          "subTopic": "Binary Tree General",
+          "subTopic": "Tree",
           "description": "Given the root of a binary tree, check whether it is a mirror of itself (i.e., symmetric around its center).",
           "pattern": "DFS (Helpers)",
           "has_solution": true
@@ -1040,7 +1040,7 @@
           "difficulty": "Medium",
           "url": "https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/",
           "slug": "construct-binary-tree-from-preorder-and-inorder-traversal",
-          "subTopic": "Binary Tree General",
+          "subTopic": "Tree",
           "description": "Preorder first is root. Find it in inorder to split left/right.\n\nBuild tree from preorder and inorder.\nPreorder[0] = root. Find in inorder to know left/right sizes.",
           "pattern": "Divide and Conquer",
           "has_solution": true
@@ -1050,7 +1050,7 @@
           "difficulty": "Medium",
           "url": "https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/",
           "slug": "construct-binary-tree-from-inorder-and-postorder-traversal",
-          "subTopic": "Binary Tree General",
+          "subTopic": "Tree",
           "description": "Postorder last is root. Build right subtree first (reverse postorder).\n\nBuild tree from inorder and postorder.\nPostorder[-1] = root. Process right subtree first.",
           "pattern": "Divide and Conquer",
           "has_solution": true
@@ -1060,7 +1060,7 @@
           "difficulty": "Medium",
           "url": "https://leetcode.com/problems/populating-next-right-pointers-in-each-node-ii/",
           "slug": "populating-next-right-pointers-in-each-node-ii",
-          "subTopic": "Binary Tree General",
+          "subTopic": "Tree",
           "description": "Use next pointers to traverse level. Connect children as you go.\n\nConnect each node to its next right node.\nUse existing next pointers as queue-like traversal.",
           "pattern": "Level Order Traversal",
           "has_solution": true
@@ -1070,7 +1070,7 @@
           "difficulty": "Medium",
           "url": "https://leetcode.com/problems/flatten-binary-tree-to-linked-list/",
           "slug": "flatten-binary-tree-to-linked-list",
-          "subTopic": "Binary Tree General",
+          "subTopic": "Tree",
           "description": "Find rightmost of left subtree, connect to right, move left to right.\n\nFlatten tree to right-skewed linked list (preorder).\nFor each node: find rightmost of left, connect to right.",
           "pattern": "Preorder + Pointer Manipulation",
           "has_solution": true
@@ -1080,7 +1080,7 @@
           "difficulty": "Easy",
           "url": "https://leetcode.com/problems/path-sum/",
           "slug": "path-sum",
-          "subTopic": "Binary Tree General",
+          "subTopic": "Tree",
           "description": "DFS, subtract node value, check leaf with remaining 0.\n\nDoes any root-to-leaf path sum to target?\nDFS: subtract current value, recurse.",
           "pattern": "DFS",
           "has_solution": true
@@ -1090,7 +1090,7 @@
           "difficulty": "Medium",
           "url": "https://leetcode.com/problems/sum-root-to-leaf-numbers/",
           "slug": "sum-root-to-leaf-numbers",
-          "subTopic": "Binary Tree General",
+          "subTopic": "Tree",
           "description": "DFS carrying current number. At leaf, add to sum.\n\nSum all root-to-leaf numbers.\nPass current number * 10 + node.val down.",
           "pattern": "DFS",
           "has_solution": true
@@ -1100,7 +1100,7 @@
           "difficulty": "Hard",
           "url": "https://leetcode.com/problems/binary-tree-maximum-path-sum/",
           "slug": "binary-tree-maximum-path-sum",
-          "subTopic": "Binary Tree General",
+          "subTopic": "Tree",
           "description": "For each node, compute max path through it. Update global max.\n\nFind max path sum (any path in tree).\nAt each node: max = node + left + right. Return node + max(left, right).",
           "pattern": "DFS + Global Max",
           "has_solution": true
@@ -1110,7 +1110,7 @@
           "difficulty": "Medium",
           "url": "https://leetcode.com/problems/binary-search-tree-iterator/",
           "slug": "binary-search-tree-iterator",
-          "subTopic": "Binary Tree General",
+          "subTopic": "Tree",
           "description": "Implement the BSTIterator class that represents an iterator over the in-order traversal of a binary search tree (BST).",
           "pattern": "Tree",
           "has_solution": true
@@ -1120,7 +1120,7 @@
           "difficulty": "Easy",
           "url": "https://leetcode.com/problems/count-complete-tree-nodes/",
           "slug": "count-complete-tree-nodes",
-          "subTopic": "Binary Tree General",
+          "subTopic": "Tree",
           "description": "Compare left/right depths. If equal, left is perfect. Otherwise right is.\n\nCount nodes in complete binary tree efficiently.\nIf left depth == right depth, left is perfect (2^d - 1 nodes).",
           "pattern": "Binary Search on Tree",
           "has_solution": true
@@ -1130,7 +1130,7 @@
           "difficulty": "Medium",
           "url": "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/",
           "slug": "lowest-common-ancestor-of-a-binary-tree",
-          "subTopic": "Binary Tree General",
+          "subTopic": "Tree",
           "description": "Return node if matched. If both subtrees return non-null, node is LCA.\n\nFind LCA of two nodes.\nIf node == p or q, return it. Recurse left/right.",
           "pattern": "DFS",
           "has_solution": true
@@ -1140,7 +1140,7 @@
           "difficulty": "Easy",
           "url": "https://leetcode.com/problems/balanced-binary-tree/",
           "slug": "balanced-binary-tree",
-          "subTopic": "Binary Tree General",
+          "subTopic": "Tree",
           "description": "Given a binary tree, determine if it is height-balanced.\n\nA height-balanced binary tree is defined as a binary tree in which the depth of the two subtrees of every node never differs by more than one.",
           "pattern": "Trees",
           "has_solution": true
@@ -1150,7 +1150,7 @@
           "difficulty": "Easy",
           "url": "https://leetcode.com/problems/subtree-of-another-tree/",
           "slug": "subtree-of-another-tree",
-          "subTopic": "Binary Tree General",
+          "subTopic": "Tree",
           "description": "Given the roots of two binary trees `root` and `subRoot`, return `true` if there is a subtree of `root` with the same structure and node values as `subRoot`, and `false` otherwise.\n\nA subtree of a binary tree `tree` is a tree that consists of a node in `tree` and all of this node's descendants. The tree `tree` could also be considered as a subtree of itself.",
           "pattern": "Trees",
           "has_solution": true
@@ -1160,27 +1160,27 @@
           "difficulty": "Medium",
           "url": "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/",
           "slug": "lowest-common-ancestor-of-a-binary-search-tree",
-          "subTopic": "Binary Tree General",
+          "subTopic": "Tree",
           "description": "Given a binary search tree (BST), find the lowest common ancestor (LCA) node of two given nodes in the BST.\n\nAccording to the definition of LCA on Wikipedia: \"The lowest common ancestor is defined between two nodes p and q as the lowest node in T that has both p and q as descendants (where we allow a node to be a descendant of itself).\"\n\nThe solution should return the LCA node reference.",
           "pattern": "Trees",
           "has_solution": true
         },
         {
-          "title": "Count Good Nodes In Binary Tree",
+          "title": "Count Good Nodes in Binary Tree",
           "difficulty": "Medium",
           "url": "https://leetcode.com/problems/count-good-nodes-in-binary-tree/",
           "slug": "count-good-nodes-in-binary-tree",
-          "subTopic": "Binary Tree General",
+          "subTopic": "Tree",
           "description": "Given a binary tree root, a node X in the tree is named *good* if in the path from root to X there are no nodes with a value greater than X. Return the number of good nodes in the binary tree.",
           "pattern": "Trees",
           "has_solution": true
         },
         {
-          "title": "Serialize And Deserialize Binary Tree",
+          "title": "Serialize and Deserialize Binary Tree",
           "difficulty": "Hard",
           "url": "https://leetcode.com/problems/serialize-and-deserialize-binary-tree/",
           "slug": "serialize-and-deserialize-binary-tree",
-          "subTopic": "Binary Tree General",
+          "subTopic": "Tree",
           "description": "Design an algorithm to serialize and deserialize a binary tree. Serialization is the process of converting a data structure or object into a sequence of bits so that it can be stored in a file or memory buffer, or transmitted across a network connection link to be reconstructed later in the same or another computer environment.\n\nImplement the `serialize` and `deserialize` methods for a binary tree. The `serialize` method should convert the binary tree into a string representation, and the `deserialize` method should reconstruct the original binary tree from the string representation.\n\nThe encoded string should be as compact as possible, and the serialization/deserialization algorithms should handle all valid binary tree structures including empty trees and trees with duplicate values.",
           "pattern": "Trees",
           "has_solution": true
@@ -1196,7 +1196,7 @@
           "difficulty": "Medium",
           "url": "https://leetcode.com/problems/binary-tree-right-side-view/",
           "slug": "binary-tree-right-side-view",
-          "subTopic": "Binary Tree BFS",
+          "subTopic": "Tree",
           "description": "BFS level by level, take last node of each level.\n\nReturn rightmost node at each level.\nBFS: at each level, record last node.",
           "pattern": "BFS",
           "has_solution": true
@@ -1206,7 +1206,7 @@
           "difficulty": "Easy",
           "url": "https://leetcode.com/problems/average-of-levels-in-binary-tree/",
           "slug": "average-of-levels-in-binary-tree",
-          "subTopic": "Binary Tree BFS",
+          "subTopic": "Tree",
           "description": "BFS level by level, compute average per level.\n\nReturn average value at each level.\nBFS: sum nodes at each level, divide by count.",
           "pattern": "BFS",
           "has_solution": true
@@ -1216,7 +1216,7 @@
           "difficulty": "Medium",
           "url": "https://leetcode.com/problems/binary-tree-level-order-traversal/",
           "slug": "binary-tree-level-order-traversal",
-          "subTopic": "Binary Tree BFS",
+          "subTopic": "Tree",
           "description": "Given the root of a binary tree, return the level order traversal of its nodes' values. (i.e., from left to right, level by level).",
           "pattern": "BFS (Queue)",
           "has_solution": true
@@ -1226,7 +1226,7 @@
           "difficulty": "Medium",
           "url": "https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/",
           "slug": "binary-tree-zigzag-level-order-traversal",
-          "subTopic": "Binary Tree BFS",
+          "subTopic": "Tree",
           "description": "BFS, alternate direction each level (reverse odd levels).\n\nLevel order but alternating left-right direction.\nBFS with direction flag. Reverse level if needed.",
           "pattern": "BFS + Direction Flag",
           "has_solution": true
@@ -1269,11 +1269,11 @@
         },
         {
           "id": "235",
-          "title": "Lowest Common Ancestor of a BST",
+          "title": "Lowest Common Ancestor of a Binary Search Tree",
           "difficulty": "Medium",
           "url": "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/",
           "slug": "lowest-common-ancestor-of-a-bst",
-          "subTopic": "Lca In Bst",
+          "subTopic": "Tree",
           "description": "If both p,q < node, go left. If both > node, go right. Else LCA.\n\nFind LCA in BST (not general tree).\nUse BST property: p < node < q means split.",
           "pattern": "BST Property",
           "has_solution": true
@@ -1284,7 +1284,7 @@
           "difficulty": "Easy",
           "url": "https://leetcode.com/problems/two-sum-iv-input-is-a-bst",
           "slug": "two-sum-iv---input-is-a-bst",
-          "subTopic": "Two-Sum In Bst",
+          "subTopic": "Two Pointers",
           "description": "Given the root of a Binary Search Tree and a target number k, return true if there exist two elements in the BST such that their sum is equal to the given target.",
           "pattern": "Two Pointers",
           "has_solution": true
@@ -1295,7 +1295,7 @@
           "difficulty": "Medium",
           "url": "https://leetcode.com/problems/balance-a-binary-search-tree/description/",
           "slug": "balance-a-binary-search-tree",
-          "subTopic": "Rebalancing",
+          "subTopic": "Tree",
           "description": "Inorder to sorted array. Build balanced BST from array.\n\nConvert BST to balanced BST.\nExtract sorted array via inorder.",
           "pattern": "Inorder + Rebuild",
           "has_solution": true
@@ -1311,7 +1311,7 @@
           "difficulty": "Medium",
           "url": "https://leetcode.com/problems/number-of-islands/",
           "slug": "number-of-islands",
-          "subTopic": "Graph General",
+          "subTopic": "Graph",
           "description": "Given an m x n 2D binary grid grid which represents a map of '1's (land) and '0's (water), return the number of islands.\n\nAn island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically. You may assume all four edges of the grid are all surrounded by water.",
           "pattern": "Matrix DFS / BFS",
           "has_solution": true
@@ -1321,7 +1321,7 @@
           "difficulty": "Medium",
           "url": "https://leetcode.com/problems/surrounded-regions/",
           "slug": "surrounded-regions",
-          "subTopic": "Graph General",
+          "subTopic": "Graph",
           "description": "DFS from border Os to mark safe. Flip remaining Os to Xs.\n\nFlip all O regions NOT connected to border.\nMark border-connected Os as safe.",
           "pattern": "DFS from Border",
           "has_solution": true
@@ -1331,7 +1331,7 @@
           "difficulty": "Medium",
           "url": "https://leetcode.com/problems/clone-graph/",
           "slug": "clone-graph",
-          "subTopic": "Graph General",
+          "subTopic": "Graph",
           "description": "Given a reference of a node in a connected undirected graph, return a deep copy (clone) of the graph. Each node in the graph contains a value (int) and a list (List[Node]) of its neighbors.",
           "pattern": "Graph (Hashtable + DFS)",
           "has_solution": true
@@ -1341,7 +1341,7 @@
           "difficulty": "Medium",
           "url": "https://leetcode.com/problems/evaluate-division/",
           "slug": "evaluate-division",
-          "subTopic": "Graph General",
+          "subTopic": "Graph",
           "description": "Build graph of ratios. DFS/BFS to find path and multiply.\n\nEvaluate queries given equations with values.\nBuild weighted graph: a/b = k means edge a->b with weight k.",
           "pattern": "Graph BFS/DFS",
           "has_solution": true
@@ -1351,7 +1351,7 @@
           "difficulty": "Medium",
           "url": "https://leetcode.com/problems/course-schedule/",
           "slug": "course-schedule",
-          "subTopic": "Graph General",
+          "subTopic": "Graph",
           "description": "There are a total of numCourses courses you have to take, labeled from 0 to numCourses - 1. You are given an array prerequisites where prerequisites[i] = [ai, bi] indicates that you must take course bi first if you want to take course ai. Return true if you can finish all courses. Otherwise, return false.",
           "pattern": "Topological Sort (DFS/BFS)",
           "has_solution": true
@@ -1361,7 +1361,7 @@
           "difficulty": "Medium",
           "url": "https://leetcode.com/problems/course-schedule-ii/",
           "slug": "course-schedule-ii",
-          "subTopic": "Graph General",
+          "subTopic": "Graph",
           "description": "Kahn's algorithm: BFS with indegree. Return order or [].\n\nReturn valid course order or [] if impossible.\nTopological sort using indegree.",
           "pattern": "Topological Sort",
           "has_solution": true
@@ -1372,7 +1372,7 @@
           "difficulty": "Easy",
           "url": "https://leetcode.com/problems/diameter-of-binary-tree/",
           "slug": "diameter-of-binary-tree",
-          "subTopic": "Dfs - Diameter",
+          "subTopic": "Depth-First Search",
           "description": "For each node, diameter through it = left_height + right_height.\n\nLongest path between any two nodes.\nAt each node: path through it = left + right heights.",
           "pattern": "DFS + Global Max",
           "has_solution": true
@@ -1393,7 +1393,7 @@
           "difficulty": "Medium",
           "url": "https://leetcode.com/problems/max-area-of-island/",
           "slug": "max-area-of-island",
-          "subTopic": "Graph General",
+          "subTopic": "Graph",
           "description": "You are given an m x n binary matrix grid. An island is a group of 1's (representing land) connected 4-directionally (horizontal or vertical). All four edges of the grid are surrounded by water.\n\nThe area of an island is the number of cells with a value 1 in the island.\n\nReturn the maximum area of an island in grid. If there is no island, return 0.",
           "pattern": "Graphs",
           "has_solution": true
@@ -1403,7 +1403,7 @@
           "difficulty": "Medium",
           "url": "https://leetcode.com/problems/pacific-atlantic-water-flow/",
           "slug": "pacific-atlantic-water-flow",
-          "subTopic": "Graph General",
+          "subTopic": "Graph",
           "description": "There is an m x n rectangular island that borders both the Pacific Ocean and Atlantic Ocean. The Pacific Ocean touches the island's left and top edges, and the Atlantic Ocean touches the island's right and bottom edges.\n\nThe island is partitioned into a grid of square cells. You are given an m x n integer matrix heights where heights[r][c] represents the height above sea level of the cell at coordinate (r, c).\n\nThe island receives a lot of rain, and the rain water can flow to neighboring cells directly north, south, east, and west if the neighboring cell's height is less than or equal to the current cell's height. Water can flow from any cell adjacent to an ocean into the ocean.\n\nReturn a 2D list of grid coordinates result where result[i] = [ri, ci] denotes that rain water can flow from cell (ri, ci) to both the Pacific and Atlantic oceans.",
           "pattern": "Graphs",
           "has_solution": true
@@ -1413,7 +1413,7 @@
           "difficulty": "Medium",
           "url": "https://leetcode.com/problems/rotting-oranges/",
           "slug": "rotting-oranges",
-          "subTopic": "Graph General",
+          "subTopic": "Graph",
           "description": "You are given an m x n grid where each cell can have one of three values:\n- 0 representing an empty cell,\n- 1 representing a fresh orange, or\n- 2 representing a rotten orange.\n\nEvery minute, any fresh orange that is 4-directionally adjacent to a rotten orange becomes rotten.\n\nReturn the minimum number of minutes that must elapse until no cell has a fresh orange. If this is impossible, return -1.",
           "pattern": "Graphs",
           "has_solution": true
@@ -1423,7 +1423,7 @@
           "difficulty": "Medium",
           "url": "https://leetcode.com/problems/walls-and-gates/",
           "slug": "walls-and-gates",
-          "subTopic": "Graph General",
+          "subTopic": "Graph",
           "description": "You are given an m x n grid where each cell can be:\n- -1 representing a wall or obstacle\n- 0 representing a gate\n- 2147483647 (INF) representing an empty room\n\nFill each empty room with the distance to its nearest gate. If it's impossible to reach a gate, it should remain INF.",
           "pattern": "Graphs",
           "has_solution": true
@@ -1433,7 +1433,7 @@
           "difficulty": "Medium",
           "url": "https://leetcode.com/problems/redundant-connection/",
           "slug": "redundant-connection",
-          "subTopic": "Graph General",
+          "subTopic": "Graph",
           "description": "In this problem, a tree is an undirected graph that is connected and has no cycles. You are given a graph that started as a tree with n nodes labeled from 1 to n, with one additional edge added. The task is to find and return the redundant edge that can be removed to make the graph a valid tree again. If there are multiple answers, return the one that appears last in the input.",
           "pattern": "Graphs",
           "has_solution": true
@@ -1443,7 +1443,7 @@
           "difficulty": "Medium",
           "url": "https://leetcode.com/problems/number-of-connected-components-in-an-undirected-graph/",
           "slug": "number-of-connected-components-in-an-undirected-graph",
-          "subTopic": "Graph General",
+          "subTopic": "Graph",
           "description": "You are given an undirected graph with `n` nodes and a list of edges. Each edge connects two nodes. Return the number of connected components in the graph.\n\nA connected component is a subgraph where all nodes are connected to each other through some path, and no node in the subgraph is connected to any node outside the subgraph.",
           "pattern": "Graphs",
           "has_solution": true
@@ -1453,7 +1453,7 @@
           "difficulty": "Medium",
           "url": "https://leetcode.com/problems/graph-valid-tree/",
           "slug": "graph-valid-tree",
-          "subTopic": "Graph General",
+          "subTopic": "Graph",
           "description": "You have a graph of n nodes labeled from 0 to n - 1. You are given an integer n and a list of edges where edges[i] = [ai, bi] indicates that there is an undirected edge between nodes ai and bi.\n\nReturn true if the edges of the given graph make up a valid tree, and false otherwise.\n\nA valid tree must satisfy two conditions:\n1. It must be connected (all nodes reachable from each other)\n2. It must contain no cycles",
           "pattern": "Graphs",
           "has_solution": true
@@ -1463,7 +1463,7 @@
           "difficulty": "Hard",
           "url": "https://leetcode.com/problems/reconstruct-itinerary/",
           "slug": "reconstruct-itinerary",
-          "subTopic": "Graph General",
+          "subTopic": "Graph",
           "description": "You are given a list of airline tickets where `tickets[i] = [fromi, toi]` represents the departure and arrival airports of one flight. Reconstruct the itinerary in order and return it.\n\nAll of the tickets belong to a man who departs from \"JFK\", so the itinerary must begin with \"JFK\". If there are multiple valid itineraries, return the one with the smallest lexical order when read as a single string. Assume all tickets form at least one valid itinerary and all tickets must be used exactly once.",
           "pattern": "Advanced Graphs",
           "has_solution": true
@@ -1473,7 +1473,7 @@
           "difficulty": "Medium",
           "url": "https://leetcode.com/problems/min-cost-to-connect-all-points/",
           "slug": "min-cost-to-connect-all-points",
-          "subTopic": "Graph General",
+          "subTopic": "Graph",
           "description": "You are given an array `points` representing integer coordinates of some points on a 2D-plane, where `points[i] = [xi, yi]`.\n\nThe cost of connecting two points `[xi, yi]` and `[xj, yj]` is the Manhattan distance between them: `|xi - xj| + |yi - yj|`.\n\nReturn the minimum cost to make all points connected such that there is exactly one simple path between any two points.",
           "pattern": "Advanced Graphs",
           "has_solution": true
@@ -1483,17 +1483,17 @@
           "difficulty": "Medium",
           "url": "https://leetcode.com/problems/network-delay-time/",
           "slug": "network-delay-time",
-          "subTopic": "Graph General",
+          "subTopic": "Graph",
           "description": "You are given a network of n nodes labeled from 1 to n, and a list of travel times as directed edges times[i] = (ui, vi, wi), where ui is the source node, vi is the target node, and wi is the time it takes for a signal to travel from source to target.\n\nWe will send a signal from a given node k. Return the minimum time it takes for all the n nodes to receive the signal. If it is impossible for all the n nodes to receive the signal, return -1.",
           "pattern": "Advanced Graphs",
           "has_solution": true
         },
         {
-          "title": "Swim In Rising Water",
+          "title": "Swim in Rising Water",
           "difficulty": "Hard",
           "url": "https://leetcode.com/problems/swim-in-rising-water/",
           "slug": "swim-in-rising-water",
-          "subTopic": "Graph General",
+          "subTopic": "Graph",
           "description": "You are given an n x n integer matrix grid where each value grid[i][j] represents the elevation at that point (i, j). The rain starts to fall. At time t, the depth of the water everywhere is t. You can swim from a square to another 4-directionally adjacent square if and only if the elevation of both squares are at most t. You begin at the top-left square (0, 0). Return the least time until you can reach the bottom-right square (n-1, n-1).",
           "pattern": "Advanced Graphs",
           "has_solution": true
@@ -1503,7 +1503,7 @@
           "difficulty": "Hard",
           "url": "https://leetcode.com/problems/alien-dictionary/",
           "slug": "alien-dictionary",
-          "subTopic": "Graph General",
+          "subTopic": "Graph",
           "description": "There is a new alien language that uses the English alphabet. However, the order of the letters is unknown to you. You are given a list of strings `words` from the alien language's dictionary, where the strings are sorted lexicographically according to the rules of this new language.\n\nReturn a string of the unique letters in the new alien language sorted in lexicographically increasing order by the new language's rules. If there is no valid ordering of letters, return an empty string. If there are multiple valid orderings, return any one of them.\n\nThe lexicographical ordering follows the same rules as English, where each character is compared sequentially, and if one word is a prefix of another, the shorter word comes first.",
           "pattern": "Advanced Graphs",
           "has_solution": true
@@ -1519,7 +1519,7 @@
           "difficulty": "Medium",
           "url": "https://leetcode.com/problems/snakes-and-ladders/",
           "slug": "snakes-and-ladders",
-          "subTopic": "Graph BFS",
+          "subTopic": "Graph",
           "description": "BFS from square 1. Follow snakes/ladders. Min moves to n².\n\nMin dice rolls to reach last square.\nBFS level = number of moves.",
           "pattern": "BFS",
           "has_solution": true
@@ -1529,7 +1529,7 @@
           "difficulty": "Medium",
           "url": "https://leetcode.com/problems/minimum-genetic-mutation/",
           "slug": "minimum-genetic-mutation",
-          "subTopic": "Graph BFS",
+          "subTopic": "Graph",
           "description": "BFS from startGene. Each level = 1 mutation. Valid if in bank.\n\nMin mutations to reach endGene.\nBFS where edges are single char changes in bank.",
           "pattern": "BFS",
           "has_solution": true
@@ -1539,7 +1539,7 @@
           "difficulty": "Hard",
           "url": "https://leetcode.com/problems/word-ladder/",
           "slug": "word-ladder",
-          "subTopic": "Graph BFS",
+          "subTopic": "Graph",
           "description": "BFS from beginWord. Valid moves = 1 char diff in wordList.\n\nMin transformations to endWord.\nBFS where each level = 1 transformation.",
           "pattern": "BFS",
           "has_solution": true
@@ -1550,7 +1550,7 @@
           "difficulty": "Easy",
           "url": "https://leetcode.com/problems/minimum-depth-of-binary-tree/description/",
           "slug": "minimum-depth-of-binary-tree",
-          "subTopic": "Bfs - Min Depth",
+          "subTopic": "Breadth-First Search",
           "description": "BFS level by level. Return level when first leaf found.\n\nMin depth to a leaf node.\nBFS finds closest leaf first.",
           "pattern": "BFS",
           "has_solution": true
@@ -1720,7 +1720,7 @@
           "has_solution": false
         },
         {
-          "title": "N Queens",
+          "title": "N-Queens",
           "difficulty": "Hard",
           "url": "https://leetcode.com/problems/n-queens/",
           "slug": "n-queens",
@@ -1909,7 +1909,7 @@
           "has_solution": true
         },
         {
-          "title": "Time Based Key Value Store",
+          "title": "Time Based Key-Value Store",
           "difficulty": "Medium",
           "url": "https://leetcode.com/problems/time-based-key-value-store/",
           "slug": "time-based-key-value-store",
@@ -1981,7 +1981,7 @@
           "difficulty": "Medium",
           "url": "https://leetcode.com/problems/top-k-frequent-elements/description/",
           "slug": "top-k-frequent-elements",
-          "subTopic": "Frequency Heap",
+          "subTopic": "Heap",
           "description": "Given an integer array nums and an integer k, return the k most frequent elements. You may return the answer in any order.",
           "pattern": "Bucket Sort / Heap",
           "has_solution": true
@@ -1992,13 +1992,13 @@
           "difficulty": "Medium",
           "url": "https://leetcode.com/problems/k-closest-points-to-origin/description/",
           "slug": "k-closest-points-to-origin",
-          "subTopic": "Distance-Based Heap",
+          "subTopic": "Heap",
           "description": "Max-heap of size k. Keep k smallest distances.\n\nFind k closest points to origin.\nUse max-heap of size k.",
           "pattern": "Heap",
           "has_solution": true
         },
         {
-          "title": "Kth Largest Element In a Stream",
+          "title": "Kth Largest Element in a Stream",
           "difficulty": "Easy",
           "url": "https://leetcode.com/problems/kth-largest-element-in-a-stream/",
           "slug": "kth-largest-element-in-a-stream",
@@ -2099,7 +2099,7 @@
           "difficulty": "Medium",
           "url": "https://leetcode.com/problems/minimum-operations-to-reduce-an-integer-to-0/solutions/?submissionId=1806256289",
           "slug": "minimum-operations-to-reduce-an-integer-to-0",
-          "subTopic": "Greedy On Bits",
+          "subTopic": "Greedy",
           "description": "Add/subtract powers of 2. Handle consecutive 1s.\n\nMin operations to make n = 0 using ±2^k.\nConsecutive 1s: add to clear, else subtract.",
           "pattern": "Bit Manipulation",
           "has_solution": true
@@ -2110,7 +2110,7 @@
           "difficulty": "Medium",
           "url": "https://leetcode.com/problems/integer-replacement/",
           "slug": "integer-replacement",
-          "subTopic": "Greedy On Bits",
+          "subTopic": "Greedy",
           "description": "If even, divide. If odd, prefer +1 if it creates more trailing zeros.\n\nMin steps to reduce n to 1.\nEven: n/2. Odd: n+1 or n-1.",
           "pattern": "Bit Manipulation / BFS",
           "has_solution": true
@@ -2185,7 +2185,7 @@
           "title": "Pow(x, n)",
           "difficulty": "Medium",
           "url": "https://leetcode.com/problems/powx-n/",
-          "slug": "powx,-n",
+          "slug": "powx-n",
           "subTopic": "Math",
           "description": "x^n = (x^(n/2))^2. Handle negative n.\n\nCompute x^n efficiently.\nSquare and halve: x^n = (x^2)^(n/2).",
           "pattern": "Binary Exponentiation",
@@ -2207,7 +2207,7 @@
           "difficulty": "Easy",
           "url": "https://leetcode.com/problems/range-sum-query-immutable/description/",
           "slug": "range-sum-query---immutable",
-          "subTopic": "Prefix Sums",
+          "subTopic": "Prefix Sum",
           "description": "Precompute prefix sums. Range sum = prefix[r+1] - prefix[l].\n\nSum of elements in range [left, right].\nPrefix sum array enables O(1) queries.",
           "pattern": "Prefix Sum",
           "has_solution": true
@@ -2243,7 +2243,7 @@
           "difficulty": "Easy",
           "url": "https://leetcode.com/problems/climbing-stairs/",
           "slug": "climbing-stairs",
-          "subTopic": "1D DP",
+          "subTopic": "1-D Dynamic Programming",
           "description": "You are climbing a staircase. It takes n steps to reach the top.\n\nEach time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?",
           "pattern": "DP (Fibonacci)",
           "has_solution": true
@@ -2253,7 +2253,7 @@
           "difficulty": "Medium",
           "url": "https://leetcode.com/problems/house-robber/",
           "slug": "house-robber",
-          "subTopic": "1D DP",
+          "subTopic": "1-D Dynamic Programming",
           "description": "You are a professional robber planning to rob houses along a street. Each house has a certain amount of money stashed, the only constraint stopping you from robbing each of them is that adjacent houses have security systems connected and it will automatically contact the police if two adjacent houses were broken into on the same night.\n\nGiven an integer array nums representing the amount of money of each house, return the maximum amount of money you can rob tonight without alerting the police.",
           "pattern": "1D DP",
           "has_solution": true
@@ -2263,7 +2263,7 @@
           "difficulty": "Medium",
           "url": "https://leetcode.com/problems/word-break/",
           "slug": "word-break",
-          "subTopic": "1D DP",
+          "subTopic": "1-D Dynamic Programming",
           "description": "dp[i] = any(dp[j] and s[j:i] in wordDict).\n\nCan s be segmented into dictionary words?\ndp[i] = True if s[:i] can be segmented.",
           "pattern": "1D DP",
           "has_solution": true
@@ -2273,7 +2273,7 @@
           "difficulty": "Medium",
           "url": "https://leetcode.com/problems/coin-change/",
           "slug": "coin-change",
-          "subTopic": "1D DP",
+          "subTopic": "1-D Dynamic Programming",
           "description": "You are given an integer array coins representing coins of different denominations and an integer amount representing a total amount of money.\n\nReturn the fewest number of coins that you need to make up that amount. If that amount of money cannot be made up by any combination of the coins, return -1.\n\nYou may assume that you have an infinite number of each kind of coin.",
           "pattern": "1D DP",
           "has_solution": true
@@ -2283,7 +2283,7 @@
           "difficulty": "Medium",
           "url": "https://leetcode.com/problems/longest-increasing-subsequence/",
           "slug": "longest-increasing-subsequence",
-          "subTopic": "1D DP",
+          "subTopic": "1-D Dynamic Programming",
           "description": "Maintain sorted 'tails' array. Binary search insertion point.\n\nFind LIS length.\nO(n log n): maintain smallest tail for each length.",
           "pattern": "DP / Binary Search",
           "has_solution": true
@@ -2294,7 +2294,7 @@
           "difficulty": "Easy",
           "url": "https://leetcode.com/problems/counting-bits/description/",
           "slug": "counting-bits",
-          "subTopic": "Bit Dp",
+          "subTopic": "Bit DP",
           "description": "dp[i] = dp[i >> 1] + (i & 1). Use previous result.\n\nCount 1s in binary for 0 to n.\ni has same bits as i/2, plus LSB.",
           "pattern": "DP",
           "has_solution": true
@@ -2316,7 +2316,7 @@
           "difficulty": "Medium",
           "url": "https://leetcode.com/problems/decode-ways/",
           "slug": "decode-ways",
-          "subTopic": "String Dp",
+          "subTopic": "String",
           "description": "dp[i] = dp[i-1] (if valid single) + dp[i-2] (if valid pair).\n\nCount ways to decode digit string.\nSingle digit: 1-9 valid. Two digits: 10-26 valid.",
           "pattern": "1D DP",
           "has_solution": true
@@ -2423,7 +2423,7 @@
           "difficulty": "Medium",
           "url": "https://leetcode.com/problems/unique-paths/",
           "slug": "unique-paths",
-          "subTopic": "Grid Dp (Paths Count)",
+          "subTopic": "Grid DP (Paths Count)",
           "description": "dp[i][j] = dp[i-1][j] + dp[i][j-1]. Or use combinatorics.\n\nCount paths from top-left to bottom-right.\nCan only move right or down.",
           "pattern": "2D DP",
           "has_solution": true
@@ -2440,7 +2440,7 @@
           "difficulty": "Easy",
           "url": "https://leetcode.com/problems/missing-number/",
           "slug": "missing-number",
-          "subTopic": "Math / Prefix-Sum Idea",
+          "subTopic": "Prefix Sum",
           "description": "Given an array nums containing n distinct numbers in the range [0, n], return the only number in the range that is missing from the array.",
           "pattern": "Math",
           "has_solution": true
@@ -2496,7 +2496,7 @@
           "difficulty": "Medium",
           "url": "https://leetcode.com/problems/count-and-say/description/",
           "slug": "count-and-say",
-          "subTopic": "Recursive String Build",
+          "subTopic": "String",
           "description": "The count-and-say sequence is a sequence of digit strings defined by the recursive formula: countAndSay(1) = \"1\", countAndSay(n) is the way you would \"say\" the digit string from countAndSay(n-1). To determine how you \"say\" a digit string, group it into runs of consecutive identical digits. Then for each group, say the number of digits, then the digit.",
           "pattern": "Iterative with String Manipulation",
           "has_solution": true
@@ -2530,7 +2530,7 @@
           "difficulty": "Easy",
           "url": "https://leetcode.com/problems/minimum-absolute-difference/",
           "slug": "minimum-absolute-difference",
-          "subTopic": "Sorting + Diff",
+          "subTopic": "Sorting",
           "description": "Given an array of distinct integers arr, find all pairs of elements with the minimum absolute difference of any two elements. Return a list of pairs in ascending order (with respect to pairs), each pair [a, b] follows a < b.",
           "pattern": "Two Pointers",
           "has_solution": true
@@ -2608,7 +2608,7 @@
           "has_solution": true
         },
         {
-          "title": "Best Time to Buy And Sell Stock With Cooldown",
+          "title": "Best Time to Buy and Sell Stock with Cooldown",
           "difficulty": "Medium",
           "url": "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/",
           "slug": "best-time-to-buy-and-sell-stock-with-cooldown",
@@ -2638,7 +2638,7 @@
           "has_solution": true
         },
         {
-          "title": "Longest Increasing Path In a Matrix",
+          "title": "Longest Increasing Path in a Matrix",
           "difficulty": "Hard",
           "url": "https://leetcode.com/problems/longest-increasing-path-in-a-matrix/",
           "slug": "longest-increasing-path-in-a-matrix",
