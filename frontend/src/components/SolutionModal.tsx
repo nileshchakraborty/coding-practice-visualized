@@ -24,7 +24,7 @@ const SolutionModal: React.FC<SolutionModalProps> = ({ isOpen, onClose, solution
     const [code, setCode] = useState(solution?.code || '');
 
     // Auth state for feature gating
-    const { isAuthenticated, login } = useAuth();
+    const { isAuthenticated, login, user } = useAuth();
 
     // Ref for scrollable content container
     const contentRef = useRef<HTMLDivElement>(null);
@@ -41,16 +41,35 @@ const SolutionModal: React.FC<SolutionModalProps> = ({ isOpen, onClose, solution
     // actually better to just reset on open?
     // for now let's use a key or effect
     React.useEffect(() => {
-        if (solution) {
-            // Use skeleton code (initialCode) if available, otherwise full code
-            // But if user wants to see the full code in playground, they can use the "Copy to Playground" feature
-            // So default state is skeleton.
-            const rawCode = solution.initialCode || solution.code || '';
-            const formattedCode = rawCode.replace(/\\n/g, '\n');
-            setCode(formattedCode);
+        if (solution && slug) {
+            // Check for saved progress first (for signed-in users)
+            let savedCode = null;
+            if (isAuthenticated && user?.sub) {
+                savedCode = localStorage.getItem(`codenium_progress_${user.sub}_${slug}`);
+            }
+
+            if (savedCode) {
+                setCode(savedCode);
+            } else {
+                // Use skeleton code (initialCode) if available, otherwise full code
+                const rawCode = solution.initialCode || solution.code || '';
+                const formattedCode = rawCode.replace(/\\n/g, '\n');
+                setCode(formattedCode);
+            }
             setOutput('');
         }
-    }, [solution]);
+    }, [solution, isAuthenticated, user, slug]);
+
+    // Persist code changes (Debounced)
+    React.useEffect(() => {
+        if (!isAuthenticated || !user?.sub || !slug) return;
+
+        const timer = setTimeout(() => {
+            localStorage.setItem(`codenium_progress_${user.sub}_${slug}`, code);
+        }, 1000);
+
+        return () => clearTimeout(timer);
+    }, [code, slug, isAuthenticated, user]);
 
     // Initialize tutor greeting when solution changes
     React.useEffect(() => {

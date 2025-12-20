@@ -2,8 +2,11 @@ import express from 'express';
 import cors from 'cors';
 import path from 'path';
 import dotenv from 'dotenv';
-
 import fs from 'fs';
+
+// --- MIDDLEWARE & SERVICES ---
+import { generalLimiter, aiLimiter } from '../src/infrastructure/middleware/RateLimiter';
+import { cacheService } from '../src/infrastructure/cache/CacheService';
 
 // Robust Env Loading
 const envPaths = [
@@ -45,8 +48,16 @@ import { OAuth2Client } from 'google-auth-library';
 
 const app = express();
 
+app.set('trust proxy', 1); // Trust first proxy (needed for rate limiting behind load balancers/Vercel)
 app.use(cors());
 app.use(express.json({ limit: '10mb' }));
+
+// --- RATE LIMITING ---
+// Apply general rate limiter to all API routes
+app.use('/api/', generalLimiter);
+
+// Additional strict limiter for AI endpoints
+app.use('/api/ai/', aiLimiter);
 
 // --- AUTH MIDDLEWARE ---
 const googleClient = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
@@ -139,7 +150,17 @@ app.get('/api/health', (req, res) => {
 
 app.get('/api/problems', async (req, res) => {
     try {
+        const cacheKey = 'all_problems';
+        const cachedProblems = cacheService.get(cacheKey);
+
+        if (cachedProblems) {
+            console.log("Cache Hit: Problems");
+            res.json(cachedProblems);
+            return;
+        }
+
         const problems = await problemService.getAllProblems();
+        cacheService.set(cacheKey, problems, 3600); // Cache for 1 hour (static content)
         res.json(problems);
     } catch (e: any) {
         console.error("Error fetching problems:", e);
@@ -149,9 +170,23 @@ app.get('/api/problems', async (req, res) => {
 
 app.get('/api/solutions/:slug', async (req, res) => {
     try {
-        const solution = await problemService.getSolution(req.params.slug);
-        if (solution) res.json(solution);
-        else res.status(404).json({ error: 'Solution not found' });
+        const { slug } = req.params;
+        const cacheKey = `solution_${slug}`;
+        const cachedSolution = cacheService.get(cacheKey);
+
+        if (cachedSolution) {
+            console.log(`Cache Hit: Solution ${slug}`);
+            res.json(cachedSolution);
+            return;
+        }
+
+        const solution = await problemService.getSolution(slug);
+        if (solution) {
+            cacheService.set(cacheKey, solution, 3600); // Cache for 1 hour
+            res.json(solution);
+        } else {
+            res.status(404).json({ error: 'Solution not found' });
+        }
     } catch (e: any) {
         console.error("Error fetching solution:", e);
         res.status(500).json({ error: e.message });
@@ -250,7 +285,8 @@ app.get('/api/debug', (req, res) => {
                 OLLAMA_BASE_URL: process.env.OLLAMA_BASE_URL || '(default: http://127.0.0.1:11434)',
                 OLLAMA_API_KEY_SET: !!process.env.OLLAMA_API_KEY,
                 OLLAMA_MODEL: process.env.OLLAMA_MODEL || '(default: deepseek-coder)'
-            }
+            },
+            cache: cacheService.getStats()
         });
     } catch (e: any) {
         res.status(500).json({ error: e.message, stack: e.stack });

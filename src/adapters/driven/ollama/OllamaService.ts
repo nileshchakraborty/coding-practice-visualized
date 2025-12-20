@@ -1,16 +1,34 @@
 import { AIService } from '../../../domain/ports/AIService';
+import axios, { AxiosInstance } from 'axios';
+import axiosRetry from 'axios-retry';
 
 export class OllamaService implements AIService {
     private baseUrl: string;
     private model: string;
-
     private apiKey?: string;
+    private client: AxiosInstance;
 
     constructor() {
         this.baseUrl = process.env.OLLAMA_BASE_URL || 'http://127.0.0.1:11434';
         this.model = process.env.OLLAMA_MODEL || 'deepseek-coder';
         this.apiKey = process.env.OLLAMA_API_KEY;
+
         console.log(`OllamaService initialized with model: ${this.model} at ${this.baseUrl}`);
+
+        // Resilience: Configure Axios with Retry logic
+        this.client = axios.create({
+            timeout: 60000, // 60s timeout for local inference
+        });
+
+        axiosRetry(this.client, {
+            retries: 3,
+            retryDelay: axiosRetry.exponentialDelay, // 1s, 2s, 4s...
+            retryCondition: (error) => {
+                // Retry on network errors or 5xx status codes
+                return axiosRetry.isNetworkOrIdempotentRequestError(error) ||
+                    (error.response?.status ? error.response.status >= 500 : false);
+            }
+        });
     }
 
     private async chat(messages: any[], format?: string): Promise<string> {
@@ -29,25 +47,23 @@ export class OllamaService implements AIService {
 
             console.log(`OllamaService calling: ${url}`);
 
-            const response = await fetch(url, {
-                method: 'POST',
-                headers,
-                body: JSON.stringify({
-                    model: this.model,
-                    messages,
-                    stream: false,
-                    format: format
-                }),
+            const response = await this.client.post(url, {
+                model: this.model,
+                messages,
+                stream: false,
+                format: format
+            }, {
+                headers
             });
 
-            if (!response.ok) {
-                throw new Error(`Ollama API Error: ${response.statusText}`);
-            }
-
-            const data = await response.json();
-            return data.message.content;
+            return response.data.message.content;
         } catch (error: any) {
-            console.error("Ollama Service Error:", error);
+            console.error("Ollama Service Error:", error.message);
+            // Axios error handling
+            if (error.response) {
+                console.error("Ollama Status:", error.response.status);
+                console.error("Ollama Data:", error.response.data);
+            }
             throw error;
         }
     }
