@@ -4,7 +4,7 @@
  */
 import axios from 'axios';
 import type { Problem, Solution, Stats, RunResponse } from './types';
-import { getAuthToken } from '../context/AuthContext';
+import { getAuthToken } from '../utils/auth';
 
 const API_BASE = import.meta.env.DEV ? '/api' : (import.meta.env.VITE_API_URL || '/api');
 

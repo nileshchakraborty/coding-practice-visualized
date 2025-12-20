@@ -4,7 +4,7 @@
  * Responsive design for mobile, tablet, and desktop
  */
 import React, { useState, useRef, useEffect } from 'react';
-import { useAuth } from '../context/AuthContext';
+import { useAuth } from '../hooks/useAuth';
 import { LogIn, LogOut, User, ChevronDown } from 'lucide-react';
 
 export const LoginButton: React.FC = () => {
