@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import type { Solution, TestCaseResult } from '../types';
 import { PlaygroundAPI } from '../models/api';
 import SmartVisualizer from './SmartVisualizer';
@@ -21,6 +21,9 @@ const SolutionModal: React.FC<SolutionModalProps> = ({ isOpen, onClose, solution
     const [activeTab, setActiveTab] = useState<'problem' | 'explanation' | 'playground' | 'tutor'>('problem');
     const [activeApproach, setActiveApproach] = useState<'bruteforce' | 'optimal'>('optimal');
     const [code, setCode] = useState(solution?.code || '');
+
+    // Ref for scrollable content container
+    const contentRef = useRef<HTMLDivElement>(null);
     const [output, setOutput] = useState('');
     const [isRunning, setIsRunning] = useState(false);
 
@@ -61,6 +64,16 @@ const SolutionModal: React.FC<SolutionModalProps> = ({ isOpen, onClose, solution
         setIsSpeaking(false);
         window.speechSynthesis.cancel();
     }, [slug]);
+
+    // Reset scroll position when tab changes
+    useEffect(() => {
+        // Use requestAnimationFrame to ensure DOM is updated before scrolling
+        requestAnimationFrame(() => {
+            if (contentRef.current) {
+                contentRef.current.scrollTop = 0;
+            }
+        });
+    }, [activeTab]);
 
     const handleRunCode = async () => {
         if (!slug) return;
@@ -217,7 +230,7 @@ const SolutionModal: React.FC<SolutionModalProps> = ({ isOpen, onClose, solution
                 </div>
 
                 {/* Scrollable Content */}
-                <div className="flex-1 overflow-y-auto p-4 sm:p-8 custom-scrollbar">
+                <div ref={contentRef} className="flex-1 overflow-y-auto p-4 sm:p-8 custom-scrollbar">
                     {activeTab === 'problem' ? (
                         <div className="space-y-6 sm:space-y-8 animate-in slide-in-from-bottom-4 duration-300">
                             {/* Problem Description */}

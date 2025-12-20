@@ -99,6 +99,9 @@ function App() {
 
   // Handle problem click
   const handleProblemClick = useCallback(async (slug: string) => {
+    // Clear search when navigating to a new problem
+    problems.updateFilter({ search: '' });
+
     setLoadingSlug(slug);
     setSelectedSlug(slug);
     try {
@@ -123,7 +126,7 @@ function App() {
     } finally {
       setLoadingSlug(null);
     }
-  }, []);
+  }, [problems]);
 
   const closeModal = useCallback(() => {
     setIsModalOpen(false);

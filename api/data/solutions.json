@@ -10126,8 +10126,7 @@
       "visualizationType": "linkedlist",
       "initialState": [
         [
-          7,
-          null
+          7
         ],
         [
           13,
@@ -10481,7 +10480,6 @@
         "Return the result"
       ],
       "approach": "Linked List Manipulation: Reach 'left'; reverse 'right-left' times; reconnect.",
-      "suggestedNextQuestion": null,
       "mentalModel": "Like a treasure hunt where each clue (node) holds the location of the next clue.",
       "initialCode": "def reverseBetween(head, left, right):\n    pass",
       "approaches": [
@@ -10565,8 +10563,6 @@
         3,
         9,
         20,
-        null,
-        null,
         15,
         7
       ],
@@ -10579,8 +10575,6 @@
             3,
             9,
             20,
-            null,
-            null,
             15,
             7
           ],
@@ -10603,8 +10597,6 @@
             3,
             9,
             20,
-            null,
-            null,
             15,
             7
           ],
@@ -10627,8 +10619,6 @@
             3,
             9,
             20,
-            null,
-            null,
             15,
             7
           ],
@@ -10653,8 +10643,6 @@
             3,
             9,
             20,
-            null,
-            null,
             15,
             7
           ],
@@ -10675,8 +10663,6 @@
             3,
             9,
             20,
-            null,
-            null,
             15,
             7
           ],
@@ -10934,7 +10920,7 @@
         "symmetric-tree",
         "subtree-of-another-tree"
       ],
-      "videoId": "vRbbcKXCkOw",
+      "videoId": "vRbbcKXCxOw",
       "problemStatement": "Given the roots of two binary trees p and q, write a function to check if they are the same or not.\nTwo binary trees are considered the same if they are structurally identical, and the nodes have the same value.",
       "difficulty": "Easy",
       "walkthrough": [
@@ -11268,8 +11254,6 @@
         3,
         9,
         20,
-        null,
-        null,
         15,
         7
       ],
@@ -13875,7 +13859,7 @@
         "reverse-words-in-a-string",
         "rotate-image"
       ],
-      "videoId": "BHr381Guz3Y",
+      "videoId": "jhzZmG0WfoU",
       "problemStatement": "Given an integer array nums, rotate the array to the right by k steps, where k is non-negative.",
       "difficulty": "Medium",
       "walkthrough": [
@@ -14637,6 +14621,7 @@
       "patternEmoji": "📊",
       "timeComplexity": "O(n)",
       "spaceComplexity": "O(n)",
+      "videoId": "wjOjCfkv1mg",
       "oneliner": "Count papers at each citation level. Scan from high to low.",
       "intuition": [
         "🎯 H-index: h papers with at least h citations.",
@@ -14818,7 +14803,6 @@
         "climbing-stairs",
         "binary-search"
       ],
-      "videoId": "CjKJDloMnwM",
       "problemStatement": "Given an array of integers citations where citations[i] is the number of citations a researcher received for their ith paper, return the researcher's h-index.\nAccording to the definition of h-index on Wikipedia: The h-index is defined as the maximum value of h such that the given researcher has published at least h papers that have each been cited at least h times.",
       "difficulty": "Medium",
       "walkthrough": [
@@ -15742,7 +15726,6 @@
         "Return the result"
       ],
       "approach": "Two Pointers: Two pointers from ends. Water at i = min(leftMax, rightMax) - height[i].",
-      "suggestedNextQuestion": null,
       "mentalModel": "Imagine filling a landscape with water. The water level is determined by the shortest enclosing wall.",
       "initialCode": "def trap(height):\n    pass",
       "approaches": [
@@ -17325,7 +17308,6 @@
         "Return the result"
       ],
       "approach": "Greedy + Simulation: Greedily pack words, distribute spaces evenly. Left-justify last line.",
-      "suggestedNextQuestion": null,
       "mentalModel": "Like a cashier making change. Always pick the biggest coin that fits, hoping it leads to the fewest coins total.",
       "initialCode": "def fullJustify(words, maxWidth):\n    pass",
       "approaches": [
@@ -18719,7 +18701,6 @@
         6,
         2,
         4,
-        null,
         7
       ],
       "animationSteps": [
@@ -18734,7 +18715,6 @@
             6,
             2,
             4,
-            null,
             7
           ],
           "indices": [
@@ -18754,7 +18734,6 @@
             6,
             2,
             4,
-            null,
             7
           ],
           "indices": [
@@ -18774,7 +18753,6 @@
             6,
             2,
             4,
-            null,
             7
           ],
           "indices": [
@@ -19203,7 +19181,7 @@
         "climbing-stairs",
         "binary-search"
       ],
-      "videoId": "yOzXms1J6Nk",
+      "videoId": "zYQC7d06G_g",
       "problemStatement": "Given the head of a singly linked list, return true if it is a palindrome or false otherwise.",
       "difficulty": "Easy",
       "walkthrough": [
@@ -20483,7 +20461,6 @@
         "Return the result"
       ],
       "approach": "Sliding Window + Hash Map: Sliding window of size wordLen*numWords, check if all words match.",
-      "suggestedNextQuestion": null,
       "mentalModel": "Imagine a caterpillar crawling along a branch. It extends its head (right pointer) to eat leaves (add elements), and pulls its tail (left pointer) to digest (remove elements).",
       "initialCode": "def findSubstring(s, words):\n    pass",
       "approaches": [
@@ -23398,7 +23375,7 @@
         "climbing-stairs",
         "binary-search"
       ],
-      "videoId": "1UOPsfP85V4",
+      "videoId": "R9jDoJq_Qv4",
       "problemStatement": "Given the head of a linked list, reverse the nodes of the list k at a time, and return the modified list.\nk is a positive integer and is less than or equal to the length of the linked list. If the number of nodes is not a multiple of k then left-out nodes, in the end, should remain as it is.\nYou may not alter the values in the list's nodes, only nodes themselves may be changed.",
       "difficulty": "Hard",
       "walkthrough": [
@@ -24304,7 +24281,7 @@
         "climbing-stairs",
         "binary-search"
       ],
-      "videoId": "TGveA1oFhrc",
+      "videoId": "sPTSY3PJQAA",
       "problemStatement": "Given the head of a linked list, return the list after sorting it in ascending order.",
       "difficulty": "Medium",
       "walkthrough": [
@@ -24378,8 +24355,6 @@
         3,
         9,
         20,
-        null,
-        null,
         15,
         7
       ],
@@ -24396,8 +24371,6 @@
             3,
             9,
             20,
-            null,
-            null,
             15,
             7
           ]
@@ -24416,8 +24389,6 @@
             3,
             9,
             20,
-            null,
-            null,
             15,
             7
           ]
@@ -24440,8 +24411,6 @@
             3,
             9,
             20,
-            null,
-            null,
             15,
             7
           ]
@@ -24542,8 +24511,6 @@
         3,
         9,
         20,
-        null,
-        null,
         15,
         7
       ],
@@ -24560,8 +24527,6 @@
             3,
             9,
             20,
-            null,
-            null,
             15,
             7
           ]
@@ -24580,8 +24545,6 @@
             3,
             9,
             20,
-            null,
-            null,
             15,
             7
           ]
@@ -24604,8 +24567,6 @@
             3,
             9,
             20,
-            null,
-            null,
             15,
             7
           ]
@@ -24712,7 +24673,6 @@
         5,
         3,
         4,
-        null,
         6
       ],
       "animationSteps": [
@@ -24730,7 +24690,6 @@
             5,
             3,
             4,
-            null,
             6
           ]
         },
@@ -24750,7 +24709,6 @@
             5,
             3,
             4,
-            null,
             6
           ]
         },
@@ -24774,7 +24732,6 @@
             5,
             3,
             4,
-            null,
             6
           ]
         }
@@ -24885,14 +24842,10 @@
         4,
         8,
         11,
-        null,
         13,
         4,
         7,
         2,
-        null,
-        null,
-        null,
         1
       ],
       "animationSteps": [
@@ -24905,14 +24858,10 @@
             4,
             8,
             11,
-            null,
             13,
             4,
             7,
             2,
-            null,
-            null,
-            null,
             1
           ],
           "pointers": [
@@ -24935,14 +24884,10 @@
             4,
             8,
             11,
-            null,
             13,
             4,
             7,
             2,
-            null,
-            null,
-            null,
             1
           ],
           "pointers": [
@@ -24966,14 +24911,10 @@
             4,
             8,
             11,
-            null,
             13,
             4,
             7,
             2,
-            null,
-            null,
-            null,
             1
           ],
           "pointers": [
@@ -24998,14 +24939,10 @@
             4,
             8,
             11,
-            null,
             13,
             4,
             7,
             2,
-            null,
-            null,
-            null,
             1
           ],
           "pointers": [
@@ -25031,14 +24968,10 @@
             4,
             8,
             11,
-            null,
             13,
             4,
             7,
             2,
-            null,
-            null,
-            null,
             1
           ],
           "pointers": [],
@@ -25072,7 +25005,7 @@
         "clone-graph",
         "course-schedule"
       ],
-      "videoId": "LSKQyOz_P8I",
+      "videoId": "p-pQW3Y-x9I",
       "problemStatement": "Given the root of a binary tree and an integer targetSum, return true if the tree has a root-to-leaf path such that adding up all the values along the path equals targetSum.\nA leaf is a node with no children.",
       "difficulty": "Easy",
       "walkthrough": [
@@ -25300,8 +25233,6 @@
         -10,
         9,
         20,
-        null,
-        null,
         15,
         7
       ],
@@ -25314,8 +25245,6 @@
             -10,
             9,
             20,
-            null,
-            null,
             15,
             7
           ],
@@ -25338,8 +25267,6 @@
             -10,
             9,
             20,
-            null,
-            null,
             15,
             7
           ],
@@ -25362,8 +25289,6 @@
             -10,
             9,
             20,
-            null,
-            null,
             15,
             7
           ],
@@ -25387,8 +25312,6 @@
             -10,
             9,
             20,
-            null,
-            null,
             15,
             7
           ],
@@ -25414,8 +25337,6 @@
             -10,
             9,
             20,
-            null,
-            null,
             15,
             7
           ],
@@ -25706,9 +25627,7 @@
         1,
         2,
         3,
-        null,
         5,
-        null,
         4
       ],
       "animationSteps": [
@@ -25724,9 +25643,7 @@
             1,
             2,
             3,
-            null,
             5,
-            null,
             4
           ]
         },
@@ -25744,9 +25661,7 @@
             1,
             2,
             3,
-            null,
             5,
-            null,
             4
           ]
         },
@@ -25768,9 +25683,7 @@
             1,
             2,
             3,
-            null,
             5,
-            null,
             4
           ]
         }
@@ -25876,8 +25789,6 @@
         3,
         9,
         20,
-        null,
-        null,
         15,
         7
       ],
@@ -25894,8 +25805,6 @@
             3,
             9,
             20,
-            null,
-            null,
             15,
             7
           ]
@@ -25914,8 +25823,6 @@
             3,
             9,
             20,
-            null,
-            null,
             15,
             7
           ]
@@ -25938,8 +25845,6 @@
             3,
             9,
             20,
-            null,
-            null,
             15,
             7
           ]
@@ -26050,8 +25955,6 @@
         3,
         9,
         20,
-        null,
-        null,
         15,
         7
       ],
@@ -26068,8 +25971,6 @@
             3,
             9,
             20,
-            null,
-            null,
             15,
             7
           ]
@@ -26088,8 +25989,6 @@
             3,
             9,
             20,
-            null,
-            null,
             15,
             7
           ]
@@ -26112,8 +26011,6 @@
             3,
             9,
             20,
-            null,
-            null,
             15,
             7
           ]
@@ -26379,7 +26276,6 @@
         3,
         1,
         4,
-        null,
         2
       ],
       "animationSteps": [
@@ -26395,7 +26291,6 @@
             3,
             1,
             4,
-            null,
             2
           ]
         },
@@ -26412,7 +26307,6 @@
             3,
             1,
             4,
-            null,
             2
           ]
         },
@@ -26432,7 +26326,6 @@
             3,
             1,
             4,
-            null,
             2
           ]
         }
@@ -26858,11 +26751,8 @@
       "visualizationType": "tree",
       "initialState": [
         1,
-        null,
         2,
-        null,
         3,
-        null,
         4
       ],
       "animationSteps": [
@@ -26876,11 +26766,8 @@
           "color": "accent",
           "arrayState": [
             1,
-            null,
             2,
-            null,
             3,
-            null,
             4
           ]
         },
@@ -26896,11 +26783,8 @@
           "color": "accent",
           "arrayState": [
             1,
-            null,
             2,
-            null,
             3,
-            null,
             4
           ]
         },
@@ -26920,11 +26804,8 @@
           "color": "success",
           "arrayState": [
             1,
-            null,
             2,
-            null,
             3,
-            null,
             4
           ]
         }
@@ -28708,7 +28589,6 @@
         "Track level/distance as needed"
       ],
       "approach": "BFS: BFS from beginWord. Valid moves = 1 char diff in wordList.",
-      "suggestedNextQuestion": null,
       "mentalModel": "Like a ripple in a pond, spreading out layer by layer from the center.",
       "initialCode": "def ladderLength(beginWord, endWord, wordList):\n    pass",
       "approaches": [
@@ -28772,8 +28652,6 @@
         3,
         9,
         20,
-        null,
-        null,
         15,
         7
       ],
@@ -28790,8 +28668,6 @@
             3,
             9,
             20,
-            null,
-            null,
             15,
             7
           ]
@@ -28810,8 +28686,6 @@
             3,
             9,
             20,
-            null,
-            null,
             15,
             7
           ]
@@ -28834,8 +28708,6 @@
             3,
             9,
             20,
-            null,
-            null,
             15,
             7
           ]
@@ -30561,7 +30433,7 @@
         "search-in-rotated-sorted-array",
         "find-peak-element"
       ],
-      "videoId": "K-RYzDZkzCI",
+      "videoId": "K-Yh3K8E2oE",
       "problemStatement": "Given a sorted array of distinct integers and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order.\nYou must write an algorithm with O(log n) runtime complexity.",
       "difficulty": "Easy",
       "walkthrough": [
@@ -30975,7 +30847,7 @@
         "binary-search",
         "search-in-rotated-sorted-array"
       ],
-      "videoId": "kMzJy9es7Hc",
+      "videoId": "A2M7Kj6p0w4",
       "problemStatement": "A peak element is an element that is strictly greater than its neighbors.\nGiven a 0-indexed integer array nums, find a peak element, and return its index. If the array contains multiple peaks, return the index to any of the peaks.\nYou may imagine that nums[-1] = nums[n] = -∞. In other words, an element is always considered to be strictly greater than a neighbor that is outside the array.\nYou must write an algorithm that runs in O(log n) time.",
       "difficulty": "Medium",
       "walkthrough": [
@@ -32054,7 +31926,6 @@
         "Return result when converged"
       ],
       "approach": "Binary Search: Binary search on smaller array. Find partition where left <= right.",
-      "suggestedNextQuestion": null,
       "mentalModel": "Like looking up a word in a dictionary. You open the middle, see if the word is before or after, and discard half the book instantly.",
       "initialCode": "def findMedianSortedArrays(nums1, nums2):\n    pass",
       "approaches": [
@@ -35340,7 +35211,6 @@
         "Return the result"
       ],
       "approach": "Hash Map + Slopes: For each point, count slopes to all others.",
-      "suggestedNextQuestion": null,
       "mentalModel": "Like a coat check. You give a unique token (key) and get your specific item (value) back instantly.",
       "initialCode": "def maxPoints(points):\n    pass",
       "approaches": [
@@ -35944,7 +35814,7 @@
         "climbing-stairs",
         "binary-search"
       ],
-      "videoId": "Sx9NNgvgQjE",
+      "videoId": "Sx9NNgInc3A",
       "problemStatement": "Given a string s and a dictionary of strings wordDict, return true if s can be segmented into a space-separated sequence of one or more dictionary words.\nNote that the same word in the dictionary may be reused multiple times in the segmentation.",
       "difficulty": "Medium",
       "walkthrough": [
@@ -38954,7 +38824,7 @@
         "climbing-stairs",
         "binary-search"
       ],
-      "videoId": "6X7Ha2PrDmM",
+      "videoId": "Zv-jagL2_T4",
       "problemStatement": "Given an m x n binary matrix filled with 0's and 1's, find the largest square containing only 1's and return its area.",
       "difficulty": "Medium",
       "walkthrough": [
@@ -39234,8 +39104,6 @@
         2,
         0,
         8,
-        null,
-        null,
         7,
         4
       ],
@@ -39252,8 +39120,6 @@
             2,
             0,
             8,
-            null,
-            null,
             7,
             4
           ],
@@ -39280,8 +39146,6 @@
             2,
             0,
             8,
-            null,
-            null,
             7,
             4
           ],
@@ -39308,8 +39172,6 @@
             2,
             0,
             8,
-            null,
-            null,
             7,
             4
           ],
@@ -39336,8 +39198,6 @@
             2,
             0,
             8,
-            null,
-            null,
             7,
             4
           ],
@@ -39457,7 +39317,6 @@
         3,
         4,
         5,
-        null,
         7
       ],
       "animationSteps": [
@@ -39475,7 +39334,6 @@
             3,
             4,
             5,
-            null,
             7
           ]
         },
@@ -39495,7 +39353,6 @@
             3,
             4,
             5,
-            null,
             7
           ]
         },
@@ -39519,7 +39376,6 @@
             3,
             4,
             5,
-            null,
             7
           ]
         }
@@ -39704,7 +39560,7 @@
         "climbing-stairs",
         "binary-search"
       ],
-      "videoId": "0K0uCMYq5ng",
+      "videoId": "0_Kz25a_chk",
       "problemStatement": "Given an integer array nums where the elements are sorted in ascending order, convert it to a height-balanced binary search tree.",
       "difficulty": "Easy",
       "walkthrough": [
@@ -42694,7 +42550,6 @@
         }
       ],
       "approach": "Backtracking: Find all words from a dictionary that can be formed by adjacent cells in a grid.",
-      "suggestedNextQuestion": null,
       "mentalModel": "Like try-and-error in a lock combination. You try a number, if it fails, you 'backtrack' and try the next one.",
       "initialCode": "def findWords(board, words):\n    pass",
       "approaches": [
@@ -44521,7 +44376,7 @@
         "🔍 Handle edge cases carefully"
       ],
       "approach": "Sorting + Min Heap: Sort intervals and queries, use min heap to track valid intervals.",
-      "videoId": "5hQ5WWW5AWQ",
+      "videoId": "5hQ5WWW5awQ",
       "mentalModel": "Like a VIP club line where the most important person (max/min) always skips to the front.",
       "initialCode": "def minInterval(intervals, queries):\n    pass",
       "approaches": [
@@ -45615,8 +45470,6 @@
         3,
         9,
         20,
-        null,
-        null,
         15,
         7
       ],
@@ -45629,8 +45482,6 @@
             3,
             9,
             20,
-            null,
-            null,
             15,
             7
           ],
@@ -45653,8 +45504,6 @@
             3,
             9,
             20,
-            null,
-            null,
             15,
             7
           ],
@@ -45677,8 +45526,6 @@
             3,
             9,
             20,
-            null,
-            null,
             15,
             7
           ],
@@ -45703,8 +45550,6 @@
             3,
             9,
             20,
-            null,
-            null,
             15,
             7
           ],
@@ -46053,8 +45898,6 @@
         4,
         7,
         9,
-        null,
-        null,
         3,
         5
       ],
@@ -46071,8 +45914,6 @@
             4,
             7,
             9,
-            null,
-            null,
             3,
             5
           ],
@@ -46094,8 +45935,6 @@
             4,
             7,
             9,
-            null,
-            null,
             3,
             5
           ],
@@ -46117,8 +45956,6 @@
             4,
             7,
             9,
-            null,
-            null,
             3,
             5
           ],
@@ -46238,7 +46075,6 @@
         1,
         4,
         3,
-        null,
         1,
         5
       ],
@@ -46261,7 +46097,6 @@
             1,
             4,
             3,
-            null,
             1,
             5
           ]
@@ -46284,7 +46119,6 @@
             1,
             4,
             3,
-            null,
             1,
             5
           ]
@@ -46307,7 +46141,6 @@
             1,
             4,
             3,
-            null,
             1,
             5
           ]
@@ -46537,7 +46370,6 @@
       ],
       "approach": "Tree Traversal: Use preorder traversal with null markers for serialization and reconstruction.",
       "videoId": "u4JAi2JJhI8",
-      "suggestedNextQuestion": null,
       "mentalModel": "Like exploring a maze. You visit every corner systematically.",
       "initialCode": "# Definition for a binary tree node.\n# class TreeNode:\n#     def __init__(self, val=0, left=None, right=None):\n#         self.val = val\n#         self.left = left\n#         self.right = right\ndef serializeDeserialize(root):\n    pass",
       "approaches": [
@@ -50826,8 +50658,7 @@
             1
           ],
           "newValues": [
-            1,
-            null
+            1
           ],
           "color": "success",
           "pointers": [],
@@ -51626,7 +51457,7 @@
         "🔍 Handle edge cases carefully"
       ],
       "approach": "Simulation: Simulate multiplication digit by digit like elementary school math.",
-      "videoId": "1vJRj0dFnl8",
+      "videoId": "1vC1iM-yd7Q",
       "mentalModel": "Like following a recipe step-by-step. Do exactly what the problem says.",
       "initialCode": "def multiply(num1, num2):\n    pass",
       "approaches": [
@@ -54899,7 +54730,6 @@
       ],
       "approach": "Dynamic Programming: Use a 2D DP table to track matching substrings.",
       "videoId": "HAA8mgxlov8",
-      "suggestedNextQuestion": null,
       "mentalModel": "Like solving a puzzle. Break it down into pieces and assemble the logic.",
       "initialCode": "def isMatch(s, p):\n    pass",
       "approaches": [
