@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "private": true,
     "scripts": {
-        "build": "make build"
+        "build": "npm install --prefix frontend && make build"
     },
     "engines": {
         "node": "24.x"
