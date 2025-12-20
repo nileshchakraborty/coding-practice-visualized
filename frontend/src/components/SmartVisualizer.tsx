@@ -1,7 +1,7 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import type { Solution } from '../types';
-import { Play, Pause, SkipBack, SkipForward } from 'lucide-react';
+import { Play, Pause, SkipBack, SkipForward, RotateCcw } from 'lucide-react';
 import { TreeVisualizer, LinkedListVisualizer, MatrixVisualizer, GraphVisualizer } from './visualizers';
 
 // Tree node interface for building trees from arrays
@@ -68,8 +68,9 @@ interface SmartVisualizerProps {
 const SmartVisualizer: React.FC<SmartVisualizerProps> = ({ solution }) => {
     const [currentStep, setCurrentStep] = useState(0);
     const [isPlaying, setIsPlaying] = useState(false);
-    const [speed] = useState(1000);
+    const [speed, setSpeed] = useState(1); // 1x speed (1000ms base)
     const timerRef = useRef<number | null>(null);
+    const stepDescriptionRef = useRef<HTMLDivElement>(null);
 
     const steps = solution.animationSteps || solution.steps || [];
     const rawInitialState = solution.initialState || [];
@@ -115,6 +116,9 @@ const SmartVisualizer: React.FC<SmartVisualizerProps> = ({ solution }) => {
 
     const currentArray = getActiveState();
 
+    // Calculate actual interval based on speed multiplier
+    const interval = Math.round(1000 / speed);
+
     useEffect(() => {
         if (isPlaying) {
             timerRef.current = window.setInterval(() => {
@@ -123,22 +127,73 @@ const SmartVisualizer: React.FC<SmartVisualizerProps> = ({ solution }) => {
                     setIsPlaying(false);
                     return prev;
                 });
-            }, speed);
+            }, interval);
         } else {
             if (timerRef.current) clearInterval(timerRef.current);
         }
         return () => {
             if (timerRef.current) clearInterval(timerRef.current);
         };
-    }, [isPlaying, totalSteps, speed]);
+    }, [isPlaying, totalSteps, interval]);
 
-    const handleNext = () => {
+    // Keyboard shortcuts
+    useEffect(() => {
+        const handleKeyDown = (e: KeyboardEvent) => {
+            // Ignore if user is typing in an input
+            if (e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement) return;
+
+            switch (e.code) {
+                case 'Space':
+                    e.preventDefault();
+                    setIsPlaying(prev => !prev);
+                    break;
+                case 'ArrowRight':
+                    e.preventDefault();
+                    if (currentStep < totalSteps) setCurrentStep(c => c + 1);
+                    break;
+                case 'ArrowLeft':
+                    e.preventDefault();
+                    if (currentStep > 0) setCurrentStep(c => c - 1);
+                    break;
+                case 'KeyR':
+                    e.preventDefault();
+                    setCurrentStep(0);
+                    setIsPlaying(true);
+                    break;
+            }
+        };
+
+        window.addEventListener('keydown', handleKeyDown);
+        return () => window.removeEventListener('keydown', handleKeyDown);
+    }, [currentStep, totalSteps]);
+
+    // Auto-scroll step description into view
+    useEffect(() => {
+        stepDescriptionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }, [currentStep]);
+
+    const handleNext = useCallback(() => {
         if (currentStep < totalSteps) setCurrentStep(c => c + 1);
-    };
+    }, [currentStep, totalSteps]);
 
-    const handlePrev = () => {
+    const handlePrev = useCallback(() => {
         if (currentStep > 0) setCurrentStep(c => c - 1);
-    };
+    }, [currentStep]);
+
+    const handleReplay = useCallback(() => {
+        setCurrentStep(0);
+        setIsPlaying(true);
+    }, []);
+
+    const handleScrub = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
+        const rect = e.currentTarget.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const percentage = x / rect.width;
+        const newStep = Math.round(percentage * totalSteps);
+        setCurrentStep(Math.max(0, Math.min(totalSteps, newStep)));
+    }, [totalSteps]);
+
+    const speedOptions = [0.5, 1, 1.5, 2, 3];
 
     // Render appropriate visualizer based on type
     const renderVisualizer = () => {
@@ -176,8 +231,16 @@ const SmartVisualizer: React.FC<SmartVisualizerProps> = ({ solution }) => {
             case 'grid':
                 return (
                     <MatrixVisualizer
-                        matrix={solution.matrix || (initialState as unknown as (number | string)[][])}
-                        highlightedCells={[]}
+                        matrix={
+                            (activeStepData?.arrayState as unknown as (number | string)[][]) ||
+                            solution.matrix ||
+                            (initialState as unknown as (number | string)[][])
+                        }
+                        highlightedCells={(highlightedIndices as unknown as [number, number][]).map(([r, c]) => ({
+                            row: r,
+                            col: c,
+                            color: activeStepData?.color || 'accent'
+                        }))}
                         currentCell={undefined}
                     />
                 );
@@ -275,20 +338,92 @@ const SmartVisualizer: React.FC<SmartVisualizerProps> = ({ solution }) => {
 
     return (
         <div className="flex flex-col items-center w-full">
-            {/* Controls */}
-            <div className="viz-controls flex gap-4 mb-6 p-2 bg-slate-200 dark:bg-slate-800 rounded-lg border border-slate-300 dark:border-slate-700">
-                <button onClick={handlePrev} className="p-2 hover:bg-slate-300 dark:hover:bg-slate-700 rounded-full transition-colors text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white">
-                    <SkipBack size={20} />
-                </button>
-                <button onClick={() => setIsPlaying(!isPlaying)} className="p-2 hover:bg-slate-300 dark:hover:bg-slate-700 rounded-full transition-colors text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white">
-                    {isPlaying ? <Pause size={20} /> : <Play size={20} />}
-                </button>
-                <button onClick={handleNext} className="p-2 hover:bg-slate-300 dark:hover:bg-slate-700 rounded-full transition-colors text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white">
-                    <SkipForward size={20} />
-                </button>
-                <span className="text-sm font-mono text-slate-500 dark:text-slate-400 self-center min-w-[80px] text-center">
-                    {currentStep} / {totalSteps}
-                </span>
+            {/* Enhanced Controls */}
+            <div className="viz-controls w-full max-w-2xl mb-6 p-3 bg-slate-100 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 space-y-3">
+                {/* Playback Controls Row */}
+                <div className="flex items-center justify-between gap-3">
+                    {/* Left: Playback buttons */}
+                    <div className="flex items-center gap-1">
+                        <button
+                            onClick={handlePrev}
+                            disabled={currentStep === 0}
+                            className="p-2 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-lg transition-colors text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white disabled:opacity-30 disabled:cursor-not-allowed"
+                            title="Previous (←)"
+                        >
+                            <SkipBack size={18} />
+                        </button>
+                        <button
+                            onClick={() => setIsPlaying(!isPlaying)}
+                            className="p-2.5 bg-indigo-500 hover:bg-indigo-600 rounded-lg transition-colors text-white shadow-lg shadow-indigo-500/25"
+                            title="Play/Pause (Space)"
+                        >
+                            {isPlaying ? <Pause size={20} /> : <Play size={20} />}
+                        </button>
+                        <button
+                            onClick={handleNext}
+                            disabled={currentStep >= totalSteps}
+                            className="p-2 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-lg transition-colors text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white disabled:opacity-30 disabled:cursor-not-allowed"
+                            title="Next (→)"
+                        >
+                            <SkipForward size={18} />
+                        </button>
+                        <button
+                            onClick={handleReplay}
+                            className="p-2 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-lg transition-colors text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white"
+                            title="Replay (R)"
+                        >
+                            <RotateCcw size={18} />
+                        </button>
+                    </div>
+
+                    {/* Center: Step counter */}
+                    <span className="text-sm font-mono text-slate-600 dark:text-slate-400 bg-white dark:bg-slate-900 px-3 py-1 rounded-md border border-slate-200 dark:border-slate-700">
+                        {currentStep} / {totalSteps}
+                    </span>
+
+                    {/* Right: Speed control */}
+                    <div className="flex items-center gap-1.5">
+                        <span className="text-xs text-slate-500 dark:text-slate-400">🐢</span>
+                        <div className="flex bg-white dark:bg-slate-900 rounded-md border border-slate-200 dark:border-slate-700 overflow-hidden">
+                            {speedOptions.map(s => (
+                                <button
+                                    key={s}
+                                    onClick={() => setSpeed(s)}
+                                    className={`px-2 py-1 text-xs font-medium transition-colors ${speed === s
+                                        ? 'bg-indigo-500 text-white'
+                                        : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'
+                                        }`}
+                                >
+                                    {s}x
+                                </button>
+                            ))}
+                        </div>
+                        <span className="text-xs text-slate-500 dark:text-slate-400">🐇</span>
+                    </div>
+                </div>
+
+                {/* Timeline Scrub Bar */}
+                <div
+                    className="relative h-2 bg-slate-200 dark:bg-slate-700 rounded-full cursor-pointer group"
+                    onClick={handleScrub}
+                    title="Click to jump to step"
+                >
+                    <div
+                        className="absolute top-0 left-0 h-full bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full transition-all duration-150"
+                        style={{ width: `${totalSteps > 0 ? (currentStep / totalSteps) * 100 : 0}%` }}
+                    />
+                    <div
+                        className="absolute top-1/2 -translate-y-1/2 w-4 h-4 bg-white border-2 border-indigo-500 rounded-full shadow-md transition-all duration-150 group-hover:scale-110"
+                        style={{ left: `calc(${totalSteps > 0 ? (currentStep / totalSteps) * 100 : 0}% - 8px)` }}
+                    />
+                </div>
+
+                {/* Keyboard shortcuts hint */}
+                <div className="flex justify-center gap-4 text-[10px] text-slate-400 dark:text-slate-500">
+                    <span>Space: Play/Pause</span>
+                    <span>←/→: Step</span>
+                    <span>R: Replay</span>
+                </div>
             </div>
 
             {/* Stage */}
@@ -311,6 +446,35 @@ const SmartVisualizer: React.FC<SmartVisualizerProps> = ({ solution }) => {
                 )}
             </AnimatePresence>
 
+            {/* Variable State Panel - Shows values for active pointers */}
+            {activeStepData?.pointers && activeStepData.pointers.length > 0 && (
+                <div className="flex flex-wrap gap-2 mt-2 justify-center">
+                    <AnimatePresence>
+                        {activeStepData.pointers.map((p, idx: number) => {
+                            const val = getActiveState()[p.index];
+                            return (
+                                <motion.div
+                                    key={`${p.label}-${idx}`}
+                                    initial={{ scale: 0.9, opacity: 0 }}
+                                    animate={{ scale: 1, opacity: 1 }}
+                                    exit={{ scale: 0.9, opacity: 0 }}
+                                    className="flex items-center gap-2 px-3 py-1.5 bg-white dark:bg-slate-800 rounded-md border border-slate-200 dark:border-slate-700 shadow-sm"
+                                >
+                                    <span className="font-mono text-xs font-bold text-slate-500 dark:text-slate-400">{p.label}</span>
+                                    <span className="text-xs text-slate-300 dark:text-slate-600">→</span>
+                                    <span className="font-mono text-sm font-semibold text-indigo-600 dark:text-indigo-400">
+                                        {val !== undefined ? String(val) : '∅'}
+                                    </span>
+                                    <span className="text-[10px] text-slate-400 ml-0.5 opacity-75">
+                                        [{p.index}]
+                                    </span>
+                                </motion.div>
+                            );
+                        })}
+                    </AnimatePresence>
+                </div>
+            )}
+
             {/* Text Visualization - Always show with any available text */}
             {(() => {
                 // Use transientMessage as fallback if no visual/explanation exists
@@ -327,7 +491,7 @@ const SmartVisualizer: React.FC<SmartVisualizerProps> = ({ solution }) => {
                     : null;
 
                 return (
-                    <div className="mt-4 p-4 bg-white dark:bg-slate-900/50 rounded-lg border border-slate-200 dark:border-slate-800 w-full max-w-2xl shadow-sm">
+                    <div ref={stepDescriptionRef} className="mt-4 p-4 bg-white dark:bg-slate-900/50 rounded-lg border border-slate-200 dark:border-slate-800 w-full max-w-2xl shadow-sm">
                         <div className="flex items-start gap-3">
                             <div className="flex-shrink-0 w-8 h-8 rounded-full bg-indigo-500/20 border border-indigo-500/50 flex items-center justify-center text-indigo-600 dark:text-indigo-400 font-bold text-sm">
                                 {currentStep}

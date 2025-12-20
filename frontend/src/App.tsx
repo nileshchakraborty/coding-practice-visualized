@@ -5,6 +5,7 @@
 import { useState, useMemo, useCallback } from 'react';
 import type { Solution } from './models';
 import { useProblems } from './viewmodels';
+import { SearchEngine } from './utils/SearchEngine';
 import SolutionModal from './components/SolutionModal';
 import { ThemeToggle } from './components/ThemeToggle';
 import { Search, Brain, Zap, X } from 'lucide-react';
@@ -45,6 +46,21 @@ function App() {
     };
   }, [problems.stats]);
 
+  // Initialize Search Engine (Trie)
+  const allProblems = useMemo(() => {
+    return problems.stats ? problems.stats.categories.flatMap(c => c.problems) : [];
+  }, [problems.stats]);
+
+  const searchEngine = useMemo(() => {
+    return new SearchEngine(allProblems, p => p.title);
+  }, [allProblems]);
+
+  const searchResults = useMemo(() => {
+    if (!problems.filter.search) return null;
+    const results = searchEngine.search(problems.filter.search);
+    return new Set(results.map(p => p.slug));
+  }, [searchEngine, problems.filter.search]);
+
   // Toggle subtopic selection
   const toggleSubTopic = useCallback((subTopic: string) => {
     setSelectedSubTopics(prev => {
@@ -66,12 +82,12 @@ function App() {
   // Filter problems
   const filterProblems = useCallback((problemList: Array<{ title: string; difficulty: string; subTopic?: string; slug: string; has_solution?: boolean }>) => {
     return problemList.filter(p => {
-      const matchesSearch = p.title.toLowerCase().includes(problems.filter.search.toLowerCase());
+      const matchesSearch = !searchResults || searchResults.has(p.slug);
       const matchesDiff = problems.filter.difficulty === 'All' || p.difficulty === problems.filter.difficulty;
       const matchesSubTopic = selectedSubTopics.size === 0 || (p.subTopic && selectedSubTopics.has(p.subTopic));
       return matchesSearch && matchesDiff && matchesSubTopic;
     });
-  }, [problems.filter, selectedSubTopics]);
+  }, [problems.filter.difficulty, searchResults, selectedSubTopics]);
 
   // All subtopics
   const allSubTopics = useMemo(() => {
@@ -200,8 +216,8 @@ function App() {
                 onClick={resetSubTopicFilters}
                 disabled={selectedSubTopics.size === 0}
                 className={`flex items-center gap-1 text-xs font-medium transition-all ${selectedSubTopics.size > 0
-                    ? 'text-rose-600 dark:text-rose-400 hover:text-rose-700 dark:hover:text-rose-300 cursor-pointer'
-                    : 'text-slate-300 dark:text-slate-600 cursor-not-allowed'
+                  ? 'text-rose-600 dark:text-rose-400 hover:text-rose-700 dark:hover:text-rose-300 cursor-pointer'
+                  : 'text-slate-300 dark:text-slate-600 cursor-not-allowed'
                   }`}
               >
                 <X size={14} strokeWidth={2.5} />
@@ -222,8 +238,8 @@ function App() {
                   key={st}
                   onClick={() => toggleSubTopic(st)}
                   className={`px-2.5 py-1 rounded-md text-xs font-medium transition-all ${selectedSubTopics.has(st)
-                      ? 'bg-indigo-500 text-white shadow-sm'
-                      : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700'
+                    ? 'bg-indigo-500 text-white shadow-sm'
+                    : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700'
                     }`}
                 >
                   {st}

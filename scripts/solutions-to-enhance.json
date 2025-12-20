@@ -1,0 +1,807 @@
+[
+  {
+    "slug": "integer-to-roman",
+    "title": "Integer to Roman",
+    "steps": 3,
+    "description": "Greedily subtract largest possible value and append symbol.\n\nConvert integer to Roman numeral.\nUse a list of (value, symbol) pairs in descending order.",
+    "subTopic": "Array / String"
+  },
+  {
+    "slug": "length-of-last-word",
+    "title": "Length of Last Word",
+    "steps": 3,
+    "description": "Strip trailing spaces, find last space, return len - last_space - 1.\n\nFind length of last word.\nIterate from end, skip trailing spaces, count letters.",
+    "subTopic": "Array / String"
+  },
+  {
+    "slug": "longest-common-prefix",
+    "title": "Longest Common Prefix",
+    "steps": 3,
+    "description": "Compare characters at same position across all strings.\n\nFind the longest common prefix among all strings.\nIterate character by character.",
+    "subTopic": "Array / String"
+  },
+  {
+    "slug": "reverse-words-in-a-string",
+    "title": "Reverse Words in a String",
+    "steps": 3,
+    "description": "Split by spaces, reverse, join with single space.\n\nReverse the order of words in a string.\nSplit removes extra spaces, reverse list, join.",
+    "subTopic": "Array / String"
+  },
+  {
+    "slug": "zigzag-conversion",
+    "title": "Zigzag Conversion",
+    "steps": 3,
+    "description": "Use row index and direction flag. Toggle direction at bounds.\n\nWrite string in zigzag pattern, read row by row.\nTrack current row, direction (up/down).",
+    "subTopic": "Array / String"
+  },
+  {
+    "slug": "find-the-index-of-the-first-occurrence-in-a-string",
+    "title": "Find the Index of the First Occurrence in a String",
+    "steps": 3,
+    "description": "Slide needle over haystack, check for match.\n\nFind first occurrence of needle in haystack.\nSimple: check each starting position.",
+    "subTopic": "Array / String"
+  },
+  {
+    "slug": "text-justification",
+    "title": "Text Justification",
+    "steps": 3,
+    "description": "Greedily pack words, distribute spaces evenly. Left-justify last line.\n\nFully justify text to maxWidth.\nPack as many words as fit, distribute extra spaces.",
+    "subTopic": "Array / String"
+  },
+  {
+    "slug": "find-all-numbers-disappeared-in-an-array",
+    "title": "Find All Numbers Disappeared in an Array",
+    "steps": 3,
+    "description": "Mark visited indices negative. Return indices still positive.\n\nFind numbers 1..n missing from array.\nUse indices as markers: negate nums[nums[i]-1].",
+    "subTopic": "Set / Marking Indices"
+  },
+  {
+    "slug": "delete-node-in-a-bst",
+    "title": "Delete Node in a BST",
+    "steps": 3,
+    "description": "Find node, replace with successor (leftmost in right subtree).\n\nDelete node with given key from BST.\nThree cases: leaf, one child, two children.",
+    "subTopic": "Deletion"
+  },
+  {
+    "slug": "insert-into-a-binary-search-tree",
+    "title": "Insert into a Binary Search Tree",
+    "steps": 3,
+    "description": "Navigate BST, insert at null position.\n\nInsert value into BST maintaining property.\nGo left if val < root, right otherwise.",
+    "subTopic": "Insert"
+  },
+  {
+    "slug": "gfg---reverse-first-k-elements-of-a-queue",
+    "title": "GFG - Reverse first K elements of a Queue",
+    "steps": 3,
+    "description": "Use stack to reverse first k, then cycle remaining elements.\n\nReverse first k elements of a queue.\nPop k to stack, push back, cycle n-k elements.",
+    "subTopic": "Reverse K Elements"
+  },
+  {
+    "slug": "encode-and-decode-strings",
+    "title": "Encode and Decode Strings",
+    "steps": 4,
+    "description": "Design an algorithm to encode a list of strings to a string and decode the string back to the original list of strings. The encoded string should be efficiently decodable without any ambiguity, handling all possible characters including empty strings and special characters.",
+    "subTopic": "Array / String"
+  },
+  {
+    "slug": "is-subsequence",
+    "title": "Is Subsequence",
+    "steps": 3,
+    "description": "Use pointer for s, advance when char matches in t.\n\nIs s a subsequence of t?\nTwo pointers: advance s pointer on match.",
+    "subTopic": "Two Pointers"
+  },
+  {
+    "slug": "two-sum-ii---input-array-is-sorted",
+    "title": "Two Sum II - Input Array Is Sorted",
+    "steps": 3,
+    "description": "Left and right pointers. Move left up if sum too small, right down if too big.\n\nFind two numbers that add up to target (1-indexed).\nSince sorted, use two pointers from ends.",
+    "subTopic": "Two Pointers"
+  },
+  {
+    "slug": "container-with-most-water",
+    "title": "Container With Most Water",
+    "steps": 3,
+    "description": "Two pointers from ends. Move the shorter one inward.\n\nMaximize water container area.\nArea = min(height[l], height[r]) * (r - l).",
+    "subTopic": "Two Pointers"
+  },
+  {
+    "slug": "3sum",
+    "title": "3Sum",
+    "steps": 3,
+    "description": "Sort, fix one element, two-pointer for remaining two.\n\nFind all triplets summing to 0.\nSort array. For each i, use two pointers on [i+1, n-1].",
+    "subTopic": "Two Pointers"
+  },
+  {
+    "slug": "squares-of-a-sorted-array",
+    "title": "Squares of a Sorted Array",
+    "steps": 3,
+    "description": "Compare absolute values at ends, place larger square at end of result.\n\nSquare each element, return sorted array.\nLargest squares at ends (negative or positive).",
+    "subTopic": "Two Pointers + Sorted Array"
+  },
+  {
+    "slug": "longest-mountain-in-array",
+    "title": "Longest Mountain in Array",
+    "steps": 3,
+    "description": "Find peak, expand left (strictly decreasing), expand right (strictly decreasing).\n\nFind longest mountain subarray (up then down).\nAt each peak, extend left and right.",
+    "subTopic": "Two-Pointer Mountains"
+  },
+  {
+    "slug": "permutation-in-string",
+    "title": "Permutation In String",
+    "steps": 3,
+    "description": "Given two strings s1 and s2, return true if s2 contains a permutation of s1, or false otherwise. In other words, return true if one of s1's permutations is a substring of s2.",
+    "subTopic": "Sliding Window"
+  },
+  {
+    "slug": "valid-sudoku",
+    "title": "Valid Sudoku",
+    "steps": 3,
+    "description": "Check each row, column, and 3x3 box for duplicates.\n\nValidate a partially filled Sudoku board.\nUse sets for each row, column, and 3x3 box.",
+    "subTopic": "Matrix"
+  },
+  {
+    "slug": "spiral-matrix",
+    "title": "Spiral Matrix",
+    "steps": 3,
+    "description": "Process layer by layer: right, down, left, up, shrink bounds.\n\nReturn matrix elements in spiral order.\nMaintain top/bottom/left/right boundaries.",
+    "subTopic": "Matrix"
+  },
+  {
+    "slug": "rotate-image",
+    "title": "Rotate Image",
+    "steps": 3,
+    "description": "Transpose matrix, then reverse each row.\n\nRotate matrix 90° clockwise in-place.\nTranspose: swap matrix[i][j] with matrix[j][i].",
+    "subTopic": "Matrix"
+  },
+  {
+    "slug": "set-matrix-zeroes",
+    "title": "Set Matrix Zeroes",
+    "steps": 3,
+    "description": "Use first row/col as markers. Track if they need zeroing separately.\n\nIf cell is 0, set entire row and column to 0.\nUse first row/col to mark which rows/cols to zero.",
+    "subTopic": "Matrix"
+  },
+  {
+    "slug": "game-of-life",
+    "title": "Game of Life",
+    "steps": 3,
+    "description": "Encode transitions: 2 = live->dead, 3 = dead->live. Then decode.\n\nApply Conway's Game of Life rules.\nUse extra states to encode old->new: 2=was live, 3=was dead now live.",
+    "subTopic": "Matrix"
+  },
+  {
+    "slug": "insert-delete-getrandom-o1",
+    "title": "Insert Delete GetRandom O(1)",
+    "steps": 3,
+    "description": "Implement the RandomizedSet class: RandomizedSet() Initializes the object. bool insert(int val) Inserts an item val if not present. Returns true if not present, false otherwise. bool remove(int val) Removes an item val if present. Returns true if present, false otherwise. int getRandom() Returns a random element from the current set. Each element must have the same probability of being returned.",
+    "subTopic": "Hashmap"
+  },
+  {
+    "slug": "how-many-numbers-are-smaller-than-the-current-number",
+    "title": "How Many Numbers Are Smaller Than the Current Number",
+    "steps": 3,
+    "description": "Given the array nums, for each nums[i] find out how many numbers in the array are smaller than it. That is, for each nums[i] you have to count the number of valid j's such that j != i and nums[j] < nums[i].",
+    "subTopic": "Sorting + Hashmap"
+  },
+  {
+    "slug": "meeting-rooms",
+    "title": "Meeting Rooms",
+    "steps": 1,
+    "description": "Given an array of meeting time intervals where intervals[i] = [start_i, end_i], determine if a person could attend all meetings.\n\nReturn true if all meetings can be attended without overlap, false otherwise.",
+    "subTopic": "Intervals"
+  },
+  {
+    "slug": "minimum-interval-to-include-each-query",
+    "title": "Minimum Interval to Include Each Query",
+    "steps": 3,
+    "description": "You are given a 2D integer array `intervals` where `intervals[i] = [left_i, right_i]` represents an interval. You are also given an integer array `queries`. For each query, you need to find the length of the smallest interval that contains the query value. If no such interval exists, return -1 for that query. Return an array of answers for all queries.",
+    "subTopic": "Intervals"
+  },
+  {
+    "slug": "basic-calculator",
+    "title": "Basic Calculator",
+    "steps": 3,
+    "description": "Given a string s representing a valid expression, implement a basic calculator to evaluate it, and return the result of the evaluation. Note: You are not allowed to use any built-in function which evaluates strings as mathematical expressions.",
+    "subTopic": "Stack"
+  },
+  {
+    "slug": "copy-list-with-random-pointer",
+    "title": "Copy List with Random Pointer",
+    "steps": 4,
+    "description": "A linked list of length n is given such that each node contains an additional random pointer, which could point to any node in the list, or null. Construct a deep copy of the list.",
+    "subTopic": "Linked List"
+  },
+  {
+    "slug": "construct-binary-tree-from-preorder-and-inorder-traversal",
+    "title": "Construct Binary Tree from Preorder and Inorder Traversal",
+    "steps": 3,
+    "description": "Preorder first is root. Find it in inorder to split left/right.\n\nBuild tree from preorder and inorder.\nPreorder[0] = root. Find in inorder to know left/right sizes.",
+    "subTopic": "Binary Tree General"
+  },
+  {
+    "slug": "construct-binary-tree-from-inorder-and-postorder-traversal",
+    "title": "Construct Binary Tree from Inorder and Postorder Traversal",
+    "steps": 3,
+    "description": "Postorder last is root. Build right subtree first (reverse postorder).\n\nBuild tree from inorder and postorder.\nPostorder[-1] = root. Process right subtree first.",
+    "subTopic": "Binary Tree General"
+  },
+  {
+    "slug": "populating-next-right-pointers-in-each-node-ii",
+    "title": "Populating Next Right Pointers in Each Node II",
+    "steps": 3,
+    "description": "Use next pointers to traverse level. Connect children as you go.\n\nConnect each node to its next right node.\nUse existing next pointers as queue-like traversal.",
+    "subTopic": "Binary Tree General"
+  },
+  {
+    "slug": "flatten-binary-tree-to-linked-list",
+    "title": "Flatten Binary Tree to Linked List",
+    "steps": 3,
+    "description": "Find rightmost of left subtree, connect to right, move left to right.\n\nFlatten tree to right-skewed linked list (preorder).\nFor each node: find rightmost of left, connect to right.",
+    "subTopic": "Binary Tree General"
+  },
+  {
+    "slug": "path-sum",
+    "title": "Path Sum",
+    "steps": 3,
+    "description": "DFS, subtract node value, check leaf with remaining 0.\n\nDoes any root-to-leaf path sum to target?\nDFS: subtract current value, recurse.",
+    "subTopic": "Binary Tree General"
+  },
+  {
+    "slug": "sum-root-to-leaf-numbers",
+    "title": "Sum Root to Leaf Numbers",
+    "steps": 3,
+    "description": "DFS carrying current number. At leaf, add to sum.\n\nSum all root-to-leaf numbers.\nPass current number * 10 + node.val down.",
+    "subTopic": "Binary Tree General"
+  },
+  {
+    "slug": "binary-tree-maximum-path-sum",
+    "title": "Binary Tree Maximum Path Sum",
+    "steps": 3,
+    "description": "For each node, compute max path through it. Update global max.\n\nFind max path sum (any path in tree).\nAt each node: max = node + left + right. Return node + max(left, right).",
+    "subTopic": "Binary Tree General"
+  },
+  {
+    "slug": "binary-search-tree-iterator",
+    "title": "Binary Search Tree Iterator",
+    "steps": 3,
+    "description": "Implement the BSTIterator class that represents an iterator over the in-order traversal of a binary search tree (BST).",
+    "subTopic": "Binary Tree General"
+  },
+  {
+    "slug": "count-complete-tree-nodes",
+    "title": "Count Complete Tree Nodes",
+    "steps": 3,
+    "description": "Compare left/right depths. If equal, left is perfect. Otherwise right is.\n\nCount nodes in complete binary tree efficiently.\nIf left depth == right depth, left is perfect (2^d - 1 nodes).",
+    "subTopic": "Binary Tree General"
+  },
+  {
+    "slug": "lowest-common-ancestor-of-a-binary-tree",
+    "title": "Lowest Common Ancestor of a Binary Tree",
+    "steps": 3,
+    "description": "Return node if matched. If both subtrees return non-null, node is LCA.\n\nFind LCA of two nodes.\nIf node == p or q, return it. Recurse left/right.",
+    "subTopic": "Binary Tree General"
+  },
+  {
+    "slug": "balanced-binary-tree",
+    "title": "Balanced Binary Tree",
+    "steps": 3,
+    "description": "Given a binary tree, determine if it is height-balanced.\n\nA height-balanced binary tree is defined as a binary tree in which the depth of the two subtrees of every node never differs by more than one.",
+    "subTopic": "Binary Tree General"
+  },
+  {
+    "slug": "subtree-of-another-tree",
+    "title": "Subtree of Another Tree",
+    "steps": 3,
+    "description": "Given the roots of two binary trees `root` and `subRoot`, return `true` if there is a subtree of `root` with the same structure and node values as `subRoot`, and `false` otherwise.\n\nA subtree of a binary tree `tree` is a tree that consists of a node in `tree` and all of this node's descendants. The tree `tree` could also be considered as a subtree of itself.",
+    "subTopic": "Binary Tree General"
+  },
+  {
+    "slug": "lowest-common-ancestor-of-a-binary-search-tree",
+    "title": "Lowest Common Ancestor of a Binary Search Tree",
+    "steps": 3,
+    "description": "Given a binary search tree (BST), find the lowest common ancestor (LCA) node of two given nodes in the BST.\n\nAccording to the definition of LCA on Wikipedia: \"The lowest common ancestor is defined between two nodes p and q as the lowest node in T that has both p and q as descendants (where we allow a node to be a descendant of itself).\"\n\nThe solution should return the LCA node reference.",
+    "subTopic": "Binary Tree General"
+  },
+  {
+    "slug": "serialize-and-deserialize-binary-tree",
+    "title": "Serialize And Deserialize Binary Tree",
+    "steps": 3,
+    "description": "Design an algorithm to serialize and deserialize a binary tree. Serialization is the process of converting a data structure or object into a sequence of bits so that it can be stored in a file or memory buffer, or transmitted across a network connection link to be reconstructed later in the same or another computer environment.\n\nImplement the `serialize` and `deserialize` methods for a binary tree. The `serialize` method should convert the binary tree into a string representation, and the `deserialize` method should reconstruct the original binary tree from the string representation.\n\nThe encoded string should be as compact as possible, and the serialization/deserialization algorithms should handle all valid binary tree structures including empty trees and trees with duplicate values.",
+    "subTopic": "Binary Tree General"
+  },
+  {
+    "slug": "binary-tree-right-side-view",
+    "title": "Binary Tree Right Side View",
+    "steps": 3,
+    "description": "BFS level by level, take last node of each level.\n\nReturn rightmost node at each level.\nBFS: at each level, record last node.",
+    "subTopic": "Binary Tree BFS"
+  },
+  {
+    "slug": "average-of-levels-in-binary-tree",
+    "title": "Average of Levels in Binary Tree",
+    "steps": 3,
+    "description": "BFS level by level, compute average per level.\n\nReturn average value at each level.\nBFS: sum nodes at each level, divide by count.",
+    "subTopic": "Binary Tree BFS"
+  },
+  {
+    "slug": "binary-tree-zigzag-level-order-traversal",
+    "title": "Binary Tree Zigzag Level Order Traversal",
+    "steps": 3,
+    "description": "BFS, alternate direction each level (reverse odd levels).\n\nLevel order but alternating left-right direction.\nBFS with direction flag. Reverse level if needed.",
+    "subTopic": "Binary Tree BFS"
+  },
+  {
+    "slug": "minimum-absolute-difference-in-bst",
+    "title": "Minimum Absolute Difference in BST",
+    "steps": 3,
+    "description": "Inorder gives sorted order. Track prev, compare adjacent.\n\nFind min diff between any two nodes.\nInorder traversal gives sorted values.",
+    "subTopic": "Binary Search Tree"
+  },
+  {
+    "slug": "kth-smallest-element-in-a-bst",
+    "title": "Kth Smallest Element in a BST",
+    "steps": 3,
+    "description": "Inorder traversal, return kth element.\n\nFind kth smallest element in BST.\nInorder = sorted order. Count until k.",
+    "subTopic": "Binary Search Tree"
+  },
+  {
+    "slug": "validate-binary-search-tree",
+    "title": "Validate Binary Search Tree",
+    "steps": 3,
+    "description": "DFS with min/max bounds. Node must be in (min, max).\n\nIs this a valid BST?\nEach node has a valid range (min, max).",
+    "subTopic": "Binary Search Tree"
+  },
+  {
+    "slug": "lowest-common-ancestor-of-a-bst",
+    "title": "Lowest Common Ancestor of a BST",
+    "steps": 3,
+    "description": "If both p,q < node, go left. If both > node, go right. Else LCA.\n\nFind LCA in BST (not general tree).\nUse BST property: p < node < q means split.",
+    "subTopic": "Lca In Bst"
+  },
+  {
+    "slug": "balance-a-binary-search-tree",
+    "title": "Balance a Binary Search Tree",
+    "steps": 3,
+    "description": "Inorder to sorted array. Build balanced BST from array.\n\nConvert BST to balanced BST.\nExtract sorted array via inorder.",
+    "subTopic": "Rebalancing"
+  },
+  {
+    "slug": "surrounded-regions",
+    "title": "Surrounded Regions",
+    "steps": 3,
+    "description": "DFS from border Os to mark safe. Flip remaining Os to Xs.\n\nFlip all O regions NOT connected to border.\nMark border-connected Os as safe.",
+    "subTopic": "Graph General"
+  },
+  {
+    "slug": "evaluate-division",
+    "title": "Evaluate Division",
+    "steps": 3,
+    "description": "Build graph of ratios. DFS/BFS to find path and multiply.\n\nEvaluate queries given equations with values.\nBuild weighted graph: a/b = k means edge a->b with weight k.",
+    "subTopic": "Graph General"
+  },
+  {
+    "slug": "course-schedule-ii",
+    "title": "Course Schedule II",
+    "steps": 3,
+    "description": "Kahn's algorithm: BFS with indegree. Return order or [].\n\nReturn valid course order or [] if impossible.\nTopological sort using indegree.",
+    "subTopic": "Graph General"
+  },
+  {
+    "slug": "diameter-of-binary-tree",
+    "title": "Diameter of Binary Tree",
+    "steps": 3,
+    "description": "For each node, diameter through it = left_height + right_height.\n\nLongest path between any two nodes.\nAt each node: path through it = left + right heights.",
+    "subTopic": "Dfs - Diameter"
+  },
+  {
+    "slug": "cheapest-flights-within-k-stops",
+    "title": "Cheapest Flights Within K Stops",
+    "steps": 3,
+    "description": "Modified Bellman-Ford: k+1 iterations. Or BFS with level tracking.\n\nCheapest flight with at most k stops.\nBellman-Ford with k+1 relaxations.",
+    "subTopic": "Shortest Path With Stops"
+  },
+  {
+    "slug": "max-area-of-island",
+    "title": "Max Area of Island",
+    "steps": 3,
+    "description": "You are given an m x n binary matrix grid. An island is a group of 1's (representing land) connected 4-directionally (horizontal or vertical). All four edges of the grid are surrounded by water.\n\nThe area of an island is the number of cells with a value 1 in the island.\n\nReturn the maximum area of an island in grid. If there is no island, return 0.",
+    "subTopic": "Graph General"
+  },
+  {
+    "slug": "pacific-atlantic-water-flow",
+    "title": "Pacific Atlantic Water Flow",
+    "steps": 3,
+    "description": "There is an m x n rectangular island that borders both the Pacific Ocean and Atlantic Ocean. The Pacific Ocean touches the island's left and top edges, and the Atlantic Ocean touches the island's right and bottom edges.\n\nThe island is partitioned into a grid of square cells. You are given an m x n integer matrix heights where heights[r][c] represents the height above sea level of the cell at coordinate (r, c).\n\nThe island receives a lot of rain, and the rain water can flow to neighboring cells directly north, south, east, and west if the neighboring cell's height is less than or equal to the current cell's height. Water can flow from any cell adjacent to an ocean into the ocean.\n\nReturn a 2D list of grid coordinates result where result[i] = [ri, ci] denotes that rain water can flow from cell (ri, ci) to both the Pacific and Atlantic oceans.",
+    "subTopic": "Graph General"
+  },
+  {
+    "slug": "rotting-oranges",
+    "title": "Rotting Oranges",
+    "steps": 3,
+    "description": "You are given an m x n grid where each cell can have one of three values:\n- 0 representing an empty cell,\n- 1 representing a fresh orange, or\n- 2 representing a rotten orange.\n\nEvery minute, any fresh orange that is 4-directionally adjacent to a rotten orange becomes rotten.\n\nReturn the minimum number of minutes that must elapse until no cell has a fresh orange. If this is impossible, return -1.",
+    "subTopic": "Graph General"
+  },
+  {
+    "slug": "redundant-connection",
+    "title": "Redundant Connection",
+    "steps": 3,
+    "description": "In this problem, a tree is an undirected graph that is connected and has no cycles. You are given a graph that started as a tree with n nodes labeled from 1 to n, with one additional edge added. The task is to find and return the redundant edge that can be removed to make the graph a valid tree again. If there are multiple answers, return the one that appears last in the input.",
+    "subTopic": "Graph General"
+  },
+  {
+    "slug": "graph-valid-tree",
+    "title": "Graph Valid Tree",
+    "steps": 4,
+    "description": "You have a graph of n nodes labeled from 0 to n - 1. You are given an integer n and a list of edges where edges[i] = [ai, bi] indicates that there is an undirected edge between nodes ai and bi.\n\nReturn true if the edges of the given graph make up a valid tree, and false otherwise.\n\nA valid tree must satisfy two conditions:\n1. It must be connected (all nodes reachable from each other)\n2. It must contain no cycles",
+    "subTopic": "Graph General"
+  },
+  {
+    "slug": "min-cost-to-connect-all-points",
+    "title": "Min Cost to Connect All Points",
+    "steps": 1,
+    "description": "You are given an array `points` representing integer coordinates of some points on a 2D-plane, where `points[i] = [xi, yi]`.\n\nThe cost of connecting two points `[xi, yi]` and `[xj, yj]` is the Manhattan distance between them: `|xi - xj| + |yi - yj|`.\n\nReturn the minimum cost to make all points connected such that there is exactly one simple path between any two points.",
+    "subTopic": "Graph General"
+  },
+  {
+    "slug": "alien-dictionary",
+    "title": "Alien Dictionary",
+    "steps": 4,
+    "description": "There is a new alien language that uses the English alphabet. However, the order of the letters is unknown to you. You are given a list of strings `words` from the alien language's dictionary, where the strings are sorted lexicographically according to the rules of this new language.\n\nReturn a string of the unique letters in the new alien language sorted in lexicographically increasing order by the new language's rules. If there is no valid ordering of letters, return an empty string. If there are multiple valid orderings, return any one of them.\n\nThe lexicographical ordering follows the same rules as English, where each character is compared sequentially, and if one word is a prefix of another, the shorter word comes first.",
+    "subTopic": "Graph General"
+  },
+  {
+    "slug": "snakes-and-ladders",
+    "title": "Snakes and Ladders",
+    "steps": 3,
+    "description": "BFS from square 1. Follow snakes/ladders. Min moves to n².\n\nMin dice rolls to reach last square.\nBFS level = number of moves.",
+    "subTopic": "Graph BFS"
+  },
+  {
+    "slug": "minimum-depth-of-binary-tree",
+    "title": "Minimum Depth of Binary Tree",
+    "steps": 3,
+    "description": "BFS level by level. Return level when first leaf found.\n\nMin depth to a leaf node.\nBFS finds closest leaf first.",
+    "subTopic": "Bfs - Min Depth"
+  },
+  {
+    "slug": "implement-trie-prefix-tree",
+    "title": "Implement Trie (Prefix Tree)",
+    "steps": 3,
+    "description": "A trie (pronounced as 'try') or prefix tree is a tree data structure used to efficiently store and retrieve keys in a dataset of strings.",
+    "subTopic": "Trie"
+  },
+  {
+    "slug": "design-add-and-search-words-data-structure",
+    "title": "Design Add and Search Words Data Structure",
+    "steps": 3,
+    "description": "Design a data structure that supports adding new words and finding if a string matches any previously added string. The search can contain '.' which matches any single character.",
+    "subTopic": "Trie"
+  },
+  {
+    "slug": "word-search-ii",
+    "title": "Word Search II",
+    "steps": 3,
+    "description": "Given an m x n board of characters and a list of strings words, return all words on the board. Each word must be constructed from letters of sequentially adjacent cells.",
+    "subTopic": "Trie"
+  },
+  {
+    "slug": "letter-combinations-of-a-phone-number",
+    "title": "Letter Combinations of a Phone Number",
+    "steps": 3,
+    "description": "Map digits to letters. Backtrack all combinations.\n\nAll letter combinations from digits.\nDigit -> letters mapping. Backtrack choices.",
+    "subTopic": "Backtracking"
+  },
+  {
+    "slug": "combinations",
+    "title": "Combinations",
+    "steps": 3,
+    "description": "Backtrack choosing k elements from 1 to n.\n\nAll combinations of k numbers from 1 to n.\nBacktrack: pick or skip each number.",
+    "subTopic": "Backtracking"
+  },
+  {
+    "slug": "n-queens-ii",
+    "title": "N-Queens II",
+    "steps": 3,
+    "description": "Place queens row by row. Track cols and diagonals.\n\nCount valid n-queens placements.\nTrack used columns, diagonals, anti-diagonals.",
+    "subTopic": "Backtracking"
+  },
+  {
+    "slug": "generate-parentheses",
+    "title": "Generate Parentheses",
+    "steps": 3,
+    "description": "Add '(' if open < n. Add ')' if close < open.\n\nGenerate all valid parentheses of n pairs.\nCan add '(' if count < n. Can add ')' if close < open.",
+    "subTopic": "Backtracking"
+  },
+  {
+    "slug": "subsets",
+    "title": "Subsets",
+    "steps": 3,
+    "description": "Backtrack: include or exclude each element.\n\nAll subsets of a set.\nFor each element: include or exclude.",
+    "subTopic": "Subsets / Power Set"
+  },
+  {
+    "slug": "letter-case-permutation",
+    "title": "Letter Case Permutation",
+    "steps": 3,
+    "description": "For each letter, branch on lower and upper case.\n\nAll case permutations of letters.\nDigits: no choice. Letters: lower or upper.",
+    "subTopic": "Case Permutations"
+  },
+  {
+    "slug": "subsets-ii",
+    "title": "Subsets II",
+    "steps": 5,
+    "description": "Given an integer array `nums` that may contain duplicates, return all possible subsets (the power set). The solution set must not contain duplicate subsets. Return the solution in any order.",
+    "subTopic": "Backtracking"
+  },
+  {
+    "slug": "combination-sum-ii",
+    "title": "Combination Sum II",
+    "steps": 3,
+    "description": "Given a collection of candidate numbers (candidates) and a target number (target), find all unique combinations in candidates where the candidate numbers sum to target.\n\nEach number in candidates may only be used once in the combination.\n\nThe solution set must not contain duplicate combinations.",
+    "subTopic": "Backtracking"
+  },
+  {
+    "slug": "palindrome-partitioning",
+    "title": "Palindrome Partitioning",
+    "steps": 2,
+    "description": "Given a string s, partition s such that every substring of the partition is a palindrome. Return all possible palindrome partitioning of s.\n\nA palindrome string is a string that reads the same backward as forward.",
+    "subTopic": "Backtracking"
+  },
+  {
+    "slug": "n-queens",
+    "title": "N Queens",
+    "steps": 3,
+    "description": "The n-queens puzzle is the problem of placing n queens on an n×n chessboard such that no two queens attack each other. Given an integer n, return all distinct solutions to the n-queens puzzle. Each solution contains a distinct board configuration where 'Q' represents a queen and '.' represents an empty space.",
+    "subTopic": "Backtracking"
+  },
+  {
+    "slug": "convert-sorted-array-to-binary-search-tree",
+    "title": "Convert Sorted Array to Binary Search Tree",
+    "steps": 3,
+    "description": "Recursively pick middle as root. Left half -> left subtree, right half -> right subtree.\n\nConvert sorted array to height-balanced BST.\nMiddle element is root. Recurse on halves.",
+    "subTopic": "Divide & Conquer"
+  },
+  {
+    "slug": "construct-quad-tree",
+    "title": "Construct Quad Tree",
+    "steps": 3,
+    "description": "If all same value, leaf. Else divide into 4 quadrants.\n\nBuild quad-tree from n×n grid.\nIf entire region same value, make leaf.",
+    "subTopic": "Divide & Conquer"
+  },
+  {
+    "slug": "median-of-two-sorted-arrays",
+    "title": "Median of Two Sorted Arrays",
+    "steps": 3,
+    "description": "Binary search on smaller array. Find partition where left <= right.\n\nFind median of two sorted arrays in O(log(m+n)).\nPartition both arrays such that left halves = right halves.",
+    "subTopic": "Binary Search"
+  },
+  {
+    "slug": "search-in-a-binary-search-tree",
+    "title": "Search in a Binary Search Tree",
+    "steps": 3,
+    "description": "If val < root, go left. If val > root, go right.\n\nFind node with given value in BST.\nUse BST property to navigate.",
+    "subTopic": "Search"
+  },
+  {
+    "slug": "koko-eating-bananas",
+    "title": "Koko Eating Bananas",
+    "steps": 3,
+    "description": "Koko loves to eat bananas. There are n piles of bananas, the ith pile has piles[i] bananas. The guards have gone and will come back in h hours.\n\nKoko can decide her bananas-per-hour eating speed of k. Each hour, she chooses some pile of bananas and eats k bananas from that pile. If the pile has less than k bananas, she eats all of them instead and will not eat any more bananas during this hour.\n\nKoko likes to eat slowly but still wants to finish eating all the bananas before the guards return.\n\nReturn the minimum integer k such that she can eat all the bananas within h hours.",
+    "subTopic": "Binary Search"
+  },
+  {
+    "slug": "top-k-frequent-elements",
+    "title": "Top K Frequent Elements",
+    "steps": 4,
+    "description": "Given an integer array nums and an integer k, return the k most frequent elements. You may return the answer in any order.",
+    "subTopic": "Frequency Heap"
+  },
+  {
+    "slug": "k-closest-points-to-origin",
+    "title": "K Closest Points to Origin",
+    "steps": 3,
+    "description": "Max-heap of size k. Keep k smallest distances.\n\nFind k closest points to origin.\nUse max-heap of size k.",
+    "subTopic": "Distance-Based Heap"
+  },
+  {
+    "slug": "last-stone-weight",
+    "title": "Last Stone Weight",
+    "steps": 3,
+    "description": "You are given an array of integers representing the weights of stones. In each turn, you choose the two heaviest stones and smash them together. If their weights are equal, both are destroyed. If they differ, the lighter stone is destroyed and the heavier stone's weight becomes the difference between the two weights. Continue until at most one stone remains. Return the weight of the last remaining stone, or 0 if none remain.",
+    "subTopic": "Heap"
+  },
+  {
+    "slug": "design-twitter",
+    "title": "Design Twitter",
+    "steps": 3,
+    "description": "Design a simplified version of Twitter where users can post tweets, follow/unfollow another user, and see the 10 most recent tweets from users they follow (including themselves) in their news feed.\n\nImplement the Twitter class with the following methods:\n\n- `Twitter()` Initializes your twitter object.\n- `void postTweet(int userId, int tweetId)` Composes a new tweet with ID tweetId by the user userId.\n- `List<Integer> getNewsFeed(int userId)` Retrieves the 10 most recent tweet IDs in the user's news feed. Each item must be posted by users the user follows or by the user themselves. Tweets must be ordered from most recent to least recent.\n- `void follow(int followerId, int followeeId)` The user with ID followerId starts following the user with ID followeeId.\n- `void unfollow(int followerId, int followeeId)` The user with ID followerId stops following the user with ID followeeId.",
+    "subTopic": "Heap"
+  },
+  {
+    "slug": "minimum-operations-to-reduce-an-integer-to-0",
+    "title": "Minimum Operations to Reduce an Integer to 0",
+    "steps": 14,
+    "description": "Add/subtract powers of 2. Handle consecutive 1s.\n\nMin operations to make n = 0 using ±2^k.\nConsecutive 1s: add to clear, else subtract.",
+    "subTopic": "Greedy On Bits"
+  },
+  {
+    "slug": "sum-of-two-integers",
+    "title": "Sum of Two Integers",
+    "steps": 4,
+    "description": "Given two integers a and b, return the sum of the two integers without using the operators + and -.",
+    "subTopic": "Bit Manipulation"
+  },
+  {
+    "slug": "reverse-integer",
+    "title": "Reverse Integer",
+    "steps": 3,
+    "description": "Given a signed 32-bit integer x, return x with its digits reversed. If reversing x causes the value to go outside the signed 32-bit integer range [-2³¹, 2³¹ - 1], then return 0.\n\nAssume the environment does not allow you to store 64-bit integers (signed or unsigned).",
+    "subTopic": "Bit Manipulation"
+  },
+  {
+    "slug": "max-points-on-a-line",
+    "title": "Max Points on a Line",
+    "steps": 3,
+    "description": "For each point, count slopes to all others.\n\nMax collinear points.\nFor each point, map slopes to counts.",
+    "subTopic": "Math"
+  },
+  {
+    "slug": "powx-n",
+    "title": "Pow(x, n)",
+    "steps": 3,
+    "description": "Implement pow(x, n), which calculates x raised to the power n (i.e., x^n).\n\nYou are given a base number x and an integer exponent n. Return the result of raising x to the power of n.\n\nThe implementation should handle both positive and negative exponents efficiently.",
+    "subTopic": "Math"
+  },
+  {
+    "slug": "multiply-strings",
+    "title": "Multiply Strings",
+    "steps": 3,
+    "description": "Given two non-negative integers num1 and num2 represented as strings, return the product of num1 and num2, also represented as a string.\n\nYou must not use any built-in BigInteger library or convert the inputs to integer directly.",
+    "subTopic": "Math"
+  },
+  {
+    "slug": "detect-squares",
+    "title": "Detect Squares",
+    "steps": 3,
+    "description": "You are given a stream of points on the X-Y plane and need to design an algorithm that can efficiently count the number of ways to form axis-aligned squares with a given query point.\n\nImplement the `DetectSquares` class:\n\n- `DetectSquares()` Initializes the object with an empty data structure.\n- `void add(int[] point)` Adds a new point to the data structure.\n- `int count(int[] point)` Counts the number of ways to form axis-aligned squares using the query point and three other points from the data structure.\n\nAn axis-aligned square has edges of equal length and aligned with the axes. The square can be formed in any orientation as long as it's axis-aligned.",
+    "subTopic": "Math"
+  },
+  {
+    "slug": "triangle",
+    "title": "Triangle",
+    "steps": 5,
+    "description": "Given a triangle array, return the minimum path sum from top to bottom. For each step, you may move to an adjacent number of the row below. More formally, if you are on index i on the current row, you may move to either index i or index i + 1 on the next row.",
+    "subTopic": "Multidimensional DP"
+  },
+  {
+    "slug": "minimum-path-sum",
+    "title": "Minimum Path Sum",
+    "steps": 3,
+    "description": "dp[i][j] = grid[i][j] + min(dp[i-1][j], dp[i][j-1]).\n\nMin sum path from top-left to bottom-right.\nCan only move right or down.",
+    "subTopic": "Multidimensional DP"
+  },
+  {
+    "slug": "unique-paths-ii",
+    "title": "Unique Paths II",
+    "steps": 3,
+    "description": "dp[i][j] = 0 if obstacle, else dp[i-1][j] + dp[i][j-1].\n\nCount paths with obstacles.\nObstacle = 0 paths through that cell.",
+    "subTopic": "Multidimensional DP"
+  },
+  {
+    "slug": "edit-distance",
+    "title": "Edit Distance",
+    "steps": 3,
+    "description": "dp[i][j] = min(insert, delete, replace) + 1.\n\nMin operations to convert word1 to word2.\nThree operations: insert, delete, replace.",
+    "subTopic": "Multidimensional DP"
+  },
+  {
+    "slug": "maximal-square",
+    "title": "Maximal Square",
+    "steps": 3,
+    "description": "dp[i][j] = min(top, left, diag) + 1 if matrix[i][j] == '1'.\n\nLargest square of 1s in binary matrix.\ndp[i][j] = side length of largest square ending at (i,j).",
+    "subTopic": "Multidimensional DP"
+  },
+  {
+    "slug": "unique-paths",
+    "title": "Unique Paths",
+    "steps": 3,
+    "description": "dp[i][j] = dp[i-1][j] + dp[i][j-1]. Or use combinatorics.\n\nCount paths from top-left to bottom-right.\nCan only move right or down.",
+    "subTopic": "Grid Dp (Paths Count)"
+  },
+  {
+    "slug": "missing-number",
+    "title": "Missing Number",
+    "steps": 4,
+    "description": "Given an array nums containing n distinct numbers in the range [0, n], return the only number in the range that is missing from the array.",
+    "subTopic": "Math / Prefix-Sum Idea"
+  },
+  {
+    "slug": "transformed-array",
+    "title": "Transformed Array",
+    "steps": 3,
+    "description": "Given an array, apply transformation rules to create a new array. Common transformations include prefix sums, differences, or element-wise operations.",
+    "subTopic": "Implementation / Transformation"
+  },
+  {
+    "slug": "count-and-say",
+    "title": "Count and Say",
+    "steps": 4,
+    "description": "The count-and-say sequence is a sequence of digit strings defined by the recursive formula: countAndSay(1) = \"1\", countAndSay(n) is the way you would \"say\" the digit string from countAndSay(n-1). To determine how you \"say\" a digit string, group it into runs of consecutive identical digits. Then for each group, say the number of digits, then the digit.",
+    "subTopic": "Recursive String Build"
+  },
+  {
+    "slug": "min-cost-climbing-stairs",
+    "title": "Min Cost Climbing Stairs",
+    "steps": 4,
+    "description": "You are given an integer array `cost` where `cost[i]` is the cost of the ith step on a staircase. Once you pay the cost, you can either climb one or two steps. You can either start from the step with index 0 or the step with index 1. Return the minimum cost to reach the top of the floor.",
+    "subTopic": "1-D Dynamic Programming"
+  },
+  {
+    "slug": "house-robber-ii",
+    "title": "House Robber II",
+    "steps": 3,
+    "description": "You are a professional robber planning to rob houses arranged in a circle. Each house contains a certain amount of money. All the houses are connected in a circle, meaning the first house is adjacent to the last house. Adjacent houses have a security system that will automatically contact the police if two adjacent houses are robbed on the same night.\n\nGiven an integer array `nums` representing the amount of money in each house, return the maximum amount of money you can rob without alerting the police.",
+    "subTopic": "1-D Dynamic Programming"
+  },
+  {
+    "slug": "partition-equal-subset-sum",
+    "title": "Partition Equal Subset Sum",
+    "steps": 2,
+    "description": "Given an integer array nums, return true if you can partition the array into two subsets such that the sum of the elements in both subsets is equal, or false otherwise.",
+    "subTopic": "1-D Dynamic Programming"
+  },
+  {
+    "slug": "longest-common-subsequence",
+    "title": "Longest Common Subsequence",
+    "steps": 5,
+    "description": "Given two strings text1 and text2, return the length of their longest common subsequence. A subsequence is a sequence that appears in the same relative order, but not necessarily contiguous. If there is no common subsequence, return 0.",
+    "subTopic": "2-D Dynamic Programming"
+  },
+  {
+    "slug": "target-sum",
+    "title": "Target Sum",
+    "steps": 2,
+    "description": "You are given an integer array nums and an integer target. You want to build an expression out of nums by adding one of the symbols '+' and '-' before each integer in nums and then concatenate all the integers. Return the number of different expressions that you can build, which evaluates to target.",
+    "subTopic": "2-D Dynamic Programming"
+  },
+  {
+    "slug": "longest-increasing-path-in-a-matrix",
+    "title": "Longest Increasing Path In a Matrix",
+    "steps": 8,
+    "description": "Given an m x n integers matrix, return the length of the longest increasing path in the matrix. From each cell, you can move in four directions (up, down, left, right) to adjacent cells. You cannot move diagonally or move outside the boundaries. The path must be strictly increasing.",
+    "subTopic": "2-D Dynamic Programming"
+  },
+  {
+    "slug": "distinct-subsequences",
+    "title": "Distinct Subsequences",
+    "steps": 5,
+    "description": "Given two strings s and t, return the number of distinct subsequences of s which equals t.\n\nA subsequence is a sequence that can be derived from another sequence by deleting some or no elements without changing the order of the remaining elements.\n\nThe answer is guaranteed to fit within a 32-bit signed integer.",
+    "subTopic": "2-D Dynamic Programming"
+  },
+  {
+    "slug": "burst-balloons",
+    "title": "Burst Balloons",
+    "steps": 3,
+    "description": "You are given n balloons, indexed from 0 to n - 1. Each balloon has a number on it represented by an array nums. If you burst the ith balloon, you get nums[i - 1] * nums[i] * nums[i + 1] coins. If i - 1 or i + 1 goes out of bounds, treat it as if there is a balloon with a 1 painted on it.\n\nReturn the maximum coins you can collect by bursting the balloons optimally.",
+    "subTopic": "2-D Dynamic Programming"
+  },
+  {
+    "slug": "regular-expression-matching",
+    "title": "Regular Expression Matching",
+    "steps": 3,
+    "description": "Given an input string `s` and a pattern `p`, implement regular expression matching with support for '.' and '*':\n\n- '.' Matches any single character.\n- '*' Matches zero or more of the preceding element.\n\nThe matching must cover the entire input string (not partial). Return true if the pattern matches the entire string, false otherwise.",
+    "subTopic": "2-D Dynamic Programming"
+  },
+  {
+    "slug": "hand-of-straights",
+    "title": "Hand of Straights",
+    "steps": 3,
+    "description": "Alice has some number of cards and she wants to rearrange the cards into groups so that each group is of size groupSize, and consists of groupSize consecutive cards.\n\nGiven an integer array hand where hand[i] is the value written on the ith card and an integer groupSize, return true if she can rearrange the cards, or false otherwise.",
+    "subTopic": "Greedy"
+  },
+  {
+    "slug": "merge-triplets-to-form-target-triplet",
+    "title": "Merge Triplets to Form Target Triplet",
+    "steps": 3,
+    "description": "A triplet is an array of three integers. You are given a 2D array of triplets and a target triplet. You can perform the following operation any number of times: choose two different triplets and update one of them to be the maximum of each corresponding element from both triplets. Return true if it's possible to obtain the target triplet as an element of the triplets array after performing these operations, or false otherwise.",
+    "subTopic": "Greedy"
+  }
+]
