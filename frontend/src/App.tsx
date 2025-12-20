@@ -8,7 +8,9 @@ import { useProblems } from './viewmodels';
 import { SearchEngine } from './utils/SearchEngine';
 import SolutionModal from './components/SolutionModal';
 import { ThemeToggle } from './components/ThemeToggle';
-import { Search, Brain, Zap, X } from 'lucide-react';
+import { LoginButton } from './components/LoginButton';
+import CodeniumLogo from './assets/logo.svg';
+import { Search, Zap, X } from 'lucide-react';
 
 function App() {
   // ViewModels
@@ -150,30 +152,36 @@ function App() {
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
             {/* Logo */}
             <div className="flex items-center gap-2 sm:gap-3">
-              <Brain className="text-indigo-500 w-8 h-8 sm:w-10 sm:h-10" />
+              <img src={CodeniumLogo} alt="Codenium" className="w-8 h-8 sm:w-10 sm:h-10" />
               <h1 className="text-xl sm:text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 to-purple-500">
                 Codenium
               </h1>
             </div>
 
-            {/* Theme Toggle + Stats Row */}
-            <div className="flex items-center gap-3 sm:gap-4 overflow-x-auto pb-2 lg:pb-0 -mx-3 px-3 lg:mx-0 lg:px-0 custom-scrollbar">
-              <ThemeToggle />
-              <div className="flex flex-col items-center px-4 py-2 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 min-w-[80px] shadow-sm flex-shrink-0">
-                <span className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">{stats.easy + stats.medium + stats.hard}</span>
-                <span className="text-[10px] uppercase text-slate-500 font-bold tracking-wide">Total</span>
-              </div>
-              <div className="flex flex-col items-center px-4 py-2 bg-emerald-500/10 border border-emerald-500/20 rounded-xl min-w-[70px] flex-shrink-0">
-                <span className="text-lg sm:text-xl font-bold text-emerald-600 dark:text-emerald-400">{stats.easy}</span>
-                <span className="text-[10px] uppercase text-slate-500 font-bold tracking-wide">Easy</span>
-              </div>
-              <div className="flex flex-col items-center px-4 py-2 bg-amber-500/10 border border-amber-500/20 rounded-xl min-w-[70px] flex-shrink-0">
-                <span className="text-lg sm:text-xl font-bold text-amber-600 dark:text-amber-400">{stats.medium}</span>
-                <span className="text-[10px] uppercase text-slate-500 font-bold tracking-wide">Med</span>
-              </div>
-              <div className="flex flex-col items-center px-4 py-2 bg-rose-500/10 border border-rose-500/20 rounded-xl min-w-[70px] flex-shrink-0">
-                <span className="text-lg sm:text-xl font-bold text-rose-600 dark:text-rose-400">{stats.hard}</span>
-                <span className="text-[10px] uppercase text-slate-500 font-bold tracking-wide">Hard</span>
+            {/* Controls Row - Login button outside scroll area */}
+            <div className="flex items-center gap-3 sm:gap-4">
+              {/* Login Button - outside scroll container to prevent dropdown clipping */}
+              <LoginButton />
+
+              {/* Theme Toggle + Stats - scrollable on mobile */}
+              <div className="flex items-center gap-3 sm:gap-4 overflow-x-auto pb-2 lg:pb-0 custom-scrollbar">
+                <ThemeToggle />
+                <div className="flex flex-col items-center px-4 py-2 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 min-w-[80px] shadow-sm flex-shrink-0">
+                  <span className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">{stats.easy + stats.medium + stats.hard}</span>
+                  <span className="text-[10px] uppercase text-slate-500 font-bold tracking-wide">Total</span>
+                </div>
+                <div className="flex flex-col items-center px-4 py-2 bg-emerald-500/10 border border-emerald-500/20 rounded-xl min-w-[70px] flex-shrink-0">
+                  <span className="text-lg sm:text-xl font-bold text-emerald-600 dark:text-emerald-400">{stats.easy}</span>
+                  <span className="text-[10px] uppercase text-slate-500 font-bold tracking-wide">Easy</span>
+                </div>
+                <div className="flex flex-col items-center px-4 py-2 bg-amber-500/10 border border-amber-500/20 rounded-xl min-w-[70px] flex-shrink-0">
+                  <span className="text-lg sm:text-xl font-bold text-amber-600 dark:text-amber-400">{stats.medium}</span>
+                  <span className="text-[10px] uppercase text-slate-500 font-bold tracking-wide">Med</span>
+                </div>
+                <div className="flex flex-col items-center px-4 py-2 bg-rose-500/10 border border-rose-500/20 rounded-xl min-w-[70px] flex-shrink-0">
+                  <span className="text-lg sm:text-xl font-bold text-rose-600 dark:text-rose-400">{stats.hard}</span>
+                  <span className="text-[10px] uppercase text-slate-500 font-bold tracking-wide">Hard</span>
+                </div>
               </div>
             </div>
           </div>

@@ -71,6 +71,7 @@ const SmartVisualizer: React.FC<SmartVisualizerProps> = ({ solution }) => {
     const [speed, setSpeed] = useState(1); // 1x speed (1000ms base)
     const timerRef = useRef<number | null>(null);
     const stepDescriptionRef = useRef<HTMLDivElement>(null);
+    const arrayContainerRef = useRef<HTMLDivElement>(null);
 
     const steps = solution.animationSteps || solution.steps || [];
     const rawInitialState = solution.initialState || [];
@@ -172,6 +173,34 @@ const SmartVisualizer: React.FC<SmartVisualizerProps> = ({ solution }) => {
         stepDescriptionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }, [currentStep]);
 
+    // Auto-scroll array to show pointers when step changes
+    useEffect(() => {
+        if (visualizationType !== 'array' || !arrayContainerRef.current) return;
+        if (!activeStepData?.pointers?.length) return;
+
+        const container = arrayContainerRef.current;
+        const pointerIndices = activeStepData.pointers.map(p => p.index);
+        const minIdx = Math.min(...pointerIndices);
+        const maxIdx = Math.max(...pointerIndices);
+
+        // Find elements at these indices and scroll to center between them
+        const elements = container.querySelectorAll('[data-array-idx]');
+        const minEl = elements[minIdx] as HTMLElement;
+        const maxEl = elements[maxIdx] as HTMLElement;
+
+        if (minEl && maxEl) {
+            const containerRect = container.getBoundingClientRect();
+            const minRect = minEl.getBoundingClientRect();
+            const maxRect = maxEl.getBoundingClientRect();
+
+            // Calculate center point between the two pointers
+            const centerX = (minRect.left + maxRect.right) / 2 - containerRect.left + container.scrollLeft;
+            const targetScroll = centerX - containerRect.width / 2;
+
+            container.scrollTo({ left: Math.max(0, targetScroll), behavior: 'smooth' });
+        }
+    }, [currentStep, activeStepData, visualizationType]);
+
     const handleNext = useCallback(() => {
         if (currentStep < totalSteps) setCurrentStep(c => c + 1);
     }, [currentStep, totalSteps]);
@@ -257,80 +286,85 @@ const SmartVisualizer: React.FC<SmartVisualizerProps> = ({ solution }) => {
 
             case 'array':
             default:
-                // Default array visualization
+                // Default array visualization with horizontal scroll support
                 return (
-                    <div className="viz-array-container flex gap-3 relative z-10">
-                        <AnimatePresence mode="sync">
-                            {currentArray.map((val: number | string, idx: number) => {
-                                const isHighlighted = activeStepData?.indices?.includes(idx);
+                    <div ref={arrayContainerRef} className="viz-array-container w-full overflow-x-auto pb-4 pt-10 custom-scrollbar">
+                        <div className="flex gap-2 sm:gap-3 justify-center min-w-max px-4">
+                            <AnimatePresence mode="sync">
+                                {currentArray.map((val: number | string, idx: number) => {
+                                    const isHighlighted = activeStepData?.indices?.includes(idx);
+                                    const hasPointer = activeStepData?.pointers?.some(ptr => ptr.index === idx);
 
-                                let colorClass = "border-slate-300 bg-slate-200 dark:border-slate-700 dark:bg-slate-800";
-                                let glowStyle = {};
-                                if (isHighlighted) {
-                                    if (activeStepData?.color === 'success') {
-                                        colorClass = "border-emerald-500 bg-emerald-500/20";
-                                        glowStyle = { boxShadow: '0 0 20px rgba(16, 185, 129, 0.6)' };
-                                    } else if (activeStepData?.color === 'accent') {
-                                        colorClass = "border-indigo-500 bg-indigo-500/20";
-                                        glowStyle = { boxShadow: '0 0 20px rgba(99, 102, 241, 0.6)' };
-                                    } else {
-                                        colorClass = "border-yellow-500 bg-yellow-500/20";
-                                        glowStyle = { boxShadow: '0 0 20px rgba(234, 179, 8, 0.6)' };
+                                    let colorClass = "border-slate-300 bg-slate-200 dark:border-slate-700 dark:bg-slate-800";
+                                    let glowStyle = {};
+                                    if (isHighlighted || hasPointer) {
+                                        if (activeStepData?.color === 'success') {
+                                            colorClass = "border-emerald-500 bg-emerald-500/20";
+                                            glowStyle = { boxShadow: '0 0 20px rgba(16, 185, 129, 0.6)' };
+                                        } else if (activeStepData?.color === 'accent') {
+                                            colorClass = "border-indigo-500 bg-indigo-500/20";
+                                            glowStyle = { boxShadow: '0 0 20px rgba(99, 102, 241, 0.6)' };
+                                        } else {
+                                            colorClass = "border-yellow-500 bg-yellow-500/20";
+                                            glowStyle = { boxShadow: '0 0 20px rgba(234, 179, 8, 0.6)' };
+                                        }
                                     }
-                                }
 
-                                return (
-                                    <motion.div
-                                        key={`item-${idx}`}
-                                        layout
-                                        initial={{ scale: 0.8, opacity: 0 }}
-                                        animate={{
-                                            scale: isHighlighted ? 1.15 : 1,
-                                            opacity: 1,
-                                            ...glowStyle
-                                        }}
-                                        transition={{
-                                            type: "spring",
-                                            stiffness: 300,
-                                            damping: 20,
-                                            duration: 0.3
-                                        }}
-                                        className={`relative w-12 h-12 md:w-14 md:h-14 flex items-center justify-center rounded-lg border-2 text-lg font-bold ${colorClass}`}
-                                    >
-                                        <motion.span
-                                            className="text-slate-800 dark:text-white"
-                                            animate={{ scale: isHighlighted ? 1.2 : 1 }}
-                                            transition={{ duration: 0.2 }}
+                                    return (
+                                        <motion.div
+                                            key={`item-${idx}`}
+                                            layout
+                                            initial={{ scale: 0.8, opacity: 0 }}
+                                            animate={{
+                                                scale: (isHighlighted || hasPointer) ? 1.1 : 1,
+                                                opacity: 1,
+                                                ...glowStyle
+                                            }}
+                                            transition={{
+                                                type: "spring",
+                                                stiffness: 300,
+                                                damping: 20,
+                                                duration: 0.3
+                                            }}
+                                            className={`relative w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 flex items-center justify-center rounded-lg border-2 text-base sm:text-lg font-bold flex-shrink-0 ${colorClass}`}
+                                            data-array-idx={idx}
                                         >
-                                            {val}
-                                        </motion.span>
-                                        <span className="absolute -bottom-6 text-xs text-slate-500 font-mono">{idx}</span>
-                                        <AnimatePresence>
-                                            {activeStepData?.pointers?.map((ptr, pIdx) => (
-                                                ptr.index === idx && (
-                                                    <motion.div
-                                                        key={`ptr-${pIdx}-${currentStep}`}
-                                                        initial={{ y: -15, opacity: 0, scale: 0.5 }}
-                                                        animate={{ y: 0, opacity: 1, scale: 1 }}
-                                                        exit={{ y: -10, opacity: 0, scale: 0.5 }}
-                                                        transition={{ type: "spring", stiffness: 400, damping: 25 }}
-                                                        className="absolute -top-8 text-indigo-400 text-sm font-bold flex flex-col items-center"
-                                                    >
+                                            <motion.span
+                                                className="text-slate-800 dark:text-white"
+                                                animate={{ scale: (isHighlighted || hasPointer) ? 1.1 : 1 }}
+                                                transition={{ duration: 0.2 }}
+                                            >
+                                                {val}
+                                            </motion.span>
+                                            <span className="absolute -bottom-5 text-[10px] sm:text-xs text-slate-500 font-mono">{idx}</span>
+
+                                            {/* Pointer labels above the element */}
+                                            {activeStepData?.pointers?.filter(ptr => ptr.index === idx).map((ptr, pIdx) => (
+                                                <motion.div
+                                                    key={`ptr-${pIdx}-${ptr.label}`}
+                                                    initial={{ y: -10, opacity: 0, scale: 0.5 }}
+                                                    animate={{ y: 0, opacity: 1, scale: 1 }}
+                                                    exit={{ y: -10, opacity: 0, scale: 0.5 }}
+                                                    transition={{ type: "spring", stiffness: 400, damping: 25 }}
+                                                    className="absolute -top-8 text-indigo-400 text-xs sm:text-sm font-bold flex flex-col items-center z-20"
+                                                >
+                                                    <span className="bg-indigo-500 text-white px-1.5 py-0.5 rounded text-[10px] sm:text-xs font-bold shadow-md">
                                                         {ptr.label}
-                                                        <motion.span
-                                                            animate={{ y: [0, 3, 0] }}
-                                                            transition={{ repeat: Infinity, duration: 0.8 }}
-                                                        >
-                                                            ↓
-                                                        </motion.span>
-                                                    </motion.div>
-                                                )
+                                                    </span>
+                                                    <motion.span
+                                                        animate={{ y: [0, 2, 0] }}
+                                                        transition={{ repeat: Infinity, duration: 0.6 }}
+                                                        className="text-indigo-400"
+                                                    >
+                                                        ▼
+                                                    </motion.span>
+                                                </motion.div>
                                             ))}
-                                        </AnimatePresence>
-                                    </motion.div>
-                                );
-                            })}
-                        </AnimatePresence>
+                                        </motion.div>
+                                    );
+                                })}
+                            </AnimatePresence>
+                        </div>
                     </div>
                 );
         }

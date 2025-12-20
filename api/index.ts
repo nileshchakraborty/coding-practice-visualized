@@ -40,10 +40,62 @@ import { MCPTools } from '../src/adapters/driven/mcp/Tools';
 // Application
 import { ProblemService } from '../src/application/ProblemService';
 
+// Google Auth
+import { OAuth2Client } from 'google-auth-library';
+
 const app = express();
 
 app.use(cors());
 app.use(express.json({ limit: '10mb' }));
+
+// --- AUTH MIDDLEWARE ---
+const googleClient = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
+
+// Optional auth middleware - adds user info if token is valid, but doesn't block
+const optionalAuth = async (req: express.Request, _res: express.Response, next: express.NextFunction) => {
+    const authHeader = req.headers.authorization;
+    if (authHeader?.startsWith('Bearer ')) {
+        const token = authHeader.substring(7);
+        try {
+            // For Google OAuth access tokens, verify by fetching userinfo
+            const userInfoResponse = await fetch('https://www.googleapis.com/oauth2/v3/userinfo', {
+                headers: { Authorization: `Bearer ${token}` }
+            });
+            if (userInfoResponse.ok) {
+                const userInfo = await userInfoResponse.json();
+                (req as any).user = userInfo;
+            }
+        } catch (error) {
+            // Token invalid, continue without user
+            console.log('Auth token verification failed:', error);
+        }
+    }
+    next();
+};
+
+// Required auth middleware - blocks request if not authenticated
+const requireAuth = async (req: express.Request, res: express.Response, next: express.NextFunction) => {
+    const authHeader = req.headers.authorization;
+    if (!authHeader?.startsWith('Bearer ')) {
+        return res.status(401).json({ error: 'Authentication required', code: 'AUTH_REQUIRED' });
+    }
+
+    const token = authHeader.substring(7);
+    try {
+        const userInfoResponse = await fetch('https://www.googleapis.com/oauth2/v3/userinfo', {
+            headers: { Authorization: `Bearer ${token}` }
+        });
+        if (!userInfoResponse.ok) {
+            return res.status(401).json({ error: 'Invalid or expired token', code: 'INVALID_TOKEN' });
+        }
+        const userInfo = await userInfoResponse.json();
+        (req as any).user = userInfo;
+        next();
+    } catch (error) {
+        console.error('Auth verification error:', error);
+        return res.status(401).json({ error: 'Authentication failed', code: 'AUTH_FAILED' });
+    }
+};
 
 // --- COMPOSITION ROOT ---
 console.log("Initializing Hexagonal Architecture...");
@@ -106,7 +158,7 @@ app.get('/api/solutions/:slug', async (req, res) => {
     }
 });
 
-app.post('/api/execute', async (req, res) => {
+app.post('/api/execute', requireAuth, async (req, res) => {
     try {
         const { code, testCases } = req.body;
         const result = await problemService.executeCode(code, testCases);
@@ -117,7 +169,7 @@ app.post('/api/execute', async (req, res) => {
     }
 });
 
-app.post('/api/ai/hint', async (req, res) => {
+app.post('/api/ai/hint', requireAuth, async (req, res) => {
     try {
         const { problem, code } = req.body;
         const result = await problemService.getAIHint(problem, code || '');
@@ -127,7 +179,7 @@ app.post('/api/ai/hint', async (req, res) => {
     }
 });
 
-app.post('/api/ai/explain', async (req, res) => {
+app.post('/api/ai/explain', requireAuth, async (req, res) => {
     try {
         const { code, title } = req.body;
         const result = await problemService.getAIExplanation(code || '', title || 'Unknown');
@@ -137,7 +189,7 @@ app.post('/api/ai/explain', async (req, res) => {
     }
 });
 
-app.post('/api/ai/tutor', async (req, res) => {
+app.post('/api/ai/tutor', requireAuth, async (req, res) => {
     try {
         const { slug, message, history, code } = req.body;
         const result = await problemService.chatWithTutor(slug, history || [], message, code);
@@ -147,7 +199,7 @@ app.post('/api/ai/tutor', async (req, res) => {
     }
 });
 
-app.post('/api/generate', async (req, res) => {
+app.post('/api/generate', requireAuth, async (req, res) => {
     try {
         const { slug } = req.body;
         const result = await problemService.generateSolution(slug);

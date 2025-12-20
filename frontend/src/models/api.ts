@@ -4,8 +4,23 @@
  */
 import axios from 'axios';
 import type { Problem, Solution, Stats, RunResponse } from './types';
+import { getAuthToken } from '../context/AuthContext';
 
 const API_BASE = import.meta.env.DEV ? '/api' : (import.meta.env.VITE_API_URL || '/api');
+
+// Create axios instance with auth interceptor
+const api = axios.create({
+    baseURL: API_BASE,
+});
+
+// Add auth token to all requests
+api.interceptors.request.use((config) => {
+    const token = getAuthToken();
+    if (token) {
+        config.headers.Authorization = `Bearer ${token}`;
+    }
+    return config;
+});
 
 /**
  * Problems API
@@ -15,7 +30,7 @@ export const ProblemsAPI = {
      * Fetch all problems with categories
      */
     async getAll(): Promise<Stats> {
-        const response = await axios.get<Stats>(`${API_BASE}/problems`);
+        const response = await api.get<Stats>('/problems');
         return response.data;
     },
 
@@ -41,7 +56,7 @@ export const SolutionsAPI = {
      */
     async getBySlug(slug: string): Promise<Solution | null> {
         try {
-            const response = await axios.get<Solution>(`${API_BASE}/solutions/${slug}`);
+            const response = await api.get<Solution>(`/solutions/${slug}`);
             return response.data;
         } catch (error) {
             if (axios.isAxiosError(error) && error.response?.status === 404) {
@@ -55,7 +70,7 @@ export const SolutionsAPI = {
      * Generate solution using AI
      */
     async generate(slug: string): Promise<{ success: boolean; cached?: boolean; error?: string }> {
-        const response = await axios.post(`${API_BASE}/generate`, { slug });
+        const response = await api.post('/generate', { slug });
         return response.data;
     },
 };
@@ -72,7 +87,7 @@ export const PlaygroundAPI = {
         slug: string,
         testCases?: { input: string; output: string }[]
     ): Promise<RunResponse> {
-        const response = await axios.post<RunResponse>(`${API_BASE}/execute`, {
+        const response = await api.post<RunResponse>('/execute', {
             code,
             slug,
             testCases,
@@ -93,7 +108,7 @@ export const TutorAPI = {
         message: string,
         history: { role: string; content: string }[]
     ): Promise<{ response?: string; error?: string }> {
-        const response = await axios.post(`${API_BASE}/ai/tutor`, {
+        const response = await api.post('/ai/tutor', {
             slug,
             message,
             history,

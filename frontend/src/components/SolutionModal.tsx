@@ -3,11 +3,12 @@ import type { Solution, TestCaseResult } from '../types';
 import { PlaygroundAPI } from '../models/api';
 import SmartVisualizer from './SmartVisualizer';
 import TutorChat from './TutorChat';
-import { X, Code as CodeIcon, BookOpen, Terminal, Play, ExternalLink, Youtube, FileText, MessageCircle, Plus, Trash2, Brain, Volume2, Square, Copy } from 'lucide-react';
+import { X, Code as CodeIcon, BookOpen, Terminal, Play, ExternalLink, Youtube, FileText, MessageCircle, Plus, Trash2, Brain, Volume2, Square, Copy, LogIn } from 'lucide-react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 import Editor from '@monaco-editor/react';
+import { useAuth } from '../context/AuthContext';
 
 interface SolutionModalProps {
     isOpen: boolean;
@@ -21,6 +22,9 @@ const SolutionModal: React.FC<SolutionModalProps> = ({ isOpen, onClose, solution
     const [activeTab, setActiveTab] = useState<'problem' | 'explanation' | 'playground' | 'tutor'>('problem');
     const [activeApproach, setActiveApproach] = useState<'bruteforce' | 'optimal'>('optimal');
     const [code, setCode] = useState(solution?.code || '');
+
+    // Auth state for feature gating
+    const { isAuthenticated, login } = useAuth();
 
     // Ref for scrollable content container
     const contentRef = useRef<HTMLDivElement>(null);
@@ -684,7 +688,20 @@ const SolutionModal: React.FC<SolutionModalProps> = ({ isOpen, onClose, solution
                         </div>
                     ) : activeTab === 'tutor' ? (
                         <div className="h-full animate-in slide-in-from-bottom-4 duration-300">
-                            {slug && solution ? (
+                            {!isAuthenticated ? (
+                                <div className="flex flex-col items-center justify-center h-64 text-center">
+                                    <MessageCircle size={48} className="text-slate-400 mb-4" />
+                                    <h3 className="text-lg font-semibold text-slate-700 dark:text-slate-300 mb-2">AI Tutor Requires Sign In</h3>
+                                    <p className="text-slate-500 dark:text-slate-400 mb-4">Sign in with Google to chat with the AI tutor</p>
+                                    <button
+                                        onClick={login}
+                                        className="flex items-center gap-2 px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-500 transition-colors"
+                                    >
+                                        <LogIn size={16} />
+                                        Sign In to Continue
+                                    </button>
+                                </div>
+                            ) : slug && solution ? (
                                 <TutorChat
                                     slug={slug}
                                     problemTitle={solution.title}
@@ -733,13 +750,22 @@ const SolutionModal: React.FC<SolutionModalProps> = ({ isOpen, onClose, solution
                                 <span className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 font-mono pl-2">
                                     {solution.testCases?.length || 0} Tests
                                 </span>
-                                <button
-                                    onClick={handleRunCode}
-                                    disabled={isRunning}
-                                    className={`px-4 sm:px-6 py-2 font-semibold rounded-lg shadow-lg shadow-emerald-500/20 transition-all flex items-center gap-2 text-sm ${isRunning ? 'bg-slate-400 dark:bg-slate-700 cursor-not-allowed text-slate-300 dark:text-slate-400' : 'bg-emerald-600 hover:bg-emerald-500 text-white'}`}
-                                >
-                                    <Play size={14} /> {isRunning ? 'Running...' : 'Run'}
-                                </button>
+                                {isAuthenticated ? (
+                                    <button
+                                        onClick={handleRunCode}
+                                        disabled={isRunning}
+                                        className={`px-4 sm:px-6 py-2 font-semibold rounded-lg shadow-lg shadow-emerald-500/20 transition-all flex items-center gap-2 text-sm ${isRunning ? 'bg-slate-400 dark:bg-slate-700 cursor-not-allowed text-slate-300 dark:text-slate-400' : 'bg-emerald-600 hover:bg-emerald-500 text-white'}`}
+                                    >
+                                        <Play size={14} /> {isRunning ? 'Running...' : 'Run'}
+                                    </button>
+                                ) : (
+                                    <button
+                                        onClick={login}
+                                        className="px-4 sm:px-6 py-2 font-semibold rounded-lg border border-indigo-500 text-indigo-600 dark:text-indigo-400 hover:bg-indigo-50 dark:hover:bg-indigo-500/10 transition-all flex items-center gap-2 text-sm"
+                                    >
+                                        <LogIn size={14} /> Sign In to Run
+                                    </button>
+                                )}
                             </div>
 
                             {/* Test Cases & Output Area */}
