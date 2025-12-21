@@ -4,68 +4,61 @@ import { Problem, Solution } from '../../../domain/entities/Problem';
 import { ProblemRepository } from '../../../domain/ports/ProblemRepository';
 
 export class FileProblemRepository implements ProblemRepository {
-    private problemsFile: string;
-    private solutionsFile: string;
+    private _problemsFile: string | null = null;
+    private _solutionsFile: string | null = null;
 
-    constructor() {
-        this.problemsFile = this.findFile('problems.json');
-        this.solutionsFile = this.findFile('solutions.json');
+    private get problemsFile(): string {
+        if (!this._problemsFile) {
+            this._problemsFile = this.findFile('problems.json');
+            console.log(`[FileProblemRepository] Resolved problems.json: ${this._problemsFile}`);
+        }
+        return this._problemsFile;
+    }
 
-        console.log(`[FileProblemRepository] resolved:
-            problems: ${this.problemsFile}
-            solutions: ${this.solutionsFile}
-        `);
+    private get solutionsFile(): string {
+        if (!this._solutionsFile) {
+            this._solutionsFile = this.findFile('solutions.json');
+            console.log(`[FileProblemRepository] Resolved solutions.json: ${this._solutionsFile}`);
+        }
+        return this._solutionsFile;
     }
 
     private findFile(filename: string): string {
-        // 1. Check known candidates first (fast path)
         const candidates = [
             path.join(process.cwd(), 'api', 'data', filename),
             path.join(process.cwd(), 'data', filename),
-            path.join(__dirname, 'api', 'data', filename),
-            path.join(__dirname, '..', 'data', filename),
-            path.join('/var/task/api/data', filename)
+            path.join(__dirname, '..', '..', '..', '..', 'api', 'data', filename),
+            path.join(__dirname, 'data', filename),
+            path.join('/var/task/api/data', filename),
+            path.join('/var/task', filename)
         ];
 
         for (const p of candidates) {
-            if (fs.existsSync(p)) return p;
-        }
-
-        // 2. Fallback: Recursive search in CWD (slow but robust for serverless init)
-        try {
-            console.log(`[FileProblemRepository] Valid candidates failed for ${filename}, starting recursive search in ${process.cwd()}...`);
-            const found = this.searchDir(process.cwd(), filename, 0);
-            if (found) return found;
-        } catch (e) {
-            console.error("[FileProblemRepository] Recursive search failed:", e);
-        }
-
-        // Return a default path even if missing (will fail gracefully in getAllProblems)
-        return path.join(process.cwd(), 'api', 'data', filename);
-    }
-
-    private searchDir(dir: string, filename: string, depth: number): string | null {
-        if (depth > 3) return null; // Limit depth
-        try {
-            const files = fs.readdirSync(dir);
-            for (const file of files) {
-                const fullPath = path.join(dir, file);
-                const stat = fs.statSync(fullPath);
-                if (stat.isDirectory()) {
-                    if (file === 'node_modules' || file === '.git') continue;
-                    const res = this.searchDir(fullPath, filename, depth + 1);
-                    if (res) return res;
-                } else if (file === filename) {
-                    return fullPath;
+            try {
+                if (fs.existsSync(p)) {
+                    console.log(`[FileProblemRepository] Found ${filename} at ${p}`);
+                    return p;
                 }
+            } catch (e) {
+                // Ignore errors during path checking
             }
-        } catch (e) { }
-        return null;
+        }
+
+        console.error(`[FileProblemRepository] Could not find ${filename} in any candidate:`, candidates);
+        return candidates[0]; // Return first candidate as default
     }
 
     async getAllProblems(): Promise<any> {
-        if (!fs.existsSync(this.problemsFile)) return { categories: [] };
-        return JSON.parse(fs.readFileSync(this.problemsFile, 'utf-8'));
+        try {
+            if (!fs.existsSync(this.problemsFile)) {
+                console.error(`[FileProblemRepository] problemsFile not found: ${this.problemsFile}`);
+                return { categories: [] };
+            }
+            return JSON.parse(fs.readFileSync(this.problemsFile, 'utf-8'));
+        } catch (e) {
+            console.error(`[FileProblemRepository] Error reading problems:`, e);
+            return { categories: [] };
+        }
     }
 
     async getProblemBySlug(slug: string): Promise<Problem | null> {
@@ -80,9 +73,14 @@ export class FileProblemRepository implements ProblemRepository {
     }
 
     async getSolution(slug: string): Promise<Solution | null> {
-        if (!fs.existsSync(this.solutionsFile)) return null;
-        const data = JSON.parse(fs.readFileSync(this.solutionsFile, 'utf-8'));
-        return data.solutions?.[slug] || null;
+        try {
+            if (!fs.existsSync(this.solutionsFile)) return null;
+            const data = JSON.parse(fs.readFileSync(this.solutionsFile, 'utf-8'));
+            return data.solutions?.[slug] || null;
+        } catch (e) {
+            console.error(`[FileProblemRepository] Error reading solution:`, e);
+            return null;
+        }
     }
 
     async saveSolution(slug: string, solution: Solution): Promise<void> {
