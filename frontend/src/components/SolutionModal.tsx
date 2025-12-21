@@ -3,28 +3,56 @@ import type { Solution, TestCaseResult } from '../types';
 import { PlaygroundAPI } from '../models/api';
 import SmartVisualizer from './SmartVisualizer';
 import TutorChat from './TutorChat';
-import { X, Code as CodeIcon, BookOpen, Terminal, Play, ExternalLink, Youtube, FileText, MessageCircle, Plus, Trash2, Brain, Volume2, Square, Copy, LogIn } from 'lucide-react';
+import { AuthUnlockModal } from './AuthUnlockModal';
+import {
+    X,
+    Play,
+    MessageCircle,
+    Code as CodeIcon,
+    Volume2,
+    Square,
+    AlertTriangle,
+    CheckCircle2,
+    Copy,
+    ExternalLink,
+    Terminal,
+    Youtube,
+    FileText,
+    BookOpen,
+    Trash2,
+    Plus,
+    Settings
+} from 'lucide-react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
+import type { editor } from 'monaco-editor';
 import Editor from '@monaco-editor/react';
 import { useAuth } from '../hooks/useAuth';
+import { useProgress } from '../hooks/useProgress';
+import { useEditorSettings } from '../hooks/useEditorSettings';
+import { EditorSettingsModal } from './EditorSettingsModal';
+import { initVimMode, type VimMode } from 'monaco-vim';
 
 interface SolutionModalProps {
     isOpen: boolean;
     onClose: () => void;
     solution: Solution | null;
     slug: string | null;
-    onSelectProblem: (slug: string) => void;
 }
 
-const SolutionModal: React.FC<SolutionModalProps> = ({ isOpen, onClose, solution, slug, onSelectProblem }) => {
+const SolutionModal: React.FC<SolutionModalProps> = ({ isOpen, onClose, solution, slug }) => {
     const [activeTab, setActiveTab] = useState<'problem' | 'explanation' | 'playground' | 'tutor'>('problem');
     const [activeApproach, setActiveApproach] = useState<'bruteforce' | 'optimal'>('optimal');
+    const [language, setLanguage] = useState<'python' | 'javascript' | 'java' | 'go' | 'rust' | 'cpp'>('python');
     const [code, setCode] = useState(solution?.code || '');
 
     // Auth state for feature gating
-    const { isAuthenticated, login, user } = useAuth();
+    const { isAuthenticated, login } = useAuth();
+
+    // Progress tracking
+    const { markSolved, saveDraft, getDraft, isSolved } = useProgress();
+    const [isProblemSolved, setIsProblemSolved] = useState(false);
 
     // Ref for scrollable content container
     const contentRef = useRef<HTMLDivElement>(null);
@@ -37,19 +65,23 @@ const SolutionModal: React.FC<SolutionModalProps> = ({ isOpen, onClose, solution
     // Tutor Chat State (persisted across tab switches)
     const [tutorMessages, setTutorMessages] = useState<{ role: 'user' | 'assistant'; content: string }[]>([]);
 
-    // Update code when solution changes if code is empty so we don't overwrite user edits unexpectedly
-    // actually better to just reset on open?
-    // for now let's use a key or effect
+    // Responsive state
+    const [isDesktop, setIsDesktop] = useState(typeof window !== 'undefined' && window.innerWidth >= 1024);
+
+    useEffect(() => {
+        const handleResize = () => setIsDesktop(window.innerWidth >= 1024);
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
+    // Update code when solution changes - load from draft or use initial code
     React.useEffect(() => {
         if (solution && slug) {
-            // Check for saved progress first (for signed-in users)
-            let savedCode = null;
-            if (isAuthenticated && user?.sub) {
-                savedCode = localStorage.getItem(`codenium_progress_${user.sub}_${slug}`);
-            }
+            // Check for saved draft first (from SyncService)
+            const savedDraft = getDraft(slug);
 
-            if (savedCode) {
-                setCode(savedCode);
+            if (savedDraft) {
+                setCode(savedDraft);
             } else {
                 // Use skeleton code (initialCode) if available, otherwise full code
                 const rawCode = solution.initialCode || solution.code || '';
@@ -57,19 +89,22 @@ const SolutionModal: React.FC<SolutionModalProps> = ({ isOpen, onClose, solution
                 setCode(formattedCode);
             }
             setOutput('');
-        }
-    }, [solution, isAuthenticated, user, slug]);
 
-    // Persist code changes (Debounced)
+            // Check if problem is already solved
+            setIsProblemSolved(isSolved(slug));
+        }
+    }, [solution, slug, getDraft, isSolved]);
+
+    // Persist code changes as draft (Debounced)
     React.useEffect(() => {
-        if (!isAuthenticated || !user?.sub || !slug) return;
+        if (!slug) return;
 
         const timer = setTimeout(() => {
-            localStorage.setItem(`codenium_progress_${user.sub}_${slug}`, code);
+            saveDraft(slug, code);
         }, 1000);
 
         return () => clearTimeout(timer);
-    }, [code, slug, isAuthenticated, user]);
+    }, [code, slug, saveDraft]);
 
     // Initialize tutor greeting when solution changes
     React.useEffect(() => {
@@ -84,7 +119,7 @@ const SolutionModal: React.FC<SolutionModalProps> = ({ isOpen, onClose, solution
     // Reset state when problem changes (Navigation)
     React.useEffect(() => {
         setActiveTab('problem');
-        setIsSpeaking(false);
+        setSpeakingSection(null);
         window.speechSynthesis.cancel();
     }, [slug]);
 
@@ -110,7 +145,7 @@ const SolutionModal: React.FC<SolutionModalProps> = ({ isOpen, onClose, solution
                 allTestCases.push(customTestCase);
             }
 
-            const res = await PlaygroundAPI.runCode(code, slug, allTestCases.length > 0 ? allTestCases : undefined);
+            const res = await PlaygroundAPI.runCode(code, slug, allTestCases.length > 0 ? allTestCases : undefined, language);
 
             if (res.success) {
                 // Determine logic based on runner response structure
@@ -126,6 +161,12 @@ const SolutionModal: React.FC<SolutionModalProps> = ({ isOpen, onClose, solution
                     }).join('\n-------------------\n');
 
                     setOutput(allPassed ? `All Test Cases Passed! 🎉\n\n${outputMsg}` : `Some Tests Failed.\n\n${outputMsg}`);
+
+                    // Mark as solved if all tests passed
+                    if (allPassed && slug) {
+                        markSolved(slug, code);
+                        setIsProblemSolved(true);
+                    }
                 } else if (res.error) {
                     setOutput(`Error: ${res.error}`);
                 } else {
@@ -144,51 +185,730 @@ const SolutionModal: React.FC<SolutionModalProps> = ({ isOpen, onClose, solution
 
 
 
-    const [isSpeaking, setIsSpeaking] = useState(false);
+    // Auth Modal State
+    const [showAuthModal, setShowAuthModal] = useState(false);
+    const [authFeatureName, setAuthFeatureName] = useState('');
 
-    // Stop speaking when modal closes or tab changes
+    const openAuthModal = (feature: string) => {
+        setAuthFeatureName(feature);
+        setShowAuthModal(true);
+    };
+
+    const [speakingSection, setSpeakingSection] = useState<string | null>(null);
+
+    // Editor Settings
+    const { settings, updateSetting } = useEditorSettings();
+    const [showSettingsModal, setShowSettingsModal] = useState(false);
+    const editorRef = useRef<editor.IStandaloneCodeEditor | null>(null);
+    const vimModeRef = useRef<VimMode | null>(null);
+
+    useEffect(() => {
+        if (!editorRef.current) return;
+
+        const disposeVim = () => {
+            if (vimModeRef.current) {
+                vimModeRef.current.dispose();
+                vimModeRef.current = null;
+            }
+        };
+
+        if (settings.keybinding === 'vim') {
+            // Initialize Vim Mode
+            // Note: initVimMode attaches to the editor instance and a status bar element
+            // We need a status bar ref for this to work perfectly, or pass null
+            const statusBar = document.getElementById('vim-status-bar');
+            disposeVim();
+            try {
+                vimModeRef.current = initVimMode(editorRef.current, statusBar);
+            } catch (e) {
+                console.warn("Failed to init Vim mode", e);
+            }
+        } else {
+            disposeVim();
+        }
+
+        return disposeVim;
+    }, [settings.keybinding]);
+
+    const handleEditorMount = (editor: editor.IStandaloneCodeEditor) => {
+        editorRef.current = editor;
+    };
     React.useEffect(() => {
         return () => {
             window.speechSynthesis.cancel();
-            setIsSpeaking(false);
+            setSpeakingSection(null);
         };
     }, [activeTab, isOpen]);
 
-    const handleSpeak = () => {
-        if (!solution) return;
+    const handleSpeak = (text: string, section: string) => {
+        if (!solution || !text) return;
 
-        if (isSpeaking) {
+        if (speakingSection === section) {
             window.speechSynthesis.cancel();
-            setIsSpeaking(false);
+            setSpeakingSection(null);
             return;
         }
 
-        const textToRead = [
-            solution.title,
-            "Quick Summary.",
-            solution.oneliner,
-            solution.mentalModel ? `Visual Analogy. ${solution.mentalModel}` : "",
-            "Core Intuition.",
-            ...(solution.intuition || [])
-        ].join(". \n");
-
-        const utterance = new SpeechSynthesisUtterance(textToRead);
+        window.speechSynthesis.cancel();
+        const utterance = new SpeechSynthesisUtterance(text);
         utterance.rate = 1.0;
         utterance.pitch = 1.0;
         utterance.volume = 1.0;
 
-        utterance.onend = () => setIsSpeaking(false);
-        utterance.onerror = () => setIsSpeaking(false);
+        utterance.onend = () => setSpeakingSection(null);
+        utterance.onerror = () => setSpeakingSection(null);
 
         window.speechSynthesis.speak(utterance);
-        setIsSpeaking(true);
+        setSpeakingSection(section);
     };
 
     if (!isOpen || !solution) return null;
 
+    // ==================== RENDER FUNCTIONS ====================
+
+    // Render the Problem Tab Content
+    const renderProblemTab = () => (
+        <div className="space-y-6 sm:space-y-8 animate-in slide-in-from-bottom-4 duration-300">
+            {/* Problem Description */}
+            <div className="space-y-3 sm:space-y-4">
+                <h3 className="text-xs sm:text-sm uppercase tracking-wider text-slate-500 font-bold flex items-center gap-2">
+                    📋 Problem Description
+                </h3>
+                <div className="p-4 sm:p-6 rounded-xl bg-slate-100 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/50">
+                    <p className="text-slate-700 dark:text-slate-200 text-sm sm:text-lg leading-relaxed whitespace-pre-line">
+                        {solution.problemStatement || solution.description || 'No description available.'}
+                    </p>
+                </div>
+            </div>
+
+            {/* Examples */}
+            <div className="space-y-4">
+                <h3 className="text-sm uppercase tracking-wider text-slate-500 font-bold flex items-center gap-2">
+                    🧪 Examples
+                </h3>
+                <div className="space-y-3">
+                    {(solution.examples || solution.testCases || []).map((ex, i) => (
+                        <div key={i} className="p-4 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+                            <div className="flex items-center gap-2 mb-3">
+                                <span className="px-2 py-1 text-xs font-bold bg-emerald-500/20 text-emerald-600 dark:text-emerald-300 rounded">
+                                    Example {i + 1}
+                                </span>
+                            </div>
+                            <div className="space-y-2">
+                                <div>
+                                    <span className="text-xs uppercase text-slate-500 font-semibold">Input:</span>
+                                    <pre className="mt-1 p-3 bg-slate-200 dark:bg-slate-900 rounded-lg text-sm text-cyan-600 dark:text-cyan-300 overflow-x-auto">
+                                        <code>{ex.input}</code>
+                                    </pre>
+                                </div>
+                                <div>
+                                    <span className="text-xs uppercase text-slate-500 font-semibold">Output:</span>
+                                    <pre className="mt-1 p-3 bg-slate-200 dark:bg-slate-900 rounded-lg text-sm text-emerald-600 dark:text-emerald-300 overflow-x-auto">
+                                        <code>{ex.output}</code>
+                                    </pre>
+                                </div>
+                                {'explanation' in ex && typeof (ex as { explanation?: string }).explanation === 'string' && (
+                                    <div>
+                                        <span className="text-xs uppercase text-slate-500 font-semibold">Explanation:</span>
+                                        <p className="mt-1 text-slate-600 dark:text-slate-300 text-sm">{(ex as { explanation: string }).explanation}</p>
+                                    </div>
+                                )}
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+
+            {/* Constraints */}
+            {solution.constraints && solution.constraints.length > 0 && (
+                <div className="space-y-4">
+                    <h3 className="text-sm uppercase tracking-wider text-slate-500 font-bold flex items-center gap-2">
+                        📏 Constraints
+                    </h3>
+                    <div className="p-4 rounded-xl bg-slate-100 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/50">
+                        <ul className="space-y-1">
+                            {solution.constraints.map((c, i) => (
+                                <li key={i} className="text-slate-600 dark:text-slate-300 font-mono text-sm flex items-start gap-2">
+                                    <span className="text-indigo-500 dark:text-indigo-400">•</span> {c}
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                </div>
+            )}
+
+            {/* Hints (Collapsible) */}
+            {solution.hints && solution.hints.length > 0 && (
+                <div className="space-y-4">
+                    <h3 className="text-sm uppercase tracking-wider text-slate-500 font-bold flex items-center gap-2">
+                        💡 Hints
+                    </h3>
+                    <div className="space-y-2">
+                        {solution.hints.map((hint, i) => (
+                            <details key={i} className="group">
+                                <summary className="p-3 rounded-lg bg-amber-500/10 border border-amber-500/30 text-amber-600 dark:text-amber-300 cursor-pointer hover:bg-amber-500/20 transition-colors">
+                                    <span className="ml-2 font-medium">Hint {i + 1}</span>
+                                </summary>
+                                <div className="mt-2 p-4 rounded-lg bg-slate-100 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/50 text-slate-600 dark:text-slate-300">
+                                    {hint}
+                                </div>
+                            </details>
+                        ))}
+                    </div>
+                </div>
+            )}
+
+            {/* Complexity Analysis */}
+            <div className="space-y-3 sm:space-y-4">
+                <h3 className="text-xs sm:text-sm uppercase tracking-wider text-slate-500 font-bold flex items-center gap-2">
+                    ⚡ Complexity Analysis
+                </h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+                    <div className="p-3 sm:p-4 rounded-xl bg-gradient-to-r from-emerald-500/10 to-teal-500/10 border border-emerald-500/30">
+                        <div className="text-xs sm:text-sm text-emerald-600 dark:text-emerald-400 font-semibold mb-1">Time Complexity</div>
+                        <div className="text-lg sm:text-xl text-slate-800 dark:text-white font-mono">{solution.timeComplexity || 'N/A'}</div>
+                    </div>
+                    <div className="p-3 sm:p-4 rounded-xl bg-gradient-to-r from-blue-500/10 to-indigo-500/10 border border-blue-500/30">
+                        <div className="text-xs sm:text-sm text-blue-600 dark:text-blue-400 font-semibold mb-1">Space Complexity</div>
+                        <div className="text-lg sm:text-xl text-slate-800 dark:text-white font-mono">{solution.spaceComplexity || 'N/A'}</div>
+                    </div>
+                </div>
+            </div>
+
+            {/* Key Insight */}
+            {solution.keyInsight && (
+                <div className="p-6 rounded-xl border-l-4 border-amber-500 bg-gradient-to-r from-amber-500/10 to-orange-500/10">
+                    <h3 className="text-lg font-semibold text-amber-600 dark:text-amber-300 mb-1">🔑 Key Insight</h3>
+                    <p className="text-slate-700 dark:text-slate-200 text-lg leading-relaxed">{solution.keyInsight}</p>
+                </div>
+            )}
+
+            {/* Related Problems */}
+            {solution.relatedProblems && solution.relatedProblems.length > 0 && (
+                <div className="space-y-4">
+                    <h3 className="text-sm uppercase tracking-wider text-slate-500 font-bold flex items-center gap-2">
+                        🔗 Related Problems
+                    </h3>
+                    <div className="flex flex-wrap gap-2">
+                        {solution.relatedProblems.map((related, i) => (
+                            <span
+                                key={i}
+                                onClick={() => window.location.href = `/problem/${related}`}
+                                className="px-3 py-1.5 text-sm bg-indigo-500/20 text-indigo-600 dark:text-indigo-300 border border-indigo-500/30 rounded-full hover:bg-indigo-500/30 transition-colors cursor-pointer"
+                            >
+                                {related.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}
+                            </span>
+                        ))}
+                    </div>
+                </div>
+            )}
+
+            {/* External Resources */}
+            <div className="space-y-3 sm:space-y-4">
+                <h3 className="text-xs sm:text-sm uppercase tracking-wider text-slate-500 font-bold flex items-center gap-2">
+                    📚 External Resources
+                </h3>
+                <div className="flex flex-wrap gap-2 sm:gap-3">
+                    {slug && (
+                        <>
+                            <a
+                                href={`https://leetcode.com/problems/${slug}/`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex items-center gap-2 px-3 sm:px-4 py-2 rounded-lg bg-[#ffa116]/10 text-[#ffa116] border border-[#ffa116]/30 hover:bg-[#ffa116]/20 transition-colors text-xs sm:text-sm font-medium"
+                            >
+                                <CodeIcon size={14} /> LeetCode
+                            </a>
+                            <a
+                                href={solution.neetcodeLink || `https://neetcode.io/problems/${slug}`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex items-center gap-2 px-3 sm:px-4 py-2 rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30 hover:bg-emerald-500/20 transition-colors text-xs sm:text-sm font-medium"
+                            >
+                                <Terminal size={14} /> NeetCode
+                            </a>
+                        </>
+                    )}
+                    {solution.videoId && (
+                        <a
+                            href={`https://www.youtube.com/watch?v=${solution.videoId}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center gap-2 px-3 sm:px-4 py-2 rounded-lg bg-red-500/10 text-red-600 dark:text-red-400 border border-red-500/30 hover:bg-red-500/20 transition-colors text-xs sm:text-sm font-medium"
+                        >
+                            <Youtube size={14} /> Video
+                        </a>
+                    )}
+                    {solution.takeuforwardLink && (
+                        <a
+                            href={solution.takeuforwardLink}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center gap-2 px-3 sm:px-4 py-2 rounded-lg bg-pink-500/10 text-pink-600 dark:text-pink-400 border border-pink-500/30 hover:bg-pink-500/20 transition-colors text-xs sm:text-sm font-medium"
+                        >
+                            <FileText size={14} /> TakeUForward
+                        </a>
+                    )}
+                </div>
+            </div>
+        </div>
+    );
+
+    // Render the Explanation Tab Content
+    const renderExplanationTab = () => (
+        <div className="space-y-6 sm:space-y-8 animate-in slide-in-from-bottom-4 duration-300">
+
+
+            {/* 1. YouTube Video (First) */}
+            {solution.videoId && (
+                <div className="space-y-4">
+                    <h3 className="text-sm uppercase tracking-wider text-slate-500 font-bold flex items-center gap-2">
+                        <Youtube size={16} /> Video Explanation
+                    </h3>
+                    <div className="aspect-video rounded-xl overflow-hidden border border-slate-200 dark:border-slate-700">
+                        <iframe
+                            width="100%"
+                            height="100%"
+                            src={`https://www.youtube.com/embed/${solution.videoId}`}
+                            title="Solution Video"
+                            frameBorder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowFullScreen
+                        ></iframe>
+                    </div>
+                </div>
+            )}
+
+            {/* 2. Approach Toggle (Brute Force / Optimal) */}
+            <div className="space-y-4">
+                <div className="flex items-center gap-4 p-1 bg-slate-200 dark:bg-slate-800 rounded-xl">
+                    <button
+                        onClick={() => setActiveApproach('bruteforce')}
+                        className={`flex-1 py-2 rounded-lg text-sm font-medium transition-all ${activeApproach === 'bruteforce' ? 'bg-white dark:bg-slate-700 text-slate-900 dark:text-white shadow' : 'text-slate-600 dark:text-slate-400'}`}
+                    >
+                        Brute Force
+                    </button>
+                    <button
+                        onClick={() => setActiveApproach('optimal')}
+                        className={`flex-1 py-2 rounded-lg text-sm font-medium transition-all ${activeApproach === 'optimal' ? 'bg-white dark:bg-slate-700 text-slate-900 dark:text-white shadow' : 'text-slate-600 dark:text-slate-400'}`}
+                    >
+                        Optimal
+                    </button>
+                </div>
+            </div>
+
+            {/* 3. Quick Summary */}
+            <div className="p-6 rounded-xl bg-gradient-to-r from-indigo-500/10 to-purple-500/10 border border-indigo-500/30">
+                <div className="flex items-center gap-2 mb-2">
+                    <h3 className="text-lg font-semibold text-indigo-600 dark:text-indigo-300">💬 Quick Summary</h3>
+                    <button
+                        onClick={(e) => {
+                            e.stopPropagation();
+                            handleSpeak(solution.oneliner, 'summary');
+                        }}
+                        className="p-1.5 rounded-full hover:bg-white/50 dark:hover:bg-slate-800/50 text-indigo-600 dark:text-indigo-400 transition-colors"
+                        title={speakingSection === 'summary' ? "Stop speaking" : "Read summary"}
+                    >
+                        {speakingSection === 'summary' ? <Square size={16} /> : <Volume2 size={16} />}
+                    </button>
+                </div>
+                <p className="text-slate-700 dark:text-slate-200 text-lg leading-relaxed">{solution.oneliner}</p>
+            </div>
+
+            {/* 4. Core Intuition (Approach-Specific) */}
+            {activeApproach === 'bruteforce' ? (
+                <div className="space-y-6">
+                    {/* Brute Force Complexity */}
+                    <div className="p-4 rounded-xl bg-gradient-to-r from-orange-500/10 to-red-500/10 border border-orange-500/30">
+                        <div className="flex items-center gap-2 mb-2">
+                            <AlertTriangle size={18} className="text-orange-500" />
+                            <div className="flex items-center gap-2">
+                                <h4 className="font-semibold text-orange-600 dark:text-orange-400">Naive/Brute Force Approach</h4>
+                                <button
+                                    onClick={(e) => {
+                                        e.stopPropagation();
+                                        handleSpeak((solution.bruteForceIntuition || []).join('. '), 'bruteForce');
+                                    }}
+                                    className="p-1 rounded-full hover:bg-orange-200 dark:hover:bg-orange-800/50 text-orange-600 dark:text-orange-400 transition-colors"
+                                    title={speakingSection === 'bruteForce' ? "Stop speaking" : "Read intuition"}
+                                >
+                                    {speakingSection === 'bruteForce' ? <Square size={14} /> : <Volume2 size={14} />}
+                                </button>
+                            </div>
+                        </div>
+                        <div className="grid grid-cols-2 gap-4 mt-3">
+                            <div>
+                                <div className="text-xs text-slate-500 font-semibold">Time Complexity</div>
+                                <div className="text-lg font-mono text-orange-600 dark:text-orange-400">{solution.bruteForceTimeComplexity || 'O(n²)'}</div>
+                            </div>
+                            <div>
+                                <div className="text-xs text-slate-500 font-semibold">Space Complexity</div>
+                                <div className="text-lg font-mono text-orange-600 dark:text-orange-400">{solution.bruteForceSpaceComplexity || 'O(1)'}</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Brute Force Intuition */}
+                    <div className="space-y-4">
+                        <h3 className="text-sm uppercase tracking-wider text-slate-500 font-bold flex items-center gap-2">
+                            🔨 Brute Force Intuition
+                        </h3>
+                        {solution.bruteForceIntuition && solution.bruteForceIntuition.length > 0 ? (
+                            <div className="space-y-3">
+                                {solution.bruteForceIntuition.map((step, idx) => (
+                                    <div key={idx} className="flex gap-4 p-4 bg-orange-50 dark:bg-orange-500/10 rounded-xl border border-orange-200 dark:border-orange-500/30">
+                                        <div className="w-8 h-8 rounded-full bg-orange-500/20 text-orange-600 dark:text-orange-400 flex items-center justify-center font-bold shrink-0">
+                                            {idx + 1}
+                                        </div>
+                                        <p className="text-slate-700 dark:text-slate-200 leading-relaxed">{step}</p>
+                                    </div>
+                                ))}
+                            </div>
+                        ) : (
+                            <div className="p-6 rounded-xl bg-slate-100 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 text-center">
+                                <p className="text-slate-600 dark:text-slate-400 mb-2">The naive approach typically involves:</p>
+                                <ul className="text-left inline-block text-slate-600 dark:text-slate-300 space-y-2">
+                                    <li className="flex items-start gap-2"><span className="text-orange-500">•</span> Nested loops to check all possible combinations</li>
+                                    <li className="flex items-start gap-2"><span className="text-orange-500">•</span> O(n²) or O(n³) time complexity</li>
+                                    <li className="flex items-start gap-2"><span className="text-orange-500">•</span> Simple but inefficient for large inputs</li>
+                                </ul>
+                                <p className="text-slate-500 dark:text-slate-500 text-sm mt-4">Switch to Optimal to see the efficient solution!</p>
+                            </div>
+                        )}
+                    </div>
+                </div>
+            ) : (
+                /* Optimal Core Intuition Steps */
+                <div className="space-y-4">
+                    <h3 className="text-sm uppercase tracking-wider text-slate-500 font-bold flex items-center gap-2">
+                        🧠 Core Intuition
+                        <button
+                            onClick={(e) => {
+                                e.stopPropagation();
+                                handleSpeak((solution.intuition || []).join('. '), 'optimal');
+                            }}
+                            className="p-1 rounded-full hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-500 dark:text-slate-400 transition-colors"
+                            title={speakingSection === 'optimal' ? "Stop speaking" : "Read intuition"}
+                        >
+                            {speakingSection === 'optimal' ? <Square size={14} /> : <Volume2 size={14} />}
+                        </button>
+                    </h3>
+                    <div className="space-y-3">
+                        {(solution.intuition || []).map((step, idx) => (
+                            <div key={idx} className="flex gap-4 p-4 bg-slate-100 dark:bg-slate-800/50 rounded-xl border border-slate-200 dark:border-slate-700">
+                                <div className="w-8 h-8 rounded-full bg-indigo-500/20 text-indigo-600 dark:text-indigo-400 flex items-center justify-center font-bold shrink-0">
+                                    {idx + 1}
+                                </div>
+                                <p className="text-slate-700 dark:text-slate-200 leading-relaxed">{step}</p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            )}
+
+            {/* 5. Visualization */}
+            {(solution.visualizationType || solution.animationSteps?.length) && (
+                <div className="space-y-4">
+                    <h3 className="text-sm uppercase tracking-wider text-slate-500 font-bold flex items-center gap-2">
+                        🎬 Visualization
+                    </h3>
+                    <div className="rounded-xl border border-slate-200 dark:border-slate-700 overflow-hidden bg-slate-50 dark:bg-slate-800/50">
+                        <SmartVisualizer solution={solution} />
+                    </div>
+                </div>
+            )}
+
+            {/* 6. Code Solution */}
+            {(() => {
+                const displayCode = (activeApproach === 'optimal' ? solution.code : solution.bruteForceCode) || solution.code || '';
+                return (
+                    <div className="space-y-4">
+                        <div className="flex items-center justify-between">
+                            <h3 className="text-sm uppercase tracking-wider text-slate-500 font-bold flex items-center gap-2">
+                                💻 {activeApproach === 'optimal' ? 'Optimal' : 'Brute Force'} Code
+                            </h3>
+                            <button
+                                onClick={() => {
+                                    setCode(displayCode.replace(/\\n/g, '\n'));
+                                    setActiveTab('playground');
+                                }}
+                                className="text-xs flex items-center gap-1 text-indigo-400 hover:text-indigo-300 transition-colors"
+                            >
+                                <Copy size={12} /> Copy to Playground
+                            </button>
+                        </div>
+                        <div className="rounded-xl overflow-hidden border border-slate-200 dark:border-slate-700">
+                            <SyntaxHighlighter
+                                language="python"
+                                style={vscDarkPlus}
+                                customStyle={{ margin: 0, padding: '1rem', fontSize: '0.8rem' }}
+                            >
+                                {displayCode}
+                            </SyntaxHighlighter>
+                        </div>
+                    </div>
+                );
+            })()}
+
+            {/* 7. External Resources (without TakeUForward) */}
+            <div className="space-y-4 pt-4 border-t border-slate-700/50">
+                <h3 className="text-sm uppercase tracking-wider text-slate-500 font-bold flex items-center gap-2">
+                    <ExternalLink size={16} /> External Resources
+                </h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {slug && (
+                        <a
+                            href={`https://leetcode.com/problems/${slug}/`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center justify-between p-4 rounded-xl bg-slate-800/50 hover:bg-slate-800 border border-slate-700/50 hover:border-indigo-500/50 transition-all group"
+                        >
+                            <div className="flex items-center gap-3">
+                                <div className="w-10 h-10 rounded-full bg-[#ffa116]/10 flex items-center justify-center text-[#ffa116]">
+                                    <CodeIcon size={20} />
+                                </div>
+                                <div>
+                                    <div className="font-semibold text-white group-hover:text-indigo-400 transition-colors">LeetCode</div>
+                                    <div className="text-xs text-slate-500">View Problem Statement</div>
+                                </div>
+                            </div>
+                            <ExternalLink size={16} className="text-slate-500 group-hover:text-[#ffa116]" />
+                        </a>
+                    )}
+
+                    {(solution.neetcodeLink || slug) && (
+                        <a
+                            href={solution.neetcodeLink || `https://neetcode.io/problems/${slug}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center justify-between p-4 rounded-xl bg-slate-800/50 hover:bg-slate-800 border border-slate-700/50 hover:border-emerald-500/50 transition-all group"
+                        >
+                            <div className="flex items-center gap-3">
+                                <div className="w-10 h-10 rounded-full bg-emerald-500/10 flex items-center justify-center text-emerald-500">
+                                    <Terminal size={20} />
+                                </div>
+                                <div>
+                                    <div className="font-semibold text-white group-hover:text-emerald-400 transition-colors">NeetCode.io</div>
+                                    <div className="text-xs text-slate-500">Video & Solution</div>
+                                </div>
+                            </div>
+                            <ExternalLink size={16} className="text-slate-500 group-hover:text-emerald-500" />
+                        </a>
+                    )}
+
+                    {solution.videoId && (
+                        <a
+                            href={`https://www.youtube.com/watch?v=${solution.videoId}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center justify-between p-4 rounded-xl bg-slate-800/50 hover:bg-slate-800 border border-slate-700/50 hover:border-red-500/50 transition-all group"
+                        >
+                            <div className="flex items-center gap-3">
+                                <div className="w-10 h-10 rounded-full bg-red-500/10 flex items-center justify-center text-red-500">
+                                    <Youtube size={20} />
+                                </div>
+                                <div>
+                                    <div className="font-semibold text-white group-hover:text-red-400 transition-colors">Video Explanation</div>
+                                    <div className="text-xs text-slate-500">Watch on YouTube</div>
+                                </div>
+                            </div>
+                            <ExternalLink size={16} className="text-slate-500 group-hover:text-red-500" />
+                        </a>
+                    )}
+                </div>
+            </div>
+        </div>
+    );
+
+    // Render Tutor Tab
+    const renderTutorTab = () => (
+        <div className="h-full animate-in slide-in-from-bottom-4 duration-300">
+            {!isAuthenticated ? (
+                <div className="flex flex-col items-center justify-center h-64 text-center">
+                    <MessageCircle size={48} className="text-slate-400 mb-4" />
+                    <h3 className="text-lg font-semibold text-slate-700 dark:text-slate-300 mb-2">AI Tutor</h3>
+                    <p className="text-slate-500 dark:text-slate-400 mb-4">Start a conversation to get hints and explanations.</p>
+                    <button
+                        onClick={() => openAuthModal('AI Tutor')}
+                        className="flex items-center gap-2 px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-500 transition-colors"
+                    >
+                        <MessageCircle size={16} />
+                        Start Chat
+                    </button>
+                </div>
+            ) : slug && solution ? (
+                <TutorChat
+                    slug={slug}
+                    problemTitle={solution.title}
+                    messages={tutorMessages}
+                    setMessages={setTutorMessages}
+                />
+            ) : (
+                <div className="text-center text-slate-500 mt-10">Tutor unavailable without a valid problem.</div>
+            )}
+        </div>
+    );
+
+    // Render Playground Tab (Code Editor + Test Runner)
+    const renderPlaygroundTab = () => (
+        <div className="h-full min-h-[400px] flex flex-col gap-3 animate-in slide-in-from-bottom-4 duration-300">
+            {/* Code Editor */}
+            <div className="flex-1 bg-slate-900 rounded-xl border border-slate-300 dark:border-slate-700 overflow-hidden relative group min-h-[200px]">
+                <div className="absolute top-0 left-0 right-0 px-3 sm:px-4 py-2 bg-slate-800 border-b border-slate-700 text-xs text-slate-400 font-mono flex justify-between items-center z-10">
+                    <div className="flex items-center gap-4">
+                        <select
+                            value={language}
+                            onChange={(e) => setLanguage(e.target.value as 'python' | 'javascript' | 'java')}
+                            className="bg-slate-700 text-slate-200 text-xs border border-slate-600 rounded px-2 py-1 focus:outline-none focus:border-indigo-500"
+                        >
+                            <option value="python">Python</option>
+                            <option value="javascript">JavaScript</option>
+                            <option value="java">Java</option>
+                            <option value="go">Go</option>
+                            <option value="rust">Rust</option>
+                            <option value="cpp">C++</option>
+                        </select>
+                        <span>{language === 'python' ? 'main.py' : language === 'javascript' ? 'main.js' : language === 'java' ? 'Solution.java' : language === 'go' ? 'main.go' : language === 'rust' ? 'solution.rs' : 'solution.cpp'}</span>
+                        <div id="vim-status-bar" className="flex-1 min-w-[200px]"></div>
+                    </div>
+                    <button
+                        onClick={() => setShowSettingsModal(true)}
+                        className="p-1 hover:bg-slate-700 rounded transition-colors text-slate-500 hover:text-slate-300"
+                        title="Editor Settings"
+                    >
+                        <Settings size={14} />
+                    </button>
+                </div>
+                <div className="absolute inset-0 top-[37px] w-full">
+                    <Editor
+                        height="100%"
+                        language={language}
+                        value={code}
+                        onChange={(value) => setCode(value || '')}
+                        theme={settings.theme}
+                        onMount={handleEditorMount}
+                        options={{
+                            minimap: { enabled: false },
+                            fontSize: settings.fontSize,
+                            tabSize: settings.tabSize,
+                            lineNumbers: 'on',
+                            scrollBeyondLastLine: false,
+                            automaticLayout: true,
+                            padding: { top: 10 },
+                            fontFamily: "'JetBrains Mono', 'Fira Code', 'Consolas', monospace",
+                            renderLineHighlight: 'none',
+                            hideCursorInOverviewRuler: true,
+                            overviewRulerBorder: false,
+                            wordWrap: 'on',
+                            scrollbar: {
+                                vertical: 'auto',
+                                horizontal: 'auto'
+                            }
+                        }}
+                        loading={<div className="text-slate-500 p-4 text-sm">Loading Editor...</div>}
+                    />
+                </div>
+            </div>
+
+            {/* Run Button Bar */}
+            <div className="flex justify-between items-center bg-slate-100 dark:bg-slate-800 p-2 rounded-lg border border-slate-200 dark:border-slate-700">
+                <span className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 font-mono pl-2">
+                    {solution.testCases?.length || 0} Tests
+                </span>
+                <button
+                    onClick={isAuthenticated ? handleRunCode : () => openAuthModal('Code Execution')}
+                    disabled={isAuthenticated && isRunning}
+                    className={`px-4 sm:px-6 py-2 font-semibold rounded-lg shadow-lg shadow-emerald-500/20 transition-all flex items-center gap-2 text-sm ${isAuthenticated && isRunning ? 'bg-slate-400 dark:bg-slate-700 cursor-not-allowed text-slate-300 dark:text-slate-400' : 'bg-emerald-600 hover:bg-emerald-500 text-white'}`}
+                >
+                    <Play size={14} /> {isAuthenticated && isRunning ? 'Running...' : 'Run'}
+                </button>
+            </div>
+
+            {/* Test Cases & Output Area */}
+            <div className="flex-1 min-h-[150px] bg-slate-100 dark:bg-black rounded-xl border border-slate-200 dark:border-slate-800 overflow-hidden flex flex-col">
+                {/* Test Cases List */}
+                <div className="max-h-[120px] border-b border-slate-200 dark:border-slate-800 p-3 bg-slate-50 dark:bg-slate-900 overflow-y-auto custom-scrollbar">
+                    <h4 className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Test Cases</h4>
+
+                    <div className="flex gap-2 overflow-x-auto pb-2 sm:flex-wrap sm:gap-3">
+                        {/* Built-in Test Cases */}
+                        {solution.testCases?.map((testCase, i) => (
+                            <div key={`builtin-${i}`} className="flex-shrink-0 p-2 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 min-w-[150px]">
+                                <div className="text-xs text-slate-500 mb-1 font-mono">Test {i + 1}</div>
+                                <div className="text-xs text-indigo-600 dark:text-indigo-300 font-mono truncate">{testCase.input}</div>
+                                <div className="text-xs text-emerald-600 dark:text-emerald-300 font-mono truncate mt-1">→ {testCase.output}</div>
+                            </div>
+                        ))}
+
+                        {/* Custom Test Case */}
+                        <div className="flex-shrink-0 p-2 rounded-lg bg-indigo-500/10 border border-indigo-500/30 min-w-[150px]">
+                            <div className="flex justify-between items-center mb-1">
+                                <div className="text-xs text-indigo-600 dark:text-indigo-400 font-mono font-bold">Custom</div>
+                                {customTestCase ? (
+                                    <button
+                                        onClick={() => setCustomTestCase(null)}
+                                        className="p-0.5 text-slate-500 hover:text-red-400 hover:bg-red-400/10 rounded transition-colors"
+                                        title="Remove custom test"
+                                    >
+                                        <Trash2 size={12} />
+                                    </button>
+                                ) : (
+                                    <button
+                                        onClick={() => setCustomTestCase({ input: '', output: '' })}
+                                        className="flex items-center gap-1 text-xs text-indigo-600 dark:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-300 transition-colors"
+                                    >
+                                        <Plus size={12} />
+                                    </button>
+                                )}
+                            </div>
+
+                            {customTestCase && (
+                                <div className="space-y-1">
+                                    <input
+                                        value={customTestCase.input}
+                                        onChange={(e) => setCustomTestCase(prev => prev ? ({
+                                            ...prev,
+                                            input: e.target.value
+                                        }) : null)}
+                                        className="w-full bg-white dark:bg-black/50 border border-slate-300 dark:border-slate-700 rounded px-2 py-1 text-xs font-mono text-indigo-600 dark:text-indigo-300 focus:border-indigo-500 outline-none placeholder:text-slate-400 dark:placeholder:text-slate-700"
+                                        placeholder="Input"
+                                    />
+                                    <input
+                                        value={customTestCase.output}
+                                        onChange={(e) => setCustomTestCase(prev => prev ? ({
+                                            ...prev,
+                                            output: e.target.value
+                                        }) : null)}
+                                        className="w-full bg-white dark:bg-black/50 border border-slate-300 dark:border-slate-700 rounded px-2 py-1 text-xs font-mono text-emerald-600 dark:text-emerald-300 focus:border-emerald-500 outline-none placeholder:text-slate-400 dark:placeholder:text-slate-700"
+                                        placeholder="Expected"
+                                    />
+                                </div>
+                            )}
+                        </div>
+                    </div>
+                </div>
+
+                {/* Execution Results */}
+                <div className="flex-1 p-3 bg-white dark:bg-slate-900 overflow-y-auto custom-scrollbar font-mono text-xs">
+                    <h4 className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Output</h4>
+                    {output ? (
+                        <div className="whitespace-pre-wrap text-slate-700 dark:text-slate-300">{output}</div>
+                    ) : (
+                        <div className="text-slate-400 dark:text-slate-600 italic flex flex-col items-center justify-center h-20">
+                            <Terminal size={24} className="mb-2 opacity-50" />
+                            <span className="text-xs">Run code to see results...</span>
+                        </div>
+                    )}
+                </div>
+            </div>
+        </div>
+    );
+
+    // ==================== MAIN RENDER ====================
+
     return (
-        <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-black/60 dark:bg-black/80 backdrop-blur-sm sm:p-4 animate-in fade-in duration-200">
-            <div className="relative w-full h-full sm:h-auto sm:max-w-5xl sm:max-h-[90vh] bg-white dark:bg-slate-900 sm:border border-slate-200 dark:border-slate-700 sm:rounded-2xl shadow-2xl overflow-hidden flex flex-col">
+        <div className="fixed inset-0 z-50 bg-white dark:bg-slate-900 flex flex-col" style={{ width: '100vw', height: '100vh' }}>
+            <div className="relative w-full h-full flex flex-col overflow-hidden">
 
                 {/* Close Button */}
                 <button
@@ -199,20 +919,25 @@ const SolutionModal: React.FC<SolutionModalProps> = ({ isOpen, onClose, solution
                 </button>
 
                 {/* Header */}
-                <div className="px-4 sm:px-8 py-4 sm:py-6 border-b border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50 pr-12">
-                    <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 mb-2">
+                <div className="px-4 sm:px-8 py-3 sm:py-4 border-b border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50 pr-12">
+                    <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3">
                         <div className="flex items-center gap-2 sm:gap-3">
                             <span className="text-xl sm:text-2xl">{solution.patternEmoji || '💡'}</span>
-                            <h2 className="text-lg sm:text-2xl font-bold text-slate-900 dark:text-white line-clamp-2">{solution.title}</h2>
+                            <h2 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white line-clamp-1">{solution.title}</h2>
                         </div>
                         {solution.pattern && (
                             <span className="self-start px-2 sm:px-3 py-0.5 sm:py-1 text-xs sm:text-sm font-semibold bg-indigo-500/20 text-indigo-600 dark:text-indigo-300 border border-indigo-500/30 rounded-full">
                                 {solution.pattern}
                             </span>
                         )}
+                        {isProblemSolved && (
+                            <span className="self-start flex items-center gap-1 px-2 sm:px-3 py-0.5 sm:py-1 text-xs sm:text-sm font-semibold bg-emerald-500/20 text-emerald-600 dark:text-emerald-300 border border-emerald-500/30 rounded-full">
+                                <CheckCircle2 size={14} /> Solved
+                            </span>
+                        )}
                     </div>
 
-                    <div className="flex flex-wrap gap-2 sm:gap-4 text-xs sm:text-sm text-slate-600 dark:text-slate-400">
+                    <div className="flex flex-wrap gap-2 sm:gap-4 text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-1">
                         <div className="flex gap-1 sm:gap-2">
                             <span className="font-semibold text-emerald-600 dark:text-emerald-400">Time:</span> {solution.timeComplexity}
                         </div>
@@ -220,655 +945,118 @@ const SolutionModal: React.FC<SolutionModalProps> = ({ isOpen, onClose, solution
                             <span className="font-semibold text-emerald-600 dark:text-emerald-400">Space:</span> {solution.spaceComplexity}
                         </div>
                     </div>
-
-                    {/* External Link removed - moved to bottom */}
                 </div>
 
-                {/* Tabs - Equal width */}
-                <div className="flex items-center gap-2 px-4 sm:px-8 py-2 border-b border-slate-200 dark:border-slate-700 bg-slate-100 dark:bg-slate-800">
-                    <button
-                        onClick={() => setActiveTab('problem')}
-                        className={`flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-sm font-medium transition-all ${activeTab === 'problem' ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-500/25' : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-200 dark:hover:bg-white/5'}`}
-                    >
-                        <FileText size={16} /> Problem
-                    </button>
-                    <button
-                        onClick={() => setActiveTab('explanation')}
-                        className={`flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-sm font-medium transition-all ${activeTab === 'explanation' ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-500/25' : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-200 dark:hover:bg-white/5'}`}
-                    >
-                        <BookOpen size={16} /> Explain
-                    </button>
-                    <button
-                        onClick={() => setActiveTab('playground')}
-                        className={`flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-sm font-medium transition-all ${activeTab === 'playground' ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-500/25' : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-200 dark:hover:bg-white/5'}`}
-                    >
-                        <Terminal size={16} /> Code
-                    </button>
-                    <button
-                        onClick={() => setActiveTab('tutor')}
-                        className={`flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-sm font-medium transition-all ${activeTab === 'tutor' ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-500/25' : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-200 dark:hover:bg-white/5'}`}
-                    >
-                        <MessageCircle size={16} /> Tutor
-                    </button>
-                </div>
+                {/* Main Content Area - Split View for Desktop, Tabs for Mobile */}
+                <div className="flex-1 flex flex-col lg:flex-row overflow-hidden min-h-0">
 
-                {/* Scrollable Content */}
-                <div ref={contentRef} className="flex-1 overflow-y-auto p-4 sm:p-8 custom-scrollbar">
-                    {activeTab === 'problem' ? (
-                        <div className="space-y-6 sm:space-y-8 animate-in slide-in-from-bottom-4 duration-300">
-                            {/* Problem Description */}
-                            <div className="space-y-3 sm:space-y-4">
-                                <h3 className="text-xs sm:text-sm uppercase tracking-wider text-slate-500 font-bold flex items-center gap-2">
-                                    📋 Problem Description
-                                </h3>
-                                <div className="p-4 sm:p-6 rounded-xl bg-slate-100 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/50">
-                                    <p className="text-slate-700 dark:text-slate-200 text-sm sm:text-lg leading-relaxed whitespace-pre-line">
-                                        {solution.problemStatement || solution.description || 'No description available.'}
-                                    </p>
-                                </div>
-                            </div>
-
-                            {/* Examples */}
-                            <div className="space-y-4">
-                                <h3 className="text-sm uppercase tracking-wider text-slate-500 font-bold flex items-center gap-2">
-                                    🧪 Examples
-                                </h3>
-                                <div className="space-y-3">
-                                    {(solution.examples || solution.testCases || []).map((ex, i) => (
-                                        <div key={i} className="p-4 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
-                                            <div className="flex items-center gap-2 mb-3">
-                                                <span className="px-2 py-1 text-xs font-bold bg-emerald-500/20 text-emerald-600 dark:text-emerald-300 rounded">
-                                                    Example {i + 1}
-                                                </span>
-                                            </div>
-                                            <div className="space-y-2">
-                                                <div>
-                                                    <span className="text-xs uppercase text-slate-500 font-semibold">Input:</span>
-                                                    <pre className="mt-1 p-3 bg-slate-200 dark:bg-slate-900 rounded-lg text-sm text-cyan-600 dark:text-cyan-300 overflow-x-auto">
-                                                        <code>{ex.input}</code>
-                                                    </pre>
-                                                </div>
-                                                <div>
-                                                    <span className="text-xs uppercase text-slate-500 font-semibold">Output:</span>
-                                                    <pre className="mt-1 p-3 bg-slate-200 dark:bg-slate-900 rounded-lg text-sm text-emerald-600 dark:text-emerald-300 overflow-x-auto">
-                                                        <code>{ex.output}</code>
-                                                    </pre>
-                                                </div>
-                                                {'explanation' in ex && typeof (ex as { explanation?: string }).explanation === 'string' && (
-                                                    <div>
-                                                        <span className="text-xs uppercase text-slate-500 font-semibold">Explanation:</span>
-                                                        <p className="mt-1 text-slate-600 dark:text-slate-300 text-sm">{(ex as { explanation: string }).explanation}</p>
-                                                    </div>
-                                                )}
-                                            </div>
-                                        </div>
-                                    ))}
-                                </div>
-                            </div>
-
-                            {/* Constraints */}
-                            {solution.constraints && solution.constraints.length > 0 && (
-                                <div className="space-y-4">
-                                    <h3 className="text-sm uppercase tracking-wider text-slate-500 font-bold flex items-center gap-2">
-                                        📏 Constraints
-                                    </h3>
-                                    <div className="p-4 rounded-xl bg-slate-100 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/50">
-                                        <ul className="space-y-1">
-                                            {solution.constraints.map((c, i) => (
-                                                <li key={i} className="text-slate-600 dark:text-slate-300 font-mono text-sm flex items-start gap-2">
-                                                    <span className="text-indigo-500 dark:text-indigo-400">•</span> {c}
-                                                </li>
-                                            ))}
-                                        </ul>
-                                    </div>
-                                </div>
-                            )}
-
-                            {/* Hints (Collapsible) */}
-                            {solution.hints && solution.hints.length > 0 && (
-                                <div className="space-y-4">
-                                    <h3 className="text-sm uppercase tracking-wider text-slate-500 font-bold flex items-center gap-2">
-                                        💡 Hints
-                                    </h3>
-                                    <div className="space-y-2">
-                                        {solution.hints.map((hint, i) => (
-                                            <details key={i} className="group">
-                                                <summary className="p-3 rounded-lg bg-amber-500/10 border border-amber-500/30 text-amber-600 dark:text-amber-300 cursor-pointer hover:bg-amber-500/20 transition-colors">
-                                                    <span className="ml-2 font-medium">Hint {i + 1}</span>
-                                                </summary>
-                                                <div className="mt-2 p-4 rounded-lg bg-slate-100 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/50 text-slate-600 dark:text-slate-300">
-                                                    {hint}
-                                                </div>
-                                            </details>
-                                        ))}
-                                    </div>
-                                </div>
-                            )}
-
-                            {/* Complexity Analysis */}
-                            <div className="space-y-3 sm:space-y-4">
-                                <h3 className="text-xs sm:text-sm uppercase tracking-wider text-slate-500 font-bold flex items-center gap-2">
-                                    ⚡ Complexity Analysis
-                                </h3>
-                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
-                                    <div className="p-3 sm:p-4 rounded-xl bg-gradient-to-r from-emerald-500/10 to-teal-500/10 border border-emerald-500/30">
-                                        <div className="text-xs sm:text-sm text-emerald-600 dark:text-emerald-400 font-semibold mb-1">Time Complexity</div>
-                                        <div className="text-lg sm:text-xl text-slate-800 dark:text-white font-mono">{solution.timeComplexity || 'N/A'}</div>
-                                    </div>
-                                    <div className="p-3 sm:p-4 rounded-xl bg-gradient-to-r from-blue-500/10 to-indigo-500/10 border border-blue-500/30">
-                                        <div className="text-xs sm:text-sm text-blue-600 dark:text-blue-400 font-semibold mb-1">Space Complexity</div>
-                                        <div className="text-lg sm:text-xl text-slate-800 dark:text-white font-mono">{solution.spaceComplexity || 'N/A'}</div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            {/* Key Insight */}
-                            {solution.keyInsight && (
-                                <div className="p-6 rounded-xl border-l-4 border-amber-500 bg-gradient-to-r from-amber-500/10 to-orange-500/10">
-                                    <h3 className="text-lg font-semibold text-amber-600 dark:text-amber-300 mb-1">🔑 Key Insight</h3>
-                                    <p className="text-slate-700 dark:text-slate-200 text-lg leading-relaxed">{solution.keyInsight}</p>
-                                </div>
-                            )}
-
-                            {/* Related Problems */}
-                            {solution.relatedProblems && solution.relatedProblems.length > 0 && (
-                                <div className="space-y-4">
-                                    <h3 className="text-sm uppercase tracking-wider text-slate-500 font-bold flex items-center gap-2">
-                                        🔗 Related Problems
-                                    </h3>
-                                    <div className="flex flex-wrap gap-2">
-                                        {solution.relatedProblems.map((related, i) => (
-                                            <span key={i} className="px-3 py-1.5 text-sm bg-indigo-500/20 text-indigo-600 dark:text-indigo-300 border border-indigo-500/30 rounded-full hover:bg-indigo-500/30 transition-colors cursor-pointer">
-                                                {related.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}
-                                            </span>
-                                        ))}
-                                    </div>
-                                </div>
-                            )}
-
-                            {/* External Resources */}
-                            <div className="space-y-3 sm:space-y-4">
-                                <h3 className="text-xs sm:text-sm uppercase tracking-wider text-slate-500 font-bold flex items-center gap-2">
-                                    📚 External Resources
-                                </h3>
-                                <div className="flex flex-wrap gap-2 sm:gap-3">
-                                    {slug && (
-                                        <>
-                                            <a
-                                                href={`https://leetcode.com/problems/${slug}/`}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                className="flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2 text-sm bg-orange-500/20 text-orange-300 border border-orange-500/30 rounded-lg hover:bg-orange-500/30 transition-colors"
-                                            >
-                                                <ExternalLink size={14} /> LeetCode
-                                            </a>
-                                            <a
-                                                href={`https://neetcode.io/problems/${slug}`}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                className="flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2 text-sm bg-green-500/20 text-green-300 border border-green-500/30 rounded-lg hover:bg-green-500/30 transition-colors"
-                                            >
-                                                <ExternalLink size={14} /> NeetCode
-                                            </a>
-                                            <a
-                                                href={`https://takeuforward.org/plus/dsa/all-problems`}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                className="flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2 text-sm bg-purple-500/20 text-purple-300 border border-purple-500/30 rounded-lg hover:bg-purple-500/30 transition-colors"
-                                            >
-                                                <ExternalLink size={14} /> TakeUForward
-                                            </a>
-                                        </>
-                                    )}
-                                    {solution.videoId && (
-                                        <a
-                                            href={`https://www.youtube.com/watch?v=${solution.videoId}`}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2 text-sm bg-red-500/20 text-red-300 border border-red-500/30 rounded-lg hover:bg-red-500/30 transition-colors"
-                                        >
-                                            <Youtube size={14} /> Video
-                                        </a>
-                                    )}
-                                </div>
-                            </div>
-
-                            {/* Suggested Next Question (Pattern Path) */}
-                            {solution.suggestedNextQuestion && (
-                                <div className="pt-6 mt-6 border-t border-slate-200 dark:border-slate-800">
-                                    <h3 className="text-xs sm:text-sm uppercase tracking-wider text-slate-500 font-bold flex items-center gap-2 mb-4">
-                                        🚀 Next in Learning Path
-                                    </h3>
-                                    <div
-                                        onClick={() => onSelectProblem(solution.suggestedNextQuestion!.slug)}
-                                        className="group relative overflow-hidden p-6 rounded-2xl bg-gradient-to-br from-indigo-600 to-violet-700 text-white shadow-xl cursor-pointer hover:shadow-2xl hover:scale-[1.01] transition-all"
-                                    >
-                                        <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-                                            <Brain size={100} />
-                                        </div>
-
-                                        <div className="relative z-10">
-                                            <div className="flex items-center gap-2 mb-2 text-indigo-200 text-xs font-bold uppercase tracking-wider">
-                                                Mastering {solution.suggestedNextQuestion.pattern} pattern
-                                            </div>
-                                            <h4 className="text-2xl font-bold mb-3 group-hover:underline decoration-2 underline-offset-4">
-                                                {solution.suggestedNextQuestion.title}
-                                            </h4>
-
-                                            <div className="flex items-center gap-3">
-                                                <span className={`px-2.5 py-1 rounded-lg text-xs font-bold bg-white/10 backdrop-blur-md border border-white/20 ${solution.suggestedNextQuestion.difficulty === 'Easy' ? 'text-emerald-300' :
-                                                    solution.suggestedNextQuestion.difficulty === 'Medium' ? 'text-amber-300' :
-                                                        'text-rose-300'
-                                                    }`}>
-                                                    {solution.suggestedNextQuestion.difficulty}
-                                                </span>
-                                                <span className="text-sm text-indigo-100 flex items-center gap-1 group-hover:translate-x-1 transition-transform">
-                                                    Continue Learning <ExternalLink size={14} />
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            )}
-                        </div>
-                    ) : activeTab === 'explanation' ? (
-                        <div className="space-y-6 sm:space-y-8 animate-in slide-in-from-bottom-4 duration-300">
-
-                            {/* YouTube Video Player */}
-                            {solution.videoId && (
-                                <div className="space-y-3 sm:space-y-4">
-                                    <h3 className="text-xs sm:text-sm uppercase tracking-wider text-slate-500 font-bold flex items-center gap-2">
-                                        <Youtube size={14} className="sm:w-4 sm:h-4 text-red-500" /> Video Explanation
-                                    </h3>
-                                    <div className="relative w-full rounded-xl overflow-hidden border border-slate-200 dark:border-slate-700 shadow-2xl" style={{ paddingBottom: '56.25%' }}>
-                                        <iframe
-                                            className="absolute top-0 left-0 w-full h-full"
-                                            src={`https://www.youtube.com/embed/${solution.videoId}`}
-                                            title={`${solution.title} - Video Explanation`}
-                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                            allowFullScreen
-                                        />
-                                    </div>
-                                </div>
-                            )}
-
-                            {/* Approach Sub-Tabs */}
-                            {solution.approaches && solution.approaches.length > 0 && (
-                                <div className="flex gap-2 p-1 rounded-lg bg-slate-100 dark:bg-slate-800">
-                                    {solution.approaches.map((approach) => (
-                                        <button
-                                            key={approach.name}
-                                            onClick={() => setActiveApproach(approach.name as 'bruteforce' | 'optimal')}
-                                            className={`flex-1 px-4 py-2 text-sm font-medium rounded-md transition-all ${activeApproach === approach.name
-                                                ? 'bg-white dark:bg-slate-700 text-indigo-600 dark:text-indigo-400 shadow-sm'
-                                                : 'text-slate-500 hover:text-slate-700 dark:text-slate-400'
-                                                }`}
-                                        >
-                                            {approach.label}
-                                            <span className="ml-2 text-xs opacity-60">{approach.timeComplexity}</span>
-                                        </button>
-                                    ))}
-                                </div>
-                            )}
-
-                            <div className="p-4 sm:p-6 rounded-xl border-l-4 border-indigo-500 bg-gradient-to-r from-indigo-500/10 to-purple-500/10">
-                                <div className="flex justify-between items-start mb-1">
-                                    <h3 className="text-base sm:text-lg font-semibold text-indigo-600 dark:text-indigo-300">💡 Quick Summary</h3>
+                    {isDesktop ? (
+                        /* Desktop: Static Split View - 34% tabs, 66% code */
+                        <div className="flex-1 flex w-full h-full">
+                            {/* LEFT SIDE - Tabs Panel (34%) */}
+                            <div
+                                className="flex flex-col border-r border-slate-200 dark:border-slate-700 overflow-hidden"
+                                style={{ width: '34%', minWidth: '280px' }}
+                            >
+                                {/* Tabs */}
+                                <div className="flex items-center gap-2 px-4 py-2 border-b border-slate-200 dark:border-slate-700 bg-slate-100 dark:bg-slate-800">
                                     <button
-                                        onClick={handleSpeak}
-                                        className={`p-2 rounded-full transition-all ${isSpeaking ? 'bg-indigo-600 text-white animate-pulse' : 'bg-indigo-500/10 text-indigo-600 hover:bg-indigo-500/20 dark:text-indigo-300'}`}
-                                        title={isSpeaking ? "Stop Reading" : "Read Explanation"}
+                                        onClick={() => setActiveTab('problem')}
+                                        className={`flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-sm font-medium transition-all ${activeTab === 'problem' ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-500/25' : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-200 dark:hover:bg-white/5'}`}
                                     >
-                                        {isSpeaking ? <Square size={16} fill="currentColor" /> : <Volume2 size={16} />}
+                                        <FileText size={16} /> Problem
+                                    </button>
+                                    <button
+                                        onClick={() => setActiveTab('explanation')}
+                                        className={`flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-sm font-medium transition-all ${activeTab === 'explanation' ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-500/25' : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-200 dark:hover:bg-white/5'}`}
+                                    >
+                                        <BookOpen size={16} /> Explain
+                                    </button>
+                                    <button
+                                        onClick={() => setActiveTab('tutor')}
+                                        className={`flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-sm font-medium transition-all ${activeTab === 'tutor' ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-500/25' : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-200 dark:hover:bg-white/5'}`}
+                                    >
+                                        <MessageCircle size={16} /> Tutor
                                     </button>
                                 </div>
-                                <p className="text-slate-700 dark:text-slate-200 text-sm sm:text-lg leading-relaxed">{solution.oneliner}</p>
-                            </div>
 
-                            {/* Intuition */}
-                            {(() => {
-                                const currentApproach = solution.approaches?.find(a => a.name === activeApproach) || solution.approaches?.[0];
-                                const intuitionItems = currentApproach?.intuition || solution.intuition || [];
-                                return (
-                                    <div className="space-y-3 sm:space-y-4">
-                                        <h3 className="text-xs sm:text-sm uppercase tracking-wider text-slate-500 font-bold flex items-center gap-2">
-                                            🧠 {currentApproach?.label || 'Core'} Intuition
-                                        </h3>
-                                        <div className="grid gap-2 sm:gap-3">
-                                            {intuitionItems.map((item, i) => (
-                                                <div key={i} className="p-3 sm:p-4 rounded-lg bg-slate-100 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/50 text-slate-600 dark:text-slate-300 text-sm sm:text-base">
-                                                    {item}
-                                                </div>
-                                            ))}
-                                        </div>
-                                    </div>
-                                );
-                            })()}
-
-                            {/* Mental Model (Analogy) */}
-                            {solution.mentalModel && (
-                                <div className="p-4 sm:p-5 rounded-xl border border-indigo-200 dark:border-indigo-500/30 bg-indigo-50 dark:bg-indigo-500/10">
-                                    <h3 className="text-sm font-bold text-indigo-700 dark:text-indigo-300 mb-2 flex items-center gap-2">
-                                        <Brain size={16} /> Visual Analogy
-                                    </h3>
-                                    <p className="text-slate-700 dark:text-indigo-100 italic text-sm sm:text-base font-medium leading-relaxed">
-                                        "{solution.mentalModel}"
-                                    </p>
-                                </div>
-                            )}
-
-                            {/* Visualization */}
-                            <div className="space-y-3 sm:space-y-4">
-                                <h3 className="text-xs sm:text-sm uppercase tracking-wider text-slate-500 font-bold flex items-center gap-2">
-                                    📝 Visualization
-                                </h3>
-
-                                {solution.visualizationType ? (
-                                    <SmartVisualizer solution={solution} />
-                                ) : (
-                                    // Fallback for legacy visual/steps
-                                    <div className="space-y-3 sm:space-y-4">
-                                        {solution.steps?.map((step) => (
-                                            <div key={step.step} className="p-3 sm:p-4 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
-                                                <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
-                                                    <span className="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-indigo-600 flex items-center justify-center font-bold text-white text-sm sm:text-base shadow-lg">{step.step}</span>
-                                                    <h4 className="font-semibold text-slate-800 dark:text-white text-sm sm:text-base">{step.title}</h4>
-                                                </div>
-                                                <pre className="font-mono text-xs sm:text-sm bg-slate-200 dark:bg-black/30 p-3 sm:p-4 rounded-lg text-emerald-600 dark:text-emerald-300 overflow-x-auto mb-2 whitespace-pre-wrap leading-relaxed border border-slate-300 dark:border-slate-700/50">
-                                                    {step.visual}
-                                                </pre>
-                                                <p className="text-slate-500 dark:text-slate-400 ml-1 text-sm sm:text-base">{step.explanation}</p>
-                                            </div>
-                                        ))}
-                                    </div>
-                                )}
-                            </div>
-
-                            {/* Code Read-only */}
-                            {(() => {
-                                const currentApproach = solution.approaches?.find(a => a.name === activeApproach) || solution.approaches?.[0];
-                                const displayCode = currentApproach?.code || solution.code || '';
-                                return (
-                                    <div className="space-y-3 sm:space-y-4">
-                                        <div className="flex items-center justify-between">
-                                            <h3 className="text-xs sm:text-sm uppercase tracking-wider text-slate-500 font-bold flex items-center gap-2">
-                                                <CodeIcon size={14} className="sm:w-4 sm:h-4" /> {currentApproach?.label || 'Python'} Code
-                                            </h3>
-                                            <button
-                                                onClick={() => {
-                                                    setCode(displayCode.replace(/\\n/g, '\n'));
-                                                    setActiveTab('playground');
-                                                }}
-                                                className="text-xs flex items-center gap-1 text-indigo-400 hover:text-indigo-300 transition-colors"
-                                            >
-                                                <Copy size={12} /> Copy to Playground
-                                            </button>
-                                        </div>
-                                        <div className="rounded-xl overflow-hidden border border-slate-200 dark:border-slate-700">
-                                            <SyntaxHighlighter
-                                                language="python"
-                                                style={vscDarkPlus}
-                                                customStyle={{ margin: 0, padding: '1rem', fontSize: '0.8rem' }}
-                                            >
-                                                {displayCode}
-                                            </SyntaxHighlighter>
-                                        </div>
-                                    </div>
-                                );
-                            })()}
-
-                            {/* External Resources */}
-                            <div className="space-y-4 pt-4 border-t border-slate-700/50">
-                                <h3 className="text-sm uppercase tracking-wider text-slate-500 font-bold flex items-center gap-2">
-                                    <ExternalLink size={16} /> External Resources
-                                </h3>
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                    {slug && (
-                                        <a
-                                            href={`https://leetcode.com/problems/${slug}/`}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="flex items-center justify-between p-4 rounded-xl bg-slate-800/50 hover:bg-slate-800 border border-slate-700/50 hover:border-indigo-500/50 transition-all group"
-                                        >
-                                            <div className="flex items-center gap-3">
-                                                <div className="w-10 h-10 rounded-full bg-[#ffa116]/10 flex items-center justify-center text-[#ffa116]">
-                                                    <CodeIcon size={20} />
-                                                </div>
-                                                <div>
-                                                    <div className="font-semibold text-white group-hover:text-indigo-400 transition-colors">LeetCode</div>
-                                                    <div className="text-xs text-slate-500">View Problem Statement</div>
-                                                </div>
-                                            </div>
-                                            <ExternalLink size={16} className="text-slate-500 group-hover:text-[#ffa116]" />
-                                        </a>
-                                    )}
-
-                                    {(solution.neetcodeLink || slug) && (
-                                        <a
-                                            href={solution.neetcodeLink || `https://neetcode.io/problems/${slug}`}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="flex items-center justify-between p-4 rounded-xl bg-slate-800/50 hover:bg-slate-800 border border-slate-700/50 hover:border-emerald-500/50 transition-all group"
-                                        >
-                                            <div className="flex items-center gap-3">
-                                                <div className="w-10 h-10 rounded-full bg-emerald-500/10 flex items-center justify-center text-emerald-500">
-                                                    <Terminal size={20} />
-                                                </div>
-                                                <div>
-                                                    <div className="font-semibold text-white group-hover:text-emerald-400 transition-colors">NeetCode.io</div>
-                                                    <div className="text-xs text-slate-500">Video & Solution</div>
-                                                </div>
-                                            </div>
-                                            <ExternalLink size={16} className="text-slate-500 group-hover:text-emerald-500" />
-                                        </a>
-                                    )}
-
-                                    {solution.videoId && (
-                                        <a
-                                            href={`https://www.youtube.com/watch?v=${solution.videoId}`}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="flex items-center justify-between p-4 rounded-xl bg-slate-800/50 hover:bg-slate-800 border border-slate-700/50 hover:border-red-500/50 transition-all group"
-                                        >
-                                            <div className="flex items-center gap-3">
-                                                <div className="w-10 h-10 rounded-full bg-red-500/10 flex items-center justify-center text-red-500">
-                                                    <Youtube size={20} />
-                                                </div>
-                                                <div>
-                                                    <div className="font-semibold text-white group-hover:text-red-400 transition-colors">Video Explanation</div>
-                                                    <div className="text-xs text-slate-500">Watch on YouTube</div>
-                                                </div>
-                                            </div>
-                                            <ExternalLink size={16} className="text-slate-500 group-hover:text-red-500" />
-                                        </a>
-                                    )}
-
-                                    {solution.takeuforwardLink && (
-                                        <a
-                                            href={solution.takeuforwardLink}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="flex items-center justify-between p-4 rounded-xl bg-slate-800/50 hover:bg-slate-800 border border-slate-700/50 hover:border-pink-500/50 transition-all group"
-                                        >
-                                            <div className="flex items-center gap-3">
-                                                <div className="w-10 h-10 rounded-full bg-pink-500/10 flex items-center justify-center text-pink-500">
-                                                    <FileText size={20} />
-                                                </div>
-                                                <div>
-                                                    <div className="font-semibold text-white group-hover:text-pink-400 transition-colors">TakeUForward</div>
-                                                    <div className="text-xs text-slate-500">In-depth Article</div>
-                                                </div>
-                                            </div>
-                                            <ExternalLink size={16} className="text-slate-500 group-hover:text-pink-500" />
-                                        </a>
-                                    )}
+                                {/* Tab Content */}
+                                <div ref={contentRef} className="flex-1 overflow-y-auto p-4 sm:p-6 custom-scrollbar">
+                                    {activeTab === 'problem' && renderProblemTab()}
+                                    {activeTab === 'explanation' && renderExplanationTab()}
+                                    {activeTab === 'tutor' && renderTutorTab()}
                                 </div>
                             </div>
-                        </div>
-                    ) : activeTab === 'tutor' ? (
-                        <div className="h-full animate-in slide-in-from-bottom-4 duration-300">
-                            {!isAuthenticated ? (
-                                <div className="flex flex-col items-center justify-center h-64 text-center">
-                                    <MessageCircle size={48} className="text-slate-400 mb-4" />
-                                    <h3 className="text-lg font-semibold text-slate-700 dark:text-slate-300 mb-2">AI Tutor Requires Sign In</h3>
-                                    <p className="text-slate-500 dark:text-slate-400 mb-4">Sign in with Google to chat with the AI tutor</p>
-                                    <button
-                                        onClick={login}
-                                        className="flex items-center gap-2 px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-500 transition-colors"
-                                    >
-                                        <LogIn size={16} />
-                                        Sign In to Continue
-                                    </button>
-                                </div>
-                            ) : slug && solution ? (
-                                <TutorChat
-                                    slug={slug}
-                                    problemTitle={solution.title}
-                                    messages={tutorMessages}
-                                    setMessages={setTutorMessages}
-                                />
-                            ) : (
-                                <div className="text-center text-slate-500 mt-10">Tutor unavailable without a valid problem.</div>
-                            )}
+
+                            {/* RIGHT SIDE - Code Panel (66%) */}
+                            <div
+                                className="flex flex-col p-4 bg-slate-50 dark:bg-slate-950 overflow-hidden"
+                                style={{ width: '66%' }}
+                            >
+                                {renderPlaygroundTab()}
+                            </div>
                         </div>
                     ) : (
-                        <div className="h-full min-h-[400px] sm:min-h-[600px] flex flex-col gap-3 sm:gap-4 animate-in slide-in-from-bottom-4 duration-300">
-                            <div className="flex-1 bg-slate-900 rounded-xl border border-slate-300 dark:border-slate-700 overflow-hidden relative group min-h-[200px] sm:min-h-[400px]">
-                                <div className="absolute top-0 left-0 right-0 px-3 sm:px-4 py-2 bg-slate-800 border-b border-slate-700 text-xs text-slate-400 font-mono flex justify-between items-center z-10">
-                                    <span>main.py</span>
-                                </div>
-                                <div className="absolute inset-0 top-[37px] w-full">
-                                    <Editor
-                                        height="100%"
-                                        language="python"
-                                        value={code}
-                                        onChange={(value) => setCode(value || '')}
-                                        theme="vs-dark"
-                                        options={{
-                                            minimap: { enabled: false },
-                                            fontSize: 12,
-                                            lineNumbers: 'on',
-                                            scrollBeyondLastLine: false,
-                                            automaticLayout: true,
-                                            padding: { top: 10 },
-                                            fontFamily: "'JetBrains Mono', 'Fira Code', 'Consolas', monospace",
-                                            renderLineHighlight: 'none',
-                                            hideCursorInOverviewRuler: true,
-                                            overviewRulerBorder: false,
-                                            wordWrap: 'on',
-                                            scrollbar: {
-                                                vertical: 'auto',
-                                                horizontal: 'auto'
-                                            }
-                                        }}
-                                        loading={<div className="text-slate-500 p-4 text-sm">Loading Editor...</div>}
-                                    />
-                                </div>
-                            </div>
-                            <div className="flex justify-between items-center bg-slate-100 dark:bg-slate-800 p-2 rounded-lg border border-slate-200 dark:border-slate-700">
-                                <span className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 font-mono pl-2">
-                                    {solution.testCases?.length || 0} Tests
-                                </span>
-                                {isAuthenticated ? (
-                                    <button
-                                        onClick={handleRunCode}
-                                        disabled={isRunning}
-                                        className={`px-4 sm:px-6 py-2 font-semibold rounded-lg shadow-lg shadow-emerald-500/20 transition-all flex items-center gap-2 text-sm ${isRunning ? 'bg-slate-400 dark:bg-slate-700 cursor-not-allowed text-slate-300 dark:text-slate-400' : 'bg-emerald-600 hover:bg-emerald-500 text-white'}`}
-                                    >
-                                        <Play size={14} /> {isRunning ? 'Running...' : 'Run'}
-                                    </button>
-                                ) : (
-                                    <button
-                                        onClick={login}
-                                        className="px-4 sm:px-6 py-2 font-semibold rounded-lg border border-indigo-500 text-indigo-600 dark:text-indigo-400 hover:bg-indigo-50 dark:hover:bg-indigo-500/10 transition-all flex items-center gap-2 text-sm"
-                                    >
-                                        <LogIn size={14} /> Sign In to Run
-                                    </button>
-                                )}
+                        /* Mobile: Tabbed View */
+                        <div className="flex flex-col overflow-hidden h-full">
+                            {/* Tabs */}
+                            <div className="flex items-center gap-2 px-4 py-2 border-b border-slate-200 dark:border-slate-700 bg-slate-100 dark:bg-slate-800">
+                                <button
+                                    onClick={() => setActiveTab('problem')}
+                                    className={`flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-sm font-medium transition-all ${activeTab === 'problem' ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-500/25' : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-200 dark:hover:bg-white/5'}`}
+                                >
+                                    <FileText size={16} />
+                                </button>
+                                <button
+                                    onClick={() => setActiveTab('explanation')}
+                                    className={`flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-sm font-medium transition-all ${activeTab === 'explanation' ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-500/25' : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-200 dark:hover:bg-white/5'}`}
+                                >
+                                    <BookOpen size={16} />
+                                </button>
+                                <button
+                                    onClick={() => setActiveTab('playground')}
+                                    className={`flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-sm font-medium transition-all ${activeTab === 'playground' ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-500/25' : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-200 dark:hover:bg-white/5'}`}
+                                >
+                                    <Terminal size={16} />
+                                </button>
+                                <button
+                                    onClick={() => setActiveTab('tutor')}
+                                    className={`flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-sm font-medium transition-all ${activeTab === 'tutor' ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-500/25' : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-200 dark:hover:bg-white/5'}`}
+                                >
+                                    <MessageCircle size={16} />
+                                </button>
                             </div>
 
-                            {/* Test Cases & Output Area */}
-                            <div className="flex-1 min-h-[200px] bg-slate-100 dark:bg-black rounded-xl border border-slate-200 dark:border-slate-800 overflow-hidden flex flex-col">
-                                {/* Test Cases List - Collapsible on mobile */}
-                                <div className="max-h-[150px] sm:max-h-[200px] border-b border-slate-200 dark:border-slate-800 p-3 sm:p-4 bg-slate-50 dark:bg-slate-900 overflow-y-auto custom-scrollbar">
-                                    <h4 className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-2 sm:mb-3">Test Cases</h4>
-
-                                    <div className="flex gap-2 overflow-x-auto pb-2 sm:flex-wrap sm:gap-3">
-                                        {/* Built-in Test Cases */}
-                                        {solution.testCases?.map((testCase, i) => (
-                                            <div key={`builtin-${i}`} className="flex-shrink-0 p-2 sm:p-3 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 min-w-[150px] sm:min-w-[180px]">
-                                                <div className="text-xs text-slate-500 mb-1 font-mono">Test {i + 1}</div>
-                                                <div className="text-xs text-indigo-600 dark:text-indigo-300 font-mono truncate">{testCase.input}</div>
-                                                <div className="text-xs text-emerald-600 dark:text-emerald-300 font-mono truncate mt-1">→ {testCase.output}</div>
-                                            </div>
-                                        ))}
-
-                                        {/* Custom Test Case */}
-                                        <div className="flex-shrink-0 p-2 sm:p-3 rounded-lg bg-indigo-500/10 border border-indigo-500/30 min-w-[150px] sm:min-w-[180px]">
-                                            <div className="flex justify-between items-center mb-1">
-                                                <div className="text-xs text-indigo-600 dark:text-indigo-400 font-mono font-bold">Custom</div>
-                                                {customTestCase ? (
-                                                    <button
-                                                        onClick={() => setCustomTestCase(null)}
-                                                        className="p-0.5 text-slate-500 hover:text-red-400 hover:bg-red-400/10 rounded transition-colors"
-                                                        title="Remove custom test"
-                                                    >
-                                                        <Trash2 size={12} />
-                                                    </button>
-                                                ) : (
-                                                    <button
-                                                        onClick={() => setCustomTestCase({ input: '', output: '' })}
-                                                        className="flex items-center gap-1 text-xs text-indigo-600 dark:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-300 transition-colors"
-                                                    >
-                                                        <Plus size={12} />
-                                                    </button>
-                                                )}
-                                            </div>
-
-                                            {customTestCase && (
-                                                <div className="space-y-1">
-                                                    <input
-                                                        value={customTestCase.input}
-                                                        onChange={(e) => setCustomTestCase(prev => prev ? ({
-                                                            ...prev,
-                                                            input: e.target.value
-                                                        }) : null)}
-                                                        className="w-full bg-white dark:bg-black/50 border border-slate-300 dark:border-slate-700 rounded px-2 py-1 text-xs font-mono text-indigo-600 dark:text-indigo-300 focus:border-indigo-500 outline-none placeholder:text-slate-400 dark:placeholder:text-slate-700"
-                                                        placeholder="Input"
-                                                    />
-                                                    <input
-                                                        value={customTestCase.output}
-                                                        onChange={(e) => setCustomTestCase(prev => prev ? ({
-                                                            ...prev,
-                                                            output: e.target.value
-                                                        }) : null)}
-                                                        className="w-full bg-white dark:bg-black/50 border border-slate-300 dark:border-slate-700 rounded px-2 py-1 text-xs font-mono text-emerald-600 dark:text-emerald-300 focus:border-emerald-500 outline-none placeholder:text-slate-400 dark:placeholder:text-slate-700"
-                                                        placeholder="Expected"
-                                                    />
-                                                </div>
-                                            )}
-                                        </div>
-                                    </div>
-                                </div>
-
-                                {/* Execution Results */}
-                                <div className="flex-1 p-3 sm:p-4 bg-white dark:bg-slate-900 overflow-y-auto custom-scrollbar font-mono text-xs sm:text-sm">
-                                    <h4 className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-2 sm:mb-3">Output</h4>
-                                    {output ? (
-                                        <div className="whitespace-pre-wrap text-slate-700 dark:text-slate-300">{output}</div>
-                                    ) : (
-                                        <div className="text-slate-400 dark:text-slate-600 italic flex flex-col items-center justify-center h-20 sm:h-40">
-                                            <Terminal size={24} className="sm:w-8 sm:h-8 mb-2 opacity-50" />
-                                            <span className="text-xs sm:text-sm">Run code to see results...</span>
-                                        </div>
-                                    )}
-                                </div>
+                            {/* Tab Content */}
+                            <div ref={contentRef} className="flex-1 overflow-y-auto p-4 custom-scrollbar">
+                                {activeTab === 'problem' && renderProblemTab()}
+                                {activeTab === 'explanation' && renderExplanationTab()}
+                                {activeTab === 'tutor' && renderTutorTab()}
+                                {activeTab === 'playground' && renderPlaygroundTab()}
                             </div>
                         </div>
                     )}
                 </div>
             </div>
-        </div >
+            {/* Auth Unlock Modal */}
+            <AuthUnlockModal
+                isOpen={showAuthModal}
+                onClose={() => setShowAuthModal(false)}
+                onLogin={() => {
+                    setShowAuthModal(false);
+                    login();
+                }}
+                featureName={authFeatureName}
+            />
+
+            {/* Editor Settings Modal */}
+            <EditorSettingsModal
+                isOpen={showSettingsModal}
+                onClose={() => setShowSettingsModal(false)}
+                settings={settings}
+                onUpdate={updateSetting}
+            />
+        </div>
     );
 };
 

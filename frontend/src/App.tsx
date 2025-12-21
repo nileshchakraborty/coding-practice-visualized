@@ -2,11 +2,11 @@
  * App.tsx - Refactored with MVVM Pattern
  * Uses viewmodel hooks for state management
  */
-import { useState, useMemo, useCallback } from 'react';
-import type { Solution, Problem } from './models';
+import { useState, useMemo, useCallback, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
+import type { Problem } from './models';
 import { useProblems } from './viewmodels';
 import { SearchEngine } from './utils/SearchEngine';
-import SolutionModal from './components/SolutionModal';
 import { ThemeToggle } from './components/ThemeToggle';
 import { LoginButton } from './components/LoginButton';
 import CodeniumLogo from './assets/logo.svg';
@@ -15,11 +15,10 @@ import { Search, Filter, ChevronUp, ChevronDown, Check, Zap } from 'lucide-react
 function App() {
   // ViewModels
   const problems = useProblems();
+  const navigate = useNavigate();
+  const searchTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  // Modal state (could be extracted to a useModal hook)
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedSlug, setSelectedSlug] = useState<string | null>(null);
-  const [selectedSolution, setSelectedSolution] = useState<Solution | null>(null);
+  // UI state
   const [loadingSlug, setLoadingSlug] = useState<string | null>(null);
   const [showMobileFilters, setShowMobileFilters] = useState(false);
 
@@ -53,6 +52,7 @@ function App() {
   const allProblems = useMemo(() => {
     return problems.stats ? problems.stats.categories.flatMap(c => c.problems) : [];
   }, [problems.stats]);
+
 
   const searchEngine = useMemo(() => {
     return new SearchEngine(allProblems, p => p.title);
@@ -145,40 +145,15 @@ function App() {
     )).sort();
   }, [stats]);
 
-  // Handle problem click
-  const handleProblemClick = useCallback(async (slug: string) => {
+  // Handle problem click - navigate to problem page
+  const handleProblemClick = useCallback((slug: string) => {
     // Clear search when navigating to a new problem
     problems.updateFilter({ search: '' });
-
     setLoadingSlug(slug);
-    setSelectedSlug(slug);
-    try {
-      const { SolutionsAPI } = await import('./models');
-      let solutionData = await SolutionsAPI.getBySlug(slug);
 
-      if (!solutionData) {
-        // Generate if not found
-        const genResult = await SolutionsAPI.generate(slug);
-        if (genResult.success) {
-          solutionData = await SolutionsAPI.getBySlug(slug);
-        }
-      }
-
-      if (solutionData) {
-        setSelectedSolution(solutionData);
-        setIsModalOpen(true);
-      }
-    } catch (err) {
-      console.error("Error opening solution", err);
-      alert("Failed to load solution. Please ensure Ollama is running.");
-    } finally {
-      setLoadingSlug(null);
-    }
-  }, [problems]);
-
-  const closeModal = useCallback(() => {
-    setIsModalOpen(false);
-  }, []);
+    // Navigate to problem page
+    navigate(`/problem/${slug}`);
+  }, [problems, navigate]);
 
   // Loading state
   if (problems.loading || !stats) {
@@ -244,8 +219,16 @@ function App() {
                 type="text"
                 placeholder="Search problems..."
                 className="w-full bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-xl py-2.5 pl-10 pr-4 text-sm text-slate-900 dark:text-slate-200 focus:outline-none focus:border-indigo-500 transition-colors"
-                value={problems.filter.search}
-                onChange={(e) => problems.updateFilter({ search: e.target.value })}
+                defaultValue={problems.filter.search}
+                onChange={(e) => {
+                  const val = e.target.value;
+                  if (searchTimeoutRef.current) {
+                    clearTimeout(searchTimeoutRef.current);
+                  }
+                  searchTimeoutRef.current = setTimeout(() => {
+                    problems.updateFilter({ search: val });
+                  }, 300);
+                }}
               />
             </div>
             {/* Difficulty Filter - Right aligned on desktop */}
@@ -389,15 +372,6 @@ function App() {
         <footer className="mt-12 text-center text-slate-500 dark:text-slate-600 text-sm">
           <p>Built with ❤️ for Visual Learners | Codenium</p>
         </footer>
-
-        {/* Modal */}
-        <SolutionModal
-          isOpen={isModalOpen}
-          onClose={closeModal}
-          solution={selectedSolution}
-          slug={selectedSlug}
-          onSelectProblem={handleProblemClick}
-        />
       </div>
     </div>
   );

@@ -47,7 +47,7 @@ The system follows a Hexagonal Architecture pattern, separating the core domain 
 
 ```mermaid
 graph TD
-    subgraph Frontend [React PWA (Port 3000)]
+    subgraph Frontend ["React PWA (Port 3000)"]
         User[User] -->|Interact| View[UI Components]
         View -->|Query| ViewModel[ViewModels (MVVM)]
         
@@ -55,7 +55,7 @@ graph TD
         ViewModel -->|Data fetch| APIClient[API Client]
     end
 
-    subgraph Backend [Node.js Express (Port 3001)]
+    subgraph Backend ["Node.js Express (Port 3001)"]
         APIClient -->|REST| Controller[API Controllers]
         
         Controller -->|Use Case| Service[Problem Service]

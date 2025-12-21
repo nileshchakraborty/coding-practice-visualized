@@ -25,10 +25,6 @@
     ],
     "rewrites": [
         {
-            "source": "/api/execute",
-            "destination": "/api/execute.py"
-        },
-        {
             "source": "/api/(.*)",
             "destination": "/api/index.ts"
         },
@@ -38,14 +34,10 @@
         }
     ],
     "functions": {
-        "api/execute.py": {
-            "maxDuration": 30,
-            "memory": 1024
-        },
         "api/index.ts": {
-            "maxDuration": 15,
+            "maxDuration": 30,
             "memory": 1024,
-            "includeFiles": "api/data/**"
+            "includeFiles": "api/data/**,api/runners/**,api/_local_runner.py"
         }
     }
 }

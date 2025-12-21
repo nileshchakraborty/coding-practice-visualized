@@ -84,4 +84,5 @@ export interface RunResponse {
     success: boolean;
     results?: TestCaseResult[];
     error?: string;
+    logs?: string;
 }

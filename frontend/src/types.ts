@@ -56,7 +56,12 @@ export interface Solution {
     mentalModel?: string;
     code: string;
     initialCode?: string;
+    bruteForceCode?: string;
+    bruteForceIntuition?: string[];
+    bruteForceTimeComplexity?: string;
+    bruteForceSpaceComplexity?: string;
     approaches?: Approach[];
+    language?: string;
 
     // Smart Visualization
     visualizationType?: 'array' | 'string' | 'matrix' | 'tree' | 'linkedlist' | 'graph' | 'grid';

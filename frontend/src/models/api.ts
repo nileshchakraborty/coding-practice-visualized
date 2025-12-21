@@ -81,16 +81,40 @@ export const SolutionsAPI = {
 export const PlaygroundAPI = {
     /**
      * Run code against test cases
+     * Uses job queue for async execution with user isolation
      */
     async runCode(
         code: string,
         slug: string,
-        testCases?: { input: string; output: string }[]
+        testCases?: { input: string; output: string }[],
+        language: string = 'python',
+        options?: {
+            useJobQueue?: boolean;
+            onStatusUpdate?: (status: { status: string }) => void;
+        }
     ): Promise<RunResponse> {
+        const useQueue = options?.useJobQueue ?? true;  // Default to job queue
+
+        if (useQueue) {
+            // Dynamic import to avoid circular dependencies
+            const { JobService } = await import('../services/JobService');
+
+            return JobService.submitAndPoll<RunResponse>('execute', {
+                code,
+                slug,
+                testCases,
+                language,
+            }, {
+                onStatusUpdate: options?.onStatusUpdate,
+            });
+        }
+
+        // Direct synchronous call (legacy fallback)
         const response = await api.post<RunResponse>('/execute', {
             code,
             slug,
             testCases,
+            language,
         });
         return response.data;
     },
@@ -102,12 +126,32 @@ export const PlaygroundAPI = {
 export const TutorAPI = {
     /**
      * Send message to AI tutor
+     * Uses job queue for async execution with user isolation
      */
     async chat(
         slug: string,
         message: string,
-        history: { role: string; content: string }[]
+        history: { role: string; content: string }[],
+        options?: {
+            useJobQueue?: boolean;
+            onStatusUpdate?: (status: { status: string }) => void;
+        }
     ): Promise<{ response?: string; error?: string }> {
+        const useQueue = options?.useJobQueue ?? true;  // Default to job queue
+
+        if (useQueue) {
+            const { JobService } = await import('../services/JobService');
+
+            return JobService.submitAndPoll<{ response?: string; error?: string }>('ai_tutor', {
+                slug,
+                message,
+                history,
+            }, {
+                onStatusUpdate: options?.onStatusUpdate,
+            });
+        }
+
+        // Direct synchronous call (legacy fallback)
         const response = await api.post('/ai/tutor', {
             slug,
             message,
@@ -124,3 +168,4 @@ export default {
     playground: PlaygroundAPI,
     tutor: TutorAPI,
 };
+

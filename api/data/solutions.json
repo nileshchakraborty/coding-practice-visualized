@@ -7050,7 +7050,7 @@
         "stickers-to-spell-word",
         "first-unique-character-in-a-string"
       ],
-      "videoId": "OKmDwbsROuc",
+      "videoId": "i3bvxJyUB40",
       "problemStatement": "Given two strings ransomNote and magazine, return true if ransomNote can be constructed by using the letters from magazine and false otherwise.\nEach letter in magazine can only be used once in ransomNote.",
       "difficulty": "Easy",
       "walkthrough": [
@@ -8266,7 +8266,7 @@
       "relatedProblems": [
         "number-of-students-unable-to-eat-lunch"
       ],
-      "videoId": "6Sk5xZCr94o",
+      "videoId": "cVmS9N6kf2Y",
       "problemStatement": "There are n people in a line queuing to buy tickets, where the 0th person is at the front of the line and the (n - 1)th person is at the back of the line.\nYou are given a 0-indexed integer array tickets of length n where the number of tickets that the ith person would like to buy is tickets[i].\nEach person takes exactly 1 second to buy a ticket. A person can only buy 1 ticket at a time and has to go back to the end of the line (which happens instantaneously) in order to buy more tickets. If a person does not have any tickets left to buy, the person will leave the line.\nReturn the time taken for the person initially at position k (0-indexed) to finish buying tickets.",
       "difficulty": "Easy",
       "walkthrough": [
@@ -9000,7 +9000,7 @@
       "relatedProblems": [
         "minimum-cost-to-make-at-least-one-valid-path-in-a-grid"
       ],
-      "videoId": "QJz-0VmNpuE",
+      "videoId": "5BuKVS-Vnws",
       "problemStatement": "On a 2D plane, there are n points with integer coordinates points[i] = [xi, yi]. Return the minimum time in seconds to visit all the points in the order given by points.\nYou can move according to these rules:",
       "difficulty": "Easy",
       "walkthrough": [
@@ -9600,7 +9600,7 @@
         "encode-and-decode-strings",
         "string-compression"
       ],
-      "videoId": "a1v3GIaJNoM",
+      "videoId": "htSwmFGdFUI",
       "problemStatement": "The count-and-say sequence is a sequence of digit strings defined by the recursive formula:\nRun-length encoding (RLE) is a string compression method that works by replacing consecutive identical characters (repeated 2 or more times) with the concatenation of the character and the number marking the count of the characters (length of the run). For example, to compress the string \"3322251\" we replace \"33\" with \"23\", replace \"222\" with \"32\", replace \"5\" with \"15\" and replace \"1\" with \"11\". Thus the compressed string becomes \"23321511\".\nGiven a positive integer n, return the nth element of the count-and-say sequence.",
       "difficulty": "Medium",
       "walkthrough": [
@@ -9840,7 +9840,7 @@
         "two-sum-ii---input-array-is-sorted",
         "two-sum-iii---data-structure-design"
       ],
-      "videoId": "cxoOxinXYiE",
+      "videoId": "ssL3sHwPeb4",
       "problemStatement": "Given the root of a binary search tree and an integer k, return true if there exist two elements in the BST such that their sum is equal to k, or false otherwise.",
       "difficulty": "Easy",
       "walkthrough": [
@@ -11945,7 +11945,7 @@
         "count-of-smaller-numbers-after-self",
         "reverse-pairs"
       ],
-      "videoId": "x2K_4xNxCME",
+      "videoId": "yajqqld8Svc",
       "problemStatement": "Given the array nums, for each nums[i] find out how many numbers in the array are smaller than it. That is, for each nums[i] you have to count the number of valid j's such that j != i and nums[j] < nums[i].\nReturn the answer in an array.",
       "difficulty": "Easy",
       "walkthrough": [
@@ -20707,7 +20707,7 @@
         "reverse-words-in-a-string",
         "rotate-image"
       ],
-      "videoId": "jhzZmG0WfoU",
+      "videoId": "BHr381Guz3Y",
       "problemStatement": "Given an integer array nums, rotate the array to the right by k steps, where k is non-negative.",
       "difficulty": "Medium",
       "walkthrough": [
@@ -21855,7 +21855,7 @@
       "patternEmoji": "\ud83d\udcca",
       "timeComplexity": "O(n)",
       "spaceComplexity": "O(n)",
-      "videoId": "wjOjCfkv1mg",
+      "videoId": "mgG5KFTvfPw",
       "oneliner": "Count papers at each citation level. Scan from high to low.",
       "intuition": [
         "\ud83c\udfaf H-index: h papers with at least h citations.",
@@ -23097,7 +23097,7 @@
         "climbing-stairs",
         "binary-search"
       ],
-      "videoId": "QzPWc0yI-C0",
+      "videoId": "1IzCRCcK17A",
       "problemStatement": "There are n children standing in a line. Each child is assigned a rating value given in the integer array ratings.\nYou are giving candies to these children subjected to the following requirements:\nReturn the minimum number of candies you need to have to distribute the candies to the children.",
       "difficulty": "Hard",
       "walkthrough": [
@@ -26372,7 +26372,7 @@
         "climbing-stairs",
         "binary-search"
       ],
-      "videoId": "TzMl5gId3s0",
+      "videoId": "TzMl4Z7pVh8",
       "problemStatement": "Given an array of strings words and a width maxWidth, format the text such that each line has exactly maxWidth characters and is fully (left and right) justified.\nYou should pack your words in a greedy approach; that is, pack as many words as you can in each line. Pad extra spaces ' ' when necessary so that each line has exactly maxWidth characters.\nExtra spaces between words should be distributed as evenly as possible. If the number of spaces on a line does not divide evenly between words, the empty slots on the left will be assigned more spaces than the slots on the right.\nFor the last line of text, it should be left-justified, and no extra space is inserted between words.\nNote:",
       "difficulty": "Hard",
       "walkthrough": [
@@ -28963,7 +28963,7 @@
         "climbing-stairs",
         "binary-search"
       ],
-      "videoId": "VtM-0OYcRtE",
+      "videoId": "rh2Bkul2zzQ",
       "problemStatement": "You may recall that an array arr is a mountain array if and only if:\nGiven an integer array arr, return the length of the longest subarray, which is a mountain. Return 0 if there is no mountain subarray.",
       "difficulty": "Medium",
       "walkthrough": [
@@ -29673,7 +29673,7 @@
         "climbing-stairs",
         "binary-search"
       ],
-      "videoId": "Cpg_BFTU5UQ",
+      "videoId": "Cpg8f79luEA",
       "problemStatement": "You are given the root node of a binary search tree (BST) and a value to insert into the tree. Return the root node of the BST after the insertion. It is guaranteed that the new value does not exist in the original BST.\nNotice that there may exist multiple valid ways for the insertion, as long as the tree remains a BST after insertion. You can return any of them.",
       "difficulty": "Medium",
       "walkthrough": [
@@ -29935,7 +29935,7 @@
         "climbing-stairs",
         "binary-search"
       ],
-      "videoId": "zYQC7d06G_g",
+      "videoId": "yOzXms1J6Nk",
       "problemStatement": "Given the head of a singly linked list, return true if it is a palindrome or false otherwise.",
       "difficulty": "Easy",
       "walkthrough": [
@@ -30251,7 +30251,7 @@
         "climbing-stairs",
         "binary-search"
       ],
-      "videoId": "8vuPi0rPWOk",
+      "videoId": "VAZkSMoNHik",
       "problemStatement": "Given an integer K and a queue of integers, we need to reverse the order of the first K elements of the queue, leaving the other elements in the same relative order.",
       "walkthrough": [
         "Understand the problem constraints",
@@ -31374,7 +31374,7 @@
         "climbing-stairs",
         "binary-search"
       ],
-      "videoId": "cYbN9p1uPQY",
+      "videoId": "-wlDdMmaYwI",
       "problemStatement": "You are given a string s and an array of strings words. All the strings of words are of the same length.\nA concatenated string is a string that exactly contains all the strings of any permutation of words concatenated.\nReturn an array of the starting indices of all the concatenated substrings in s. You can return the answer in any order.",
       "difficulty": "Hard",
       "walkthrough": [
@@ -35129,7 +35129,7 @@
         "climbing-stairs",
         "binary-search"
       ],
-      "videoId": "ZoLasC3JuNg",
+      "videoId": "ZHJDwbfqoa8",
       "problemStatement": "You are given a sorted unique integer array nums.\nA range [a,b] is the set of all integers from a to b (inclusive).\nReturn the smallest sorted list of ranges that cover all the numbers in the array exactly. That is, each element of nums is covered by exactly one of the ranges, and there is no integer x such that x is in one of the ranges but not in nums.\nEach range [a,b] in the list should be output as:",
       "difficulty": "Easy",
       "walkthrough": [
@@ -36175,7 +36175,7 @@
         "climbing-stairs",
         "binary-search"
       ],
-      "videoId": "lPmkKnxBFs0",
+      "videoId": "lPmkKnvNPrw",
       "problemStatement": "There are some spherical balloons taped onto a flat wall that represents the XY-plane. The balloons are represented as a 2D integer array points where points[i] = [xstart, xend] denotes a balloon whose horizontal diameter stretches between xstart and xend. You do not know the exact y-coordinates of the balloons.\nArrows can be shot up directly vertically (in the positive y-direction) from different points along the x-axis. A balloon with xstart and xend is burst by an arrow shot at x if xstart <= x <= xend. There is no limit to the number of arrows that can be shot. A shot arrow keeps traveling up infinitely, bursting any balloons in its path.\nGiven the array points, return the minimum number of arrows that must be shot to burst all balloons.",
       "difficulty": "Medium",
       "walkthrough": [
@@ -36477,7 +36477,7 @@
         "climbing-stairs",
         "binary-search"
       ],
-      "videoId": "R9jDoJq_Qv4",
+      "videoId": "1UOPsfP85V4",
       "problemStatement": "Given the head of a linked list, reverse the nodes of the list k at a time, and return the modified list.\nk is a positive integer and is less than or equal to the length of the linked list. If the number of nodes is not a multiple of k then left-out nodes, in the end, should remain as it is.\nYou may not alter the values in the list's nodes, only nodes themselves may be changed.",
       "difficulty": "Hard",
       "walkthrough": [
@@ -37125,7 +37125,7 @@
         "container-with-most-water",
         "3sum"
       ],
-      "videoId": "aBNILPZdQNc",
+      "videoId": "ycAq8iqh0TI",
       "problemStatement": "Given the head of a sorted linked list, delete all nodes that have duplicate numbers, leaving only distinct numbers from the original list. Return the linked list sorted as well.",
       "difficulty": "Medium",
       "walkthrough": [
@@ -38039,7 +38039,7 @@
         "climbing-stairs",
         "binary-search"
       ],
-      "videoId": "sPTSY3PJQAA",
+      "videoId": "TGveA1oFhrc",
       "problemStatement": "Given the head of a linked list, return the list after sorting it in ascending order.",
       "difficulty": "Medium",
       "walkthrough": [
@@ -38689,7 +38689,7 @@
         "climbing-stairs",
         "binary-search"
       ],
-      "videoId": "vm-2tbxcCPo",
+      "videoId": "vm63HuIU7kw",
       "problemStatement": "Given two integer arrays inorder and postorder where inorder is the inorder traversal of a binary tree and postorder is the postorder traversal of the same tree, construct and return the binary tree.",
       "difficulty": "Medium",
       "walkthrough": [
@@ -39265,7 +39265,7 @@
         "clone-graph",
         "course-schedule"
       ],
-      "videoId": "p-pQW3Y-x9I",
+      "videoId": "LSKQyOz_P8I",
       "problemStatement": "Given the root of a binary tree and an integer targetSum, return true if the tree has a root-to-leaf path such that adding up all the values along the path equals targetSum.\nA leaf is a node with no children.",
       "difficulty": "Easy",
       "walkthrough": [
@@ -40724,7 +40724,7 @@
         "word-ladder",
         "shortest-path-in-binary-matrix"
       ],
-      "videoId": "i3_fDqR_dYs",
+      "videoId": "115txA-rS5s",
       "problemStatement": "Given the root of a binary tree, return the average value of the nodes on each level in the form of an array. Answers within 10^-5 of the actual answer will be accepted.",
       "difficulty": "Easy",
       "walkthrough": [
@@ -41327,7 +41327,7 @@
         "climbing-stairs",
         "binary-search"
       ],
-      "videoId": "9LxvhVvBnCI",
+      "videoId": "NttA_NC_ZhI",
       "problemStatement": "Given the root of a Binary Search Tree (BST), return the minimum absolute difference between the values of any two different nodes in the tree.",
       "difficulty": "Easy",
       "walkthrough": [
@@ -45345,7 +45345,7 @@
         "word-ladder",
         "shortest-path-in-binary-matrix"
       ],
-      "videoId": "H6VdY3SxjMM",
+      "videoId": "9lkn3rHCSLg",
       "problemStatement": "A gene string can be represented by an 8-character long string, with choices from 'A', 'C', 'G', and 'T'.\nSuppose we need to investigate a mutation from a gene string startGene to a gene string endGene where one mutation is defined as one single character changed in the gene string.\nThere is also a gene bank bank that records all the valid gene mutations. A gene must be in bank to make it a valid gene string.\nGiven the two gene strings startGene and endGene and the gene bank bank, return the minimum number of mutations needed to mutate from startGene to endGene. If there is no such a mutation, return -1.\nNote that the starting point is assumed to be valid, so it might not be included in the bank.",
       "difficulty": "Medium",
       "walkthrough": [
@@ -46944,7 +46944,7 @@
         "combination-sum",
         "subsets"
       ],
-      "videoId": "lxvKVFC6qT0",
+      "videoId": "nalYyLZgvCY",
       "problemStatement": "The n-queens puzzle is the problem of placing n queens on an n x n chessboard such that no two queens attack each other.\nGiven an integer n, return the number of distinct solutions to the n-queens puzzle.",
       "difficulty": "Hard",
       "walkthrough": [
@@ -47787,7 +47787,7 @@
         "combination-sum",
         "subsets"
       ],
-      "videoId": "hwLRMlnY2Zk",
+      "videoId": "IYXWcjwhUYo",
       "problemStatement": "Given a string s, you can transform every letter individually to be lowercase or uppercase to create another string.\nReturn a list of all possible strings we could create. Return the output in any order.",
       "difficulty": "Medium",
       "walkthrough": [
@@ -48528,7 +48528,7 @@
         "search-in-rotated-sorted-array",
         "find-peak-element"
       ],
-      "videoId": "K-Yh3K8E2oE",
+      "videoId": "K-RYzDZkzCI",
       "problemStatement": "Given a sorted array of distinct integers and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order.\nYou must write an algorithm with O(log n) runtime complexity.",
       "difficulty": "Easy",
       "walkthrough": [
@@ -49388,7 +49388,7 @@
         "binary-search",
         "search-in-rotated-sorted-array"
       ],
-      "videoId": "A2M7Kj6p0w4",
+      "videoId": "kMzJy9es7Hc",
       "problemStatement": "A peak element is an element that is strictly greater than its neighbors.\nGiven a 0-indexed integer array nums, find a peak element, and return its index. If the array contains multiple peaks, return the index to any of the peaks.\nYou may imagine that nums[-1] = nums[n] = -\u221e. In other words, an element is always considered to be strictly greater than a neighbor that is outside the array.\nYou must write an algorithm that runs in O(log n) time.",
       "difficulty": "Medium",
       "walkthrough": [
@@ -53431,7 +53431,7 @@
         "fizz-buzz",
         "roman-to-integer"
       ],
-      "videoId": "3Hdmq_GSgyI",
+      "videoId": "_NxbBkunCEM",
       "problemStatement": "Given an integer n, return the number of trailing zeroes in n!.\nNote that n! = n * (n - 1) * (n - 2) * ... * 3 * 2 * 1.",
       "difficulty": "Medium",
       "walkthrough": [
@@ -53771,7 +53771,7 @@
         "search-in-rotated-sorted-array",
         "find-peak-element"
       ],
-      "videoId": "zdMhg-EuXgI",
+      "videoId": "zdMhGxRWutQ",
       "problemStatement": "Given a non-negative integer x, return the square root of x rounded down to the nearest integer. The returned integer should be non-negative as well.\nYou must not use any built-in exponent function or operator.",
       "difficulty": "Easy",
       "walkthrough": [
@@ -54139,7 +54139,7 @@
         "climbing-stairs",
         "binary-search"
       ],
-      "videoId": "Bb9lSXgGMzk",
+      "videoId": "Bb9lOXUOnFw",
       "problemStatement": "Given an array of points where points[i] = [xi, yi] represents a point on the X-Y plane, return the maximum number of points that lie on the same straight line.",
       "difficulty": "Hard",
       "walkthrough": [
@@ -55347,7 +55347,7 @@
         "climbing-stairs",
         "binary-search"
       ],
-      "videoId": "cjWnW0hdVeY",
+      "videoId": "73r3KWiEvyk",
       "problemStatement": "Given an integer array nums, return the length of the longest strictly increasing subsequence.",
       "difficulty": "Medium",
       "walkthrough": [
@@ -58904,7 +58904,7 @@
         "climbing-stairs",
         "binary-search"
       ],
-      "videoId": "4YjWuPLN_wg",
+      "videoId": "37s1_xBiqH0",
       "problemStatement": "You are given an array prices where prices[i] is the price of a given stock on the ith day.\nFind the maximum profit you can achieve. You may complete at most two transactions.\nNote: You may not engage in multiple transactions simultaneously (i.e., you must sell the stock before you buy again).",
       "difficulty": "Hard",
       "walkthrough": [
@@ -59747,7 +59747,7 @@
         "climbing-stairs",
         "binary-search"
       ],
-      "videoId": "Zv-jagL2_T4",
+      "videoId": "6X7Ha2PrDmM",
       "problemStatement": "Given an m x n binary matrix filled with 0's and 1's, find the largest square containing only 1's and return its area.",
       "difficulty": "Medium",
       "walkthrough": [
@@ -60950,7 +60950,7 @@
         "climbing-stairs",
         "binary-search"
       ],
-      "videoId": "0_Kz25a_chk",
+      "videoId": "0K0uCMYq5ng",
       "problemStatement": "Given an integer array nums where the elements are sorted in ascending order, convert it to a height-balanced binary search tree.",
       "difficulty": "Easy",
       "walkthrough": [
@@ -61627,7 +61627,7 @@
         "climbing-stairs",
         "binary-search"
       ],
-      "videoId": "q1Q7EZ1CUOE",
+      "videoId": "kPcYYCbUUEA",
       "problemStatement": "You are given the root of a binary search tree (BST) and an integer val.\nFind the node in the BST that the node's value equals val and return the subtree rooted with that node. If such a node does not exist, return null.",
       "difficulty": "Easy",
       "walkthrough": [
@@ -62159,7 +62159,7 @@
         "top-k-frequent-elements",
         "merge-k-sorted-lists"
       ],
-      "videoId": "Fv9MY2gLlp8",
+      "videoId": "Youk8DDnLU8",
       "problemStatement": "You are given two integer arrays nums1 and nums2 sorted in non-decreasing order and an integer k.\nDefine a pair (u, v) which consists of one element from the first array and one element from the second array.\nReturn the k pairs (u1, v1), (u2, v2), ..., (uk, vk) with the smallest sums.",
       "difficulty": "Medium",
       "walkthrough": [
@@ -63086,7 +63086,7 @@
         "top-k-frequent-elements",
         "merge-k-sorted-lists"
       ],
-      "videoId": "rI2EBUEMfTY",
+      "videoId": "rI2EBUEMfTk",
       "problemStatement": "Given an array of points where points[i] = [xi, yi] represents a point on the X-Y plane and an integer k, return the k closest points to the origin (0, 0).\nThe distance between two points on the X-Y plane is the Euclidean distance (i.e., \u221a(x1 - x2)2 + (y1 - y2)2).\nYou may return the answer in any order. The answer is guaranteed to be unique (except for the order that it is in).",
       "difficulty": "Medium",
       "walkthrough": [
@@ -63362,7 +63362,7 @@
         "counting-bits",
         "reverse-bits"
       ],
-      "videoId": "w8pfNaHXopQ",
+      "videoId": "O3VbqTLzTu8",
       "problemStatement": "You are given a positive integer n, you can do the following operation any number of times:\nReturn the minimum number of operations to make n equal to 0.\nA number x is power of 2 if x == 2i where i >= 0.",
       "difficulty": "Medium",
       "walkthrough": [
@@ -63599,7 +63599,7 @@
         "climbing-stairs",
         "binary-search"
       ],
-      "videoId": "nbFXQm1iVgU",
+      "videoId": "xzoLTiPDY0M",
       "problemStatement": "Given a positive integer n, you can apply one of the following operations:\nReturn the minimum number of operations needed for n to become 1.",
       "difficulty": "Medium",
       "walkthrough": [
@@ -66273,7 +66273,7 @@
         "find-pivot-index",
         "product-of-array-except-self"
       ],
-      "videoId": "XbGD7zfHkkY",
+      "videoId": "b5vu-orCfYQ",
       "problemStatement": "You are given an integer array nums that represents a circular array. Your task is to create a new array result of the same size, following these rules:\nReturn the new array result.\nNote: Since nums is circular, moving past the last element wraps around to the beginning, and moving before the first element wraps back to the end.",
       "difficulty": "Easy",
       "walkthrough": [
@@ -78056,7 +78056,7 @@
         "\ud83d\udd0d Handle edge cases carefully"
       ],
       "approach": "Binary Search + DFS: Binary search on time values, use DFS to check if path exists.",
-      "videoId": "amvrKhR-e80",
+      "videoId": "amvrKlMLuGY",
       "suggestedNextQuestion": {
         "slug": "word-ladder",
         "title": "Word Ladder",
@@ -82452,7 +82452,7 @@
         "\ud83d\udd0d Handle edge cases carefully"
       ],
       "approach": "Simulation: Simulate multiplication digit by digit like elementary school math.",
-      "videoId": "1vC1iM-yd7Q",
+      "videoId": "1vZswirL8Y8",
       "mentalModel": "Like following a recipe step-by-step. Do exactly what the problem says.",
       "initialCode": "def multiply(num1, num2):\n    pass",
       "approaches": [
