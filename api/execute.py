@@ -12,11 +12,11 @@ sys.path.append(current_dir) # Add api/
 sys.path.append(parent_dir)  # Add root/
 
 try:
-    # Try importing from lib (relative to this file)
-    from lib import runner
+    # Try importing from _lib (relative to this file)
+    from _lib import runner
 except ImportError:
     # Fallback to sys path modification if needed
-    sys.path.append(os.path.join(os.path.dirname(__file__), 'lib'))
+    sys.path.append(os.path.join(os.path.dirname(__file__), '_lib'))
     import runner
 
 class handler(BaseHTTPRequestHandler):

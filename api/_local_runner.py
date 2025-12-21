@@ -9,7 +9,7 @@ root_dir = os.path.dirname(current_dir)
 sys.path.append(root_dir)
 
 try:
-    from lib import runner
+    from _lib import runner
 except ImportError as e:
     print(json.dumps({"error": f"Could not import runner from {root_dir}: {e}"}))
     sys.exit(1)
