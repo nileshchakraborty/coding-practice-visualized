@@ -39,9 +39,10 @@ interface SolutionModalProps {
     onClose: () => void;
     solution: Solution | null;
     slug: string | null;
+    problemStatus?: 'solved' | 'in-progress' | null;
 }
 
-const SolutionModal: React.FC<SolutionModalProps> = ({ isOpen, onClose, solution, slug }) => {
+const SolutionModal: React.FC<SolutionModalProps> = ({ isOpen, onClose, solution, slug, problemStatus }) => {
     const [activeTab, setActiveTab] = useState<'problem' | 'explanation' | 'playground' | 'tutor'>('problem');
     const [activeApproach, setActiveApproach] = useState<'bruteforce' | 'optimal'>('optimal');
     const [language, setLanguage] = useState<'python' | 'javascript' | 'java' | 'go' | 'rust' | 'cpp'>('python');
@@ -985,11 +986,15 @@ const SolutionModal: React.FC<SolutionModalProps> = ({ isOpen, onClose, solution
                                 {solution.pattern}
                             </span>
                         )}
-                        {isProblemSolved && (
+                        {isProblemSolved ? (
                             <span className="self-start flex items-center gap-1 px-2 sm:px-3 py-0.5 sm:py-1 text-xs sm:text-sm font-semibold bg-emerald-500/20 text-emerald-600 dark:text-emerald-300 border border-emerald-500/30 rounded-full">
                                 <CheckCircle2 size={14} /> Solved
                             </span>
-                        )}
+                        ) : problemStatus === 'in-progress' ? (
+                            <span className="self-start flex items-center gap-1 px-2 sm:px-3 py-0.5 sm:py-1 text-xs sm:text-sm font-semibold bg-amber-500/20 text-amber-600 dark:text-amber-300 border border-amber-500/30 rounded-full">
+                                ✏️ In Progress
+                            </span>
+                        ) : null}
                     </div>
 
                     <div className="flex flex-wrap gap-2 sm:gap-4 text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-1">

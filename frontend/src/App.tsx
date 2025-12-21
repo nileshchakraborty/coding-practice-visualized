@@ -6,11 +6,13 @@ import { useState, useMemo, useCallback, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import type { Problem } from './models';
 import { useProblems } from './viewmodels';
+import { useProgress } from './hooks/useProgress';
+import { useAuth } from './hooks/useAuth';
 import { SearchEngine } from './utils/SearchEngine';
 import { ThemeToggle } from './components/ThemeToggle';
 import { LoginButton } from './components/LoginButton';
 import CodeniumLogo from './assets/logo.svg';
-import { Search, Filter, ChevronUp, ChevronDown, Check, Zap } from 'lucide-react';
+import { Search, Filter, ChevronUp, ChevronDown, Check, Zap, CheckCircle, Pencil } from 'lucide-react';
 
 function App() {
   // ViewModels
@@ -18,12 +20,21 @@ function App() {
   const navigate = useNavigate();
   const searchTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
+  // Auth state
+  const { isAuthenticated } = useAuth();
+
+  // Progress tracking - only used when authenticated
+  const { isSolved, isAttempted, markAttempted, solvedCount, attemptedCount } = useProgress();
+
   // UI state
   const [loadingSlug, setLoadingSlug] = useState<string | null>(null);
   const [showMobileFilters, setShowMobileFilters] = useState(false);
 
   // Local filter state for subtopic - now supports multiple selection
   const [selectedSubTopics, setSelectedSubTopics] = useState<Set<string>>(new Set());
+
+  // Status filter: All, In Progress, Solved
+  const [statusFilter, setStatusFilter] = useState<'All' | 'In Progress' | 'Solved'>('All');
 
   // Compute stats from viewmodel
   const stats = useMemo(() => {
@@ -133,9 +144,18 @@ function App() {
       const matchesSearch = !searchResults || searchResults.has(p.slug);
       const matchesDiff = problems.filter.difficulty === 'All' || p.difficulty === problems.filter.difficulty;
       const matchesSubTopic = selectedSubTopics.size === 0 || (p.subTopic && selectedSubTopics.has(p.subTopic));
-      return matchesSearch && matchesDiff && matchesSubTopic;
+
+      // Status filter
+      let matchesStatus = true;
+      if (statusFilter === 'Solved') {
+        matchesStatus = isSolved(p.slug);
+      } else if (statusFilter === 'In Progress') {
+        matchesStatus = isAttempted(p.slug);
+      }
+
+      return matchesSearch && matchesDiff && matchesSubTopic && matchesStatus;
     });
-  }, [problems.filter.difficulty, searchResults, selectedSubTopics]);
+  }, [problems.filter.difficulty, searchResults, selectedSubTopics, statusFilter, isSolved, isAttempted]);
 
   // All subtopics
   const allSubTopics = useMemo(() => {
@@ -151,9 +171,14 @@ function App() {
     problems.updateFilter({ search: '' });
     setLoadingSlug(slug);
 
+    // Mark problem as attempted (in-progress) when opened - only if authenticated
+    if (isAuthenticated) {
+      markAttempted(slug);
+    }
+
     // Navigate to problem page
     navigate(`/problem/${slug}`);
-  }, [problems, navigate]);
+  }, [problems, navigate, markAttempted, isAuthenticated]);
 
   // Loading state
   if (problems.loading || !stats) {
@@ -203,6 +228,21 @@ function App() {
                   <span className="text-base sm:text-xl font-bold text-rose-600 dark:text-rose-400">{stats.hard}</span>
                   <span className="text-[10px] uppercase text-slate-500 font-bold tracking-wide">Hard</span>
                 </div>
+
+                {/* Progress Metrics - Only show when authenticated */}
+                {isAuthenticated && (
+                  <div className="flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-gradient-to-r from-indigo-500/10 to-purple-500/10 border border-indigo-500/20 rounded-xl flex-shrink-0">
+                    <div className="flex items-center gap-1.5" title="Completed">
+                      <CheckCircle size={14} className="text-emerald-500" />
+                      <span className="text-sm font-bold text-emerald-500">{solvedCount}</span>
+                    </div>
+                    <div className="w-px h-5 bg-slate-300 dark:bg-slate-700" />
+                    <div className="flex items-center gap-1.5" title="In Progress">
+                      <Pencil size={12} className="text-amber-500" />
+                      <span className="text-sm font-bold text-amber-500">{attemptedCount}</span>
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
           </div>
@@ -243,6 +283,27 @@ function App() {
                     }`}
                 >
                   {diff}
+                </button>
+              ))}
+
+              {/* Divider - Only show when authenticated */}
+              {isAuthenticated && <div className="w-px h-8 bg-slate-300 dark:bg-slate-700 mx-1 flex-shrink-0" />}
+
+              {/* Status Filter - Only show when authenticated */}
+              {isAuthenticated && (['All', 'In Progress', 'Solved'] as const).map(status => (
+                <button
+                  key={status}
+                  onClick={() => setStatusFilter(status)}
+                  className={`px-3 sm:px-4 py-2 rounded-lg font-medium text-xs sm:text-sm transition-all flex-shrink-0 ${statusFilter === status
+                    ? status === 'Solved'
+                      ? 'bg-emerald-500 text-white shadow-lg shadow-emerald-500/25'
+                      : status === 'In Progress'
+                        ? 'bg-amber-500 text-white shadow-lg shadow-amber-500/25'
+                        : 'bg-indigo-600 text-white shadow-lg shadow-indigo-500/25'
+                    : 'bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-400 border border-slate-300 dark:border-slate-800 hover:border-slate-400 dark:hover:border-slate-600'
+                    }`}
+                >
+                  {status === 'In Progress' ? <Pencil size={12} className="mr-1" /> : status === 'Solved' ? <CheckCircle size={14} className="mr-1" /> : null}{status}
                 </button>
               ))}
             </div>
@@ -348,6 +409,12 @@ function App() {
                     >
                       <div className="flex-1">
                         <div className="flex items-center gap-2">
+                          {/* Progress markers - only show when authenticated */}
+                          {isAuthenticated && isSolved(p.slug) ? (
+                            <CheckCircle size={16} className="text-emerald-500 fill-emerald-500/20 flex-shrink-0" />
+                          ) : isAuthenticated && isAttempted(p.slug) ? (
+                            <Pencil size={14} className="text-amber-400 flex-shrink-0" />
+                          ) : null}
                           <h4 className="font-medium text-slate-700 dark:text-slate-300">{p.title}</h4>
                           {p.has_solution && (
                             <Zap size={14} className="text-amber-400 fill-amber-400" />

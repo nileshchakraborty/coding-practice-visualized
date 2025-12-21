@@ -34,6 +34,11 @@ export interface SolvedProblem {
     bestRuntime?: number;
 }
 
+export interface AttemptedProblem {
+    slug: string;
+    openedAt: number;
+}
+
 export interface Draft {
     code: string;
     updatedAt: number;
@@ -43,6 +48,7 @@ export interface UserProgress {
     userId: string;
     lastSyncedAt: number;
     solvedProblems: SolvedProblem[];
+    attemptedProblems: AttemptedProblem[]; // Problems opened but not solved
     drafts: Record<string, Draft>;
 }
 
@@ -65,7 +71,15 @@ class SyncServiceImpl {
         try {
             const stored = localStorage.getItem(PROGRESS_KEY);
             if (stored) {
-                return JSON.parse(stored);
+                const parsed = JSON.parse(stored);
+                // Ensure attemptedProblems exists (migration for old data)
+                return {
+                    userId: parsed.userId || '',
+                    lastSyncedAt: parsed.lastSyncedAt || 0,
+                    solvedProblems: parsed.solvedProblems || [],
+                    attemptedProblems: parsed.attemptedProblems || [],
+                    drafts: parsed.drafts || {},
+                };
             }
         } catch (e) {
             console.error('[SyncService] Error reading local progress:', e);
@@ -76,6 +90,7 @@ class SyncServiceImpl {
             userId: '',
             lastSyncedAt: 0,
             solvedProblems: [],
+            attemptedProblems: [],
             drafts: {},
         };
     }
@@ -302,6 +317,61 @@ class SyncServiceImpl {
     isSolved(slug: string): boolean {
         const progress = this.getLocalProgress();
         return progress.solvedProblems.some(p => p.slug === slug);
+    }
+
+    /**
+     * Reset stats (clear solved problems AND drafts/in-progress)
+     */
+    resetStats(): void {
+        const emptyProgress: UserProgress = {
+            userId: '',
+            lastSyncedAt: Date.now(),
+            solvedProblems: [],
+            attemptedProblems: [],
+            drafts: {},
+        };
+        this.saveLocalProgress(emptyProgress);
+        console.log('[SyncService] Stats reset - solved and drafts cleared');
+    }
+
+    /**
+     * Reset all progress (clear solved problems AND drafts)
+     */
+    resetAll(): void {
+        const emptyProgress: UserProgress = {
+            userId: '',
+            lastSyncedAt: Date.now(),
+            solvedProblems: [],
+            attemptedProblems: [],
+            drafts: {},
+        };
+        this.saveLocalProgress(emptyProgress);
+        console.log('[SyncService] Full reset - all progress cleared');
+    }
+
+    /**
+     * Mark a problem as attempted (opened)
+     */
+    markAttempted(slug: string): void {
+        const progress = this.getLocalProgress();
+        // Don't mark if already solved
+        if (progress.solvedProblems.some(p => p.slug === slug)) return;
+        // Don't add if already attempted
+        if (progress.attemptedProblems?.some(p => p.slug === slug)) return;
+
+        if (!progress.attemptedProblems) progress.attemptedProblems = [];
+        progress.attemptedProblems.push({ slug, openedAt: Date.now() });
+        this.saveLocalProgress(progress);
+    }
+
+    /**
+     * Check if problem is attempted (opened but not solved)
+     */
+    isAttempted(slug: string): boolean {
+        const progress = this.getLocalProgress();
+        // Not attempted if already solved
+        if (progress.solvedProblems.some(p => p.slug === slug)) return false;
+        return progress.attemptedProblems?.some(p => p.slug === slug) || false;
     }
 
     /**

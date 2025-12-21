@@ -4,10 +4,8 @@
  */
 import React, { useState, useEffect, useCallback, type ReactNode } from 'react';
 import { GoogleOAuthProvider, useGoogleLogin } from '@react-oauth/google';
-import { jwtDecode } from 'jwt-decode';
 import {
     type User,
-    type GoogleTokenPayload,
     TOKEN_KEY,
     USER_KEY
 } from '../utils/auth';
@@ -24,22 +22,27 @@ const AuthProviderInner: React.FC<{ children: ReactNode }> = ({ children }) => {
         try {
             const savedUser = localStorage.getItem(USER_KEY);
             const savedToken = localStorage.getItem(TOKEN_KEY);
+            const tokenExpiry = localStorage.getItem('codenium_token_expiry');
 
             if (savedUser && savedToken) {
-                const decoded = jwtDecode<GoogleTokenPayload>(savedToken);
-                // Check if token is expired
-                if (decoded.exp * 1000 > Date.now()) {
+                // Check if token is expired (default 1 hour from Google)
+                if (tokenExpiry && parseInt(tokenExpiry, 10) > Date.now()) {
+                    setUser(JSON.parse(savedUser));
+                } else if (!tokenExpiry) {
+                    // Legacy: no expiry stored, assume valid for now
                     setUser(JSON.parse(savedUser));
                 } else {
                     // Token expired, clear storage
                     localStorage.removeItem(TOKEN_KEY);
                     localStorage.removeItem(USER_KEY);
+                    localStorage.removeItem('codenium_token_expiry');
                 }
             }
         } catch (error) {
             console.error('Error restoring auth session:', error);
             localStorage.removeItem(TOKEN_KEY);
             localStorage.removeItem(USER_KEY);
+            localStorage.removeItem('codenium_token_expiry');
         } finally {
             setIsLoading(false);
         }
@@ -61,9 +64,10 @@ const AuthProviderInner: React.FC<{ children: ReactNode }> = ({ children }) => {
                     sub: userInfo.sub
                 };
 
-                // Store token and user
+                // Store token and user (access tokens expire in 1 hour)
                 localStorage.setItem(TOKEN_KEY, tokenResponse.access_token);
                 localStorage.setItem(USER_KEY, JSON.stringify(userData));
+                localStorage.setItem('codenium_token_expiry', String(Date.now() + 3600 * 1000));
                 setUser(userData);
             } catch (error) {
                 console.error('Error fetching user info:', error);

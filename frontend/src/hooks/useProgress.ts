@@ -13,11 +13,14 @@ export interface UseProgressReturn {
     isSyncing: boolean;
     lastSyncedAt: number;
     markSolved: (slug: string, code?: string) => void;
+    markAttempted: (slug: string) => void;
     saveDraft: (slug: string, code: string) => void;
     getDraft: (slug: string) => string | null;
     isSolved: (slug: string) => boolean;
+    isAttempted: (slug: string) => boolean;
     sync: () => Promise<void>;
     solvedCount: number;
+    attemptedCount: number;
 }
 
 export function useProgress(): UseProgressReturn {
@@ -63,6 +66,11 @@ export function useProgress(): UseProgressReturn {
         setProgress(SyncService.getLocalProgress());
     }, []);
 
+    const markAttempted = useCallback((slug: string) => {
+        SyncService.markAttempted(slug);
+        setProgress(SyncService.getLocalProgress());
+    }, []);
+
     const saveDraft = useCallback((slug: string, code: string) => {
         SyncService.saveDraft(slug, code);
     }, []);
@@ -73,6 +81,10 @@ export function useProgress(): UseProgressReturn {
 
     const isSolved = useCallback((slug: string): boolean => {
         return SyncService.isSolved(slug);
+    }, []);
+
+    const isAttempted = useCallback((slug: string): boolean => {
+        return SyncService.isAttempted(slug);
     }, []);
 
     const sync = useCallback(async () => {
@@ -91,11 +103,14 @@ export function useProgress(): UseProgressReturn {
         isSyncing,
         lastSyncedAt,
         markSolved,
+        markAttempted,
         saveDraft,
         getDraft,
         isSolved,
+        isAttempted,
         sync,
         solvedCount: progress.solvedProblems.length,
+        attemptedCount: progress.attemptedProblems?.length || 0,
     };
 }
 

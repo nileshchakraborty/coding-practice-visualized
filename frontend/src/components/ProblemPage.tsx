@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import SolutionModal from './SolutionModal';
 import type { Solution } from '../types';
 import { SolutionsAPI } from '../models/api';
+import { useProgress } from '../hooks/useProgress';
+import { useAuth } from '../hooks/useAuth';
 
 /**
  * ProblemPage - Wrapper component that renders SolutionModal as a full page
@@ -15,10 +17,19 @@ import { SolutionsAPI } from '../models/api';
 const ProblemPage: React.FC = () => {
     const { slug } = useParams<{ slug: string }>();
     const navigate = useNavigate();
+    const { markAttempted, isSolved, isAttempted } = useProgress();
+    const { isAuthenticated } = useAuth();
 
     const [solution, setSolution] = useState<Solution | null>(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
+
+    // Mark as attempted when component mounts - only if authenticated
+    useEffect(() => {
+        if (slug && isAuthenticated) {
+            markAttempted(slug);
+        }
+    }, [slug, markAttempted, isAuthenticated]);
 
     // Load solution data
     useEffect(() => {
@@ -50,6 +61,15 @@ const ProblemPage: React.FC = () => {
     const handleClose = () => {
         navigate('/');
     };
+
+    // Compute status reactively from progress state - only when authenticated
+    const problemStatus = useMemo(() => {
+        if (!isAuthenticated) return null;
+        if (!slug) return null;
+        if (isSolved(slug)) return 'solved';
+        if (isAttempted(slug)) return 'in-progress';
+        return null;
+    }, [slug, isSolved, isAttempted, isAuthenticated]);
 
     // Loading state
     if (loading) {
@@ -87,6 +107,7 @@ const ProblemPage: React.FC = () => {
             onClose={handleClose}
             solution={solution}
             slug={slug || null}
+            problemStatus={problemStatus}
         />
     );
 };

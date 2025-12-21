@@ -20,10 +20,16 @@ export interface Draft {
     updatedAt: number;
 }
 
+export interface AttemptedProblem {
+    slug: string;
+    openedAt: number;
+}
+
 export interface UserProgress {
     userId: string;
     lastSyncedAt: number;
     solvedProblems: SolvedProblem[];
+    attemptedProblems: AttemptedProblem[];
     drafts: Record<string, Draft>;
 }
 
@@ -69,6 +75,7 @@ class ProgressStoreService {
                 ...clientProgress,
                 userId,
                 lastSyncedAt: Date.now(),
+                attemptedProblems: clientProgress.attemptedProblems || [],
             };
             this.store.set(userId, merged);
             return merged;
@@ -90,6 +97,20 @@ class ProgressStoreService {
             }
         }
 
+        // Merge attempted problems (union by slug)
+        const attemptedMap = new Map<string, AttemptedProblem>();
+
+        // Add server attempts
+        for (const attempt of serverProgress.attemptedProblems || []) {
+            attemptedMap.set(attempt.slug, attempt);
+        }
+
+        // Merge client attempts (keep if not exists, or update if newer?) 
+        // For attempts, union is safest. If we want "last opened", we'd check timestamps.
+        for (const attempt of clientProgress.attemptedProblems || []) {
+            attemptedMap.set(attempt.slug, attempt);
+        }
+
         // Merge drafts (keep most recent)
         const mergedDrafts: Record<string, Draft> = { ...serverProgress.drafts };
         for (const [slug, draft] of Object.entries(clientProgress.drafts || {})) {
@@ -103,11 +124,12 @@ class ProgressStoreService {
             userId,
             lastSyncedAt: Date.now(),
             solvedProblems: Array.from(solvedMap.values()),
+            attemptedProblems: Array.from(attemptedMap.values()),
             drafts: mergedDrafts,
         };
 
         this.store.set(userId, merged);
-        console.log(`[ProgressStore] Merged progress for user: ${userId} (${merged.solvedProblems.length} solved)`);
+        console.log(`[ProgressStore] Merged progress for user: ${userId} (${merged.solvedProblems.length} solved, ${merged.attemptedProblems.length} attempted)`);
 
         return merged;
     }
