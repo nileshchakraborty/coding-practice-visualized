@@ -4,11 +4,50 @@ import path from 'path';
 import dotenv from 'dotenv';
 import fs from 'fs';
 
+// ============================================
+// VERCEL DEBUG: Startup Logging
+// Set DEBUG_LOGS=false to disable verbose logging
+// ============================================
+const DEBUG_LOGS = process.env.DEBUG_LOGS !== 'false'; // Default: true
+
+const log = (...args: any[]) => {
+    if (DEBUG_LOGS) console.log(...args);
+};
+
+log('============================================');
+log('[STARTUP] API Server Initializing...');
+log('[STARTUP] Node Version:', process.version);
+log('[STARTUP] CWD:', process.cwd());
+log('[STARTUP] __dirname:', __dirname);
+log('[STARTUP] NODE_ENV:', process.env.NODE_ENV);
+log('============================================');
+
+// Check critical paths
+const criticalPaths = [
+    { name: 'api/data', path: path.join(process.cwd(), 'api', 'data') },
+    { name: 'api/_lib', path: path.join(process.cwd(), 'api', '_lib') },
+    { name: 'src', path: path.join(process.cwd(), 'src') },
+    { name: '/var/task/api/data', path: '/var/task/api/data' },
+];
+log('[STARTUP] Checking critical paths:');
+criticalPaths.forEach(({ name, path: p }) => {
+    log(`  ${name}: ${fs.existsSync(p) ? '✅ EXISTS' : '❌ MISSING'}`);
+});
+
+// List contents of CWD
+try {
+    log('[STARTUP] CWD Contents:', fs.readdirSync(process.cwd()).join(', '));
+} catch (e) {
+    log('[STARTUP] Failed to read CWD:', e);
+}
+
 // --- MIDDLEWARE & SERVICES ---
+log('[STARTUP] Loading middleware...');
 import { generalLimiter, aiLimiter } from '../src/infrastructure/middleware/RateLimiter';
 import { cacheService } from '../src/infrastructure/cache/CacheService';
 import { jobQueue, type JobType, type Job } from '../src/infrastructure/queue/JobQueue';
 import { progressStore, type UserProgress } from '../src/infrastructure/store/ProgressStore';
+log('[STARTUP] Middleware loaded ✅');
 
 // Robust Env Loading
 const envPaths = [
@@ -21,29 +60,33 @@ const envPaths = [
 let envLoaded = false;
 for (const p of envPaths) {
     if (fs.existsSync(p)) {
-        console.log("Loading .env from:", p);
+        log("[STARTUP] Loading .env from:", p);
         dotenv.config({ path: p });
         envLoaded = true;
         break;
     }
 }
-if (!envLoaded) console.warn("WARNING: No .env file found!");
-console.log("OPENAI_API_KEY present:", !!process.env.OPENAI_API_KEY);
-
-
+if (!envLoaded) log("[STARTUP] WARNING: No .env file found!");
+log("[STARTUP] OPENAI_API_KEY present:", !!process.env.OPENAI_API_KEY);
 
 // Domain
+log('[STARTUP] Loading domain...');
 import { ToolRegistry } from '../src/domain/mcp/ToolRegistry';
+log('[STARTUP] Domain loaded ✅');
 
 // Adapters
+log('[STARTUP] Loading adapters...');
 import { FileProblemRepository } from '../src/adapters/driven/fs/FileProblemRepository';
 import { LocalExecutionService } from '../src/adapters/driven/execution/LocalExecutionService';
 import { OllamaService } from '../src/adapters/driven/ollama/OllamaService';
 import { OpenAIService } from '../src/adapters/driven/openai/OpenAIService';
 import { MCPTools } from '../src/adapters/driven/mcp/Tools';
+log('[STARTUP] Adapters loaded ✅');
 
 // Application
+log('[STARTUP] Loading application services...');
 import { ProblemService } from '../src/application/ProblemService';
+log('[STARTUP] Application services loaded ✅');
 
 // Google Auth
 import { OAuth2Client } from 'google-auth-library';
