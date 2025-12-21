@@ -25,14 +25,20 @@ export interface Stats {
 export interface AnimationStep {
     type: 'highlight' | 'move' | 'swap';
     indices?: number[];
-    color?: 'accent' | 'success' | 'default' | 'error';
-    pointers?: Array<{ index: number; label: string }>;
+    color?: 'accent' | 'success' | 'default' | 'error' | 'warning';
+    pointers?: Array<{ index?: number; label: string; value?: string | number; node?: string }>;
     transientMessage?: string;
     arrayState?: (number | string)[]; // Current array state at this step
     visual?: string; // Legacy support
     explanation?: string; // Legacy support
     step?: number; // Legacy support
     title?: string; // Legacy support
+    result?: unknown; // Final result for this step
+    // Graph visualization state
+    graphState?: {
+        nodes?: Array<{ id: string; label: string; x: number; y: number; visited?: boolean; highlight?: boolean }>;
+        edges?: Array<{ from: string; to: string; weight?: number; highlight?: boolean }>;
+    };
 }
 
 export interface Approach {

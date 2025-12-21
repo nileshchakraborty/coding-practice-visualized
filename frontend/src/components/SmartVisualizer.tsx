@@ -179,7 +179,12 @@ const SmartVisualizer: React.FC<SmartVisualizerProps> = ({ solution }) => {
         if (!activeStepData?.pointers?.length) return;
 
         const container = arrayContainerRef.current;
-        const pointerIndices = activeStepData.pointers.map(p => p.index);
+        // Filter to pointers with valid indices
+        const pointerIndices = activeStepData.pointers
+            .filter(p => typeof p.index === 'number')
+            .map(p => p.index as number);
+        if (pointerIndices.length === 0) return;
+
         const minIdx = Math.min(...pointerIndices);
         const maxIdx = Math.max(...pointerIndices);
 
@@ -274,7 +279,163 @@ const SmartVisualizer: React.FC<SmartVisualizerProps> = ({ solution }) => {
                     />
                 );
 
-            case 'graph':
+            case 'graph': {
+                // Use graphState from step data if available (for animated graphs)
+                const graphData = activeStepData?.graphState;
+                if (graphData && graphData.nodes && graphData.nodes.length > 0) {
+                    const nodes = graphData.nodes;
+                    // Calculate bounds
+                    const minX = Math.min(...nodes.map((n: { x: number }) => n.x)) - 60;
+                    const maxX = Math.max(...nodes.map((n: { x: number }) => n.x)) + 60;
+                    const minY = Math.min(...nodes.map((n: { y: number }) => n.y)) - 50;
+                    const maxY = Math.max(...nodes.map((n: { y: number }) => n.y)) + 60;
+                    const svgWidth = maxX - minX;
+                    const svgHeight = maxY - minY;
+
+                    // Handle bidirectional edges - group by node pair and offset
+                    const edges = graphData.edges || [];
+                    type EdgeType = { from: string; to: string; weight?: number; highlight?: boolean };
+                    const edgePairs = new Map<string, EdgeType[]>();
+                    edges.forEach((e: EdgeType) => {
+                        const key = [e.from, e.to].sort().join('-');
+                        if (!edgePairs.has(key)) edgePairs.set(key, []);
+                        edgePairs.get(key)!.push(e);
+                    });
+
+                    const displayEdges: (EdgeType & { offset: number })[] = [];
+                    edgePairs.forEach((pair) => {
+                        if (pair.length === 1) {
+                            displayEdges.push({ ...pair[0], offset: 0 });
+                        } else {
+                            displayEdges.push({ ...pair[0], offset: -10 });
+                            displayEdges.push({ ...pair[1], offset: 10 });
+                        }
+                    });
+
+                    return (
+                        <div className="w-full flex justify-center py-4">
+                            <svg
+                                width={Math.min(svgWidth, 550)}
+                                height={Math.min(svgHeight, 280)}
+                                viewBox={`${minX} ${minY} ${svgWidth} ${svgHeight}`}
+                                className="overflow-visible"
+                            >
+                                {/* Edges */}
+                                {displayEdges.map((edge, idx) => {
+                                    const fromNode = nodes.find((n: { id: string }) => n.id === edge.from);
+                                    const toNode = nodes.find((n: { id: string }) => n.id === edge.to);
+                                    if (!fromNode || !toNode) return null;
+
+                                    const highlighted = edge.highlight;
+                                    const strokeColor = highlighted ? '#10b981' : '#64748b';
+                                    const dx = toNode.x - fromNode.x;
+                                    const dy = toNode.y - fromNode.y;
+                                    const angle = Math.atan2(dy, dx);
+                                    const perpX = -Math.sin(angle) * edge.offset;
+                                    const perpY = Math.cos(angle) * edge.offset;
+                                    const startX = fromNode.x + 24 * Math.cos(angle) + perpX;
+                                    const startY = fromNode.y + 24 * Math.sin(angle) + perpY;
+                                    const endX = toNode.x - 28 * Math.cos(angle) + perpX;
+                                    const endY = toNode.y - 28 * Math.sin(angle) + perpY;
+
+                                    return (
+                                        <g key={`edge-${idx}`}>
+                                            <motion.line
+                                                initial={{ pathLength: 0, opacity: 0 }}
+                                                animate={{ pathLength: 1, opacity: 1 }}
+                                                transition={{ delay: idx * 0.05, duration: 0.2 }}
+                                                x1={startX} y1={startY} x2={endX} y2={endY}
+                                                stroke={strokeColor}
+                                                strokeWidth={highlighted ? 3 : 2}
+                                            />
+                                            <polygon
+                                                points={`${endX},${endY} ${endX - 10 * Math.cos(angle - 0.35)},${endY - 10 * Math.sin(angle - 0.35)} ${endX - 10 * Math.cos(angle + 0.35)},${endY - 10 * Math.sin(angle + 0.35)}`}
+                                                fill={strokeColor}
+                                            />
+                                            {edge.weight !== undefined && (
+                                                <g>
+                                                    <rect
+                                                        x={(startX + endX) / 2 - 16}
+                                                        y={(startY + endY) / 2 - 10}
+                                                        width={32}
+                                                        height={16}
+                                                        rx={3}
+                                                        fill={highlighted ? '#064e3b' : '#1e293b'}
+                                                        stroke={highlighted ? '#10b981' : '#475569'}
+                                                        strokeWidth={1}
+                                                    />
+                                                    <text
+                                                        x={(startX + endX) / 2}
+                                                        y={(startY + endY) / 2 + 3}
+                                                        textAnchor="middle"
+                                                        className={`text-xs font-bold ${highlighted ? 'fill-emerald-300' : 'fill-slate-200'}`}
+                                                    >
+                                                        {edge.weight}
+                                                    </text>
+                                                </g>
+                                            )}
+                                        </g>
+                                    );
+                                })}
+
+                                {/* Nodes */}
+                                {nodes.map((node: { id: string; label: string; x: number; y: number; visited?: boolean; highlight?: boolean }, idx: number) => {
+                                    const isHighlighted = node.highlight;
+                                    const isVisited = node.visited;
+                                    const labelMatch = node.label.match(/^(\S+)\s*(.*)$/);
+                                    const displayId = labelMatch ? labelMatch[1] : node.label;
+                                    const extraInfo = labelMatch && labelMatch[2] ? labelMatch[2] : '';
+
+                                    let fillColor = '#1e293b';
+                                    let strokeColor = '#475569';
+                                    if (isHighlighted) {
+                                        fillColor = 'rgba(234, 179, 8, 0.3)';
+                                        strokeColor = '#eab308';
+                                    } else if (isVisited) {
+                                        fillColor = 'rgba(16, 185, 129, 0.2)';
+                                        strokeColor = '#10b981';
+                                    }
+
+                                    return (
+                                        <g key={node.id}>
+                                            <motion.circle
+                                                initial={{ scale: 0, opacity: 0 }}
+                                                animate={{ scale: isHighlighted ? 1.1 : 1, opacity: 1 }}
+                                                transition={{ delay: idx * 0.03, type: 'spring', stiffness: 300 }}
+                                                cx={node.x}
+                                                cy={node.y}
+                                                r={22}
+                                                fill={fillColor}
+                                                stroke={strokeColor}
+                                                strokeWidth={isHighlighted ? 3 : 2}
+                                                style={isHighlighted ? { filter: 'drop-shadow(0 0 10px rgba(234, 179, 8, 0.5))' } : {}}
+                                            />
+                                            <text
+                                                x={node.x}
+                                                y={node.y + 5}
+                                                textAnchor="middle"
+                                                className="fill-white text-base font-bold"
+                                            >
+                                                {displayId}
+                                            </text>
+                                            {extraInfo && (
+                                                <text
+                                                    x={node.x}
+                                                    y={node.y + 38}
+                                                    textAnchor="middle"
+                                                    className="fill-slate-400 text-xs"
+                                                >
+                                                    {extraInfo}
+                                                </text>
+                                            )}
+                                        </g>
+                                    );
+                                })}
+                            </svg>
+                        </div>
+                    );
+                }
+                // Fallback to static GraphVisualizer
                 return (
                     <GraphVisualizer
                         nodes={solution.graphNodes || []}
@@ -283,6 +444,7 @@ const SmartVisualizer: React.FC<SmartVisualizerProps> = ({ solution }) => {
                         highlightedEdges={[]}
                     />
                 );
+            }
 
             case 'array':
             default:
@@ -486,7 +648,10 @@ const SmartVisualizer: React.FC<SmartVisualizerProps> = ({ solution }) => {
                 <div className="flex flex-wrap gap-2 mt-2 justify-center">
                     <AnimatePresence>
                         {activeStepData.pointers.map((p, idx: number) => {
-                            const val = getActiveState()[p.index];
+                            // Support both index-based (arrays) and value-based (graphs) pointers
+                            const hasIndex = typeof p.index === 'number';
+                            const val = hasIndex ? getActiveState()[p.index!] : p.value;
+                            const displayVal = val !== undefined ? String(val) : (p.node || '∅');
                             return (
                                 <motion.div
                                     key={`${p.label}-${idx}`}
@@ -498,11 +663,13 @@ const SmartVisualizer: React.FC<SmartVisualizerProps> = ({ solution }) => {
                                     <span className="font-mono text-xs font-bold text-slate-500 dark:text-slate-400">{p.label}</span>
                                     <span className="text-xs text-slate-300 dark:text-slate-600">→</span>
                                     <span className="font-mono text-sm font-semibold text-indigo-600 dark:text-indigo-400">
-                                        {val !== undefined ? String(val) : '∅'}
+                                        {displayVal}
                                     </span>
-                                    <span className="text-[10px] text-slate-400 ml-0.5 opacity-75">
-                                        [{p.index}]
-                                    </span>
+                                    {hasIndex && (
+                                        <span className="text-[10px] text-slate-400 ml-0.5 opacity-75">
+                                            [{p.index}]
+                                        </span>
+                                    )}
                                 </motion.div>
                             );
                         })}

@@ -16562,297 +16562,231 @@
       "animationSteps": [
         {
           "step": 1,
-          "visual": "Problem: Clone Graph",
-          "transientMessage": "Graph traversal approach",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
+          "visual": "Input: Connected Graph",
+          "transientMessage": "node.val = 1, neighbors = [2,4]",
+          "graphState": {
+            "nodes": [
+              {
+                "id": "1",
+                "label": "1",
+                "x": 200,
+                "y": 100
+              },
+              {
+                "id": "2",
+                "label": "2",
+                "x": 100,
+                "y": 200
+              },
+              {
+                "id": "3",
+                "label": "3",
+                "x": 300,
+                "y": 200
+              },
+              {
+                "id": "4",
+                "label": "4",
+                "x": 200,
+                "y": 300
+              }
+            ],
+            "edges": [
+              {
+                "from": "1",
+                "to": "2"
+              },
+              {
+                "from": "1",
+                "to": "4"
+              },
+              {
+                "from": "2",
+                "to": "3"
+              },
+              {
+                "from": "3",
+                "to": "4"
+              }
+            ]
+          },
           "pointers": [],
-          "indices": [],
           "color": "accent"
         },
         {
           "step": 2,
-          "visual": "Build adjacency list",
-          "transientMessage": "Initialize graph structure",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
+          "visual": "BFS: Start at node 1",
+          "transientMessage": "Create clone, add to visited",
+          "graphState": {
+            "nodes": [
+              {
+                "id": "1",
+                "label": "1 \u2713",
+                "x": 200,
+                "y": 100,
+                "visited": true
+              },
+              {
+                "id": "2",
+                "label": "2",
+                "x": 100,
+                "y": 200
+              },
+              {
+                "id": "3",
+                "label": "3",
+                "x": 300,
+                "y": 200
+              },
+              {
+                "id": "4",
+                "label": "4",
+                "x": 200,
+                "y": 300
+              }
+            ],
+            "edges": [
+              {
+                "from": "1",
+                "to": "2"
+              },
+              {
+                "from": "1",
+                "to": "4"
+              },
+              {
+                "from": "2",
+                "to": "3"
+              },
+              {
+                "from": "3",
+                "to": "4"
+              }
+            ]
+          },
+          "pointers": [
+            {
+              "label": "curr",
+              "node": "1"
+            }
           ],
-          "pointers": [],
-          "indices": [],
           "color": "accent"
         },
         {
           "step": 3,
-          "visual": "Start BFS/DFS from node 0",
-          "transientMessage": "Add to queue/stack",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
-          "pointers": [
-            {
-              "label": "start",
-              "index": 0
-            }
-          ],
-          "indices": [
-            0
-          ],
+          "visual": "Clone neighbors 2, 4",
+          "transientMessage": "Connect clones to node 1",
+          "graphState": {
+            "nodes": [
+              {
+                "id": "1",
+                "label": "1 \u2713",
+                "x": 200,
+                "y": 100,
+                "visited": true
+              },
+              {
+                "id": "2",
+                "label": "2 \u2713",
+                "x": 100,
+                "y": 200,
+                "visited": true
+              },
+              {
+                "id": "3",
+                "label": "3",
+                "x": 300,
+                "y": 200
+              },
+              {
+                "id": "4",
+                "label": "4 \u2713",
+                "x": 200,
+                "y": 300,
+                "visited": true
+              }
+            ],
+            "edges": [
+              {
+                "from": "1",
+                "to": "2",
+                "highlight": true
+              },
+              {
+                "from": "1",
+                "to": "4",
+                "highlight": true
+              },
+              {
+                "from": "2",
+                "to": "3"
+              },
+              {
+                "from": "3",
+                "to": "4"
+              }
+            ]
+          },
+          "pointers": [],
           "color": "accent"
         },
         {
           "step": 4,
-          "visual": "Visit node 0",
-          "transientMessage": "Visited: {0}",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
-          "pointers": [
-            {
-              "label": "curr",
-              "index": 0
-            }
-          ],
-          "indices": [
-            0
-          ],
-          "color": "success"
-        },
-        {
-          "step": 5,
-          "visual": "Explore neighbors of 0",
-          "transientMessage": "Add unvisited neighbors",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
-          "pointers": [
-            {
-              "label": "i",
-              "index": 0
-            },
-            {
-              "label": "next",
-              "index": 1
-            }
-          ],
-          "indices": [
-            0,
-            1
-          ],
-          "color": "accent"
-        },
-        {
-          "step": 6,
-          "visual": "Visit node 1",
-          "transientMessage": "Visited: {0, 1}",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
-          "pointers": [
-            {
-              "label": "curr",
-              "index": 1
-            }
-          ],
-          "indices": [
-            0,
-            1
-          ],
-          "color": "success"
-        },
-        {
-          "step": 7,
-          "visual": "Explore neighbors of 1",
-          "transientMessage": "Add unvisited neighbors",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
-          "pointers": [
-            {
-              "label": "i",
-              "index": 1
-            },
-            {
-              "label": "next",
-              "index": 2
-            }
-          ],
-          "indices": [
-            1,
-            2
-          ],
-          "color": "accent"
-        },
-        {
-          "step": 8,
-          "visual": "Visit node 2",
-          "transientMessage": "Visited: {0, 1, 2}",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
-          "pointers": [
-            {
-              "label": "curr",
-              "index": 2
-            }
-          ],
-          "indices": [
-            0,
-            1,
-            2
-          ],
-          "color": "success"
-        },
-        {
-          "step": 9,
-          "visual": "Explore neighbors of 2",
-          "transientMessage": "Add unvisited neighbors",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
-          "pointers": [
-            {
-              "label": "i",
-              "index": 2
-            },
-            {
-              "label": "next",
-              "index": 3
-            }
-          ],
-          "indices": [
-            2,
-            3
-          ],
-          "color": "accent"
-        },
-        {
-          "step": 10,
-          "visual": "Visit node 3",
-          "transientMessage": "Visited: {0, 1, 2, 3}",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
-          "pointers": [
-            {
-              "label": "curr",
-              "index": 3
-            }
-          ],
-          "indices": [
-            0,
-            1,
-            2,
-            3
-          ],
-          "color": "success"
-        },
-        {
-          "step": 11,
-          "visual": "Explore neighbors of 3",
-          "transientMessage": "Add unvisited neighbors",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
-          "pointers": [
-            {
-              "label": "i",
-              "index": 3
-            },
-            {
-              "label": "next",
-              "index": 4
-            }
-          ],
-          "indices": [
-            3,
-            4
-          ],
-          "color": "accent"
-        },
-        {
-          "step": 12,
-          "visual": "Visit node 4",
-          "transientMessage": "Visited: {0, 1, 2, 3, 4}",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
-          "pointers": [
-            {
-              "label": "curr",
-              "index": 4
-            }
-          ],
-          "indices": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
-          "color": "success"
-        },
-        {
-          "step": 13,
-          "visual": "Traversal complete",
-          "transientMessage": "All nodes visited!",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
+          "visual": "Clone neighbor 3",
+          "transientMessage": "Complete all edges",
+          "graphState": {
+            "nodes": [
+              {
+                "id": "1",
+                "label": "1 \u2713",
+                "x": 200,
+                "y": 100,
+                "visited": true
+              },
+              {
+                "id": "2",
+                "label": "2 \u2713",
+                "x": 100,
+                "y": 200,
+                "visited": true
+              },
+              {
+                "id": "3",
+                "label": "3 \u2713",
+                "x": 300,
+                "y": 200,
+                "visited": true
+              },
+              {
+                "id": "4",
+                "label": "4 \u2713",
+                "x": 200,
+                "y": 300,
+                "visited": true
+              }
+            ],
+            "edges": [
+              {
+                "from": "1",
+                "to": "2"
+              },
+              {
+                "from": "1",
+                "to": "4"
+              },
+              {
+                "from": "2",
+                "to": "3",
+                "highlight": true
+              },
+              {
+                "from": "3",
+                "to": "4",
+                "highlight": true
+              }
+            ]
+          },
           "pointers": [],
-          "indices": [],
           "color": "success"
         }
       ],
@@ -17024,297 +16958,287 @@
       "animationSteps": [
         {
           "step": 1,
-          "visual": "Problem: Course Schedule",
-          "transientMessage": "Graph traversal approach",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
+          "visual": "Build DAG",
+          "transientMessage": "prereqs=[[1,0],[2,0],[3,1],[3,2]]",
+          "graphState": {
+            "nodes": [
+              {
+                "id": "0",
+                "label": "0",
+                "x": 200,
+                "y": 50
+              },
+              {
+                "id": "1",
+                "label": "1",
+                "x": 100,
+                "y": 150
+              },
+              {
+                "id": "2",
+                "label": "2",
+                "x": 300,
+                "y": 150
+              },
+              {
+                "id": "3",
+                "label": "3",
+                "x": 200,
+                "y": 250
+              }
+            ],
+            "edges": [
+              {
+                "from": "0",
+                "to": "1"
+              },
+              {
+                "from": "0",
+                "to": "2"
+              },
+              {
+                "from": "1",
+                "to": "3"
+              },
+              {
+                "from": "2",
+                "to": "3"
+              }
+            ]
+          },
           "pointers": [],
-          "indices": [],
           "color": "accent"
         },
         {
           "step": 2,
-          "visual": "Build adjacency list",
-          "transientMessage": "Initialize graph structure",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
+          "visual": "Indegree = [0,1,1,2]",
+          "transientMessage": "Course 0 has no prereqs",
+          "graphState": {
+            "nodes": [
+              {
+                "id": "0",
+                "label": "0 (in:0)",
+                "x": 200,
+                "y": 50,
+                "highlight": true
+              },
+              {
+                "id": "1",
+                "label": "1 (in:1)",
+                "x": 100,
+                "y": 150
+              },
+              {
+                "id": "2",
+                "label": "2 (in:1)",
+                "x": 300,
+                "y": 150
+              },
+              {
+                "id": "3",
+                "label": "3 (in:2)",
+                "x": 200,
+                "y": 250
+              }
+            ],
+            "edges": [
+              {
+                "from": "0",
+                "to": "1"
+              },
+              {
+                "from": "0",
+                "to": "2"
+              },
+              {
+                "from": "1",
+                "to": "3"
+              },
+              {
+                "from": "2",
+                "to": "3"
+              }
+            ]
+          },
           "pointers": [],
-          "indices": [],
           "color": "accent"
         },
         {
           "step": 3,
-          "visual": "Start BFS/DFS from node 0",
-          "transientMessage": "Add to queue/stack",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
+          "visual": "Take course 0",
+          "transientMessage": "Decrement neighbors",
+          "graphState": {
+            "nodes": [
+              {
+                "id": "0",
+                "label": "0 \u2713",
+                "x": 200,
+                "y": 50,
+                "visited": true
+              },
+              {
+                "id": "1",
+                "label": "1 (in:0)",
+                "x": 100,
+                "y": 150,
+                "highlight": true
+              },
+              {
+                "id": "2",
+                "label": "2 (in:0)",
+                "x": 300,
+                "y": 150,
+                "highlight": true
+              },
+              {
+                "id": "3",
+                "label": "3",
+                "x": 200,
+                "y": 250
+              }
+            ],
+            "edges": [
+              {
+                "from": "0",
+                "to": "1",
+                "highlight": true
+              },
+              {
+                "from": "0",
+                "to": "2",
+                "highlight": true
+              },
+              {
+                "from": "1",
+                "to": "3"
+              },
+              {
+                "from": "2",
+                "to": "3"
+              }
+            ]
+          },
           "pointers": [
             {
-              "label": "start",
-              "index": 0
+              "label": "taken",
+              "value": "1"
             }
-          ],
-          "indices": [
-            0
           ],
           "color": "accent"
         },
         {
           "step": 4,
-          "visual": "Visit node 0",
-          "transientMessage": "Visited: {0}",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
+          "visual": "Take 1 & 2",
+          "transientMessage": "Both ready (indegree=0)",
+          "graphState": {
+            "nodes": [
+              {
+                "id": "0",
+                "label": "0 \u2713",
+                "x": 200,
+                "y": 50,
+                "visited": true
+              },
+              {
+                "id": "1",
+                "label": "1 \u2713",
+                "x": 100,
+                "y": 150,
+                "visited": true
+              },
+              {
+                "id": "2",
+                "label": "2 \u2713",
+                "x": 300,
+                "y": 150,
+                "visited": true
+              },
+              {
+                "id": "3",
+                "label": "3 (in:0)",
+                "x": 200,
+                "y": 250,
+                "highlight": true
+              }
+            ],
+            "edges": [
+              {
+                "from": "0",
+                "to": "1"
+              },
+              {
+                "from": "0",
+                "to": "2"
+              },
+              {
+                "from": "1",
+                "to": "3"
+              },
+              {
+                "from": "2",
+                "to": "3"
+              }
+            ]
+          },
           "pointers": [
             {
-              "label": "curr",
-              "index": 0
+              "label": "taken",
+              "value": "3"
             }
           ],
-          "indices": [
-            0
-          ],
-          "color": "success"
+          "color": "accent"
         },
         {
           "step": 5,
-          "visual": "Explore neighbors of 0",
-          "transientMessage": "Add unvisited neighbors",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
-          "pointers": [
-            {
-              "label": "i",
-              "index": 0
-            },
-            {
-              "label": "next",
-              "index": 1
-            }
-          ],
-          "indices": [
-            0,
-            1
-          ],
-          "color": "accent"
-        },
-        {
-          "step": 6,
-          "visual": "Visit node 1",
-          "transientMessage": "Visited: {0, 1}",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
-          "pointers": [
-            {
-              "label": "curr",
-              "index": 1
-            }
-          ],
-          "indices": [
-            0,
-            1
-          ],
-          "color": "success"
-        },
-        {
-          "step": 7,
-          "visual": "Explore neighbors of 1",
-          "transientMessage": "Add unvisited neighbors",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
-          "pointers": [
-            {
-              "label": "i",
-              "index": 1
-            },
-            {
-              "label": "next",
-              "index": 2
-            }
-          ],
-          "indices": [
-            1,
-            2
-          ],
-          "color": "accent"
-        },
-        {
-          "step": 8,
-          "visual": "Visit node 2",
-          "transientMessage": "Visited: {0, 1, 2}",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
-          "pointers": [
-            {
-              "label": "curr",
-              "index": 2
-            }
-          ],
-          "indices": [
-            0,
-            1,
-            2
-          ],
-          "color": "success"
-        },
-        {
-          "step": 9,
-          "visual": "Explore neighbors of 2",
-          "transientMessage": "Add unvisited neighbors",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
-          "pointers": [
-            {
-              "label": "i",
-              "index": 2
-            },
-            {
-              "label": "next",
-              "index": 3
-            }
-          ],
-          "indices": [
-            2,
-            3
-          ],
-          "color": "accent"
-        },
-        {
-          "step": 10,
-          "visual": "Visit node 3",
-          "transientMessage": "Visited: {0, 1, 2, 3}",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
-          "pointers": [
-            {
-              "label": "curr",
-              "index": 3
-            }
-          ],
-          "indices": [
-            0,
-            1,
-            2,
-            3
-          ],
-          "color": "success"
-        },
-        {
-          "step": 11,
-          "visual": "Explore neighbors of 3",
-          "transientMessage": "Add unvisited neighbors",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
-          "pointers": [
-            {
-              "label": "i",
-              "index": 3
-            },
-            {
-              "label": "next",
-              "index": 4
-            }
-          ],
-          "indices": [
-            3,
-            4
-          ],
-          "color": "accent"
-        },
-        {
-          "step": 12,
-          "visual": "Visit node 4",
-          "transientMessage": "Visited: {0, 1, 2, 3, 4}",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
-          "pointers": [
-            {
-              "label": "curr",
-              "index": 4
-            }
-          ],
-          "indices": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
-          "color": "success"
-        },
-        {
-          "step": 13,
-          "visual": "Traversal complete",
-          "transientMessage": "All nodes visited!",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
+          "visual": "Result: True",
+          "transientMessage": "All 4 courses completed!",
+          "graphState": {
+            "nodes": [
+              {
+                "id": "0",
+                "label": "0 \u2713",
+                "x": 200,
+                "y": 50
+              },
+              {
+                "id": "1",
+                "label": "1 \u2713",
+                "x": 100,
+                "y": 150
+              },
+              {
+                "id": "2",
+                "label": "2 \u2713",
+                "x": 300,
+                "y": 150
+              },
+              {
+                "id": "3",
+                "label": "3 \u2713",
+                "x": 200,
+                "y": 250
+              }
+            ],
+            "edges": [
+              {
+                "from": "0",
+                "to": "1"
+              },
+              {
+                "from": "0",
+                "to": "2"
+              },
+              {
+                "from": "1",
+                "to": "3"
+              },
+              {
+                "from": "2",
+                "to": "3"
+              }
+            ]
+          },
           "pointers": [],
-          "indices": [],
           "color": "success"
         }
       ],
@@ -43405,217 +43329,513 @@
       "animationSteps": [
         {
           "step": 1,
-          "visual": "Problem: Evaluate Division",
-          "transientMessage": "Graph traversal",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
+          "visual": "Build Graph from Equations",
+          "transientMessage": "equations = [[a,b],[b,c]], values = [2.0, 3.0]",
+          "graphState": {
+            "nodes": [
+              {
+                "id": "a",
+                "label": "a",
+                "x": 100,
+                "y": 150
+              },
+              {
+                "id": "b",
+                "label": "b",
+                "x": 250,
+                "y": 150
+              },
+              {
+                "id": "c",
+                "label": "c",
+                "x": 400,
+                "y": 150
+              }
+            ],
+            "edges": []
+          },
           "pointers": [],
-          "indices": [
-            0
-          ],
           "color": "accent"
         },
         {
           "step": 2,
-          "visual": "Visit node 1",
-          "transientMessage": "BFS/DFS step 1",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
-          "pointers": [
-            {
-              "label": "curr",
-              "index": 1
-            }
-          ],
-          "indices": [
-            1
-          ],
+          "visual": "Add edge: a \u2192 b = 2.0",
+          "transientMessage": "a / b = 2.0 means graph[a][b] = 2.0",
+          "graphState": {
+            "nodes": [
+              {
+                "id": "a",
+                "label": "a",
+                "x": 100,
+                "y": 150,
+                "highlight": true
+              },
+              {
+                "id": "b",
+                "label": "b",
+                "x": 250,
+                "y": 150,
+                "highlight": true
+              },
+              {
+                "id": "c",
+                "label": "c",
+                "x": 400,
+                "y": 150
+              }
+            ],
+            "edges": [
+              {
+                "from": "a",
+                "to": "b",
+                "weight": 2.0,
+                "highlight": true
+              }
+            ]
+          },
+          "pointers": [],
           "color": "accent"
         },
         {
           "step": 3,
-          "visual": "Visit node 2",
-          "transientMessage": "BFS/DFS step 2",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
-          "pointers": [
-            {
-              "label": "curr",
-              "index": 2
-            }
-          ],
-          "indices": [
-            2
-          ],
+          "visual": "Add reverse: b \u2192 a = 0.5",
+          "transientMessage": "Also store inverse: graph[b][a] = 1/2.0 = 0.5",
+          "graphState": {
+            "nodes": [
+              {
+                "id": "a",
+                "label": "a",
+                "x": 100,
+                "y": 150
+              },
+              {
+                "id": "b",
+                "label": "b",
+                "x": 250,
+                "y": 150,
+                "highlight": true
+              },
+              {
+                "id": "c",
+                "label": "c",
+                "x": 400,
+                "y": 150
+              }
+            ],
+            "edges": [
+              {
+                "from": "a",
+                "to": "b",
+                "weight": 2.0
+              },
+              {
+                "from": "b",
+                "to": "a",
+                "weight": 0.5,
+                "highlight": true
+              }
+            ]
+          },
+          "pointers": [],
           "color": "accent"
         },
         {
           "step": 4,
-          "visual": "Visit node 3",
-          "transientMessage": "BFS/DFS step 3",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
-          "pointers": [
-            {
-              "label": "curr",
-              "index": 3
-            }
-          ],
-          "indices": [
-            3
-          ],
+          "visual": "Add edge: b \u2192 c = 3.0",
+          "transientMessage": "b / c = 3.0 means graph[b][c] = 3.0",
+          "graphState": {
+            "nodes": [
+              {
+                "id": "a",
+                "label": "a",
+                "x": 100,
+                "y": 150
+              },
+              {
+                "id": "b",
+                "label": "b",
+                "x": 250,
+                "y": 150,
+                "highlight": true
+              },
+              {
+                "id": "c",
+                "label": "c",
+                "x": 400,
+                "y": 150,
+                "highlight": true
+              }
+            ],
+            "edges": [
+              {
+                "from": "a",
+                "to": "b",
+                "weight": 2.0
+              },
+              {
+                "from": "b",
+                "to": "a",
+                "weight": 0.5
+              },
+              {
+                "from": "b",
+                "to": "c",
+                "weight": 3.0,
+                "highlight": true
+              }
+            ]
+          },
+          "pointers": [],
           "color": "accent"
         },
         {
           "step": 5,
-          "visual": "Visit node 4",
-          "transientMessage": "BFS/DFS step 4",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
-          "pointers": [
-            {
-              "label": "curr",
-              "index": 4
-            }
-          ],
-          "indices": [
-            4
-          ],
-          "color": "accent"
+          "visual": "Add reverse: c \u2192 b = 0.33",
+          "transientMessage": "graph[c][b] = 1/3.0 \u2248 0.33",
+          "graphState": {
+            "nodes": [
+              {
+                "id": "a",
+                "label": "a",
+                "x": 100,
+                "y": 150
+              },
+              {
+                "id": "b",
+                "label": "b",
+                "x": 250,
+                "y": 150
+              },
+              {
+                "id": "c",
+                "label": "c",
+                "x": 400,
+                "y": 150,
+                "highlight": true
+              }
+            ],
+            "edges": [
+              {
+                "from": "a",
+                "to": "b",
+                "weight": 2.0
+              },
+              {
+                "from": "b",
+                "to": "a",
+                "weight": 0.5
+              },
+              {
+                "from": "b",
+                "to": "c",
+                "weight": 3.0
+              },
+              {
+                "from": "c",
+                "to": "b",
+                "weight": 0.33,
+                "highlight": true
+              }
+            ]
+          },
+          "pointers": [],
+          "color": "success"
         },
         {
           "step": 6,
-          "visual": "Visit node 0",
-          "transientMessage": "BFS/DFS step 5",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
+          "visual": "Query: a / c = ?",
+          "transientMessage": "Find path from 'a' to 'c', multiply weights",
+          "graphState": {
+            "nodes": [
+              {
+                "id": "a",
+                "label": "a (start)",
+                "x": 100,
+                "y": 150,
+                "highlight": true
+              },
+              {
+                "id": "b",
+                "label": "b",
+                "x": 250,
+                "y": 150
+              },
+              {
+                "id": "c",
+                "label": "c (goal)",
+                "x": 400,
+                "y": 150,
+                "highlight": true
+              }
+            ],
+            "edges": [
+              {
+                "from": "a",
+                "to": "b",
+                "weight": 2.0
+              },
+              {
+                "from": "b",
+                "to": "a",
+                "weight": 0.5
+              },
+              {
+                "from": "b",
+                "to": "c",
+                "weight": 3.0
+              },
+              {
+                "from": "c",
+                "to": "b",
+                "weight": 0.33
+              }
+            ]
+          },
           "pointers": [
             {
-              "label": "curr",
-              "index": 0
+              "label": "DFS",
+              "node": "a"
             }
-          ],
-          "indices": [
-            0
           ],
           "color": "accent"
         },
         {
           "step": 7,
-          "visual": "Visit node 1",
-          "transientMessage": "BFS/DFS step 6",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
+          "visual": "DFS: Start at 'a'",
+          "transientMessage": "visited = {a}, result = 1.0",
+          "graphState": {
+            "nodes": [
+              {
+                "id": "a",
+                "label": "a \u2713",
+                "x": 100,
+                "y": 150,
+                "visited": true
+              },
+              {
+                "id": "b",
+                "label": "b",
+                "x": 250,
+                "y": 150
+              },
+              {
+                "id": "c",
+                "label": "c",
+                "x": 400,
+                "y": 150
+              }
+            ],
+            "edges": [
+              {
+                "from": "a",
+                "to": "b",
+                "weight": 2.0
+              },
+              {
+                "from": "b",
+                "to": "a",
+                "weight": 0.5
+              },
+              {
+                "from": "b",
+                "to": "c",
+                "weight": 3.0
+              },
+              {
+                "from": "c",
+                "to": "b",
+                "weight": 0.33
+              }
+            ]
+          },
           "pointers": [
             {
               "label": "curr",
-              "index": 1
+              "node": "a"
             }
-          ],
-          "indices": [
-            1
           ],
           "color": "accent"
         },
         {
           "step": 8,
-          "visual": "Visit node 2",
-          "transientMessage": "BFS/DFS step 7",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
+          "visual": "DFS: a \u2192 b (\u00d72.0)",
+          "transientMessage": "Traverse edge a\u2192b, multiply: 1.0 \u00d7 2.0 = 2.0",
+          "graphState": {
+            "nodes": [
+              {
+                "id": "a",
+                "label": "a \u2713",
+                "x": 100,
+                "y": 150,
+                "visited": true
+              },
+              {
+                "id": "b",
+                "label": "b \u2713",
+                "x": 250,
+                "y": 150,
+                "visited": true,
+                "highlight": true
+              },
+              {
+                "id": "c",
+                "label": "c",
+                "x": 400,
+                "y": 150
+              }
+            ],
+            "edges": [
+              {
+                "from": "a",
+                "to": "b",
+                "weight": 2.0,
+                "highlight": true
+              },
+              {
+                "from": "b",
+                "to": "a",
+                "weight": 0.5
+              },
+              {
+                "from": "b",
+                "to": "c",
+                "weight": 3.0
+              },
+              {
+                "from": "c",
+                "to": "b",
+                "weight": 0.33
+              }
+            ]
+          },
           "pointers": [
             {
               "label": "curr",
-              "index": 2
+              "node": "b"
+            },
+            {
+              "label": "result",
+              "value": "2.0"
             }
-          ],
-          "indices": [
-            2
           ],
           "color": "accent"
         },
         {
           "step": 9,
-          "visual": "Visit node 3",
-          "transientMessage": "BFS/DFS step 8",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
+          "visual": "DFS: b \u2192 c (\u00d73.0)",
+          "transientMessage": "Traverse edge b\u2192c, multiply: 2.0 \u00d7 3.0 = 6.0",
+          "graphState": {
+            "nodes": [
+              {
+                "id": "a",
+                "label": "a \u2713",
+                "x": 100,
+                "y": 150,
+                "visited": true
+              },
+              {
+                "id": "b",
+                "label": "b \u2713",
+                "x": 250,
+                "y": 150,
+                "visited": true
+              },
+              {
+                "id": "c",
+                "label": "c \u2713",
+                "x": 400,
+                "y": 150,
+                "visited": true,
+                "highlight": true
+              }
+            ],
+            "edges": [
+              {
+                "from": "a",
+                "to": "b",
+                "weight": 2.0,
+                "highlight": true
+              },
+              {
+                "from": "b",
+                "to": "a",
+                "weight": 0.5
+              },
+              {
+                "from": "b",
+                "to": "c",
+                "weight": 3.0,
+                "highlight": true
+              },
+              {
+                "from": "c",
+                "to": "b",
+                "weight": 0.33
+              }
+            ]
+          },
           "pointers": [
             {
               "label": "curr",
-              "index": 3
+              "node": "c"
+            },
+            {
+              "label": "result",
+              "value": "6.0"
             }
           ],
-          "indices": [
-            3
-          ],
-          "color": "accent"
+          "color": "success"
         },
         {
           "step": 10,
-          "visual": "Visit node 4",
-          "transientMessage": "BFS/DFS step 9",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
+          "visual": "Found: a / c = 6.0",
+          "transientMessage": "Path: a → b → c = 2.0 × 3.0 = 6.0 ✓",
+          "graphState": {
+            "nodes": [
+              {
+                "id": "a",
+                "label": "a",
+                "x": 100,
+                "y": 150,
+                "highlight": true
+              },
+              {
+                "id": "b",
+                "label": "b",
+                "x": 250,
+                "y": 150,
+                "highlight": true
+              },
+              {
+                "id": "c",
+                "label": "c",
+                "x": 400,
+                "y": 150,
+                "highlight": true
+              }
+            ],
+            "edges": [
+              {
+                "from": "a",
+                "to": "b",
+                "weight": 2.0,
+                "highlight": true
+              },
+              {
+                "from": "b",
+                "to": "c",
+                "weight": 3.0,
+                "highlight": true
+              }
+            ]
+          },
           "pointers": [
             {
-              "label": "curr",
-              "index": 4
+              "label": "result",
+              "value": "6.0"
             }
           ],
-          "indices": [
-            4
-          ],
+          "result": 6.0,
           "color": "success"
         }
       ],
@@ -43729,297 +43949,236 @@
       "animationSteps": [
         {
           "step": 1,
-          "visual": "Problem: Course Schedule II",
-          "transientMessage": "Graph traversal approach",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
+          "visual": "Build DAG",
+          "transientMessage": "prereqs define order",
+          "graphState": {
+            "nodes": [
+              {
+                "id": "0",
+                "label": "0",
+                "x": 200,
+                "y": 50
+              },
+              {
+                "id": "1",
+                "label": "1",
+                "x": 100,
+                "y": 150
+              },
+              {
+                "id": "2",
+                "label": "2",
+                "x": 300,
+                "y": 150
+              },
+              {
+                "id": "3",
+                "label": "3",
+                "x": 200,
+                "y": 250
+              }
+            ],
+            "edges": [
+              {
+                "from": "0",
+                "to": "1"
+              },
+              {
+                "from": "0",
+                "to": "2"
+              },
+              {
+                "from": "1",
+                "to": "3"
+              },
+              {
+                "from": "2",
+                "to": "3"
+              }
+            ]
+          },
           "pointers": [],
-          "indices": [],
           "color": "accent"
         },
         {
           "step": 2,
-          "visual": "Build adjacency list",
-          "transientMessage": "Initialize graph structure",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
+          "visual": "Kahn's: Start 0",
+          "transientMessage": "order = [0]",
+          "graphState": {
+            "nodes": [
+              {
+                "id": "0",
+                "label": "0 \u2713",
+                "x": 200,
+                "y": 50,
+                "visited": true
+              },
+              {
+                "id": "1",
+                "label": "1",
+                "x": 100,
+                "y": 150
+              },
+              {
+                "id": "2",
+                "label": "2",
+                "x": 300,
+                "y": 150
+              },
+              {
+                "id": "3",
+                "label": "3",
+                "x": 200,
+                "y": 250
+              }
+            ],
+            "edges": [
+              {
+                "from": "0",
+                "to": "1",
+                "highlight": true
+              },
+              {
+                "from": "0",
+                "to": "2",
+                "highlight": true
+              },
+              {
+                "from": "1",
+                "to": "3"
+              },
+              {
+                "from": "2",
+                "to": "3"
+              }
+            ]
+          },
+          "pointers": [
+            {
+              "label": "order",
+              "value": "[0]"
+            }
           ],
-          "pointers": [],
-          "indices": [],
           "color": "accent"
         },
         {
           "step": 3,
-          "visual": "Start BFS/DFS from node 0",
-          "transientMessage": "Add to queue/stack",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
+          "visual": "Take 1, 2",
+          "transientMessage": "order = [0,1,2]",
+          "graphState": {
+            "nodes": [
+              {
+                "id": "0",
+                "label": "0 \u2713",
+                "x": 200,
+                "y": 50,
+                "visited": true
+              },
+              {
+                "id": "1",
+                "label": "1 \u2713",
+                "x": 100,
+                "y": 150,
+                "visited": true
+              },
+              {
+                "id": "2",
+                "label": "2 \u2713",
+                "x": 300,
+                "y": 150,
+                "visited": true
+              },
+              {
+                "id": "3",
+                "label": "3",
+                "x": 200,
+                "y": 250,
+                "highlight": true
+              }
+            ],
+            "edges": [
+              {
+                "from": "0",
+                "to": "1"
+              },
+              {
+                "from": "0",
+                "to": "2"
+              },
+              {
+                "from": "1",
+                "to": "3"
+              },
+              {
+                "from": "2",
+                "to": "3"
+              }
+            ]
+          },
           "pointers": [
             {
-              "label": "start",
-              "index": 0
+              "label": "order",
+              "value": "[0,1,2]"
             }
-          ],
-          "indices": [
-            0
           ],
           "color": "accent"
         },
         {
           "step": 4,
-          "visual": "Visit node 0",
-          "transientMessage": "Visited: {0}",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
+          "visual": "Result: [0,1,2,3]",
+          "transientMessage": "Valid topological order",
+          "graphState": {
+            "nodes": [
+              {
+                "id": "0",
+                "label": "0 \u2713",
+                "x": 200,
+                "y": 50
+              },
+              {
+                "id": "1",
+                "label": "1 \u2713",
+                "x": 100,
+                "y": 150
+              },
+              {
+                "id": "2",
+                "label": "2 \u2713",
+                "x": 300,
+                "y": 150
+              },
+              {
+                "id": "3",
+                "label": "3 \u2713",
+                "x": 200,
+                "y": 250
+              }
+            ],
+            "edges": [
+              {
+                "from": "0",
+                "to": "1"
+              },
+              {
+                "from": "0",
+                "to": "2"
+              },
+              {
+                "from": "1",
+                "to": "3"
+              },
+              {
+                "from": "2",
+                "to": "3"
+              }
+            ]
+          },
           "pointers": [
             {
-              "label": "curr",
-              "index": 0
+              "label": "order",
+              "value": "[0,1,2,3]"
             }
           ],
-          "indices": [
-            0
-          ],
-          "color": "success"
-        },
-        {
-          "step": 5,
-          "visual": "Explore neighbors of 0",
-          "transientMessage": "Add unvisited neighbors",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
-          "pointers": [
-            {
-              "label": "i",
-              "index": 0
-            },
-            {
-              "label": "next",
-              "index": 1
-            }
-          ],
-          "indices": [
-            0,
-            1
-          ],
-          "color": "accent"
-        },
-        {
-          "step": 6,
-          "visual": "Visit node 1",
-          "transientMessage": "Visited: {0, 1}",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
-          "pointers": [
-            {
-              "label": "curr",
-              "index": 1
-            }
-          ],
-          "indices": [
-            0,
-            1
-          ],
-          "color": "success"
-        },
-        {
-          "step": 7,
-          "visual": "Explore neighbors of 1",
-          "transientMessage": "Add unvisited neighbors",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
-          "pointers": [
-            {
-              "label": "i",
-              "index": 1
-            },
-            {
-              "label": "next",
-              "index": 2
-            }
-          ],
-          "indices": [
-            1,
-            2
-          ],
-          "color": "accent"
-        },
-        {
-          "step": 8,
-          "visual": "Visit node 2",
-          "transientMessage": "Visited: {0, 1, 2}",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
-          "pointers": [
-            {
-              "label": "curr",
-              "index": 2
-            }
-          ],
-          "indices": [
-            0,
-            1,
-            2
-          ],
-          "color": "success"
-        },
-        {
-          "step": 9,
-          "visual": "Explore neighbors of 2",
-          "transientMessage": "Add unvisited neighbors",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
-          "pointers": [
-            {
-              "label": "i",
-              "index": 2
-            },
-            {
-              "label": "next",
-              "index": 3
-            }
-          ],
-          "indices": [
-            2,
-            3
-          ],
-          "color": "accent"
-        },
-        {
-          "step": 10,
-          "visual": "Visit node 3",
-          "transientMessage": "Visited: {0, 1, 2, 3}",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
-          "pointers": [
-            {
-              "label": "curr",
-              "index": 3
-            }
-          ],
-          "indices": [
-            0,
-            1,
-            2,
-            3
-          ],
-          "color": "success"
-        },
-        {
-          "step": 11,
-          "visual": "Explore neighbors of 3",
-          "transientMessage": "Add unvisited neighbors",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
-          "pointers": [
-            {
-              "label": "i",
-              "index": 3
-            },
-            {
-              "label": "next",
-              "index": 4
-            }
-          ],
-          "indices": [
-            3,
-            4
-          ],
-          "color": "accent"
-        },
-        {
-          "step": 12,
-          "visual": "Visit node 4",
-          "transientMessage": "Visited: {0, 1, 2, 3, 4}",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
-          "pointers": [
-            {
-              "label": "curr",
-              "index": 4
-            }
-          ],
-          "indices": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
-          "color": "success"
-        },
-        {
-          "step": 13,
-          "visual": "Traversal complete",
-          "transientMessage": "All nodes visited!",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
-          "pointers": [],
-          "indices": [],
           "color": "success"
         }
       ],
@@ -44410,181 +44569,197 @@
       "animationSteps": [
         {
           "step": 1,
-          "visual": "Problem: Cheapest Flights Within K Stops",
-          "transientMessage": "Starting algorithm",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3
-          ],
+          "visual": "Flight Graph",
+          "transientMessage": "src=0, dst=2, k=1",
+          "graphState": {
+            "nodes": [
+              {
+                "id": "0",
+                "label": "0",
+                "x": 100,
+                "y": 100
+              },
+              {
+                "id": "1",
+                "label": "1",
+                "x": 250,
+                "y": 50
+              },
+              {
+                "id": "2",
+                "label": "2",
+                "x": 400,
+                "y": 100
+              }
+            ],
+            "edges": [
+              {
+                "from": "0",
+                "to": "1",
+                "weight": 100
+              },
+              {
+                "from": "1",
+                "to": "2",
+                "weight": 100
+              },
+              {
+                "from": "0",
+                "to": "2",
+                "weight": 500
+              }
+            ]
+          },
           "pointers": [],
-          "indices": [],
           "color": "accent"
         },
         {
           "step": 2,
-          "visual": "Initialize variables",
-          "transientMessage": "Set up pointers and counters",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3
-          ],
-          "pointers": [
-            {
-              "label": "i",
-              "index": 0
-            }
-          ],
-          "indices": [
-            0
-          ],
+          "visual": "BFS: Start 0",
+          "transientMessage": "cost=0",
+          "graphState": {
+            "nodes": [
+              {
+                "id": "0",
+                "label": "0 ($0)",
+                "x": 100,
+                "y": 100,
+                "highlight": true
+              },
+              {
+                "id": "1",
+                "label": "1 (\u221e)",
+                "x": 250,
+                "y": 50
+              },
+              {
+                "id": "2",
+                "label": "2 (\u221e)",
+                "x": 400,
+                "y": 100
+              }
+            ],
+            "edges": [
+              {
+                "from": "0",
+                "to": "1",
+                "weight": 100
+              },
+              {
+                "from": "1",
+                "to": "2",
+                "weight": 100
+              },
+              {
+                "from": "0",
+                "to": "2",
+                "weight": 500
+              }
+            ]
+          },
+          "pointers": [],
           "color": "accent"
         },
         {
           "step": 3,
-          "visual": "Process arr[0] = 0",
-          "transientMessage": "Iteration 1",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3
-          ],
-          "pointers": [
-            {
-              "label": "i",
-              "index": 0
-            }
-          ],
-          "indices": [
-            0
-          ],
+          "visual": "0\u21921: $100",
+          "transientMessage": "0\u21922: $500",
+          "graphState": {
+            "nodes": [
+              {
+                "id": "0",
+                "label": "0 ($0)",
+                "x": 100,
+                "y": 100,
+                "visited": true
+              },
+              {
+                "id": "1",
+                "label": "1 ($100)",
+                "x": 250,
+                "y": 50,
+                "highlight": true
+              },
+              {
+                "id": "2",
+                "label": "2 ($500)",
+                "x": 400,
+                "y": 100
+              }
+            ],
+            "edges": [
+              {
+                "from": "0",
+                "to": "1",
+                "weight": 100,
+                "highlight": true
+              },
+              {
+                "from": "1",
+                "to": "2",
+                "weight": 100
+              },
+              {
+                "from": "0",
+                "to": "2",
+                "weight": 500
+              }
+            ]
+          },
+          "pointers": [],
           "color": "accent"
         },
         {
           "step": 4,
-          "visual": "Process arr[1] = 1",
-          "transientMessage": "Iteration 2",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3
-          ],
+          "visual": "1\u21922: $200",
+          "transientMessage": "Better than $500!",
+          "graphState": {
+            "nodes": [
+              {
+                "id": "0",
+                "label": "0",
+                "x": 100,
+                "y": 100
+              },
+              {
+                "id": "1",
+                "label": "1",
+                "x": 250,
+                "y": 50
+              },
+              {
+                "id": "2",
+                "label": "2",
+                "x": 400,
+                "y": 100
+              }
+            ],
+            "edges": [
+              {
+                "from": "0",
+                "to": "1",
+                "weight": 100,
+                "highlight": true
+              },
+              {
+                "from": "1",
+                "to": "2",
+                "weight": 100,
+                "highlight": true
+              },
+              {
+                "from": "0",
+                "to": "2",
+                "weight": 500
+              }
+            ]
+          },
           "pointers": [
             {
-              "label": "i",
-              "index": 1
+              "label": "answer",
+              "value": "200"
             }
           ],
-          "indices": [
-            1
-          ],
-          "color": "success"
-        },
-        {
-          "step": 5,
-          "visual": "Process arr[2] = 2",
-          "transientMessage": "Iteration 3",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3
-          ],
-          "pointers": [
-            {
-              "label": "i",
-              "index": 2
-            }
-          ],
-          "indices": [
-            2
-          ],
-          "color": "accent"
-        },
-        {
-          "step": 6,
-          "visual": "Process arr[3] = 3",
-          "transientMessage": "Iteration 4",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3
-          ],
-          "pointers": [
-            {
-              "label": "i",
-              "index": 3
-            }
-          ],
-          "indices": [
-            3
-          ],
-          "color": "success"
-        },
-        {
-          "step": 7,
-          "visual": "Update state",
-          "transientMessage": "Applying changes",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3
-          ],
-          "pointers": [],
-          "indices": [
-            0,
-            1,
-            2
-          ],
-          "color": "success"
-        },
-        {
-          "step": 8,
-          "visual": "Finalize result",
-          "transientMessage": "Computing final answer",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3
-          ],
-          "pointers": [],
-          "indices": [],
-          "color": "success"
-        },
-        {
-          "step": 9,
-          "visual": "Algorithm complete",
-          "transientMessage": "Result ready!",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3
-          ],
-          "pointers": [],
-          "indices": [],
-          "color": "success"
-        },
-        {
-          "step": 10,
-          "visual": "Finalize and return",
-          "transientMessage": "Algorithm complete!",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3
-          ],
-          "pointers": [],
-          "indices": [],
           "color": "success"
         }
       ],
@@ -47020,7 +47195,9 @@
       "code": "def generateParenthesis(n):\n    \"\"\"\n    Intuition:\n    - \ud83c\udfaf Generate all valid parentheses of n pairs.\n    - \ud83e\udde0 Can add '(' if count < n. Can add ')' if close < open.\n    - \ud83d\udca1 This ensures valid nesting.\n    \"\"\"\n    res = []  # Initialize list to store results.\n    def backtrack(s, openN, closeN):\n        if len(s) == 2 * n:\n            res.append(s)  # Add to end.\n            return\n        if openN < n:\n            backtrack(s + '(', openN + 1, closeN)\n        if closeN < openN:\n            backtrack(s + ')', openN, closeN + 1)\n    backtrack('', 0, 0)\n    return res  # Return the final result.",
       "keyInsight": "Only add ')' when close count < open count.",
       "visualizationType": "array",
-      "initialState": [],
+      "initialState": [
+        ""
+      ],
       "animationSteps": [
         {
           "step": 1,
@@ -75225,297 +75402,176 @@
       "animationSteps": [
         {
           "step": 1,
-          "visual": "Problem: Redundant Connection",
-          "transientMessage": "Graph traversal approach",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
+          "visual": "Union-Find",
+          "transientMessage": "edges=[[1,2],[1,3],[2,3]]",
+          "graphState": {
+            "nodes": [
+              {
+                "id": "1",
+                "label": "1",
+                "x": 200,
+                "y": 50
+              },
+              {
+                "id": "2",
+                "label": "2",
+                "x": 100,
+                "y": 150
+              },
+              {
+                "id": "3",
+                "label": "3",
+                "x": 300,
+                "y": 150
+              }
+            ],
+            "edges": []
+          },
+          "pointers": [
+            {
+              "label": "parent",
+              "value": "[1,2,3]"
+            }
           ],
-          "pointers": [],
-          "indices": [],
           "color": "accent"
         },
         {
           "step": 2,
-          "visual": "Build adjacency list",
-          "transientMessage": "Initialize graph structure",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
+          "visual": "Union(1,2)",
+          "transientMessage": "Merge sets",
+          "graphState": {
+            "nodes": [
+              {
+                "id": "1",
+                "label": "1",
+                "x": 200,
+                "y": 50,
+                "highlight": true
+              },
+              {
+                "id": "2",
+                "label": "2",
+                "x": 100,
+                "y": 150,
+                "highlight": true
+              },
+              {
+                "id": "3",
+                "label": "3",
+                "x": 300,
+                "y": 150
+              }
+            ],
+            "edges": [
+              {
+                "from": "1",
+                "to": "2",
+                "highlight": true
+              }
+            ]
+          },
+          "pointers": [
+            {
+              "label": "parent",
+              "value": "[1,1,3]"
+            }
           ],
-          "pointers": [],
-          "indices": [],
           "color": "accent"
         },
         {
           "step": 3,
-          "visual": "Start BFS/DFS from node 0",
-          "transientMessage": "Add to queue/stack",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
+          "visual": "Union(1,3)",
+          "transientMessage": "Merge sets",
+          "graphState": {
+            "nodes": [
+              {
+                "id": "1",
+                "label": "1",
+                "x": 200,
+                "y": 50,
+                "highlight": true
+              },
+              {
+                "id": "2",
+                "label": "2",
+                "x": 100,
+                "y": 150
+              },
+              {
+                "id": "3",
+                "label": "3",
+                "x": 300,
+                "y": 150,
+                "highlight": true
+              }
+            ],
+            "edges": [
+              {
+                "from": "1",
+                "to": "2"
+              },
+              {
+                "from": "1",
+                "to": "3",
+                "highlight": true
+              }
+            ]
+          },
           "pointers": [
             {
-              "label": "start",
-              "index": 0
+              "label": "parent",
+              "value": "[1,1,1]"
             }
-          ],
-          "indices": [
-            0
           ],
           "color": "accent"
         },
         {
           "step": 4,
-          "visual": "Visit node 0",
-          "transientMessage": "Visited: {0}",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
+          "visual": "Cycle: [2,3]",
+          "transientMessage": "Find(2)=Find(3)=1",
+          "graphState": {
+            "nodes": [
+              {
+                "id": "1",
+                "label": "1",
+                "x": 200,
+                "y": 50
+              },
+              {
+                "id": "2",
+                "label": "2",
+                "x": 100,
+                "y": 150
+              },
+              {
+                "id": "3",
+                "label": "3",
+                "x": 300,
+                "y": 150
+              }
+            ],
+            "edges": [
+              {
+                "from": "1",
+                "to": "2"
+              },
+              {
+                "from": "1",
+                "to": "3"
+              },
+              {
+                "from": "2",
+                "to": "3",
+                "highlight": true
+              }
+            ]
+          },
           "pointers": [
             {
-              "label": "curr",
-              "index": 0
+              "label": "answer",
+              "value": "[2,3]"
             }
           ],
-          "indices": [
-            0
-          ],
-          "color": "success"
-        },
-        {
-          "step": 5,
-          "visual": "Explore neighbors of 0",
-          "transientMessage": "Add unvisited neighbors",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
-          "pointers": [
-            {
-              "label": "i",
-              "index": 0
-            },
-            {
-              "label": "next",
-              "index": 1
-            }
-          ],
-          "indices": [
-            0,
-            1
-          ],
-          "color": "accent"
-        },
-        {
-          "step": 6,
-          "visual": "Visit node 1",
-          "transientMessage": "Visited: {0, 1}",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
-          "pointers": [
-            {
-              "label": "curr",
-              "index": 1
-            }
-          ],
-          "indices": [
-            0,
-            1
-          ],
-          "color": "success"
-        },
-        {
-          "step": 7,
-          "visual": "Explore neighbors of 1",
-          "transientMessage": "Add unvisited neighbors",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
-          "pointers": [
-            {
-              "label": "i",
-              "index": 1
-            },
-            {
-              "label": "next",
-              "index": 2
-            }
-          ],
-          "indices": [
-            1,
-            2
-          ],
-          "color": "accent"
-        },
-        {
-          "step": 8,
-          "visual": "Visit node 2",
-          "transientMessage": "Visited: {0, 1, 2}",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
-          "pointers": [
-            {
-              "label": "curr",
-              "index": 2
-            }
-          ],
-          "indices": [
-            0,
-            1,
-            2
-          ],
-          "color": "success"
-        },
-        {
-          "step": 9,
-          "visual": "Explore neighbors of 2",
-          "transientMessage": "Add unvisited neighbors",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
-          "pointers": [
-            {
-              "label": "i",
-              "index": 2
-            },
-            {
-              "label": "next",
-              "index": 3
-            }
-          ],
-          "indices": [
-            2,
-            3
-          ],
-          "color": "accent"
-        },
-        {
-          "step": 10,
-          "visual": "Visit node 3",
-          "transientMessage": "Visited: {0, 1, 2, 3}",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
-          "pointers": [
-            {
-              "label": "curr",
-              "index": 3
-            }
-          ],
-          "indices": [
-            0,
-            1,
-            2,
-            3
-          ],
-          "color": "success"
-        },
-        {
-          "step": 11,
-          "visual": "Explore neighbors of 3",
-          "transientMessage": "Add unvisited neighbors",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
-          "pointers": [
-            {
-              "label": "i",
-              "index": 3
-            },
-            {
-              "label": "next",
-              "index": 4
-            }
-          ],
-          "indices": [
-            3,
-            4
-          ],
-          "color": "accent"
-        },
-        {
-          "step": 12,
-          "visual": "Visit node 4",
-          "transientMessage": "Visited: {0, 1, 2, 3, 4}",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
-          "pointers": [
-            {
-              "label": "curr",
-              "index": 4
-            }
-          ],
-          "indices": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
-          "color": "success"
-        },
-        {
-          "step": 13,
-          "visual": "Traversal complete",
-          "transientMessage": "All nodes visited!",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
-          "pointers": [],
-          "indices": [],
           "color": "success"
         }
       ],
@@ -75656,297 +75712,188 @@
       "animationSteps": [
         {
           "step": 1,
-          "visual": "Problem: Number of Connected Components In An Undirected Graph",
-          "transientMessage": "Graph traversal approach",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
+          "visual": "Input Graph",
+          "transientMessage": "n=5, edges=[[0,1],[1,2],[3,4]]",
+          "graphState": {
+            "nodes": [
+              {
+                "id": "0",
+                "label": "0",
+                "x": 100,
+                "y": 100
+              },
+              {
+                "id": "1",
+                "label": "1",
+                "x": 200,
+                "y": 100
+              },
+              {
+                "id": "2",
+                "label": "2",
+                "x": 300,
+                "y": 100
+              },
+              {
+                "id": "3",
+                "label": "3",
+                "x": 150,
+                "y": 200
+              },
+              {
+                "id": "4",
+                "label": "4",
+                "x": 250,
+                "y": 200
+              }
+            ],
+            "edges": [
+              {
+                "from": "0",
+                "to": "1"
+              },
+              {
+                "from": "1",
+                "to": "2"
+              },
+              {
+                "from": "3",
+                "to": "4"
+              }
+            ]
+          },
           "pointers": [],
-          "indices": [],
           "color": "accent"
         },
         {
           "step": 2,
-          "visual": "Build adjacency list",
-          "transientMessage": "Initialize graph structure",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
+          "visual": "DFS: 0\u21921\u21922",
+          "transientMessage": "Component 1",
+          "graphState": {
+            "nodes": [
+              {
+                "id": "0",
+                "label": "0 \u2713",
+                "x": 100,
+                "y": 100,
+                "visited": true
+              },
+              {
+                "id": "1",
+                "label": "1 \u2713",
+                "x": 200,
+                "y": 100,
+                "visited": true
+              },
+              {
+                "id": "2",
+                "label": "2 \u2713",
+                "x": 300,
+                "y": 100,
+                "visited": true
+              },
+              {
+                "id": "3",
+                "label": "3",
+                "x": 150,
+                "y": 200
+              },
+              {
+                "id": "4",
+                "label": "4",
+                "x": 250,
+                "y": 200
+              }
+            ],
+            "edges": [
+              {
+                "from": "0",
+                "to": "1",
+                "highlight": true
+              },
+              {
+                "from": "1",
+                "to": "2",
+                "highlight": true
+              },
+              {
+                "from": "3",
+                "to": "4"
+              }
+            ]
+          },
+          "pointers": [
+            {
+              "label": "count",
+              "value": "1"
+            }
           ],
-          "pointers": [],
-          "indices": [],
           "color": "accent"
         },
         {
           "step": 3,
-          "visual": "Start BFS/DFS from node 0",
-          "transientMessage": "Add to queue/stack",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
+          "visual": "DFS: 3\u21924",
+          "transientMessage": "Component 2",
+          "graphState": {
+            "nodes": [
+              {
+                "id": "0",
+                "label": "0 \u2713",
+                "x": 100,
+                "y": 100,
+                "visited": true
+              },
+              {
+                "id": "1",
+                "label": "1 \u2713",
+                "x": 200,
+                "y": 100,
+                "visited": true
+              },
+              {
+                "id": "2",
+                "label": "2 \u2713",
+                "x": 300,
+                "y": 100,
+                "visited": true
+              },
+              {
+                "id": "3",
+                "label": "3 \u2713",
+                "x": 150,
+                "y": 200,
+                "visited": true
+              },
+              {
+                "id": "4",
+                "label": "4 \u2713",
+                "x": 250,
+                "y": 200,
+                "visited": true
+              }
+            ],
+            "edges": [
+              {
+                "from": "0",
+                "to": "1"
+              },
+              {
+                "from": "1",
+                "to": "2"
+              },
+              {
+                "from": "3",
+                "to": "4",
+                "highlight": true
+              }
+            ]
+          },
           "pointers": [
             {
-              "label": "start",
-              "index": 0
+              "label": "answer",
+              "value": "2"
             }
           ],
-          "indices": [
-            0
-          ],
-          "color": "accent"
-        },
-        {
-          "step": 4,
-          "visual": "Visit node 0",
-          "transientMessage": "Visited: {0}",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
-          "pointers": [
-            {
-              "label": "curr",
-              "index": 0
-            }
-          ],
-          "indices": [
-            0
-          ],
-          "color": "success"
-        },
-        {
-          "step": 5,
-          "visual": "Explore neighbors of 0",
-          "transientMessage": "Add unvisited neighbors",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
-          "pointers": [
-            {
-              "label": "i",
-              "index": 0
-            },
-            {
-              "label": "next",
-              "index": 1
-            }
-          ],
-          "indices": [
-            0,
-            1
-          ],
-          "color": "accent"
-        },
-        {
-          "step": 6,
-          "visual": "Visit node 1",
-          "transientMessage": "Visited: {0, 1}",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
-          "pointers": [
-            {
-              "label": "curr",
-              "index": 1
-            }
-          ],
-          "indices": [
-            0,
-            1
-          ],
-          "color": "success"
-        },
-        {
-          "step": 7,
-          "visual": "Explore neighbors of 1",
-          "transientMessage": "Add unvisited neighbors",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
-          "pointers": [
-            {
-              "label": "i",
-              "index": 1
-            },
-            {
-              "label": "next",
-              "index": 2
-            }
-          ],
-          "indices": [
-            1,
-            2
-          ],
-          "color": "accent"
-        },
-        {
-          "step": 8,
-          "visual": "Visit node 2",
-          "transientMessage": "Visited: {0, 1, 2}",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
-          "pointers": [
-            {
-              "label": "curr",
-              "index": 2
-            }
-          ],
-          "indices": [
-            0,
-            1,
-            2
-          ],
-          "color": "success"
-        },
-        {
-          "step": 9,
-          "visual": "Explore neighbors of 2",
-          "transientMessage": "Add unvisited neighbors",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
-          "pointers": [
-            {
-              "label": "i",
-              "index": 2
-            },
-            {
-              "label": "next",
-              "index": 3
-            }
-          ],
-          "indices": [
-            2,
-            3
-          ],
-          "color": "accent"
-        },
-        {
-          "step": 10,
-          "visual": "Visit node 3",
-          "transientMessage": "Visited: {0, 1, 2, 3}",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
-          "pointers": [
-            {
-              "label": "curr",
-              "index": 3
-            }
-          ],
-          "indices": [
-            0,
-            1,
-            2,
-            3
-          ],
-          "color": "success"
-        },
-        {
-          "step": 11,
-          "visual": "Explore neighbors of 3",
-          "transientMessage": "Add unvisited neighbors",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
-          "pointers": [
-            {
-              "label": "i",
-              "index": 3
-            },
-            {
-              "label": "next",
-              "index": 4
-            }
-          ],
-          "indices": [
-            3,
-            4
-          ],
-          "color": "accent"
-        },
-        {
-          "step": 12,
-          "visual": "Visit node 4",
-          "transientMessage": "Visited: {0, 1, 2, 3, 4}",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
-          "pointers": [
-            {
-              "label": "curr",
-              "index": 4
-            }
-          ],
-          "indices": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
-          "color": "success"
-        },
-        {
-          "step": 13,
-          "visual": "Traversal complete",
-          "transientMessage": "All nodes visited!",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
-          "pointers": [],
-          "indices": [],
           "color": "success"
         }
       ],
@@ -77327,297 +77274,283 @@
       "animationSteps": [
         {
           "step": 1,
-          "visual": "Problem: Network Delay Time",
-          "transientMessage": "Graph traversal approach",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
+          "visual": "Weighted Graph",
+          "transientMessage": "times=[[2,1,1],[2,3,1],[3,4,1]]",
+          "graphState": {
+            "nodes": [
+              {
+                "id": "1",
+                "label": "1",
+                "x": 100,
+                "y": 150
+              },
+              {
+                "id": "2",
+                "label": "2 (src)",
+                "x": 200,
+                "y": 50
+              },
+              {
+                "id": "3",
+                "label": "3",
+                "x": 300,
+                "y": 150
+              },
+              {
+                "id": "4",
+                "label": "4",
+                "x": 400,
+                "y": 150
+              }
+            ],
+            "edges": [
+              {
+                "from": "2",
+                "to": "1",
+                "weight": 1
+              },
+              {
+                "from": "2",
+                "to": "3",
+                "weight": 1
+              },
+              {
+                "from": "3",
+                "to": "4",
+                "weight": 1
+              }
+            ]
+          },
           "pointers": [],
-          "indices": [],
           "color": "accent"
         },
         {
           "step": 2,
-          "visual": "Build adjacency list",
-          "transientMessage": "Initialize graph structure",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
+          "visual": "Dijkstra: dist[2]=0",
+          "transientMessage": "All others = \u221e",
+          "graphState": {
+            "nodes": [
+              {
+                "id": "1",
+                "label": "1 (\u221e)",
+                "x": 100,
+                "y": 150
+              },
+              {
+                "id": "2",
+                "label": "2 (0)",
+                "x": 200,
+                "y": 50,
+                "highlight": true
+              },
+              {
+                "id": "3",
+                "label": "3 (\u221e)",
+                "x": 300,
+                "y": 150
+              },
+              {
+                "id": "4",
+                "label": "4 (\u221e)",
+                "x": 400,
+                "y": 150
+              }
+            ],
+            "edges": [
+              {
+                "from": "2",
+                "to": "1",
+                "weight": 1
+              },
+              {
+                "from": "2",
+                "to": "3",
+                "weight": 1
+              },
+              {
+                "from": "3",
+                "to": "4",
+                "weight": 1
+              }
+            ]
+          },
+          "pointers": [
+            {
+              "label": "curr",
+              "node": "2"
+            }
           ],
-          "pointers": [],
-          "indices": [],
           "color": "accent"
         },
         {
           "step": 3,
-          "visual": "Start BFS/DFS from node 0",
-          "transientMessage": "Add to queue/stack",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
-          "pointers": [
-            {
-              "label": "start",
-              "index": 0
-            }
-          ],
-          "indices": [
-            0
-          ],
+          "visual": "Relax: dist[1,3]=1",
+          "transientMessage": "Update neighbors",
+          "graphState": {
+            "nodes": [
+              {
+                "id": "1",
+                "label": "1 (1)",
+                "x": 100,
+                "y": 150,
+                "highlight": true
+              },
+              {
+                "id": "2",
+                "label": "2 (0)",
+                "x": 200,
+                "y": 50,
+                "visited": true
+              },
+              {
+                "id": "3",
+                "label": "3 (1)",
+                "x": 300,
+                "y": 150,
+                "highlight": true
+              },
+              {
+                "id": "4",
+                "label": "4 (\u221e)",
+                "x": 400,
+                "y": 150
+              }
+            ],
+            "edges": [
+              {
+                "from": "2",
+                "to": "1",
+                "weight": 1,
+                "highlight": true
+              },
+              {
+                "from": "2",
+                "to": "3",
+                "weight": 1,
+                "highlight": true
+              },
+              {
+                "from": "3",
+                "to": "4",
+                "weight": 1
+              }
+            ]
+          },
+          "pointers": [],
           "color": "accent"
         },
         {
           "step": 4,
-          "visual": "Visit node 0",
-          "transientMessage": "Visited: {0}",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
-          "pointers": [
-            {
-              "label": "curr",
-              "index": 0
-            }
-          ],
-          "indices": [
-            0
-          ],
-          "color": "success"
+          "visual": "Relax: dist[4]=2",
+          "transientMessage": "From node 3",
+          "graphState": {
+            "nodes": [
+              {
+                "id": "1",
+                "label": "1 (1) \u2713",
+                "x": 100,
+                "y": 150,
+                "visited": true
+              },
+              {
+                "id": "2",
+                "label": "2 (0) \u2713",
+                "x": 200,
+                "y": 50,
+                "visited": true
+              },
+              {
+                "id": "3",
+                "label": "3 (1) \u2713",
+                "x": 300,
+                "y": 150,
+                "visited": true
+              },
+              {
+                "id": "4",
+                "label": "4 (2)",
+                "x": 400,
+                "y": 150,
+                "highlight": true
+              }
+            ],
+            "edges": [
+              {
+                "from": "2",
+                "to": "1",
+                "weight": 1
+              },
+              {
+                "from": "2",
+                "to": "3",
+                "weight": 1
+              },
+              {
+                "from": "3",
+                "to": "4",
+                "weight": 1,
+                "highlight": true
+              }
+            ]
+          },
+          "pointers": [],
+          "color": "accent"
         },
         {
           "step": 5,
-          "visual": "Explore neighbors of 0",
-          "transientMessage": "Add unvisited neighbors",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
+          "visual": "Result: max=2",
+          "transientMessage": "All nodes reachable",
+          "graphState": {
+            "nodes": [
+              {
+                "id": "1",
+                "label": "1 (1)",
+                "x": 100,
+                "y": 150
+              },
+              {
+                "id": "2",
+                "label": "2 (0)",
+                "x": 200,
+                "y": 50
+              },
+              {
+                "id": "3",
+                "label": "3 (1)",
+                "x": 300,
+                "y": 150
+              },
+              {
+                "id": "4",
+                "label": "4 (2)",
+                "x": 400,
+                "y": 150
+              }
+            ],
+            "edges": [
+              {
+                "from": "2",
+                "to": "1",
+                "weight": 1
+              },
+              {
+                "from": "2",
+                "to": "3",
+                "weight": 1
+              },
+              {
+                "from": "3",
+                "to": "4",
+                "weight": 1
+              }
+            ]
+          },
           "pointers": [
             {
-              "label": "i",
-              "index": 0
-            },
-            {
-              "label": "next",
-              "index": 1
+              "label": "answer",
+              "value": "2"
             }
           ],
-          "indices": [
-            0,
-            1
-          ],
-          "color": "accent"
-        },
-        {
-          "step": 6,
-          "visual": "Visit node 1",
-          "transientMessage": "Visited: {0, 1}",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
-          "pointers": [
-            {
-              "label": "curr",
-              "index": 1
-            }
-          ],
-          "indices": [
-            0,
-            1
-          ],
-          "color": "success"
-        },
-        {
-          "step": 7,
-          "visual": "Explore neighbors of 1",
-          "transientMessage": "Add unvisited neighbors",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
-          "pointers": [
-            {
-              "label": "i",
-              "index": 1
-            },
-            {
-              "label": "next",
-              "index": 2
-            }
-          ],
-          "indices": [
-            1,
-            2
-          ],
-          "color": "accent"
-        },
-        {
-          "step": 8,
-          "visual": "Visit node 2",
-          "transientMessage": "Visited: {0, 1, 2}",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
-          "pointers": [
-            {
-              "label": "curr",
-              "index": 2
-            }
-          ],
-          "indices": [
-            0,
-            1,
-            2
-          ],
-          "color": "success"
-        },
-        {
-          "step": 9,
-          "visual": "Explore neighbors of 2",
-          "transientMessage": "Add unvisited neighbors",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
-          "pointers": [
-            {
-              "label": "i",
-              "index": 2
-            },
-            {
-              "label": "next",
-              "index": 3
-            }
-          ],
-          "indices": [
-            2,
-            3
-          ],
-          "color": "accent"
-        },
-        {
-          "step": 10,
-          "visual": "Visit node 3",
-          "transientMessage": "Visited: {0, 1, 2, 3}",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
-          "pointers": [
-            {
-              "label": "curr",
-              "index": 3
-            }
-          ],
-          "indices": [
-            0,
-            1,
-            2,
-            3
-          ],
-          "color": "success"
-        },
-        {
-          "step": 11,
-          "visual": "Explore neighbors of 3",
-          "transientMessage": "Add unvisited neighbors",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
-          "pointers": [
-            {
-              "label": "i",
-              "index": 3
-            },
-            {
-              "label": "next",
-              "index": 4
-            }
-          ],
-          "indices": [
-            3,
-            4
-          ],
-          "color": "accent"
-        },
-        {
-          "step": 12,
-          "visual": "Visit node 4",
-          "transientMessage": "Visited: {0, 1, 2, 3, 4}",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
-          "pointers": [
-            {
-              "label": "curr",
-              "index": 4
-            }
-          ],
-          "indices": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
-          "color": "success"
-        },
-        {
-          "step": 13,
-          "visual": "Traversal complete",
-          "transientMessage": "All nodes visited!",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
-          "pointers": [],
-          "indices": [],
           "color": "success"
         }
       ],
@@ -77737,297 +77670,178 @@
       "animationSteps": [
         {
           "step": 1,
-          "visual": "Problem: Swim in Rising Water",
-          "transientMessage": "Graph traversal approach",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
+          "visual": "Grid as Graph",
+          "transientMessage": "Each cell is a node",
+          "graphState": {
+            "nodes": [
+              {
+                "id": "00",
+                "label": "0",
+                "x": 100,
+                "y": 100
+              },
+              {
+                "id": "01",
+                "label": "1",
+                "x": 200,
+                "y": 100
+              },
+              {
+                "id": "10",
+                "label": "2",
+                "x": 100,
+                "y": 200
+              },
+              {
+                "id": "11",
+                "label": "3",
+                "x": 200,
+                "y": 200
+              }
+            ],
+            "edges": [
+              {
+                "from": "00",
+                "to": "01"
+              },
+              {
+                "from": "00",
+                "to": "10"
+              },
+              {
+                "from": "01",
+                "to": "11"
+              },
+              {
+                "from": "10",
+                "to": "11"
+              }
+            ]
+          },
           "pointers": [],
-          "indices": [],
           "color": "accent"
         },
         {
           "step": 2,
-          "visual": "Build adjacency list",
-          "transientMessage": "Initialize graph structure",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
+          "visual": "Binary Search t=3",
+          "transientMessage": "Can we reach end?",
+          "graphState": {
+            "nodes": [
+              {
+                "id": "00",
+                "label": "0 (start)",
+                "x": 100,
+                "y": 100,
+                "highlight": true
+              },
+              {
+                "id": "01",
+                "label": "1",
+                "x": 200,
+                "y": 100
+              },
+              {
+                "id": "10",
+                "label": "2",
+                "x": 100,
+                "y": 200
+              },
+              {
+                "id": "11",
+                "label": "3 (end)",
+                "x": 200,
+                "y": 200,
+                "highlight": true
+              }
+            ],
+            "edges": [
+              {
+                "from": "00",
+                "to": "01"
+              },
+              {
+                "from": "00",
+                "to": "10"
+              },
+              {
+                "from": "01",
+                "to": "11"
+              },
+              {
+                "from": "10",
+                "to": "11"
+              }
+            ]
+          },
+          "pointers": [
+            {
+              "label": "t",
+              "value": "3"
+            }
           ],
-          "pointers": [],
-          "indices": [],
           "color": "accent"
         },
         {
           "step": 3,
-          "visual": "Start BFS/DFS from node 0",
-          "transientMessage": "Add to queue/stack",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
+          "visual": "Result: t=3",
+          "transientMessage": "Path found!",
+          "graphState": {
+            "nodes": [
+              {
+                "id": "00",
+                "label": "0 \u2713",
+                "x": 100,
+                "y": 100,
+                "visited": true
+              },
+              {
+                "id": "01",
+                "label": "1 \u2713",
+                "x": 200,
+                "y": 100,
+                "visited": true
+              },
+              {
+                "id": "10",
+                "label": "2",
+                "x": 100,
+                "y": 200
+              },
+              {
+                "id": "11",
+                "label": "3 \u2713",
+                "x": 200,
+                "y": 200,
+                "visited": true
+              }
+            ],
+            "edges": [
+              {
+                "from": "00",
+                "to": "01",
+                "highlight": true
+              },
+              {
+                "from": "00",
+                "to": "10"
+              },
+              {
+                "from": "01",
+                "to": "11",
+                "highlight": true
+              },
+              {
+                "from": "10",
+                "to": "11"
+              }
+            ]
+          },
           "pointers": [
             {
-              "label": "start",
-              "index": 0
+              "label": "answer",
+              "value": "3"
             }
           ],
-          "indices": [
-            0
-          ],
-          "color": "accent"
-        },
-        {
-          "step": 4,
-          "visual": "Visit node 0",
-          "transientMessage": "Visited: {0}",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
-          "pointers": [
-            {
-              "label": "curr",
-              "index": 0
-            }
-          ],
-          "indices": [
-            0
-          ],
-          "color": "success"
-        },
-        {
-          "step": 5,
-          "visual": "Explore neighbors of 0",
-          "transientMessage": "Add unvisited neighbors",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
-          "pointers": [
-            {
-              "label": "i",
-              "index": 0
-            },
-            {
-              "label": "next",
-              "index": 1
-            }
-          ],
-          "indices": [
-            0,
-            1
-          ],
-          "color": "accent"
-        },
-        {
-          "step": 6,
-          "visual": "Visit node 1",
-          "transientMessage": "Visited: {0, 1}",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
-          "pointers": [
-            {
-              "label": "curr",
-              "index": 1
-            }
-          ],
-          "indices": [
-            0,
-            1
-          ],
-          "color": "success"
-        },
-        {
-          "step": 7,
-          "visual": "Explore neighbors of 1",
-          "transientMessage": "Add unvisited neighbors",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
-          "pointers": [
-            {
-              "label": "i",
-              "index": 1
-            },
-            {
-              "label": "next",
-              "index": 2
-            }
-          ],
-          "indices": [
-            1,
-            2
-          ],
-          "color": "accent"
-        },
-        {
-          "step": 8,
-          "visual": "Visit node 2",
-          "transientMessage": "Visited: {0, 1, 2}",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
-          "pointers": [
-            {
-              "label": "curr",
-              "index": 2
-            }
-          ],
-          "indices": [
-            0,
-            1,
-            2
-          ],
-          "color": "success"
-        },
-        {
-          "step": 9,
-          "visual": "Explore neighbors of 2",
-          "transientMessage": "Add unvisited neighbors",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
-          "pointers": [
-            {
-              "label": "i",
-              "index": 2
-            },
-            {
-              "label": "next",
-              "index": 3
-            }
-          ],
-          "indices": [
-            2,
-            3
-          ],
-          "color": "accent"
-        },
-        {
-          "step": 10,
-          "visual": "Visit node 3",
-          "transientMessage": "Visited: {0, 1, 2, 3}",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
-          "pointers": [
-            {
-              "label": "curr",
-              "index": 3
-            }
-          ],
-          "indices": [
-            0,
-            1,
-            2,
-            3
-          ],
-          "color": "success"
-        },
-        {
-          "step": 11,
-          "visual": "Explore neighbors of 3",
-          "transientMessage": "Add unvisited neighbors",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
-          "pointers": [
-            {
-              "label": "i",
-              "index": 3
-            },
-            {
-              "label": "next",
-              "index": 4
-            }
-          ],
-          "indices": [
-            3,
-            4
-          ],
-          "color": "accent"
-        },
-        {
-          "step": 12,
-          "visual": "Visit node 4",
-          "transientMessage": "Visited: {0, 1, 2, 3, 4}",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
-          "pointers": [
-            {
-              "label": "curr",
-              "index": 4
-            }
-          ],
-          "indices": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
-          "color": "success"
-        },
-        {
-          "step": 13,
-          "visual": "Traversal complete",
-          "transientMessage": "All nodes visited!",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
-          "pointers": [],
-          "indices": [],
           "color": "success"
         }
       ],
@@ -78141,297 +77955,229 @@
       "animationSteps": [
         {
           "step": 1,
-          "visual": "Problem: Alien Dictionary",
-          "transientMessage": "Graph traversal approach",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
+          "visual": "Build Order Graph",
+          "transientMessage": "Compare adjacent words",
+          "graphState": {
+            "nodes": [
+              {
+                "id": "w",
+                "label": "w",
+                "x": 100,
+                "y": 100
+              },
+              {
+                "id": "e",
+                "label": "e",
+                "x": 150,
+                "y": 200
+              },
+              {
+                "id": "r",
+                "label": "r",
+                "x": 200,
+                "y": 100
+              },
+              {
+                "id": "t",
+                "label": "t",
+                "x": 300,
+                "y": 100
+              },
+              {
+                "id": "f",
+                "label": "f",
+                "x": 250,
+                "y": 200
+              }
+            ],
+            "edges": []
+          },
           "pointers": [],
-          "indices": [],
           "color": "accent"
         },
         {
           "step": 2,
-          "visual": "Build adjacency list",
-          "transientMessage": "Initialize graph structure",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
+          "visual": "t\u2192f, w\u2192e",
+          "transientMessage": "First differences",
+          "graphState": {
+            "nodes": [
+              {
+                "id": "w",
+                "label": "w",
+                "x": 100,
+                "y": 100,
+                "highlight": true
+              },
+              {
+                "id": "e",
+                "label": "e",
+                "x": 150,
+                "y": 200
+              },
+              {
+                "id": "r",
+                "label": "r",
+                "x": 200,
+                "y": 100
+              },
+              {
+                "id": "t",
+                "label": "t",
+                "x": 300,
+                "y": 100,
+                "highlight": true
+              },
+              {
+                "id": "f",
+                "label": "f",
+                "x": 250,
+                "y": 200
+              }
+            ],
+            "edges": [
+              {
+                "from": "t",
+                "to": "f",
+                "highlight": true
+              },
+              {
+                "from": "w",
+                "to": "e",
+                "highlight": true
+              }
+            ]
+          },
           "pointers": [],
-          "indices": [],
           "color": "accent"
         },
         {
           "step": 3,
-          "visual": "Start BFS/DFS from node 0",
-          "transientMessage": "Add to queue/stack",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
-          "pointers": [
-            {
-              "label": "start",
-              "index": 0
-            }
-          ],
-          "indices": [
-            0
-          ],
+          "visual": "r\u2192t, e\u2192r",
+          "transientMessage": "More edges found",
+          "graphState": {
+            "nodes": [
+              {
+                "id": "w",
+                "label": "w",
+                "x": 100,
+                "y": 100
+              },
+              {
+                "id": "e",
+                "label": "e",
+                "x": 150,
+                "y": 200
+              },
+              {
+                "id": "r",
+                "label": "r",
+                "x": 200,
+                "y": 100
+              },
+              {
+                "id": "t",
+                "label": "t",
+                "x": 300,
+                "y": 100
+              },
+              {
+                "id": "f",
+                "label": "f",
+                "x": 250,
+                "y": 200
+              }
+            ],
+            "edges": [
+              {
+                "from": "t",
+                "to": "f"
+              },
+              {
+                "from": "w",
+                "to": "e"
+              },
+              {
+                "from": "r",
+                "to": "t",
+                "highlight": true
+              },
+              {
+                "from": "e",
+                "to": "r",
+                "highlight": true
+              }
+            ]
+          },
+          "pointers": [],
           "color": "accent"
         },
         {
           "step": 4,
-          "visual": "Visit node 0",
-          "transientMessage": "Visited: {0}",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
+          "visual": "Result: \"wertf\"",
+          "transientMessage": "Topological sort",
+          "graphState": {
+            "nodes": [
+              {
+                "id": "w",
+                "label": "w (1)",
+                "x": 100,
+                "y": 100,
+                "visited": true
+              },
+              {
+                "id": "e",
+                "label": "e (2)",
+                "x": 150,
+                "y": 200,
+                "visited": true
+              },
+              {
+                "id": "r",
+                "label": "r (3)",
+                "x": 200,
+                "y": 100,
+                "visited": true
+              },
+              {
+                "id": "t",
+                "label": "t (4)",
+                "x": 300,
+                "y": 100,
+                "visited": true
+              },
+              {
+                "id": "f",
+                "label": "f (5)",
+                "x": 250,
+                "y": 200,
+                "visited": true
+              }
+            ],
+            "edges": [
+              {
+                "from": "t",
+                "to": "f"
+              },
+              {
+                "from": "w",
+                "to": "e"
+              },
+              {
+                "from": "r",
+                "to": "t"
+              },
+              {
+                "from": "e",
+                "to": "r"
+              }
+            ]
+          },
           "pointers": [
             {
-              "label": "curr",
-              "index": 0
+              "label": "answer",
+              "value": "\"wertf\""
             }
           ],
-          "indices": [
-            0
-          ],
-          "color": "success"
-        },
-        {
-          "step": 5,
-          "visual": "Explore neighbors of 0",
-          "transientMessage": "Add unvisited neighbors",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
-          "pointers": [
-            {
-              "label": "i",
-              "index": 0
-            },
-            {
-              "label": "next",
-              "index": 1
-            }
-          ],
-          "indices": [
-            0,
-            1
-          ],
-          "color": "accent"
-        },
-        {
-          "step": 6,
-          "visual": "Visit node 1",
-          "transientMessage": "Visited: {0, 1}",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
-          "pointers": [
-            {
-              "label": "curr",
-              "index": 1
-            }
-          ],
-          "indices": [
-            0,
-            1
-          ],
-          "color": "success"
-        },
-        {
-          "step": 7,
-          "visual": "Explore neighbors of 1",
-          "transientMessage": "Add unvisited neighbors",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
-          "pointers": [
-            {
-              "label": "i",
-              "index": 1
-            },
-            {
-              "label": "next",
-              "index": 2
-            }
-          ],
-          "indices": [
-            1,
-            2
-          ],
-          "color": "accent"
-        },
-        {
-          "step": 8,
-          "visual": "Visit node 2",
-          "transientMessage": "Visited: {0, 1, 2}",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
-          "pointers": [
-            {
-              "label": "curr",
-              "index": 2
-            }
-          ],
-          "indices": [
-            0,
-            1,
-            2
-          ],
-          "color": "success"
-        },
-        {
-          "step": 9,
-          "visual": "Explore neighbors of 2",
-          "transientMessage": "Add unvisited neighbors",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
-          "pointers": [
-            {
-              "label": "i",
-              "index": 2
-            },
-            {
-              "label": "next",
-              "index": 3
-            }
-          ],
-          "indices": [
-            2,
-            3
-          ],
-          "color": "accent"
-        },
-        {
-          "step": 10,
-          "visual": "Visit node 3",
-          "transientMessage": "Visited: {0, 1, 2, 3}",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
-          "pointers": [
-            {
-              "label": "curr",
-              "index": 3
-            }
-          ],
-          "indices": [
-            0,
-            1,
-            2,
-            3
-          ],
-          "color": "success"
-        },
-        {
-          "step": 11,
-          "visual": "Explore neighbors of 3",
-          "transientMessage": "Add unvisited neighbors",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
-          "pointers": [
-            {
-              "label": "i",
-              "index": 3
-            },
-            {
-              "label": "next",
-              "index": 4
-            }
-          ],
-          "indices": [
-            3,
-            4
-          ],
-          "color": "accent"
-        },
-        {
-          "step": 12,
-          "visual": "Visit node 4",
-          "transientMessage": "Visited: {0, 1, 2, 3, 4}",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
-          "pointers": [
-            {
-              "label": "curr",
-              "index": 4
-            }
-          ],
-          "indices": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
-          "color": "success"
-        },
-        {
-          "step": 13,
-          "visual": "Traversal complete",
-          "transientMessage": "All nodes visited!",
-          "arrayState": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ],
-          "pointers": [],
-          "indices": [],
           "color": "success"
         }
       ],

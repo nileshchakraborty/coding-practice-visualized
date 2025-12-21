@@ -10,7 +10,7 @@ interface ListNode {
 interface LinkedListVisualizerProps {
     head: ListNode | null;
     highlightedIndices?: number[];
-    pointers?: { index: number; label: string }[];
+    pointers?: { index?: number; label: string }[];
 }
 
 const LinkedListVisualizer: React.FC<LinkedListVisualizerProps> = ({

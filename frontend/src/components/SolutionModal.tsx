@@ -74,7 +74,54 @@ const SolutionModal: React.FC<SolutionModalProps> = ({ isOpen, onClose, solution
         return () => window.removeEventListener('resize', handleResize);
     }, []);
 
-    // Update code when solution changes - load from draft or use initial code
+    // Helper function to convert Python starter template to other languages
+    const convertToLanguage = (pythonCode: string, targetLang: string): string => {
+        // Extract function name and params from Python def
+        const defMatch = pythonCode.match(/def\s+(\w+)\s*\(([^)]*)\)/);
+        if (!defMatch) return pythonCode;
+
+        const funcName = defMatch[1];
+        const params = defMatch[2].split(',').map(p => p.trim().split(':')[0].trim()).filter(Boolean);
+
+        switch (targetLang) {
+            case 'javascript':
+                return `/**\n * @param {${params.map(() => 'any').join(', ')}} ${params.join(', ')}\n * @return {any}\n */\nvar ${funcName} = function(${params.join(', ')}) {\n    // Your code here\n};`;
+            case 'java':
+                return `class Solution {\n    public int ${funcName}(${params.map(p => `int ${p}`).join(', ')}) {\n        // Your code here\n        return 0;\n    }\n}`;
+            case 'cpp':
+                return `class Solution {\npublic:\n    int ${funcName}(${params.map(p => `int ${p}`).join(', ')}) {\n        // Your code here\n        return 0;\n    }\n};`;
+            case 'go':
+                return `func ${funcName}(${params.map(p => `${p} int`).join(', ')}) int {\n    // Your code here\n    return 0\n}`;
+            case 'rust':
+                return `impl Solution {\n    pub fn ${funcName.replace(/([A-Z])/g, '_$1').toLowerCase()}(${params.map(p => `${p}: i32`).join(', ')}) -> i32 {\n        // Your code here\n        0\n    }\n}`;
+            default:
+                return pythonCode;
+        }
+    };
+
+    // Update code when language changes (only if no user edits / draft exists)
+    React.useEffect(() => {
+        if (solution && slug && language !== 'python') {
+            const savedDraft = getDraft(`${slug}_${language}`);
+            if (savedDraft) {
+                setCode(savedDraft);
+            } else {
+                // Convert Python template to target language
+                const rawCode = solution.initialCode || solution.code || '';
+                const converted = convertToLanguage(rawCode.replace(/\\n/g, '\n'), language);
+                setCode(converted);
+            }
+        } else if (solution && slug && language === 'python') {
+            const savedDraft = getDraft(slug);
+            if (savedDraft) {
+                setCode(savedDraft);
+            } else {
+                const rawCode = solution.initialCode || solution.code || '';
+                setCode(rawCode.replace(/\\n/g, '\n'));
+            }
+        }
+    }, [language, solution, slug, getDraft]);
+
     React.useEffect(() => {
         if (solution && slug) {
             // Check for saved draft first (from SyncService)
