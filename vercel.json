@@ -37,12 +37,7 @@
         "api/index.ts": {
             "maxDuration": 30,
             "memory": 1024,
-            "includeFiles": [
-                "api/data/**",
-                "api/runners/**",
-                "api/_local_runner.py",
-                "src/**"
-            ]
+            "includeFiles": "{api/data/**,api/runners/**,api/_local_runner.py,src/**}"
         }
     }
 }
