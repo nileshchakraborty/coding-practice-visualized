@@ -93,7 +93,8 @@ export const PlaygroundAPI = {
             onStatusUpdate?: (status: { status: string }) => void;
         }
     ): Promise<RunResponse> {
-        const useQueue = options?.useJobQueue ?? true;  // Default to job queue
+        // Default to sync execution (job queue doesn't work in serverless due to stateless instances)
+        const useQueue = options?.useJobQueue ?? false;
 
         if (useQueue) {
             // Dynamic import to avoid circular dependencies

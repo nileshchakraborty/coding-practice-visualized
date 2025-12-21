@@ -630,7 +630,11 @@ const SolutionModal: React.FC<SolutionModalProps> = ({ isOpen, onClose, solution
                             <button
                                 onClick={() => {
                                     setCode(displayCode.replace(/\\n/g, '\n'));
-                                    setActiveTab('playground');
+                                    // Only switch to playground tab on mobile (where it's a separate tab)
+                                    // On desktop, the playground is always visible on the right side
+                                    if (window.innerWidth < 1024) {
+                                        setActiveTab('playground');
+                                    }
                                 }}
                                 className="text-xs flex items-center gap-1 text-indigo-400 hover:text-indigo-300 transition-colors"
                             >
