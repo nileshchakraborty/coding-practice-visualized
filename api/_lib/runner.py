@@ -230,79 +230,155 @@ def run_tests_internal():
                 exec(sanitized_input, globals(), local_scope)
             
             actual_val = None
+            result = None  # Initialize to prevent UnboundLocalError
+            solution_func_name = ''
             
-            # Helper to check if inputs are Design-style commands
-            cmd_var = next((k for k in local_scope if 'command' in k or 'method' in k or 'op' in k), None)
-            arg_var = next((k for k in local_scope if 'arg' in k or 'input' in k or 'val' in k), None)
-            is_design_input = (cmd_var and arg_var)
+            # If full_script_mode produced a result, use it directly (design class imperative tests)
+            if full_script_mode and last_expr_val is not None:
+                actual_val = last_expr_val
+                result = last_expr_val
+                solution_func_name = 'script_mode'
+            else:
+                # Helper to check if inputs are Design-style commands
+                cmd_var = next((k for k in local_scope if 'command' in k or 'method' in k or 'op' in k), None)
+                arg_var = next((k for k in local_scope if 'arg' in k or 'input' in k or 'val' in k), None)
+                is_design_input = (cmd_var and arg_var)
 
-            if is_class_solution:
-                if is_design_input:
-                    # Design Problem (e.g., Tweeter, MinStack, Trie)
-                    commands = local_scope[cmd_var]
-                    arguments = local_scope[arg_var]
+                if is_class_solution:
+                    if is_design_input:
+                        # Design Problem (e.g., Tweeter, MinStack, Trie)
+                        commands = local_scope[cmd_var]
+                        arguments = local_scope[arg_var]
+                        
+                        # First command is usually the class name, first arg is constructor args
+                        obj = solution_func(*arguments[0])
+                        res_list = [None] # Constructor returns None
+                        
+                        for cmd_idx in range(1, len(commands)):
+                            method = commands[cmd_idx]
+                            params = arguments[cmd_idx]
+                            if hasattr(obj, method):
+                                val = getattr(obj, method)(*params)
+                                res_list.append(val)
+                            else:
+                                res_list.append(None)
+                        actual_val = res_list
+                        result = res_list
+                        solution_func_name = 'design_class'
                     
-                    # Instantiate
-                    # First command is usually the class name, first arg is constructor args
-                    obj = solution_func(*arguments[0])
-                    res_list = [None] # Constructor returns None
-                    
-                    for cmd_idx in range(1, len(commands)):
-                        method = commands[cmd_idx]
-                        params = arguments[cmd_idx]
-                        if hasattr(obj, method):
-                            val = getattr(obj, method)(*params)
-                            res_list.append(val)
-                        else:
-                            res_list.append(None)
-                    actual_val = res_list
-                
+                    else:
+                        # Standard Algo Problem wrapped in Class (e.g. class Solution: def solve(...))
+                        # 1. Instantiate (assume no-arg constructor for standard algos)
+                        instance = solution_func()
+                        
+                        # 2. Find the method to call
+                        # Heuristic: First public method that isn't __init__
+                        methods = [func for func in dir(instance) if callable(getattr(instance, func)) and not func.startswith("__")]
+                        if not methods:
+                            raise Exception("No public methods found in class Solution")
+                        
+                        target_method = getattr(instance, methods[0]) # Use the first one
+                        
+                        # 3. Resolve Arguments (Identical logic to function-based)
+                        sig = inspect.signature(target_method)
+                        args = []
+                        aliases = {
+                            'node': ['adjList', 'val'], 'target': ['k'],
+                            'arr': ['nums', 'vec'], 'nums': ['arr'], 'root': ['p', 'q']
+                        }
+                        
+                        for param in sig.parameters:
+                            val = None
+                            found = False
+                            if param in local_scope:
+                                val = local_scope[param]
+                                found = True
+                            elif param in aliases:
+                                for alias in aliases[param]:
+                                    if alias in local_scope:
+                                        val = local_scope[alias]
+                                        found = True
+                                        break
+                            if found:
+                                # Heuristic conversions
+                                if isinstance(val, list) and param in ['l1', 'l2', 'head', 'list1', 'list2', 'headA', 'headB']:
+                                    pos = local_scope.get('pos', -1)
+                                    val = list_to_ll(val, pos)
+                                elif isinstance(val, list) and param in ['root', 'root1', 'root2', 'subRoot']:
+                                        val = list_to_tree(val)
+                                elif isinstance(val, list) and param in ['node'] and all(isinstance(x, list) for x in val):
+                                        val = adj_to_graph(val)
+                                elif param in ['p', 'q']:
+                                    if isinstance(val, list):
+                                        val = list_to_tree(val)
+                                    elif isinstance(val, int):
+                                        root_tree = None
+                                        for a in args:
+                                            if isinstance(a, TreeNode):
+                                                root_tree = a
+                                                break
+                                        if root_tree:
+                                            def find_node(node, target):
+                                                if not node: return None
+                                                if node.val == target: return node
+                                                left = find_node(node.left, target)
+                                                if left: return left
+                                                return find_node(node.right, target)
+                                            val = find_node(root_tree, val)
+                                args.append(val)
+                        
+                        # 4. Invoke
+                        result = target_method(*args)
+                        actual_val = result # Conversion happens later
+                        solution_func_name = target_method.__name__
+
                 else:
-                    # Standard Algo Problem wrapped in Class (e.g. class Solution: def solve(...))
-                    # 1. Instantiate (assume no-arg constructor for standard algos)
-                    instance = solution_func()
-                    
-                    # 2. Find the method to call
-                    # Heuristic: First public method that isn't __init__
-                    methods = [func for func in dir(instance) if callable(getattr(instance, func)) and not func.startswith("__")]
-                    if not methods:
-                        raise Exception("No public methods found in class Solution")
-                    
-                    target_method = getattr(instance, methods[0]) # Use the first one
-                    
-                    # 3. Resolve Arguments (Identical logic to function-based)
-                    sig = inspect.signature(target_method)
+                    # Standard Function Execution
+                    # Smart arg matching with aliases
+                    sig = inspect.signature(solution_func)
                     args = []
+                    # Aliases map: Param Name -> Possible Test Vars
                     aliases = {
-                        'node': ['adjList', 'val'], 'target': ['k'],
-                        'arr': ['nums', 'vec'], 'nums': ['arr'], 'root': ['p', 'q']
+                        'node': ['adjList', 'val'],
+                        'target': ['k'],
+                        'arr': ['nums', 'vec'],
+                        'nums': ['arr'],
+                        'root': ['p', 'q']
                     }
-                    
+
                     for param in sig.parameters:
                         val = None
                         found = False
+                        
+                        # 1. Exact match
                         if param in local_scope:
                             val = local_scope[param]
                             found = True
+                        # 2. Alias match
                         elif param in aliases:
                             for alias in aliases[param]:
                                 if alias in local_scope:
                                     val = local_scope[alias]
                                     found = True
                                     break
+                        
                         if found:
                             # Heuristic conversions
                             if isinstance(val, list) and param in ['l1', 'l2', 'head', 'list1', 'list2', 'headA', 'headB']:
                                 pos = local_scope.get('pos', -1)
                                 val = list_to_ll(val, pos)
                             elif isinstance(val, list) and param in ['root', 'root1', 'root2', 'subRoot']:
-                                    val = list_to_tree(val)
+                                 val = list_to_tree(val)
                             elif isinstance(val, list) and param in ['node'] and all(isinstance(x, list) for x in val):
-                                    val = adj_to_graph(val)
+                                 val = adj_to_graph(val)
+                            # Handle p/q parameter:
+                            # If list -> convert to TreeNode (for same-tree, validate-bst)
+                            # If int -> find node in tree by value (for LCA problems)
                             elif param in ['p', 'q']:
                                 if isinstance(val, list):
                                     val = list_to_tree(val)
                                 elif isinstance(val, int):
+                                    # p/q are integer VALUES, need to find the node in root tree
                                     root_tree = None
                                     for a in args:
                                         if isinstance(a, TreeNode):
@@ -316,91 +392,18 @@ def run_tests_internal():
                                             if left: return left
                                             return find_node(node.right, target)
                                         val = find_node(root_tree, val)
+                                 
                             args.append(val)
-                    
-                    # 4. Invoke
-                    result = target_method(*args)
-                    actual_val = result # Conversion happens later
-                    
-                    # Re-assign solution_func to the method for conversion logic usage
-                    # (This is a bit hacky but reuses existing conversion logic below)
-                    # We can't easily re-assign, so we just use target_method.__name__
-                    
-                    # TODO ensure convert_val uses target_method name
-                    solution_func_name = target_method.__name__
+                        else:
+                            # Default none if not found? Or skip?
+                            # If required arg missing, it will crash.
+                            pass
 
-            else:
-                # Standard Function Execution
-                # Smart arg matching with aliases
-                sig = inspect.signature(solution_func)
-                args = []
-                # Aliases map: Param Name -> Possible Test Vars
-                aliases = {
-                    'node': ['adjList', 'val'],
-                    'target': ['k'],
-                    'arr': ['nums', 'vec'],
-                    'nums': ['arr'],
-                    'root': ['p', 'q']
-                }
+                    if len(args) != len(sig.parameters):
+                         pass
 
-                for param in sig.parameters:
-                    val = None
-                    found = False
-                    
-                    # 1. Exact match
-                    if param in local_scope:
-                        val = local_scope[param]
-                        found = True
-                    # 2. Alias match
-                    elif param in aliases:
-                        for alias in aliases[param]:
-                            if alias in local_scope:
-                                val = local_scope[alias]
-                                found = True
-                                break
-                    
-                    if found:
-                        # Heuristic conversions
-                        if isinstance(val, list) and param in ['l1', 'l2', 'head', 'list1', 'list2', 'headA', 'headB']:
-                            pos = local_scope.get('pos', -1)
-                            val = list_to_ll(val, pos)
-                        elif isinstance(val, list) and param in ['root', 'root1', 'root2', 'subRoot']:
-                             val = list_to_tree(val)
-                        elif isinstance(val, list) and param in ['node'] and all(isinstance(x, list) for x in val):
-                             val = adj_to_graph(val)
-                        # Handle p/q parameter:
-                        # If list -> convert to TreeNode (for same-tree, validate-bst)
-                        # If int -> find node in tree by value (for LCA problems)
-                        elif param in ['p', 'q']:
-                            if isinstance(val, list):
-                                val = list_to_tree(val)
-                            elif isinstance(val, int):
-                                # p/q are integer VALUES, need to find the node in root tree
-                                root_tree = None
-                                for a in args:
-                                    if isinstance(a, TreeNode):
-                                        root_tree = a
-                                        break
-                                if root_tree:
-                                    def find_node(node, target):
-                                        if not node: return None
-                                        if node.val == target: return node
-                                        left = find_node(node.left, target)
-                                        if left: return left
-                                        return find_node(node.right, target)
-                                    val = find_node(root_tree, val)
-                             
-                        args.append(val)
-                    else:
-                        # Default none if not found? Or skip?
-                        # If required arg missing, it will crash.
-                        pass
-
-                if len(args) != len(sig.parameters):
-                     pass
-
-                result = solution_func(*args)
-                solution_func_name = solution_func.__name__
+                    result = solution_func(*args)
+                    solution_func_name = solution_func.__name__
                 
             # --- Shared Output Conversion ---
             def convert_val(val, func_name=''):
