@@ -1,0 +1,2011 @@
+{
+  "valid-parentheses": [
+    {
+      "lang": "typescript",
+      "found": "Map",
+      "expected": "isValid"
+    }
+  ],
+  "linked-list-cycle": [
+    {
+      "lang": "java",
+      "found": "ListNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "cpp",
+      "found": "ListNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "typescript",
+      "found": "constructor",
+      "expected": "__init__"
+    },
+    {
+      "lang": "javascript",
+      "found": "ListNode",
+      "expected": "__init__"
+    }
+  ],
+  "reverse-linked-list": [
+    {
+      "lang": "java",
+      "found": "ListNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "cpp",
+      "found": "ListNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "typescript",
+      "found": "constructor",
+      "expected": "__init__"
+    },
+    {
+      "lang": "javascript",
+      "found": "ListNode",
+      "expected": "__init__"
+    }
+  ],
+  "invert-binary-tree": [
+    {
+      "lang": "java",
+      "found": "TreeNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "cpp",
+      "found": "TreeNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "typescript",
+      "found": "constructor",
+      "expected": "__init__"
+    },
+    {
+      "lang": "javascript",
+      "found": "TreeNode",
+      "expected": "__init__"
+    }
+  ],
+  "middle-of-the-linked-list": [
+    {
+      "lang": "java",
+      "found": "ListNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "cpp",
+      "found": "ListNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "typescript",
+      "found": "constructor",
+      "expected": "__init__"
+    },
+    {
+      "lang": "javascript",
+      "found": "ListNode",
+      "expected": "__init__"
+    }
+  ],
+  "time-needed-to-buy-tickets": [
+    {
+      "lang": "typescript",
+      "found": "timeRequiredToBuy",
+      "expected": "time_needed_to_buy"
+    }
+  ],
+  "two-sum-iv---input-is-a-bst": [
+    {
+      "lang": "java",
+      "found": "TreeNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "cpp",
+      "found": "TreeNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "typescript",
+      "found": "constructor",
+      "expected": "__init__"
+    },
+    {
+      "lang": "javascript",
+      "found": "TreeNode",
+      "expected": "__init__"
+    }
+  ],
+  "insert-delete-getrandom-o1": [
+    {
+      "lang": "java",
+      "found": "RandomizedSet",
+      "expected": "__init__"
+    },
+    {
+      "lang": "cpp",
+      "found": "RandomizedSet",
+      "expected": "__init__"
+    },
+    {
+      "lang": "typescript",
+      "found": "Map",
+      "expected": "__init__"
+    },
+    {
+      "lang": "javascript",
+      "found": "RandomizedSet",
+      "expected": "__init__"
+    }
+  ],
+  "min-stack": [
+    {
+      "lang": "java",
+      "found": "MinStack",
+      "expected": "__init__"
+    },
+    {
+      "lang": "cpp",
+      "found": "MinStack",
+      "expected": "__init__"
+    },
+    {
+      "lang": "typescript",
+      "found": "constructor",
+      "expected": "__init__"
+    },
+    {
+      "lang": "javascript",
+      "found": "MinStack",
+      "expected": "__init__"
+    }
+  ],
+  "implement-stack-using-queues": [
+    {
+      "lang": "java",
+      "found": "MyStack",
+      "expected": "__init__"
+    },
+    {
+      "lang": "cpp",
+      "found": "MyStack",
+      "expected": "__init__"
+    },
+    {
+      "lang": "typescript",
+      "found": "constructor",
+      "expected": "__init__"
+    },
+    {
+      "lang": "javascript",
+      "found": "MyStack",
+      "expected": "__init__"
+    }
+  ],
+  "add-two-numbers": [
+    {
+      "lang": "java",
+      "found": "ListNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "cpp",
+      "found": "ListNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "typescript",
+      "found": "constructor",
+      "expected": "__init__"
+    },
+    {
+      "lang": "javascript",
+      "found": "ListNode",
+      "expected": "__init__"
+    }
+  ],
+  "merge-two-sorted-lists": [
+    {
+      "lang": "java",
+      "found": "ListNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "cpp",
+      "found": "ListNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "typescript",
+      "found": "constructor",
+      "expected": "__init__"
+    },
+    {
+      "lang": "javascript",
+      "found": "ListNode",
+      "expected": "__init__"
+    }
+  ],
+  "copy-list-with-random-pointer": [
+    {
+      "lang": "java",
+      "found": "ListNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "cpp",
+      "found": "ListNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "typescript",
+      "found": "constructor",
+      "expected": "__init__"
+    },
+    {
+      "lang": "javascript",
+      "found": "ListNode",
+      "expected": "__init__"
+    }
+  ],
+  "reverse-linked-list-ii": [
+    {
+      "lang": "java",
+      "found": "ListNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "cpp",
+      "found": "ListNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "typescript",
+      "found": "constructor",
+      "expected": "__init__"
+    },
+    {
+      "lang": "javascript",
+      "found": "ListNode",
+      "expected": "__init__"
+    }
+  ],
+  "maximum-depth-of-binary-tree": [
+    {
+      "lang": "java",
+      "found": "TreeNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "cpp",
+      "found": "TreeNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "typescript",
+      "found": "constructor",
+      "expected": "__init__"
+    },
+    {
+      "lang": "javascript",
+      "found": "TreeNode",
+      "expected": "__init__"
+    }
+  ],
+  "same-tree": [
+    {
+      "lang": "java",
+      "found": "TreeNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "cpp",
+      "found": "TreeNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "typescript",
+      "found": "constructor",
+      "expected": "__init__"
+    },
+    {
+      "lang": "javascript",
+      "found": "TreeNode",
+      "expected": "__init__"
+    }
+  ],
+  "symmetric-tree": [
+    {
+      "lang": "java",
+      "found": "TreeNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "cpp",
+      "found": "TreeNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "typescript",
+      "found": "constructor",
+      "expected": "__init__"
+    },
+    {
+      "lang": "javascript",
+      "found": "TreeNode",
+      "expected": "__init__"
+    }
+  ],
+  "binary-tree-level-order-traversal": [
+    {
+      "lang": "java",
+      "found": "TreeNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "cpp",
+      "found": "TreeNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "typescript",
+      "found": "constructor",
+      "expected": "__init__"
+    },
+    {
+      "lang": "javascript",
+      "found": "TreeNode",
+      "expected": "__init__"
+    }
+  ],
+  "clone-graph": [
+    {
+      "lang": "java",
+      "found": "Node",
+      "expected": "__init__"
+    },
+    {
+      "lang": "cpp",
+      "found": "Node",
+      "expected": "__init__"
+    },
+    {
+      "lang": "typescript",
+      "found": "constructor",
+      "expected": "__init__"
+    },
+    {
+      "lang": "javascript",
+      "found": "Node",
+      "expected": "__init__"
+    }
+  ],
+  "combination-sum": [
+    {
+      "lang": "java",
+      "found": "TreeNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "cpp",
+      "found": "TreeNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "typescript",
+      "found": "combinationSum",
+      "expected": "__init__"
+    },
+    {
+      "lang": "javascript",
+      "found": "TreeNode",
+      "expected": "__init__"
+    }
+  ],
+  "delete-node-in-a-bst": [
+    {
+      "lang": "java",
+      "found": "TreeNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "cpp",
+      "found": "TreeNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "typescript",
+      "found": "constructor",
+      "expected": "__init__"
+    },
+    {
+      "lang": "javascript",
+      "found": "TreeNode",
+      "expected": "__init__"
+    }
+  ],
+  "insert-into-a-binary-search-tree": [
+    {
+      "lang": "java",
+      "found": "TreeNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "cpp",
+      "found": "TreeNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "typescript",
+      "found": "constructor",
+      "expected": "__init__"
+    },
+    {
+      "lang": "javascript",
+      "found": "TreeNode",
+      "expected": "__init__"
+    }
+  ],
+  "palindrome-linked-list": [
+    {
+      "lang": "java",
+      "found": "ListNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "cpp",
+      "found": "ListNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "typescript",
+      "found": "constructor",
+      "expected": "__init__"
+    },
+    {
+      "lang": "javascript",
+      "found": "ListNode",
+      "expected": "__init__"
+    }
+  ],
+  "gfg---reverse-first-k-elements-of-a-queue": [
+    {
+      "lang": "java",
+      "found": "reverseFirstK",
+      "expected": "solve"
+    },
+    {
+      "lang": "cpp",
+      "found": "reverseFirstK",
+      "expected": "solve"
+    }
+  ],
+  "longest-substring-without-repeating-characters": [
+    {
+      "lang": "java",
+      "found": "TreeNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "cpp",
+      "found": "TreeNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "typescript",
+      "found": "lengthOfLongestSubstring",
+      "expected": "__init__"
+    },
+    {
+      "lang": "javascript",
+      "found": "TreeNode",
+      "expected": "__init__"
+    }
+  ],
+  "substring-with-concatenation-of-all-words": [
+    {
+      "lang": "java",
+      "found": "TreeNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "cpp",
+      "found": "TreeNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "typescript",
+      "found": "findSubstring",
+      "expected": "__init__"
+    },
+    {
+      "lang": "javascript",
+      "found": "TreeNode",
+      "expected": "__init__"
+    }
+  ],
+  "minimum-window-substring": [
+    {
+      "lang": "java",
+      "found": "TreeNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "cpp",
+      "found": "TreeNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "typescript",
+      "found": "minWindow",
+      "expected": "__init__"
+    },
+    {
+      "lang": "javascript",
+      "found": "TreeNode",
+      "expected": "__init__"
+    }
+  ],
+  "minimum-number-of-arrows-to-burst-balloons": [
+    {
+      "lang": "typescript",
+      "found": "findMinArrowShots",
+      "expected": "findMinArrowPoints"
+    }
+  ],
+  "reverse-nodes-in-k-group": [
+    {
+      "lang": "java",
+      "found": "ListNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "cpp",
+      "found": "ListNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "typescript",
+      "found": "constructor",
+      "expected": "__init__"
+    },
+    {
+      "lang": "javascript",
+      "found": "ListNode",
+      "expected": "__init__"
+    }
+  ],
+  "remove-nth-node-from-end-of-list": [
+    {
+      "lang": "java",
+      "found": "ListNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "cpp",
+      "found": "ListNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "typescript",
+      "found": "constructor",
+      "expected": "__init__"
+    },
+    {
+      "lang": "javascript",
+      "found": "ListNode",
+      "expected": "__init__"
+    }
+  ],
+  "remove-duplicates-from-sorted-list-ii": [
+    {
+      "lang": "java",
+      "found": "ListNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "cpp",
+      "found": "ListNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "typescript",
+      "found": "constructor",
+      "expected": "__init__"
+    },
+    {
+      "lang": "javascript",
+      "found": "ListNode",
+      "expected": "__init__"
+    }
+  ],
+  "rotate-list": [
+    {
+      "lang": "java",
+      "found": "ListNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "cpp",
+      "found": "ListNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "typescript",
+      "found": "constructor",
+      "expected": "__init__"
+    },
+    {
+      "lang": "javascript",
+      "found": "ListNode",
+      "expected": "__init__"
+    }
+  ],
+  "partition-list": [
+    {
+      "lang": "java",
+      "found": "ListNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "cpp",
+      "found": "ListNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "typescript",
+      "found": "constructor",
+      "expected": "__init__"
+    },
+    {
+      "lang": "javascript",
+      "found": "ListNode",
+      "expected": "__init__"
+    }
+  ],
+  "sort-list": [
+    {
+      "lang": "java",
+      "found": "ListNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "cpp",
+      "found": "ListNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "typescript",
+      "found": "constructor",
+      "expected": "__init__"
+    },
+    {
+      "lang": "javascript",
+      "found": "ListNode",
+      "expected": "__init__"
+    }
+  ],
+  "construct-binary-tree-from-preorder-and-inorder-traversal": [
+    {
+      "lang": "java",
+      "found": "TreeNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "cpp",
+      "found": "TreeNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "typescript",
+      "found": "constructor",
+      "expected": "__init__"
+    },
+    {
+      "lang": "javascript",
+      "found": "TreeNode",
+      "expected": "__init__"
+    }
+  ],
+  "construct-binary-tree-from-inorder-and-postorder-traversal": [
+    {
+      "lang": "java",
+      "found": "TreeNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "cpp",
+      "found": "TreeNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "typescript",
+      "found": "constructor",
+      "expected": "__init__"
+    },
+    {
+      "lang": "javascript",
+      "found": "TreeNode",
+      "expected": "__init__"
+    }
+  ],
+  "flatten-binary-tree-to-linked-list": [
+    {
+      "lang": "java",
+      "found": "TreeNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "cpp",
+      "found": "TreeNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "typescript",
+      "found": "constructor",
+      "expected": "__init__"
+    },
+    {
+      "lang": "javascript",
+      "found": "TreeNode",
+      "expected": "__init__"
+    }
+  ],
+  "path-sum": [
+    {
+      "lang": "java",
+      "found": "TreeNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "cpp",
+      "found": "TreeNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "typescript",
+      "found": "constructor",
+      "expected": "__init__"
+    },
+    {
+      "lang": "javascript",
+      "found": "TreeNode",
+      "expected": "__init__"
+    }
+  ],
+  "sum-root-to-leaf-numbers": [
+    {
+      "lang": "java",
+      "found": "TreeNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "cpp",
+      "found": "TreeNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "typescript",
+      "found": "constructor",
+      "expected": "__init__"
+    },
+    {
+      "lang": "javascript",
+      "found": "TreeNode",
+      "expected": "__init__"
+    }
+  ],
+  "binary-tree-maximum-path-sum": [
+    {
+      "lang": "java",
+      "found": "TreeNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "cpp",
+      "found": "TreeNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "typescript",
+      "found": "constructor",
+      "expected": "__init__"
+    },
+    {
+      "lang": "javascript",
+      "found": "TreeNode",
+      "expected": "__init__"
+    }
+  ],
+  "count-complete-tree-nodes": [
+    {
+      "lang": "java",
+      "found": "TreeNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "cpp",
+      "found": "TreeNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "typescript",
+      "found": "countNodes",
+      "expected": "__init__"
+    },
+    {
+      "lang": "javascript",
+      "found": "TreeNode",
+      "expected": "__init__"
+    }
+  ],
+  "binary-tree-right-side-view": [
+    {
+      "lang": "java",
+      "found": "TreeNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "cpp",
+      "found": "TreeNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "typescript",
+      "found": "constructor",
+      "expected": "__init__"
+    },
+    {
+      "lang": "javascript",
+      "found": "TreeNode",
+      "expected": "__init__"
+    }
+  ],
+  "average-of-levels-in-binary-tree": [
+    {
+      "lang": "java",
+      "found": "TreeNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "cpp",
+      "found": "TreeNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "typescript",
+      "found": "averageOfLevels",
+      "expected": "__init__"
+    },
+    {
+      "lang": "javascript",
+      "found": "TreeNode",
+      "expected": "__init__"
+    }
+  ],
+  "binary-tree-zigzag-level-order-traversal": [
+    {
+      "lang": "java",
+      "found": "TreeNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "cpp",
+      "found": "TreeNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "typescript",
+      "found": "constructor",
+      "expected": "__init__"
+    },
+    {
+      "lang": "javascript",
+      "found": "TreeNode",
+      "expected": "__init__"
+    }
+  ],
+  "minimum-absolute-difference-in-bst": [
+    {
+      "lang": "java",
+      "found": "TreeNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "cpp",
+      "found": "TreeNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "typescript",
+      "found": "constructor",
+      "expected": "__init__"
+    },
+    {
+      "lang": "javascript",
+      "found": "TreeNode",
+      "expected": "__init__"
+    }
+  ],
+  "kth-smallest-element-in-a-bst": [
+    {
+      "lang": "java",
+      "found": "TreeNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "cpp",
+      "found": "TreeNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "typescript",
+      "found": "constructor",
+      "expected": "__init__"
+    },
+    {
+      "lang": "javascript",
+      "found": "TreeNode",
+      "expected": "__init__"
+    }
+  ],
+  "validate-binary-search-tree": [
+    {
+      "lang": "java",
+      "found": "TreeNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "cpp",
+      "found": "TreeNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "typescript",
+      "found": "constructor",
+      "expected": "__init__"
+    },
+    {
+      "lang": "javascript",
+      "found": "TreeNode",
+      "expected": "__init__"
+    }
+  ],
+  "lowest-common-ancestor-of-a-bst": [
+    {
+      "lang": "java",
+      "found": "TreeNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "cpp",
+      "found": "TreeNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "typescript",
+      "found": "constructor",
+      "expected": "__init__"
+    },
+    {
+      "lang": "javascript",
+      "found": "TreeNode",
+      "expected": "__init__"
+    }
+  ],
+  "balance-a-binary-search-tree": [
+    {
+      "lang": "java",
+      "found": "TreeNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "cpp",
+      "found": "TreeNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "typescript",
+      "found": "constructor",
+      "expected": "__init__"
+    },
+    {
+      "lang": "javascript",
+      "found": "TreeNode",
+      "expected": "__init__"
+    }
+  ],
+  "evaluate-division": [
+    {
+      "lang": "java",
+      "found": "calcEquation",
+      "expected": "solve"
+    },
+    {
+      "lang": "cpp",
+      "found": "calcEquation",
+      "expected": "solve"
+    },
+    {
+      "lang": "typescript",
+      "found": "calcEquation",
+      "expected": "solve"
+    },
+    {
+      "lang": "javascript",
+      "found": "calcEquation",
+      "expected": "solve"
+    }
+  ],
+  "course-schedule-ii": [
+    {
+      "lang": "java",
+      "found": "findOrder",
+      "expected": "solve"
+    },
+    {
+      "lang": "cpp",
+      "found": "findOrder",
+      "expected": "solve"
+    },
+    {
+      "lang": "typescript",
+      "found": "findOrder",
+      "expected": "solve"
+    },
+    {
+      "lang": "javascript",
+      "found": "findOrder",
+      "expected": "solve"
+    }
+  ],
+  "diameter-of-binary-tree": [
+    {
+      "lang": "java",
+      "found": "TreeNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "cpp",
+      "found": "TreeNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "typescript",
+      "found": "constructor",
+      "expected": "__init__"
+    },
+    {
+      "lang": "javascript",
+      "found": "TreeNode",
+      "expected": "__init__"
+    }
+  ],
+  "snakes-and-ladders": [
+    {
+      "lang": "java",
+      "found": "snakesAndLadders",
+      "expected": "solve"
+    },
+    {
+      "lang": "cpp",
+      "found": "snakesAndLadders",
+      "expected": "solve"
+    },
+    {
+      "lang": "typescript",
+      "found": "snakesAndLadders",
+      "expected": "solve"
+    },
+    {
+      "lang": "javascript",
+      "found": "snakesAndLadders",
+      "expected": "solve"
+    }
+  ],
+  "minimum-genetic-mutation": [
+    {
+      "lang": "java",
+      "found": "minMutation",
+      "expected": "solve"
+    },
+    {
+      "lang": "cpp",
+      "found": "minMutation",
+      "expected": "solve"
+    },
+    {
+      "lang": "typescript",
+      "found": "minMutation",
+      "expected": "solve"
+    },
+    {
+      "lang": "javascript",
+      "found": "minMutation",
+      "expected": "solve"
+    }
+  ],
+  "word-ladder": [
+    {
+      "lang": "java",
+      "found": "ladderLength",
+      "expected": "solve"
+    },
+    {
+      "lang": "cpp",
+      "found": "ladderLength",
+      "expected": "solve"
+    },
+    {
+      "lang": "typescript",
+      "found": "ladderLength",
+      "expected": "solve"
+    },
+    {
+      "lang": "javascript",
+      "found": "ladderLength",
+      "expected": "solve"
+    }
+  ],
+  "minimum-depth-of-binary-tree": [
+    {
+      "lang": "java",
+      "found": "TreeNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "cpp",
+      "found": "TreeNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "typescript",
+      "found": "constructor",
+      "expected": "__init__"
+    },
+    {
+      "lang": "javascript",
+      "found": "TreeNode",
+      "expected": "__init__"
+    }
+  ],
+  "generate-parentheses": [
+    {
+      "lang": "typescript",
+      "found": "dfs",
+      "expected": "generateParenthesis"
+    }
+  ],
+  "merge-k-sorted-lists": [
+    {
+      "lang": "java",
+      "found": "ListNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "cpp",
+      "found": "ListNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "typescript",
+      "found": "constructor",
+      "expected": "__init__"
+    },
+    {
+      "lang": "javascript",
+      "found": "ListNode",
+      "expected": "__init__"
+    }
+  ],
+  "longest-palindromic-substring": [
+    {
+      "lang": "java",
+      "found": "TreeNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "cpp",
+      "found": "TreeNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "typescript",
+      "found": "longestPalindrome",
+      "expected": "__init__"
+    },
+    {
+      "lang": "javascript",
+      "found": "TreeNode",
+      "expected": "__init__"
+    }
+  ],
+  "remove-linked-list-elements": [
+    {
+      "lang": "java",
+      "found": "ListNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "cpp",
+      "found": "ListNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "typescript",
+      "found": "constructor",
+      "expected": "__init__"
+    },
+    {
+      "lang": "javascript",
+      "found": "ListNode",
+      "expected": "__init__"
+    }
+  ],
+  "lowest-common-ancestor-of-a-binary-tree": [
+    {
+      "lang": "java",
+      "found": "TreeNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "cpp",
+      "found": "TreeNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "typescript",
+      "found": "constructor",
+      "expected": "__init__"
+    },
+    {
+      "lang": "javascript",
+      "found": "TreeNode",
+      "expected": "__init__"
+    }
+  ],
+  "populating-next-right-pointers-in-each-node-ii": [
+    {
+      "lang": "java",
+      "found": "TreeNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "cpp",
+      "found": "TreeNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "typescript",
+      "found": "constructor",
+      "expected": "__init__"
+    },
+    {
+      "lang": "javascript",
+      "found": "TreeNode",
+      "expected": "__init__"
+    }
+  ],
+  "convert-sorted-array-to-binary-search-tree": [
+    {
+      "lang": "java",
+      "found": "TreeNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "cpp",
+      "found": "TreeNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "typescript",
+      "found": "constructor",
+      "expected": "__init__"
+    },
+    {
+      "lang": "javascript",
+      "found": "TreeNode",
+      "expected": "__init__"
+    }
+  ],
+  "construct-quad-tree": [
+    {
+      "lang": "java",
+      "found": "TreeNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "cpp",
+      "found": "TreeNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "typescript",
+      "found": "construct",
+      "expected": "__init__"
+    },
+    {
+      "lang": "javascript",
+      "found": "TreeNode",
+      "expected": "__init__"
+    }
+  ],
+  "search-in-a-binary-search-tree": [
+    {
+      "lang": "java",
+      "found": "TreeNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "cpp",
+      "found": "TreeNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "typescript",
+      "found": "constructor",
+      "expected": "__init__"
+    },
+    {
+      "lang": "javascript",
+      "found": "TreeNode",
+      "expected": "__init__"
+    }
+  ],
+  "ipo": [
+    {
+      "lang": "java",
+      "found": "findMaximizedCapital",
+      "expected": "solve"
+    },
+    {
+      "lang": "cpp",
+      "found": "findMaximizedCapital",
+      "expected": "solve"
+    },
+    {
+      "lang": "javascript",
+      "found": "findMaximizedCapital",
+      "expected": "solve"
+    }
+  ],
+  "find-k-pairs-with-smallest-sums": [
+    {
+      "lang": "java",
+      "found": "kSmallestPairs",
+      "expected": "solve"
+    },
+    {
+      "lang": "cpp",
+      "found": "kSmallestPairs",
+      "expected": "solve"
+    },
+    {
+      "lang": "javascript",
+      "found": "kSmallestPairs",
+      "expected": "solve"
+    }
+  ],
+  "find-median-from-data-stream": [
+    {
+      "lang": "java",
+      "found": "MedianFinder",
+      "expected": "__init__"
+    },
+    {
+      "lang": "cpp",
+      "found": "MedianFinder",
+      "expected": "__init__"
+    },
+    {
+      "lang": "typescript",
+      "found": "MinPriorityQueue",
+      "expected": "__init__"
+    },
+    {
+      "lang": "javascript",
+      "found": "MedianFinder",
+      "expected": "__init__"
+    }
+  ],
+  "range-sum-query---immutable": [
+    {
+      "lang": "java",
+      "found": "NumArray",
+      "expected": "__init__"
+    },
+    {
+      "lang": "cpp",
+      "found": "NumArray",
+      "expected": "__init__"
+    },
+    {
+      "lang": "typescript",
+      "found": "constructor",
+      "expected": "__init__"
+    },
+    {
+      "lang": "javascript",
+      "found": "NumArray",
+      "expected": "__init__"
+    }
+  ],
+  "lru-cache": [
+    {
+      "lang": "java",
+      "found": "LRUCache",
+      "expected": "__init__"
+    },
+    {
+      "lang": "cpp",
+      "found": "LRUCache",
+      "expected": "__init__"
+    },
+    {
+      "lang": "typescript",
+      "found": "constructor",
+      "expected": "__init__"
+    },
+    {
+      "lang": "javascript",
+      "found": "LRUCache",
+      "expected": "__init__"
+    }
+  ],
+  "implement-trie-prefix-tree": [
+    {
+      "lang": "java",
+      "found": "Trie",
+      "expected": "__init__"
+    },
+    {
+      "lang": "cpp",
+      "found": "Trie",
+      "expected": "__init__"
+    },
+    {
+      "lang": "typescript",
+      "found": "searchPrefix",
+      "expected": "__init__"
+    },
+    {
+      "lang": "javascript",
+      "found": "Trie",
+      "expected": "__init__"
+    }
+  ],
+  "design-add-and-search-words-data-structure": [
+    {
+      "lang": "java",
+      "found": "WordDictionary",
+      "expected": "__init__"
+    },
+    {
+      "lang": "cpp",
+      "found": "WordDictionary",
+      "expected": "__init__"
+    },
+    {
+      "lang": "typescript",
+      "found": "addWord",
+      "expected": "__init__"
+    },
+    {
+      "lang": "javascript",
+      "found": "WordDictionary",
+      "expected": "__init__"
+    }
+  ],
+  "word-search-ii": [
+    {
+      "lang": "typescript",
+      "found": "constructor",
+      "expected": "findWords"
+    }
+  ],
+  "binary-search-tree-iterator": [
+    {
+      "lang": "java",
+      "found": "TreeNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "cpp",
+      "found": "TreeNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "typescript",
+      "found": "constructor",
+      "expected": "__init__"
+    },
+    {
+      "lang": "javascript",
+      "found": "TreeNode",
+      "expected": "__init__"
+    }
+  ],
+  "sliding-window-maximum": [
+    {
+      "lang": "java",
+      "found": "maxSlidingWindow",
+      "expected": "solve"
+    },
+    {
+      "lang": "cpp",
+      "found": "maxSlidingWindow",
+      "expected": "solve"
+    },
+    {
+      "lang": "javascript",
+      "found": "maxSlidingWindow",
+      "expected": "solve"
+    }
+  ],
+  "minimum-interval-to-include-each-query": [
+    {
+      "lang": "java",
+      "found": "minInterval",
+      "expected": "solve"
+    },
+    {
+      "lang": "cpp",
+      "found": "minInterval",
+      "expected": "solve"
+    },
+    {
+      "lang": "javascript",
+      "found": "minInterval",
+      "expected": "solve"
+    }
+  ],
+  "reorder-list": [
+    {
+      "lang": "java",
+      "found": "ListNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "cpp",
+      "found": "ListNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "typescript",
+      "found": "constructor",
+      "expected": "__init__"
+    },
+    {
+      "lang": "javascript",
+      "found": "ListNode",
+      "expected": "__init__"
+    }
+  ],
+  "find-the-duplicate-number": [
+    {
+      "lang": "java",
+      "found": "ListNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "cpp",
+      "found": "ListNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "typescript",
+      "found": "findDuplicate",
+      "expected": "__init__"
+    },
+    {
+      "lang": "javascript",
+      "found": "ListNode",
+      "expected": "__init__"
+    }
+  ],
+  "balanced-binary-tree": [
+    {
+      "lang": "java",
+      "found": "TreeNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "cpp",
+      "found": "TreeNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "typescript",
+      "found": "constructor",
+      "expected": "__init__"
+    },
+    {
+      "lang": "javascript",
+      "found": "TreeNode",
+      "expected": "__init__"
+    }
+  ],
+  "subtree-of-another-tree": [
+    {
+      "lang": "java",
+      "found": "TreeNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "cpp",
+      "found": "TreeNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "typescript",
+      "found": "constructor",
+      "expected": "__init__"
+    },
+    {
+      "lang": "javascript",
+      "found": "TreeNode",
+      "expected": "__init__"
+    }
+  ],
+  "lowest-common-ancestor-of-a-binary-search-tree": [
+    {
+      "lang": "java",
+      "found": "TreeNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "cpp",
+      "found": "TreeNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "typescript",
+      "found": "lowestCommonAncestor",
+      "expected": "__init__"
+    },
+    {
+      "lang": "javascript",
+      "found": "TreeNode",
+      "expected": "__init__"
+    }
+  ],
+  "count-good-nodes-in-binary-tree": [
+    {
+      "lang": "java",
+      "found": "TreeNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "cpp",
+      "found": "TreeNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "typescript",
+      "found": "constructor",
+      "expected": "__init__"
+    },
+    {
+      "lang": "javascript",
+      "found": "TreeNode",
+      "expected": "__init__"
+    }
+  ],
+  "serialize-and-deserialize-binary-tree": [
+    {
+      "lang": "java",
+      "found": "TreeNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "cpp",
+      "found": "TreeNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "typescript",
+      "found": "serialize",
+      "expected": "__init__"
+    },
+    {
+      "lang": "javascript",
+      "found": "TreeNode",
+      "expected": "__init__"
+    }
+  ],
+  "pacific-atlantic-water-flow": [
+    {
+      "lang": "java",
+      "found": "pacificAtlantic",
+      "expected": "solve"
+    },
+    {
+      "lang": "cpp",
+      "found": "pacificAtlantic",
+      "expected": "solve"
+    },
+    {
+      "lang": "typescript",
+      "found": "pacificAtlantic",
+      "expected": "solve"
+    },
+    {
+      "lang": "javascript",
+      "found": "pacificAtlantic",
+      "expected": "solve"
+    }
+  ],
+  "rotting-oranges": [
+    {
+      "lang": "java",
+      "found": "orangesRotting",
+      "expected": "solve"
+    },
+    {
+      "lang": "cpp",
+      "found": "orangesRotting",
+      "expected": "solve"
+    },
+    {
+      "lang": "typescript",
+      "found": "orangesRotting",
+      "expected": "solve"
+    },
+    {
+      "lang": "javascript",
+      "found": "orangesRotting",
+      "expected": "solve"
+    }
+  ],
+  "graph-valid-tree": [
+    {
+      "lang": "java",
+      "found": "TreeNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "cpp",
+      "found": "TreeNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "typescript",
+      "found": "validTree",
+      "expected": "__init__"
+    },
+    {
+      "lang": "javascript",
+      "found": "TreeNode",
+      "expected": "__init__"
+    }
+  ],
+  "min-cost-to-connect-all-points": [
+    {
+      "lang": "java",
+      "found": "TreeNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "cpp",
+      "found": "TreeNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "typescript",
+      "found": "minCostConnectPoints",
+      "expected": "__init__"
+    },
+    {
+      "lang": "javascript",
+      "found": "TreeNode",
+      "expected": "__init__"
+    }
+  ],
+  "network-delay-time": [
+    {
+      "lang": "java",
+      "found": "networkDelayTime",
+      "expected": "solve"
+    },
+    {
+      "lang": "cpp",
+      "found": "networkDelayTime",
+      "expected": "solve"
+    },
+    {
+      "lang": "typescript",
+      "found": "networkDelayTime",
+      "expected": "solve"
+    },
+    {
+      "lang": "javascript",
+      "found": "networkDelayTime",
+      "expected": "solve"
+    }
+  ],
+  "alien-dictionary": [
+    {
+      "lang": "java",
+      "found": "alienOrder",
+      "expected": "solve"
+    },
+    {
+      "lang": "cpp",
+      "found": "alienOrder",
+      "expected": "solve"
+    },
+    {
+      "lang": "javascript",
+      "found": "alienOrder",
+      "expected": "solve"
+    }
+  ],
+  "koko-eating-bananas": [
+    {
+      "lang": "java",
+      "found": "TreeNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "cpp",
+      "found": "TreeNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "typescript",
+      "found": "minEatingSpeed",
+      "expected": "__init__"
+    },
+    {
+      "lang": "javascript",
+      "found": "TreeNode",
+      "expected": "__init__"
+    }
+  ],
+  "time-based-key-value-store": [
+    {
+      "lang": "java",
+      "found": "TimeMap",
+      "expected": "__init__"
+    },
+    {
+      "lang": "cpp",
+      "found": "TimeMap",
+      "expected": "__init__"
+    },
+    {
+      "lang": "typescript",
+      "found": "set",
+      "expected": "__init__"
+    },
+    {
+      "lang": "javascript",
+      "found": "TimeMap",
+      "expected": "__init__"
+    }
+  ],
+  "kth-largest-element-in-a-stream": [
+    {
+      "lang": "java",
+      "found": "KthLargest",
+      "expected": "__init__"
+    },
+    {
+      "lang": "cpp",
+      "found": "KthLargest",
+      "expected": "__init__"
+    },
+    {
+      "lang": "typescript",
+      "found": "MinPriorityQueue",
+      "expected": "__init__"
+    },
+    {
+      "lang": "javascript",
+      "found": "KthLargest",
+      "expected": "__init__"
+    }
+  ],
+  "last-stone-weight": [
+    {
+      "lang": "java",
+      "found": "lastStoneWeight",
+      "expected": "solve"
+    },
+    {
+      "lang": "cpp",
+      "found": "lastStoneWeight",
+      "expected": "solve"
+    },
+    {
+      "lang": "typescript",
+      "found": "lastStoneWeight",
+      "expected": "solve"
+    },
+    {
+      "lang": "javascript",
+      "found": "lastStoneWeight",
+      "expected": "solve"
+    }
+  ],
+  "design-twitter": [
+    {
+      "lang": "java",
+      "found": "Twitter",
+      "expected": "__init__"
+    },
+    {
+      "lang": "cpp",
+      "found": "Twitter",
+      "expected": "__init__"
+    },
+    {
+      "lang": "typescript",
+      "found": "postTweet",
+      "expected": "__init__"
+    },
+    {
+      "lang": "javascript",
+      "found": "Twitter",
+      "expected": "__init__"
+    }
+  ],
+  "detect-squares": [
+    {
+      "lang": "typescript",
+      "found": "add",
+      "expected": "__init__"
+    }
+  ],
+  "palindromic-substrings": [
+    {
+      "lang": "java",
+      "found": "TreeNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "cpp",
+      "found": "TreeNode",
+      "expected": "__init__"
+    },
+    {
+      "lang": "typescript",
+      "found": "countSubstrings",
+      "expected": "__init__"
+    },
+    {
+      "lang": "javascript",
+      "found": "TreeNode",
+      "expected": "__init__"
+    }
+  ],
+  "hand-of-straights": [
+    {
+      "lang": "java",
+      "found": "isNStraightHand",
+      "expected": "solve"
+    },
+    {
+      "lang": "cpp",
+      "found": "isNStraightHand",
+      "expected": "solve"
+    },
+    {
+      "lang": "typescript",
+      "found": "isNStraightHand",
+      "expected": "solve"
+    },
+    {
+      "lang": "javascript",
+      "found": "isNStraightHand",
+      "expected": "solve"
+    }
+  ]
+}

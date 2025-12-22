@@ -49,12 +49,26 @@ export class ConstraintValidator {
         const result: string[] = [];
         let current = '';
         let depth = 0;
+        let inQuote: string | null = null;
 
-        for (const char of input) {
-            if (char === '[' || char === '{' || char === '(') depth++;
-            else if (char === ']' || char === '}' || char === ')') depth--;
+        for (let i = 0; i < input.length; i++) {
+            const char = input[i];
 
-            if (char === ',' && depth === 0) {
+            if (inQuote) {
+                if (char === inQuote && input[i - 1] !== '\\') {
+                    inQuote = null;
+                }
+            } else {
+                if (char === '"' || char === "'") {
+                    inQuote = char;
+                } else if (char === '[' || char === '{' || char === '(') {
+                    depth++;
+                } else if (char === ']' || char === '}' || char === ')') {
+                    depth--;
+                }
+            }
+
+            if (char === ',' && depth === 0 && !inQuote) {
                 result.push(current.trim());
                 current = '';
             } else {

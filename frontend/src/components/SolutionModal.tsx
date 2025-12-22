@@ -24,7 +24,8 @@ import {
     RotateCcw,
     Clock,
     Database,
-    Loader2
+    Loader2,
+    Lightbulb
 } from 'lucide-react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
@@ -67,6 +68,9 @@ const SolutionModal: React.FC<SolutionModalProps> = ({ isOpen, onClose, solution
     // Complexity Analysis
     const [complexity, setComplexity] = useState<ComplexityResult | null>(null);
 
+    // Hints progressive reveal
+    const [revealedHints, setRevealedHints] = useState(0);
+
     // Analyze complexity on code change (debounced)
     React.useEffect(() => {
         const timer = setTimeout(() => {
@@ -78,6 +82,11 @@ const SolutionModal: React.FC<SolutionModalProps> = ({ isOpen, onClose, solution
         return () => clearTimeout(timer);
     }, [code, language]);
 
+    // Reset revealed hints when solution changes
+    React.useEffect(() => {
+        setRevealedHints(0);
+    }, [slug]);
+
 
 
     // Ref for scrollable content container
@@ -88,6 +97,9 @@ const SolutionModal: React.FC<SolutionModalProps> = ({ isOpen, onClose, solution
     const [allTestsPassed, setAllTestsPassed] = useState<boolean | null>(null);
     const [activeBottomTab, setActiveBottomTab] = useState<'testcases' | 'result' | 'logs'>('testcases'); // NEW: Tabs state
     const [isRunning, setIsRunning] = useState(false);
+
+    // Reset confirmation modal state
+    const [showResetConfirm, setShowResetConfirm] = useState(false);
 
     // Single Custom Test Case State (editable, temporary)
     const [customTestCase, setCustomTestCase] = useState<{ input: string; output: string } | null>(null);
@@ -125,6 +137,8 @@ const SolutionModal: React.FC<SolutionModalProps> = ({ isOpen, onClose, solution
         params = params.filter(p => p !== 'self');
 
         switch (targetLang) {
+            case 'typescript':
+                return `function ${funcName}(${params.map(p => `${p}: any`).join(', ')}): any {\n    // Your code here\n};`;
             case 'javascript':
                 return `/**\n * @param {${params.map(() => 'any').join(', ')}} ${params.join(', ')}\n * @return {any}\n */\nvar ${funcName} = function(${params.join(', ')}) {\n    // Your code here\n};`;
             case 'java':
@@ -412,31 +426,37 @@ const SolutionModal: React.FC<SolutionModalProps> = ({ isOpen, onClose, solution
         return disposeVim;
     }, [settings.keybinding]);
 
-    const handleResetCode = () => {
+    const handleResetCode = (e: React.MouseEvent) => {
+        e.stopPropagation();
+        e.preventDefault();
         if (!solution || !slug) return;
-        if (window.confirm('Are you sure you want to reset your code? This will discard your current changes.')) {
-            // Clear saved draft for this problem + language
-            const draftKey = language === 'python' ? slug : `${slug}_${language}`;
-            clearDraft(draftKey);
+        setShowResetConfirm(true);
+    };
 
-            // Check for pre-generated implementation for target language
-            const implData = solution.implementations?.[language];
-            let resetCode = '';
+    const confirmReset = () => {
+        if (!solution || !slug) return;
+        // Clear saved draft for this problem + language
+        const draftKey = language === 'python' ? slug : `${slug}_${language}`;
+        clearDraft(draftKey);
 
-            if (implData?.initialCode) {
-                resetCode = implData.initialCode.replace(/\\n/g, '\n');
-            } else {
-                // Fallback legacy conversion
-                const rawCode = solution.initialCode || solution.code || '';
-                resetCode = rawCode.replace(/\\n/g, '\n');
+        // Check for pre-generated implementation for target language
+        const implData = solution.implementations?.[language];
+        let resetCode = '';
 
-                if (language !== 'python') {
-                    resetCode = convertToLanguage(resetCode, language);
-                }
+        if (implData?.initialCode) {
+            resetCode = implData.initialCode.replace(/\\n/g, '\n');
+        } else {
+            // Fallback legacy conversion
+            const rawCode = solution.initialCode || solution.code || '';
+            resetCode = rawCode.replace(/\\n/g, '\n');
+
+            if (language !== 'python') {
+                resetCode = convertToLanguage(resetCode, language);
             }
-
-            setCode(resetCode);
         }
+
+        setCode(resetCode);
+        setShowResetConfirm(false);
     };
 
     const handleEditorMount = (editor: editor.IStandaloneCodeEditor) => {
@@ -551,6 +571,115 @@ const SolutionModal: React.FC<SolutionModalProps> = ({ isOpen, onClose, solution
                     </div>
                 </div>
             )}
+
+            {/* Hints - Progressive Reveal */}
+            {solution.hints && solution.hints.length > 0 && (
+                <div className="space-y-3">
+                    <div className="flex items-center justify-between">
+                        <h3 className="text-sm uppercase tracking-wider text-slate-500 dark:text-slate-400 font-bold flex items-center gap-2">
+                            💡 Hints ({revealedHints}/{solution.hints.length})
+                        </h3>
+                        {revealedHints < solution.hints.length && (
+                            <button
+                                onClick={() => setRevealedHints(prev => Math.min(prev + 1, solution.hints?.length || 0))}
+                                className="px-3 py-1.5 rounded-lg bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300 text-xs font-medium hover:bg-amber-200 dark:hover:bg-amber-800/50 transition-all flex items-center gap-1.5"
+                            >
+                                <Lightbulb size={14} />
+                                Show Hint {revealedHints + 1}
+                            </button>
+                        )}
+                    </div>
+                    {revealedHints > 0 && (
+                        <div className="space-y-2">
+                            {solution.hints.slice(0, revealedHints).map((hint, i) => (
+                                <div
+                                    key={i}
+                                    className="p-3 rounded-lg bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800/50 text-amber-800 dark:text-amber-200 text-sm animate-in fade-in slide-in-from-top-2 duration-300"
+                                >
+                                    <span className="font-semibold text-amber-600 dark:text-amber-400 mr-2">Hint {i + 1}:</span>
+                                    {hint}
+                                </div>
+                            ))}
+                        </div>
+                    )}
+                </div>
+            )}
+
+            {/* Related Problems - Rounded Rectangle Cards */}
+            {solution.relatedProblems && solution.relatedProblems.length > 0 && (
+                <div className="space-y-3">
+                    <h3 className="text-sm uppercase tracking-wider text-slate-500 dark:text-slate-400 font-bold flex items-center gap-2">
+                        🔗 Related Problems
+                    </h3>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                        {solution.relatedProblems.map((related, i) => {
+                            const title = related.split('-').map(word =>
+                                word.charAt(0).toUpperCase() + word.slice(1)
+                            ).join(' ');
+
+                            return (
+                                <button
+                                    key={i}
+                                    onClick={() => {
+                                        onClose();
+                                        window.location.href = `/problem/${related}`;
+                                    }}
+                                    className="group flex items-center gap-3 px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800/50 hover:border-violet-400 dark:hover:border-violet-500 hover:bg-violet-50 dark:hover:bg-violet-900/20 transition-all duration-200 text-left"
+                                >
+                                    <div className="w-8 h-8 rounded-lg bg-violet-100 dark:bg-violet-900/40 flex items-center justify-center text-violet-600 dark:text-violet-400 group-hover:bg-violet-200 dark:group-hover:bg-violet-800/60 transition-colors">
+                                        <ExternalLink size={14} />
+                                    </div>
+                                    <span className="text-sm font-medium text-slate-700 dark:text-slate-300 group-hover:text-violet-700 dark:group-hover:text-violet-300 transition-colors truncate">
+                                        {title}
+                                    </span>
+                                </button>
+                            );
+                        })}
+                    </div>
+                </div>
+            )}
+
+            {/* External Resources */}
+            <div className="space-y-3">
+                <h3 className="text-sm uppercase tracking-wider text-slate-500 dark:text-slate-400 font-bold flex items-center gap-2">
+                    📚 External Resources
+                </h3>
+                <div className="flex flex-wrap gap-3">
+                    {slug && (
+                        <a
+                            href={`https://leetcode.com/problems/${slug}/`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border-2 border-orange-300 dark:border-orange-600 bg-orange-50 dark:bg-orange-900/20 text-orange-600 dark:text-orange-400 text-sm font-medium hover:bg-orange-100 dark:hover:bg-orange-800/40 transition-all duration-200"
+                        >
+                            <CodeIcon size={16} />
+                            LeetCode
+                        </a>
+                    )}
+                    {slug && (
+                        <a
+                            href={`https://neetcode.io/problems/${slug}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border-2 border-emerald-300 dark:border-emerald-600 bg-emerald-50 dark:bg-emerald-900/20 text-emerald-600 dark:text-emerald-400 text-sm font-medium hover:bg-emerald-100 dark:hover:bg-emerald-800/40 transition-all duration-200"
+                        >
+                            <Terminal size={16} />
+                            NeetCode
+                        </a>
+                    )}
+                    {solution.videoId && (
+                        <a
+                            href={`https://www.youtube.com/watch?v=${solution.videoId}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border-2 border-red-300 dark:border-red-600 bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400 text-sm font-medium hover:bg-red-100 dark:hover:bg-red-800/40 transition-all duration-200"
+                        >
+                            <Youtube size={16} />
+                            Video
+                        </a>
+                    )}
+                </div>
+            </div>
         </div>
     );
 
@@ -1069,7 +1198,7 @@ const SolutionModal: React.FC<SolutionModalProps> = ({ isOpen, onClose, solution
                     </div>
                     <div className="flex items-center gap-1">
                         <button
-                            onClick={handleResetCode}
+                            onClick={(e) => handleResetCode(e)}
                             className="p-1.5 hover:bg-slate-200 dark:hover:bg-[#4a4a4a] rounded transition-colors text-slate-400 hover:text-slate-700 dark:hover:text-white"
                             title="Reset Code"
                         >
@@ -1542,6 +1671,37 @@ const SolutionModal: React.FC<SolutionModalProps> = ({ isOpen, onClose, solution
                 }}
                 featureName={authFeatureName}
             />
+
+            {/* Reset Confirmation Modal */}
+            {showResetConfirm && (
+                <div className="fixed inset-0 z-[70] flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm animate-in fade-in duration-200">
+                    <div className="relative w-full max-w-sm bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-800 overflow-hidden animate-in zoom-in-95 duration-200">
+                        <div className="p-6 text-center">
+                            <div className="w-12 h-12 mx-auto mb-4 rounded-full bg-amber-100 dark:bg-amber-900/30 flex items-center justify-center">
+                                <AlertTriangle size={24} className="text-amber-600 dark:text-amber-400" />
+                            </div>
+                            <h3 className="text-lg font-semibold text-slate-900 dark:text-white mb-2">Reset Code?</h3>
+                            <p className="text-sm text-slate-600 dark:text-slate-400 mb-6">
+                                Are you sure you want to reset your code? This will discard all your current changes.
+                            </p>
+                            <div className="flex gap-3 justify-center">
+                                <button
+                                    onClick={() => setShowResetConfirm(false)}
+                                    className="px-4 py-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-medium hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
+                                >
+                                    Cancel
+                                </button>
+                                <button
+                                    onClick={confirmReset}
+                                    className="px-4 py-2 rounded-lg bg-red-600 text-white font-medium hover:bg-red-500 transition-colors"
+                                >
+                                    Reset Code
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
 
             {/* Editor Settings Modal */}
             <EditorSettingsModal

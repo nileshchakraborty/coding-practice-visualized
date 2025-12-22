@@ -19,13 +19,24 @@ export class GoRunner {
                     userCode = 'package main\n\n' + userCode;
                 }
 
-                // Detect function name
-                const funcMatch = userCode.match(/func\s+(\w+)\s*\(/);
-                if (!funcMatch) {
-                    resolve({ success: false, error: 'Could not detect function in Go code.' });
-                    return;
+                // Detect function name and if it's a method
+                let funcName = '';
+                let isMethod = false;
+
+                // Check for method: func (s *Solution) Name(...)
+                const methodMatch = userCode.match(/func\s+\(\w+\s*\*?Solution\)\s+(\w+)\s*\(/);
+                if (methodMatch) {
+                    funcName = methodMatch[1];
+                    isMethod = true;
+                } else {
+                    // Fallback to standalone function
+                    const funcMatch = userCode.match(/func\s+(\w+)\s*\(/);
+                    if (!funcMatch) {
+                        resolve({ success: false, error: 'Could not detect function in Go code.' });
+                        return;
+                    }
+                    funcName = funcMatch[1];
                 }
-                const funcName = funcMatch[1];
 
                 const imports = `
 import (
@@ -44,7 +55,7 @@ import (
                 fs.writeFileSync(path.join(tmpDir, 'solution.go'), userCode);
 
                 const testCalls = testCases.map(tc => {
-                    return generateGoCall(funcName, tc.input, tc.output);
+                    return generateGoCall(funcName, tc.input, tc.output, isMethod);
                 }).join('\n');
 
                 const mainGo = `
@@ -127,7 +138,7 @@ func compare(actual interface{}, expectedJson string) bool {
     }
 }
 
-function generateGoCall(funcName: string, inputJson: string, expectedJson: string): string {
+function generateGoCall(funcName: string, inputJson: string, expectedJson: string, isMethod: boolean): string {
     let argsStr = "";
     try {
         const args = JSON.parse(inputJson);
@@ -137,10 +148,14 @@ function generateGoCall(funcName: string, inputJson: string, expectedJson: strin
         argsStr = toGoLiteral(inputJson);
     }
 
+    const callStr = isMethod ?
+        `sol := Solution{}; res := sol.${funcName}(${argsStr})` :
+        `res := ${funcName}(${argsStr})`;
+
     return `
     {
         start := time.Now()
-        res := ${funcName}(${argsStr})
+        ${callStr}
         elapsed := time.Since(start).Seconds() * 1000 
         
         pass := compare(res, \`${expectedJson}\`)

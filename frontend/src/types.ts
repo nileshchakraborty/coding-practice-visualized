@@ -8,6 +8,9 @@ export interface Problem {
     has_solution?: boolean;
     subTopic?: string;
     pattern?: string;
+    algorithmHint?: string;
+    difficultyReason?: string;
+    description?: string;
 }
 
 export interface Stats {

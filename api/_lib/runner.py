@@ -478,9 +478,50 @@ def run_tests_internal():
             if actual_val is None and isinstance(expected, list) and not is_class_solution:
                 actual_val = []
 
+            # Special Handling for "k, nums = [...]" expected output (removeElement, etc)
+            custom_passed = None
+            if isinstance(expected_str, str) and ',' in expected_str and '=' in expected_str:
+                 match = re.match(r'^(\d+),\s*(\w+)\s*=\s*(.*)$', expected_str)
+                 if match:
+                     try:
+                         exp_k = int(match.group(1))
+                         arr_name = match.group(2)
+                         # Support underscores in expected array
+                         exp_arr = eval(match.group(3), globals(), {'null': None, 'true': True, 'false': False, '_': '_'})
+                         
+                         if isinstance(actual_val, int): 
+                            if actual_val == exp_k:
+                                 # Check array content
+                                 modified_arr = local_scope.get(arr_name)
+                                 if isinstance(modified_arr, list):
+                                     sub_arr = modified_arr[:actual_val]
+                                     exp_arr_sliced = exp_arr[:actual_val]
+                                     
+                                     # Determine sort requirement
+                                     func_name = locals().get('solution_func_name', '')
+                                     
+                                     if 'removeElement' in func_name:
+                                         # Sort both for unordered comparison
+                                         try:
+                                             custom_passed = (sorted(sub_arr) == sorted(exp_arr_sliced))
+                                         except:
+                                             custom_passed = (sub_arr == exp_arr_sliced)
+                                     else:
+                                         # Strict order (removeDuplicates, rotate, etc)
+                                         custom_passed = (sub_arr == exp_arr_sliced)
+                                 else:
+                                     custom_passed = False # Array not found or not list
+                            else:
+                                 custom_passed = False # k mismatch
+                     except Exception:
+                         pass
+
             # Compare
             passed = False
-            if expected is None:
+            if custom_passed is not None:
+                passed = custom_passed
+                expected_display = str(expected)
+            elif expected is None:
                 # Custom test case with no expected output - just show result, mark as "ran"
                 passed = True  # No comparison, execution succeeded
                 expected_display = "(custom - no expected)"
