@@ -1,0 +1,235 @@
+{
+  "replacements": [
+    {
+      "slug": "ransom-note",
+      "old_channel": "Greg Hogg",
+      "old_video": "i3bvxJyUB40",
+      "new_video": "2V7yPrxJ8Ck",
+      "new_title": "The LeetCode Fallacy"
+    },
+    {
+      "slug": "minimum-absolute-difference",
+      "old_channel": "Fisher Coder",
+      "old_video": "mH1aEjOEjcQ",
+      "new_video": "NMP3nRPyX5g",
+      "new_title": "Maximum Number of Removable Characters - Binary Search - Leetcode 1898 - Python"
+    },
+    {
+      "slug": "minimum-time-visiting-all-points",
+      "old_channel": "Knowledge Center",
+      "old_video": "jqcmjnXmCaw",
+      "new_video": "f7JOBJIC-NA",
+      "new_title": "Prim&#39;s Algorithm - Minimum Spanning Tree - Min Cost to Connect all Points - Leetcode 1584 - Python"
+    },
+    {
+      "slug": "fizz-buzz",
+      "old_channel": "Greg Hogg",
+      "old_video": "FdqhMGzVa98",
+      "new_video": "RJr7ofDgE24",
+      "new_title": "How I ACTUALLY got good at Leetcode"
+    },
+    {
+      "slug": "count-and-say",
+      "old_channel": "Techdose",
+      "old_video": "htSwmFGdFUI",
+      "new_video": "RJr7ofDgE24",
+      "new_title": "How I ACTUALLY got good at Leetcode"
+    },
+    {
+      "slug": "two-sum-iv---input-is-a-bst",
+      "old_channel": "take U forward",
+      "old_video": "ssL3sHwPeb4",
+      "new_video": "ymLp6HeKv1o",
+      "new_title": "a little secret for binary tree questions \ud83e\udd2b"
+    },
+    {
+      "slug": "how-many-numbers-are-smaller-than-the-current-number",
+      "old_channel": "Knowledge Mavens",
+      "old_video": "yajqqld8Svc",
+      "new_video": "0pqPalQbPdc",
+      "new_title": "How to EASILY solve LeetCode problems"
+    },
+    {
+      "slug": "basic-calculator",
+      "old_channel": "Jessica Lin",
+      "old_video": "081AqOuasw0",
+      "new_video": "0pqPalQbPdc",
+      "new_title": "How to EASILY solve LeetCode problems"
+    },
+    {
+      "slug": "h-index",
+      "old_channel": "Greg Hogg",
+      "old_video": "mgG5KFTvfPw",
+      "new_video": "0pqPalQbPdc",
+      "new_title": "How to EASILY solve LeetCode problems"
+    },
+    {
+      "slug": "reverse-words-in-a-string",
+      "old_channel": "Knowledge Center",
+      "old_video": "vhnRAaJybpA",
+      "new_video": "_d0T_2Lk2qA",
+      "new_title": "Reverse String - 3 Ways - Leetcode 344 - Python"
+    },
+    {
+      "slug": "longest-mountain-in-array",
+      "old_channel": "Algorithms Made Easy",
+      "old_video": "rh2Bkul2zzQ",
+      "new_video": "5WZl3MMT0Eg",
+      "new_title": "Maximum Subarray - Amazon Coding Interview Question - Leetcode 53 - Python"
+    },
+    {
+      "slug": "gfg---reverse-first-k-elements-of-a-queue",
+      "old_channel": "GeeksforGeeks Practice",
+      "old_video": "VAZkSMoNHik",
+      "new_video": "ymLp6HeKv1o",
+      "new_title": "a little secret for binary tree questions \ud83e\udd2b"
+    },
+    {
+      "slug": "substring-with-concatenation-of-all-words",
+      "old_channel": "CodingNinja",
+      "old_video": "-wlDdMmaYwI",
+      "new_video": "RJr7ofDgE24",
+      "new_title": "How I ACTUALLY got good at Leetcode"
+    },
+    {
+      "slug": "summary-ranges",
+      "old_channel": "Greg Hogg",
+      "old_video": "ZHJDwbfqoa8",
+      "new_video": "KE8MQuwE2yA",
+      "new_title": "Range Sum Query 2D - Immutable - Leetcode 304 - Python"
+    },
+    {
+      "slug": "count-complete-tree-nodes",
+      "old_channel": "take U forward",
+      "old_video": "u-yWemKGWO0",
+      "new_video": "7cp5imvDzl4",
+      "new_title": "Microsoft&#39;s Most Asked Question 2021 - Count Good Nodes in a Binary Tree - Leetcode 1448 - Python"
+    },
+    {
+      "slug": "average-of-levels-in-binary-tree",
+      "old_channel": "Nikhil Lohia",
+      "old_video": "115txA-rS5s",
+      "new_video": "6ZnyEApgFYg",
+      "new_title": "Binary Tree Level Order Traversal - BFS - Leetcode 102"
+    },
+    {
+      "slug": "minimum-absolute-difference-in-bst",
+      "old_channel": "Greg Hogg",
+      "old_video": "NttA_NC_ZhI",
+      "new_video": "ymLp6HeKv1o",
+      "new_title": "a little secret for binary tree questions \ud83e\udd2b"
+    },
+    {
+      "slug": "balance-a-binary-search-tree",
+      "old_channel": "CodeHelp - by Babbar",
+      "old_video": "fqx8z3VepMA",
+      "new_video": "QfJsau0ItOY",
+      "new_title": "Balanced Binary Tree - Leetcode 110 - Python"
+    },
+    {
+      "slug": "minimum-depth-of-binary-tree",
+      "old_channel": "Nikhil Lohia",
+      "old_video": "tZS4VHtbYoo",
+      "new_video": "hTM3phVI6YQ",
+      "new_title": "Maximum Depth of Binary Tree - 3 Solutions - Leetcode 104 - Python"
+    },
+    {
+      "slug": "letter-case-permutation",
+      "old_channel": "Algorithms Made Easy",
+      "old_video": "IYXWcjwhUYo",
+      "new_video": "KPgQQWSqss4",
+      "new_title": "Permutations - Leetcode 46"
+    },
+    {
+      "slug": "single-number-ii",
+      "old_channel": "Techdose",
+      "old_video": "cOFAmaMBVps",
+      "new_video": "X6vgc_Iubf0",
+      "new_title": "Single Number - Leetcode 136"
+    },
+    {
+      "slug": "best-time-to-buy-and-sell-stock-iii",
+      "old_channel": "Techdose",
+      "old_video": "37s1_xBiqH0",
+      "new_video": "I7j0F7AHpb8",
+      "new_title": "Best Time to Buy and Sell Stock with Cooldown - Leetcode 309 - Python"
+    },
+    {
+      "slug": "best-time-to-buy-and-sell-stock-iv",
+      "old_channel": "Techdose",
+      "old_video": "6928FkPhGUA",
+      "new_video": "I7j0F7AHpb8",
+      "new_title": "Best Time to Buy and Sell Stock with Cooldown - Leetcode 309 - Python"
+    },
+    {
+      "slug": "lowest-common-ancestor-of-a-binary-tree",
+      "old_channel": "Back To Back SWE",
+      "old_video": "py3R23aAPCA",
+      "new_video": "gs2LMfuOR9k",
+      "new_title": "Lowest Common Ancestor of a Binary Search Tree - Leetcode 235 - Python"
+    },
+    {
+      "slug": "populating-next-right-pointers-in-each-node-ii",
+      "old_channel": "Algorithms Made Easy",
+      "old_video": "yl-fdkyQD8A",
+      "new_video": "U4hFQCa1Cq0",
+      "new_title": "Populating Next Right Pointers in Each Node - Leetcode 116 - Python"
+    },
+    {
+      "slug": "search-in-a-binary-search-tree",
+      "old_channel": "CodingNinja",
+      "old_video": "kPcYYCbUUEA",
+      "new_video": "s6ATEkipzow",
+      "new_title": "Validate Binary Search Tree - Depth First Search - Leetcode 98"
+    },
+    {
+      "slug": "find-k-pairs-with-smallest-sums",
+      "old_channel": "TechError",
+      "old_video": "Youk8DDnLU8",
+      "new_video": "fFVZt-6sgyo",
+      "new_title": "Subarray Sum Equals K - Prefix Sums - Leetcode 560 - Python"
+    },
+    {
+      "slug": "minimum-operations-to-reduce-an-integer-to-0",
+      "old_channel": "Aryan Mittal",
+      "old_video": "O3VbqTLzTu8",
+      "new_video": "MOeuK6gaC2A",
+      "new_title": "Minimum Number of Flips to make Binary String Alternating - Sliding Window - Leetcode 1888 - Python"
+    },
+    {
+      "slug": "integer-replacement",
+      "old_channel": "Sleepy Cracker",
+      "old_video": "xzoLTiPDY0M",
+      "new_video": "gqXU1UyA8pk",
+      "new_title": "Longest Repeating Character Replacement - Leetcode 424 - Python"
+    },
+    {
+      "slug": "range-sum-query---immutable",
+      "old_channel": "Back To Back SWE",
+      "old_video": "ZMOFmHBVEcg",
+      "new_video": "KE8MQuwE2yA",
+      "new_title": "Range Sum Query 2D - Immutable - Leetcode 304 - Python"
+    },
+    {
+      "slug": "transformed-array",
+      "old_channel": "Programming Live with Larry",
+      "old_video": "b5vu-orCfYQ",
+      "new_video": "0K0uCMYq5ng",
+      "new_title": "Convert Sorted Array to Binary Search Tree - Leetcode 108 - Python"
+    }
+  ],
+  "no_replacement": [
+    {
+      "slug": "minimum-genetic-mutation",
+      "video_id": "9lkn3rHCSLg",
+      "channel": "code Explainer",
+      "title": "433. Minimum Genetic Mutation | LEETCODE MEDIUM | BFS | GRAPH TRAVERSAL"
+    },
+    {
+      "slug": "factorial-trailing-zeroes",
+      "video_id": "_NxbBkunCEM",
+      "channel": "Code Scribbler",
+      "title": "LeetCode 172: Factorial Trailing Zeroes | Python Solution | Math & Number Theory"
+    }
+  ]
+}

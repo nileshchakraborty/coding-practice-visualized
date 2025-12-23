@@ -9743,7 +9743,7 @@
     "relatedProblems": [
       "minimum-cost-to-make-at-least-one-valid-path-in-a-grid"
     ],
-    "videoId": "5BuKVS-Vnws",
+    "videoId": "jqcmjnXmCaw",
     "problemStatement": "On a 2D plane, there are n points with integer coordinates points[i] = [xi, yi]. Return the minimum time in seconds to visit all the points in the order given by points.\nYou can move according to these rules:",
     "difficulty": "Easy",
     "walkthrough": [
@@ -10137,7 +10137,7 @@
     "relatedProblems": [
       "fizz-buzz-multithreaded"
     ],
-    "videoId": "AfxHGNRtFac",
+    "videoId": "FdqhMGzVa98",
     "problemStatement": "Given an integer n, return a string array answer (1-indexed) where:",
     "difficulty": "Easy",
     "walkthrough": [
@@ -60027,7 +60027,7 @@
         "output": "1"
       }
     ],
-    "code": "class Solution:\n    import bisect\n    \n    def lengthOfLIS(self, nums):\n        \"\"\"\n        Intuition:\n        - \ud83c\udfaf Find LIS length.\n        - \ud83e\udde0 O(n log n): maintain smallest tail for each length.\n        - \ud83d\udca1 Binary search for where to insert/replace.\n        \"\"\"\n        tails = []\n        for n in nums:  # Iterate over elements.\n            pos = bisect.bisect_left(tails, n)\n            if pos == len(tails):\n                tails.append(n)  # Add to end.\n            else:\n                tails[pos] = n\n        return len(tails)",
+    "code": "import bisect\n\nclass Solution:\n    def lengthOfLIS(self, nums):\n        \"\"\"\n        Intuition:\n        - \ud83c\udfaf Find LIS length.\n        - \ud83e\udde0 O(n log n): maintain smallest tail for each length.\n        - \ud83d\udca1 Binary search for where to insert/replace.\n        \"\"\"\n        tails = []\n        for n in nums:  # Iterate over elements.\n            pos = bisect.bisect_left(tails, n)\n            if pos == len(tails):\n                tails.append(n)  # Add to end.\n            else:\n                tails[pos] = n\n        return len(tails)",
     "keyInsight": "tails[i] = smallest tail of LIS of length i+1.",
     "visualizationType": "array",
     "initialState": [
@@ -60399,7 +60399,7 @@
       "climbing-stairs",
       "binary-search"
     ],
-    "videoId": "73r3KWiEvyk",
+    "videoId": "cjWnW0hdF1Y",
     "problemStatement": "Given an integer array nums, return the length of the longest strictly increasing subsequence.",
     "difficulty": "Medium",
     "walkthrough": [
@@ -64537,7 +64537,7 @@
       "coin-change",
       "longest-increasing-subsequence"
     ],
-    "videoId": "Pw6lrYANjz4",
+    "videoId": "6928FkPhGUA",
     "problemStatement": "You are given an integer array prices where prices[i] is the price of a given stock on the ith day, and an integer k.\nFind the maximum profit you can achieve. You may complete at most k transactions: i.e. you may buy at most k times and sell at most k times.\nNote: You may not engage in multiple transactions simultaneously (i.e., you must sell the stock before you buy again).",
     "difficulty": "Hard",
     "walkthrough": [

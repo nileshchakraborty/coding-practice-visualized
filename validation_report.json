@@ -1,0 +1,2915 @@
+{
+  "video_mismatches": [
+    {
+      "slug": "triangle",
+      "problem_title": "Triangle",
+      "video_id": "OM1MTokvxs4",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "best-time-to-buy-and-sell-stock",
+      "problem_title": "Best Time to Buy and Sell Stock",
+      "video_id": "1pkOgXD63yU",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "valid-palindrome",
+      "problem_title": "Valid Palindrome",
+      "video_id": "jJXJ16kPFWg",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "merge-sorted-array",
+      "problem_title": "Merge Sorted Array",
+      "video_id": "P1Ic85RarKY",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "valid-parentheses",
+      "problem_title": "Valid Parentheses",
+      "video_id": "WTzjTskDFMg",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "maximum-subarray",
+      "problem_title": "Maximum Subarray",
+      "video_id": "5WZl3MMT0Eg",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "climbing-stairs",
+      "problem_title": "Climbing Stairs",
+      "video_id": "Y0lT9Fck7qI",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "linked-list-cycle",
+      "problem_title": "Linked List Cycle",
+      "video_id": "gBTe7lFR3vc",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "binary-search",
+      "problem_title": "Binary Search",
+      "video_id": "s4DPM8ct1pI",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "number-of-islands",
+      "problem_title": "Number of Islands",
+      "video_id": "pV2kpPD66nE",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "reverse-linked-list",
+      "problem_title": "Reverse Linked List",
+      "video_id": "G0_I-ZF0S38",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "contains-duplicate",
+      "problem_title": "Contains Duplicate",
+      "video_id": "3OamzN90kPg",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "invert-binary-tree",
+      "problem_title": "Invert Binary Tree",
+      "video_id": "OnSn2XEQ4MY",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "coin-change",
+      "problem_title": "Coin Change",
+      "video_id": "H9bfqozjoqs",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "two-sum",
+      "problem_title": "Two Sum",
+      "video_id": "KLlXCFG5TnA",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "remove-element",
+      "problem_title": "Remove Element",
+      "video_id": "Pcd1ii9P9ZI",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "majority-element",
+      "problem_title": "Majority Element",
+      "video_id": "7pnhv842keE",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "ransom-note",
+      "problem_title": "Ransom Note",
+      "video_id": "i3bvxJyUB40",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "valid-anagram",
+      "problem_title": "Valid Anagram",
+      "video_id": "9UtInBqnCgA",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "happy-number",
+      "problem_title": "Happy Number",
+      "video_id": "ljz85bxOYJ0",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "middle-of-the-linked-list",
+      "problem_title": "Middle of the Linked List",
+      "video_id": "A2_ldqM4QcY",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "time-needed-to-buy-tickets",
+      "problem_title": "Time Needed to Buy Tickets",
+      "video_id": "cVmS9N6kf2Y",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "minimum-absolute-difference",
+      "problem_title": "Minimum Absolute Difference",
+      "video_id": "mH1aEjOEjcQ",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "missing-number",
+      "problem_title": "Missing Number",
+      "video_id": "WnPLSRLSANE",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "minimum-time-visiting-all-points",
+      "problem_title": "Minimum Time Visiting All Points",
+      "video_id": "5BuKVS-Vnws",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "fizz-buzz",
+      "problem_title": "Fizz Buzz",
+      "video_id": "AfxHGNRtFac",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "count-and-say",
+      "problem_title": "Count and Say",
+      "video_id": "htSwmFGdFUI",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "two-sum-iv---input-is-a-bst",
+      "problem_title": "Two Sum IV - Input is a BST",
+      "video_id": "ssL3sHwPeb4",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "isomorphic-strings",
+      "problem_title": "Isomorphic Strings",
+      "video_id": "7yF-U1hLEqQ",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "word-pattern",
+      "problem_title": "Word Pattern",
+      "video_id": "W_akoecmCbM",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "group-anagrams",
+      "problem_title": "Group Anagrams",
+      "video_id": "vzdNOK2oB2E",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "contains-duplicate-ii",
+      "problem_title": "Contains Duplicate II",
+      "video_id": "ypn0aZ0nrL4",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "longest-consecutive-sequence",
+      "problem_title": "Longest Consecutive Sequence",
+      "video_id": "P6RZZMu_maU",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "insert-delete-getrandom-o1",
+      "problem_title": "Insert Delete GetRandom O(1)",
+      "video_id": "j4KwhBziOpg",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "how-many-numbers-are-smaller-than-the-current-number",
+      "problem_title": "How Many Numbers Are Smaller Than the Current Number",
+      "video_id": "yajqqld8Svc",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "simplify-path",
+      "problem_title": "Simplify Path",
+      "video_id": "qYlHrAKJfyA",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "min-stack",
+      "problem_title": "Min Stack",
+      "video_id": "qkLl7nAwDPo",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "evaluate-reverse-polish-notation",
+      "problem_title": "Evaluate Reverse Polish Notation",
+      "video_id": "iu0082c4HDE",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "basic-calculator",
+      "problem_title": "Basic Calculator",
+      "video_id": "081AqOuasw0",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "implement-stack-using-queues",
+      "problem_title": "Implement Stack using Queues",
+      "video_id": "rW4vm0-DLYc",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "add-two-numbers",
+      "problem_title": "Add Two Numbers",
+      "video_id": "wgFPrzTjm7s",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "merge-two-sorted-lists",
+      "problem_title": "Merge Two Sorted Lists",
+      "video_id": "XIdigk956u0",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "copy-list-with-random-pointer",
+      "problem_title": "Copy List with Random Pointer",
+      "video_id": "5Y2EiZST97Y",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "reverse-linked-list-ii",
+      "problem_title": "Reverse Linked List II",
+      "video_id": "RF_M9tX4Eag",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "maximum-depth-of-binary-tree",
+      "problem_title": "Maximum Depth of Binary Tree",
+      "video_id": "hTM3phVI6YQ",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "same-tree",
+      "problem_title": "Same Tree",
+      "video_id": "vRbbcKXCxOw",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "symmetric-tree",
+      "problem_title": "Symmetric Tree",
+      "video_id": "Mao9uzxwvmc",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "binary-tree-level-order-traversal",
+      "problem_title": "Binary Tree Level Order Traversal",
+      "video_id": "6ZnyEApgFYg",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "clone-graph",
+      "problem_title": "Clone Graph",
+      "video_id": "mQeF6bN8hMk",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "course-schedule",
+      "problem_title": "Course Schedule",
+      "video_id": "EgI5nU9etnU",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "permutations",
+      "problem_title": "Permutations",
+      "video_id": "s7AvT7cGdSo",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "combination-sum",
+      "problem_title": "Combination Sum",
+      "video_id": "GBKI9VSKdGg",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "word-search",
+      "problem_title": "Word Search",
+      "video_id": "pfiQ_PS1g8E",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "kth-largest-element-in-an-array",
+      "problem_title": "Kth Largest Element in an Array",
+      "video_id": "XEmy13g1Qxc",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "top-k-frequent-elements",
+      "problem_title": "Top K Frequent Elements",
+      "video_id": "YPTqKIgVk-k",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "remove-duplicates-from-sorted-array",
+      "problem_title": "Remove Duplicates from Sorted Array",
+      "video_id": "DEJAZBq0FDA",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "remove-duplicates-from-sorted-list-ii",
+      "problem_title": "Remove Duplicates from Sorted List II",
+      "video_id": "ycAq8iqh0TI",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "rotate-array",
+      "problem_title": "Rotate Array",
+      "video_id": "BHr381Guz3Y",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "best-time-to-buy-and-sell-stock-ii",
+      "problem_title": "Best Time to Buy and Sell Stock II",
+      "video_id": "3SJ3pUkPQMc",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "jump-game",
+      "problem_title": "Jump Game",
+      "video_id": "Yan0cv2cLy8",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "jump-game-ii",
+      "problem_title": "Jump Game II",
+      "video_id": "dJ7sWiOoK7g",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "h-index",
+      "problem_title": "H-Index",
+      "video_id": "mgG5KFTvfPw",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "product-of-array-except-self",
+      "problem_title": "Product of Array Except Self",
+      "video_id": "bNvIQI2wAjk",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "gas-station",
+      "problem_title": "Gas Station",
+      "video_id": "lJwbPZGo05A",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "candy",
+      "problem_title": "Candy",
+      "video_id": "1IzCRCcK17A",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "trapping-rain-water",
+      "problem_title": "Trapping Rain Water",
+      "video_id": "ZI2z5pq0TqA",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "roman-to-integer",
+      "problem_title": "Roman to Integer",
+      "video_id": "3jdxYj3DD98",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "integer-to-roman",
+      "problem_title": "Integer to Roman",
+      "video_id": "ohBNdSJyLh8",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "length-of-last-word",
+      "problem_title": "Length of Last Word",
+      "video_id": "KT9rltZTybQ",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "longest-common-prefix",
+      "problem_title": "Longest Common Prefix",
+      "video_id": "0sWShKIJoo4",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "reverse-words-in-a-string",
+      "problem_title": "Reverse Words in a String",
+      "video_id": "vhnRAaJybpA",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "zigzag-conversion",
+      "problem_title": "Zigzag Conversion",
+      "video_id": "Q2Tw6gcVEwc",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "find-the-index-of-the-first-occurrence-in-a-string",
+      "problem_title": "Find the Index of the First Occurrence in a String",
+      "video_id": "JoF0Z7nVSrA",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "text-justification",
+      "problem_title": "Text Justification",
+      "video_id": "TzMl4Z7pVh8",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "find-all-numbers-disappeared-in-an-array",
+      "problem_title": "Find All Numbers Disappeared in an Array",
+      "video_id": "8i-f24YFWC4",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "is-subsequence",
+      "problem_title": "Is Subsequence",
+      "video_id": "99RVfqklbCE",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "container-with-most-water",
+      "problem_title": "Container With Most Water",
+      "video_id": "UuiTKBwPgAo",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "3sum",
+      "problem_title": "3Sum",
+      "video_id": "jzZsG8n2R9A",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "squares-of-a-sorted-array",
+      "problem_title": "Squares of a Sorted Array",
+      "video_id": "FPCZsG_AkUg",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "longest-mountain-in-array",
+      "problem_title": "Longest Mountain in Array",
+      "video_id": "rh2Bkul2zzQ",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "delete-node-in-a-bst",
+      "problem_title": "Delete Node in a BST",
+      "video_id": "LFzAoJJt92M",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "insert-into-a-binary-search-tree",
+      "problem_title": "Insert into a Binary Search Tree",
+      "video_id": "Cpg8f79luEA",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "palindrome-linked-list",
+      "problem_title": "Palindrome Linked List",
+      "video_id": "yOzXms1J6Nk",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "gfg---reverse-first-k-elements-of-a-queue",
+      "problem_title": "GFG - Reverse first K elements of a Queue",
+      "video_id": "VAZkSMoNHik",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "minimum-size-subarray-sum",
+      "problem_title": "Minimum Size Subarray Sum",
+      "video_id": "aYqYMIqZx5s",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "longest-substring-without-repeating-characters",
+      "problem_title": "Longest Substring Without Repeating Characters",
+      "video_id": "wiGpQwVHdE0",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "substring-with-concatenation-of-all-words",
+      "problem_title": "Substring with Concatenation of All Words",
+      "video_id": "-wlDdMmaYwI",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "minimum-window-substring",
+      "problem_title": "Minimum Window Substring",
+      "video_id": "jSto0O4AJbM",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "valid-sudoku",
+      "problem_title": "Valid Sudoku",
+      "video_id": "TjFXEUCMqI8",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "spiral-matrix",
+      "problem_title": "Spiral Matrix",
+      "video_id": "BJnMZNwUk1M",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "rotate-image",
+      "problem_title": "Rotate Image",
+      "video_id": "fMSJSS7eO1w",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "set-matrix-zeroes",
+      "problem_title": "Set Matrix Zeroes",
+      "video_id": "T41rL0L3Pnw",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "game-of-life",
+      "problem_title": "Game of Life",
+      "video_id": "fei4bJQdBUQ",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "summary-ranges",
+      "problem_title": "Summary Ranges",
+      "video_id": "ZHJDwbfqoa8",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "merge-intervals",
+      "problem_title": "Merge Intervals",
+      "video_id": "44H3cEC2fFM",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "insert-interval",
+      "problem_title": "Insert Interval",
+      "video_id": "A8NUOmlwOlM",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "minimum-number-of-arrows-to-burst-balloons",
+      "problem_title": "Minimum Number of Arrows to Burst Balloons",
+      "video_id": "lPmkKnvNPrw",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "reverse-nodes-in-k-group",
+      "problem_title": "Reverse Nodes in k-Group",
+      "video_id": "1UOPsfP85V4",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "remove-nth-node-from-end-of-list",
+      "problem_title": "Remove Nth Node From End of List",
+      "video_id": "XVuQxVej6y8",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "rotate-list",
+      "problem_title": "Rotate List",
+      "video_id": "UcGtPs2LE_c",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "partition-list",
+      "problem_title": "Partition List",
+      "video_id": "KT1iUciJr4g",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "sort-list",
+      "problem_title": "Sort List",
+      "video_id": "TGveA1oFhrc",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "construct-binary-tree-from-preorder-and-inorder-traversal",
+      "problem_title": "Construct Binary Tree from Preorder and Inorder Traversal",
+      "video_id": "ihj4IQGZ2zc",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "construct-binary-tree-from-inorder-and-postorder-traversal",
+      "problem_title": "Construct Binary Tree from Inorder and Postorder Traversal",
+      "video_id": "vm63HuIU7kw",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "flatten-binary-tree-to-linked-list",
+      "problem_title": "Flatten Binary Tree to Linked List",
+      "video_id": "rKnD7rLT0lI",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "path-sum",
+      "problem_title": "Path Sum",
+      "video_id": "LSKQyOz_P8I",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "sum-root-to-leaf-numbers",
+      "problem_title": "Sum Root to Leaf Numbers",
+      "video_id": "Jk16lZGFWxE",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "binary-tree-maximum-path-sum",
+      "problem_title": "Binary Tree Maximum Path Sum",
+      "video_id": "Hr5cWUld4vU",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "count-complete-tree-nodes",
+      "problem_title": "Count Complete Tree Nodes",
+      "video_id": "u-yWemKGWO0",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "binary-tree-right-side-view",
+      "problem_title": "Binary Tree Right Side View",
+      "video_id": "d4zLyf32e3I",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "average-of-levels-in-binary-tree",
+      "problem_title": "Average of Levels in Binary Tree",
+      "video_id": "115txA-rS5s",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "binary-tree-zigzag-level-order-traversal",
+      "problem_title": "Binary Tree Zigzag Level Order Traversal",
+      "video_id": "igbboQbiwqw",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "minimum-absolute-difference-in-bst",
+      "problem_title": "Minimum Absolute Difference in BST",
+      "video_id": "NttA_NC_ZhI",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "kth-smallest-element-in-a-bst",
+      "problem_title": "Kth Smallest Element in a BST",
+      "video_id": "5LUXSvjmGCw",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "validate-binary-search-tree",
+      "problem_title": "Validate Binary Search Tree",
+      "video_id": "s6ATEkipzow",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "lowest-common-ancestor-of-a-binary-search-tree",
+      "problem_title": "Lowest Common Ancestor of a Binary Search Tree",
+      "video_id": "gs2LMfuOR9k",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "balance-a-binary-search-tree",
+      "problem_title": "Balance a Binary Search Tree",
+      "video_id": "fqx8z3VepMA",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "surrounded-regions",
+      "problem_title": "Surrounded Regions",
+      "video_id": "9z2BunfoZ5Y",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "evaluate-division",
+      "problem_title": "Evaluate Division",
+      "video_id": "Uei1fwDoyKk",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "course-schedule-ii",
+      "problem_title": "Course Schedule II",
+      "video_id": "Akt3glAwyfY",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "diameter-of-binary-tree",
+      "problem_title": "Diameter of Binary Tree",
+      "video_id": "bkxqA8Rfv04",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "cheapest-flights-within-k-stops",
+      "problem_title": "Cheapest Flights Within K Stops",
+      "video_id": "5eIK3zUdYmE",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "snakes-and-ladders",
+      "problem_title": "Snakes and Ladders",
+      "video_id": "6lH4nO3JfLk",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "minimum-genetic-mutation",
+      "problem_title": "Minimum Genetic Mutation",
+      "video_id": "9lkn3rHCSLg",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "word-ladder",
+      "problem_title": "Word Ladder",
+      "video_id": "h9iTnkgv05E",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "minimum-depth-of-binary-tree",
+      "problem_title": "Minimum Depth of Binary Tree",
+      "video_id": "tZS4VHtbYoo",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "letter-combinations-of-a-phone-number",
+      "problem_title": "Letter Combinations of a Phone Number",
+      "video_id": "0snEunUacZY",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "combinations",
+      "problem_title": "Combinations",
+      "video_id": "q0s6m7AiM7o",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "n-queens-ii",
+      "problem_title": "N-Queens II",
+      "video_id": "nalYyLZgvCY",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "generate-parentheses",
+      "problem_title": "Generate Parentheses",
+      "video_id": "s9fokUqJ76A",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "subsets",
+      "problem_title": "Subsets",
+      "video_id": "REOH22Xwdkk",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "letter-case-permutation",
+      "problem_title": "Letter Case Permutation",
+      "video_id": "IYXWcjwhUYo",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "merge-k-sorted-lists",
+      "problem_title": "Merge k Sorted Lists",
+      "video_id": "q5a5OiGbT6Q",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "search-insert-position",
+      "problem_title": "Search Insert Position",
+      "video_id": "K-RYzDZkzCI",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "search-a-2d-matrix",
+      "problem_title": "Search a 2D Matrix",
+      "video_id": "Ber2pi2C0j0",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "find-peak-element",
+      "problem_title": "Find Peak Element",
+      "video_id": "kMzJy9es7Hc",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "search-in-rotated-sorted-array",
+      "problem_title": "Search in Rotated Sorted Array",
+      "video_id": "U8XENwh8Oy8",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "find-first-and-last-position-of-element-in-sorted-array",
+      "problem_title": "Find First and Last Position of Element in Sorted Array",
+      "video_id": "4sQL7R5ySUU",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "find-minimum-in-rotated-sorted-array",
+      "problem_title": "Find Minimum in Rotated Sorted Array",
+      "video_id": "nIVW4P8b1VA",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "median-of-two-sorted-arrays",
+      "problem_title": "Median of Two Sorted Arrays",
+      "video_id": "q6IEA26hvXc",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "maximum-sum-circular-subarray",
+      "problem_title": "Maximum Sum Circular Subarray",
+      "video_id": "fxT9KjakYPM",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "add-binary",
+      "problem_title": "Add Binary",
+      "video_id": "keuWJ47xG8g",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "reverse-bits",
+      "problem_title": "Reverse Bits",
+      "video_id": "UcoN6UjAI64",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "number-of-1-bits",
+      "problem_title": "Number of 1 Bits",
+      "video_id": "5Km3utixwZs",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "single-number",
+      "problem_title": "Single Number",
+      "video_id": "qMPX1AOa83k",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "single-number-ii",
+      "problem_title": "Single Number II",
+      "video_id": "cOFAmaMBVps",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "bitwise-and-of-numbers-range",
+      "problem_title": "Bitwise AND of Numbers Range",
+      "video_id": "R3T0olAhUq0",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "counting-bits",
+      "problem_title": "Counting Bits",
+      "video_id": "RyBM56RIWrM",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "palindrome-number",
+      "problem_title": "Palindrome Number",
+      "video_id": "yubRKwixN-U",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "plus-one",
+      "problem_title": "Plus One",
+      "video_id": "jIaA8boiG1s",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "factorial-trailing-zeroes",
+      "problem_title": "Factorial Trailing Zeroes",
+      "video_id": "_NxbBkunCEM",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "sqrtx",
+      "problem_title": "Sqrt(x)",
+      "video_id": "zdMhGxRWutQ",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "max-points-on-a-line",
+      "problem_title": "Max Points on a Line",
+      "video_id": "Bb9lOXUOnFw",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "longest-increasing-subsequence",
+      "problem_title": "Longest Increasing Subsequence",
+      "video_id": "73r3KWiEvyk",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "word-break",
+      "problem_title": "Word Break",
+      "video_id": "Sx9NNgInc3A",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "number-of-longest-increasing-subsequence",
+      "problem_title": "Number of Longest Increasing Subsequence",
+      "video_id": "Tuc-rjJbsXU",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "decode-ways",
+      "problem_title": "Decode Ways",
+      "video_id": "6aEyTjOwlJU",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "minimum-path-sum",
+      "problem_title": "Minimum Path Sum",
+      "video_id": "pGMsrvt0fpk",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "unique-paths-ii",
+      "problem_title": "Unique Paths II",
+      "video_id": "d3UOz7zdE4I",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "longest-palindromic-substring",
+      "problem_title": "Longest Palindromic Substring",
+      "video_id": "XYQecbcd6_c",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "interleaving-string",
+      "problem_title": "Interleaving String",
+      "video_id": "3Rw3p9LrgvE",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "edit-distance",
+      "problem_title": "Edit Distance",
+      "video_id": "XYi2-LPrwm4",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "best-time-to-buy-and-sell-stock-iii",
+      "problem_title": "Best Time to Buy and Sell Stock III",
+      "video_id": "37s1_xBiqH0",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "best-time-to-buy-and-sell-stock-iv",
+      "problem_title": "Best Time to Buy and Sell Stock IV",
+      "video_id": "Pw6lrYANjz4",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "maximal-square",
+      "problem_title": "Maximal Square",
+      "video_id": "6X7Ha2PrDmM",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "remove-linked-list-elements",
+      "problem_title": "Remove Linked List Elements",
+      "video_id": "JI71sxtHTng",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "lowest-common-ancestor-of-a-binary-tree",
+      "problem_title": "Lowest Common Ancestor of a Binary Tree",
+      "video_id": "py3R23aAPCA",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "populating-next-right-pointers-in-each-node-ii",
+      "problem_title": "Populating Next Right Pointers in Each Node II",
+      "video_id": "yl-fdkyQD8A",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "convert-sorted-array-to-binary-search-tree",
+      "problem_title": "Convert Sorted Array to Binary Search Tree",
+      "video_id": "0K0uCMYq5ng",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "construct-quad-tree",
+      "problem_title": "Construct Quad Tree",
+      "video_id": "UQ-1sBMV0v4",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "search-in-a-binary-search-tree",
+      "problem_title": "Search in a Binary Search Tree",
+      "video_id": "kPcYYCbUUEA",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "ipo",
+      "problem_title": "IPO",
+      "video_id": "1IUzNJ6TPEM",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "find-k-pairs-with-smallest-sums",
+      "problem_title": "Find K Pairs with Smallest Sums",
+      "video_id": "Youk8DDnLU8",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "find-median-from-data-stream",
+      "problem_title": "Find Median from Data Stream",
+      "video_id": "itmhHWaHupI",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "task-scheduler",
+      "problem_title": "Task Scheduler",
+      "video_id": "s8p8ukTyA2I",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "k-closest-points-to-origin",
+      "problem_title": "K Closest Points to Origin",
+      "video_id": "rI2EBUEMfTk",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "minimum-operations-to-reduce-an-integer-to-0",
+      "problem_title": "Minimum Operations to Reduce an Integer to 0",
+      "video_id": "O3VbqTLzTu8",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "integer-replacement",
+      "problem_title": "Integer Replacement",
+      "video_id": "xzoLTiPDY0M",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "range-sum-query---immutable",
+      "problem_title": "Range Sum Query - Immutable",
+      "video_id": "ZMOFmHBVEcg",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "unique-paths",
+      "problem_title": "Unique Paths",
+      "video_id": "IlEsdxuD4lY",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "lru-cache",
+      "problem_title": "LRU Cache",
+      "video_id": "7ABFKPK2hD4",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "implement-trie-prefix-tree",
+      "problem_title": "Implement Trie (Prefix Tree)",
+      "video_id": "oobqoCJlHA0",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "design-add-and-search-words-data-structure",
+      "problem_title": "Design Add and Search Words Data Structure",
+      "video_id": "BTf05gs_8iU",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "word-search-ii",
+      "problem_title": "Word Search II",
+      "video_id": "asbcE9mZz_U",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "binary-search-tree-iterator",
+      "problem_title": "Binary Search Tree Iterator",
+      "video_id": "RXy5RzGF5wo",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "transformed-array",
+      "problem_title": "Transformed Array",
+      "video_id": "b5vu-orCfYQ",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "encode-and-decode-strings",
+      "problem_title": "Encode and Decode Strings",
+      "video_id": "B1k_sxOSgv8",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "two-sum-ii-input-array-is-sorted",
+      "problem_title": "Two Sum II - Input Array Is Sorted",
+      "video_id": "cQ1Oz4ckceM",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "longest-repeating-character-replacement",
+      "problem_title": "Longest Repeating Character Replacement",
+      "video_id": "gqXU1UyA8pk",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "sliding-window-maximum",
+      "problem_title": "Sliding Window Maximum",
+      "video_id": "DfljaUwZsOk",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "non-overlapping-intervals",
+      "problem_title": "Non-overlapping Intervals",
+      "video_id": "nONCGxWoUfM",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "meeting-rooms",
+      "problem_title": "Meeting Rooms",
+      "video_id": "PaJxqZVPhbg",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "meeting-rooms-ii",
+      "problem_title": "Meeting Rooms II",
+      "video_id": "FdzJmTCVyJU",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "minimum-interval-to-include-each-query",
+      "problem_title": "Minimum Interval to Include Each Query",
+      "video_id": "5hQ5WWW5awQ",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "daily-temperatures",
+      "problem_title": "Daily Temperatures",
+      "video_id": "cTBiBSnjO3c",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "car-fleet",
+      "problem_title": "Car Fleet",
+      "video_id": "Pr6T-3yB9RM",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "largest-rectangle-in-histogram",
+      "problem_title": "Largest Rectangle in Histogram",
+      "video_id": "zx5Sw9130L0",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "reorder-list",
+      "problem_title": "Reorder List",
+      "video_id": "S5bfdUTrKLM",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "find-the-duplicate-number",
+      "problem_title": "Find the Duplicate Number",
+      "video_id": "wjYnzkAhcNk",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "balanced-binary-tree",
+      "problem_title": "Balanced Binary Tree",
+      "video_id": "QfJsau0ItOY",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "subtree-of-another-tree",
+      "problem_title": "Subtree of Another Tree",
+      "video_id": "E36O5SWp-LE",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "count-good-nodes-in-binary-tree",
+      "problem_title": "Count Good Nodes in Binary Tree",
+      "video_id": "7cp5imvDzl4",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "serialize-and-deserialize-binary-tree",
+      "problem_title": "Serialize and Deserialize Binary Tree",
+      "video_id": "u4JAi2JJhI8",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "max-area-of-island",
+      "problem_title": "Max Area of Island",
+      "video_id": "iJGr1OtmH0c",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "pacific-atlantic-water-flow",
+      "problem_title": "Pacific Atlantic Water Flow",
+      "video_id": "s-VkcjHqkGI",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "rotting-oranges",
+      "problem_title": "Rotting Oranges",
+      "video_id": "y704fEOx0s0",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "walls-and-gates",
+      "problem_title": "Walls And Gates",
+      "video_id": "e69C6xhiSQE",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "redundant-connection",
+      "problem_title": "Redundant Connection",
+      "video_id": "FXWRE67PLL0",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "number-of-connected-components-in-an-undirected-graph",
+      "problem_title": "Number of Connected Components In An Undirected Graph",
+      "video_id": "8f1XPm4WOUc",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "graph-valid-tree",
+      "problem_title": "Graph Valid Tree",
+      "video_id": "bXsUuownnoQ",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "reconstruct-itinerary",
+      "problem_title": "Reconstruct Itinerary",
+      "video_id": "ZyB_gQ8vqGA",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "min-cost-to-connect-all-points",
+      "problem_title": "Min Cost to Connect All Points",
+      "video_id": "f7JOBJIC-NA",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "network-delay-time",
+      "problem_title": "Network Delay Time",
+      "video_id": "EaphyqKU4PQ",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "swim-in-rising-water",
+      "problem_title": "Swim in Rising Water",
+      "video_id": "amvrKlMLuGY",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "alien-dictionary",
+      "problem_title": "Alien Dictionary",
+      "video_id": "6kTZYvNNyps",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "subsets-ii",
+      "problem_title": "Subsets II",
+      "video_id": "Vn2v6ajA7U0",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "combination-sum-ii",
+      "problem_title": "Combination Sum II",
+      "video_id": "rSA3t6BDDwg",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "palindrome-partitioning",
+      "problem_title": "Palindrome Partitioning",
+      "video_id": "3jvWodd7ht0",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "n-queens",
+      "problem_title": "N-Queens",
+      "video_id": "Ph95IHmRp5M",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "koko-eating-bananas",
+      "problem_title": "Koko Eating Bananas",
+      "video_id": "U2SozAs9RzA",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "time-based-key-value-store",
+      "problem_title": "Time Based Key-Value Store",
+      "video_id": "fu2cD_6E8Hw",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "kth-largest-element-in-a-stream",
+      "problem_title": "Kth Largest Element in a Stream",
+      "video_id": "hOjcdrqMoQ8",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "last-stone-weight",
+      "problem_title": "Last Stone Weight",
+      "video_id": "B-QCq79-Vfw",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "design-twitter",
+      "problem_title": "Design Twitter",
+      "video_id": "pNichitDD2E",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "sum-of-two-integers",
+      "problem_title": "Sum of Two Integers",
+      "video_id": "gVUrDV4tZfY",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "reverse-integer",
+      "problem_title": "Reverse Integer",
+      "video_id": "HAgLH58IgJQ",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "powx-n",
+      "problem_title": "Pow(x, n)",
+      "video_id": "g9YQyYi4IQQ",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "multiply-strings",
+      "problem_title": "Multiply Strings",
+      "video_id": "1vZswirL8Y8",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "detect-squares",
+      "problem_title": "Detect Squares",
+      "video_id": "bahebearrDc",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "min-cost-climbing-stairs",
+      "problem_title": "Min Cost Climbing Stairs",
+      "video_id": "ktmzAZWkEZ0",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "house-robber-ii",
+      "problem_title": "House Robber II",
+      "video_id": "rWAJCfYYOvM",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "palindromic-substrings",
+      "problem_title": "Palindromic Substrings",
+      "video_id": "4RACzI5-du8",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "maximum-product-subarray",
+      "problem_title": "Maximum Product Subarray",
+      "video_id": "lXVy6YWFcRM",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "partition-equal-subset-sum",
+      "problem_title": "Partition Equal Subset Sum",
+      "video_id": "IsvocB5BJhw",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "longest-common-subsequence",
+      "problem_title": "Longest Common Subsequence",
+      "video_id": "Ua0GhsJSlWM",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "best-time-to-buy-and-sell-stock-with-cooldown",
+      "problem_title": "Best Time to Buy and Sell Stock with Cooldown",
+      "video_id": "I7j0F7AHpb8",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "coin-change-ii",
+      "problem_title": "Coin Change II",
+      "video_id": "Mjy4hd2xgrs",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "target-sum",
+      "problem_title": "Target Sum",
+      "video_id": "g0npyaQtAQM",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "longest-increasing-path-in-a-matrix",
+      "problem_title": "Longest Increasing Path in a Matrix",
+      "video_id": "wCc_nd-GiEc",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "distinct-subsequences",
+      "problem_title": "Distinct Subsequences",
+      "video_id": "-RDzMJ33nx8",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "burst-balloons",
+      "problem_title": "Burst Balloons",
+      "video_id": "VFskby7lUbw",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "regular-expression-matching",
+      "problem_title": "Regular Expression Matching",
+      "video_id": "HAA8mgxlov8",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "hand-of-straights",
+      "problem_title": "Hand of Straights",
+      "video_id": "amnrMCVd2YI",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "merge-triplets-to-form-target-triplet",
+      "problem_title": "Merge Triplets to Form Target Triplet",
+      "video_id": "kShkQLQZ9K4",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "partition-labels",
+      "problem_title": "Partition Labels",
+      "video_id": "B7m8UmZE-vw",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "valid-parenthesis-string",
+      "problem_title": "Valid Parenthesis String",
+      "video_id": "QhPdNS143Qg",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    },
+    {
+      "slug": "permutation-in-string",
+      "problem_title": "Permutation in String",
+      "video_id": "UbyhOgBN834",
+      "video_title": "(Not found/unavailable)",
+      "reason": "Video not found on YouTube"
+    }
+  ],
+  "code_failures": [
+    {
+      "slug": "invert-binary-tree",
+      "title": "Invert Binary Tree",
+      "error": "",
+      "results": [
+        {
+          "case": 1,
+          "passed": false,
+          "input": "root = [4,2,7,1,3,6,9]",
+          "error": "Traceback (most recent call last):\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpf0k_9ym6.py\", line 343, in run_tests_internal\n    result = target_method(*args)\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpf0k_9ym6.py\", line 22, in invertTree\n    invertTree(root.left)\n    ^^^^^^^^^^\nNameError: name 'invertTree' is not defined. Did you mean: 'self.invertTree'?\n"
+        },
+        {
+          "case": 2,
+          "passed": false,
+          "input": "root = [2,1,3]",
+          "error": "Traceback (most recent call last):\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpf0k_9ym6.py\", line 343, in run_tests_internal\n    result = target_method(*args)\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpf0k_9ym6.py\", line 22, in invertTree\n    invertTree(root.left)\n    ^^^^^^^^^^\nNameError: name 'invertTree' is not defined. Did you mean: 'self.invertTree'?\n"
+        },
+        {
+          "case": 3,
+          "passed": true,
+          "input": "root = []",
+          "expected": "[]",
+          "actual": "[]"
+        }
+      ]
+    },
+    {
+      "slug": "insert-delete-getrandom-o1",
+      "title": "Insert Delete GetRandom O(1)",
+      "error": "No output",
+      "results": []
+    },
+    {
+      "slug": "min-stack",
+      "title": "Min Stack",
+      "error": "No output",
+      "results": []
+    },
+    {
+      "slug": "implement-stack-using-queues",
+      "title": "Implement Stack using Queues",
+      "error": "No output",
+      "results": []
+    },
+    {
+      "slug": "copy-list-with-random-pointer",
+      "title": "Copy List with Random Pointer",
+      "error": "No output",
+      "results": []
+    },
+    {
+      "slug": "maximum-depth-of-binary-tree",
+      "title": "Maximum Depth of Binary Tree",
+      "error": "",
+      "results": [
+        {
+          "case": 1,
+          "passed": false,
+          "input": "root = [3,9,20,null,null,15,7]",
+          "error": "Traceback (most recent call last):\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmptu1ign6a.py\", line 340, in run_tests_internal\n    result = target_method(*args)\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmptu1ign6a.py\", line 21, in maxDepth\n    return 1 + max(maxDepth(root.left), maxDepth(root.right))  # Take the maximum value.\n                   ^^^^^^^^\nNameError: name 'maxDepth' is not defined. Did you mean: 'self.maxDepth'?\n"
+        },
+        {
+          "case": 2,
+          "passed": false,
+          "input": "root = [1,null,2]",
+          "error": "Traceback (most recent call last):\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmptu1ign6a.py\", line 340, in run_tests_internal\n    result = target_method(*args)\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmptu1ign6a.py\", line 21, in maxDepth\n    return 1 + max(maxDepth(root.left), maxDepth(root.right))  # Take the maximum value.\n                   ^^^^^^^^\nNameError: name 'maxDepth' is not defined. Did you mean: 'self.maxDepth'?\n"
+        }
+      ]
+    },
+    {
+      "slug": "same-tree",
+      "title": "Same Tree",
+      "error": "",
+      "results": [
+        {
+          "case": 1,
+          "passed": false,
+          "input": "p = [1,2,3], q = [1,2,3]",
+          "error": "Traceback (most recent call last):\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmp3neam03t.py\", line 341, in run_tests_internal\n    result = target_method(*args)\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmp3neam03t.py\", line 22, in isSameTree\n    return isSameTree(p.left, q.left) and isSameTree(p.right, q.right)\n           ^^^^^^^^^^\nNameError: name 'isSameTree' is not defined. Did you mean: 'self.isSameTree'?\n"
+        },
+        {
+          "case": 2,
+          "passed": false,
+          "input": "p = [1,2], q = [1,null,2]",
+          "error": "Traceback (most recent call last):\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmp3neam03t.py\", line 341, in run_tests_internal\n    result = target_method(*args)\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmp3neam03t.py\", line 22, in isSameTree\n    return isSameTree(p.left, q.left) and isSameTree(p.right, q.right)\n           ^^^^^^^^^^\nNameError: name 'isSameTree' is not defined. Did you mean: 'self.isSameTree'?\n"
+        },
+        {
+          "case": 3,
+          "passed": false,
+          "input": "p = [1,2,1], q = [1,1,2]",
+          "error": "Traceback (most recent call last):\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmp3neam03t.py\", line 341, in run_tests_internal\n    result = target_method(*args)\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmp3neam03t.py\", line 22, in isSameTree\n    return isSameTree(p.left, q.left) and isSameTree(p.right, q.right)\n           ^^^^^^^^^^\nNameError: name 'isSameTree' is not defined. Did you mean: 'self.isSameTree'?\n"
+        }
+      ]
+    },
+    {
+      "slug": "symmetric-tree",
+      "title": "Symmetric Tree",
+      "error": "",
+      "results": [
+        {
+          "case": 1,
+          "passed": false,
+          "input": "root = [1,2,2,3,4,4,3]",
+          "error": "Traceback (most recent call last):\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmp_m20mfpu.py\", line 346, in run_tests_internal\n    result = target_method(*args)\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmp_m20mfpu.py\", line 27, in isSymmetric\n    return dfs(root.left, root.right)\nTypeError: Solution.isSymmetric.<locals>.dfs() missing 1 required positional argument: 'right'\n"
+        },
+        {
+          "case": 2,
+          "passed": false,
+          "input": "root = [1,2,2,null,3,null,3]",
+          "error": "Traceback (most recent call last):\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmp_m20mfpu.py\", line 346, in run_tests_internal\n    result = target_method(*args)\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmp_m20mfpu.py\", line 27, in isSymmetric\n    return dfs(root.left, root.right)\nTypeError: Solution.isSymmetric.<locals>.dfs() missing 1 required positional argument: 'right'\n"
+        }
+      ]
+    },
+    {
+      "slug": "clone-graph",
+      "title": "Clone Graph",
+      "error": "No output",
+      "results": []
+    },
+    {
+      "slug": "permutations",
+      "title": "Permutations",
+      "error": "",
+      "results": [
+        {
+          "case": 1,
+          "passed": false,
+          "input": "nums = [1,2,3]",
+          "error": "Traceback (most recent call last):\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpaxcuowc6.py\", line 346, in run_tests_internal\n    result = target_method(*args)\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpaxcuowc6.py\", line 21, in permute\n    perms = permute(nums)\n            ^^^^^^^\nNameError: name 'permute' is not defined. Did you mean: 'self.permute'?\n"
+        },
+        {
+          "case": 2,
+          "passed": false,
+          "input": "nums = [0,1]",
+          "error": "Traceback (most recent call last):\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpaxcuowc6.py\", line 346, in run_tests_internal\n    result = target_method(*args)\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpaxcuowc6.py\", line 21, in permute\n    perms = permute(nums)\n            ^^^^^^^\nNameError: name 'permute' is not defined. Did you mean: 'self.permute'?\n"
+        },
+        {
+          "case": 3,
+          "passed": true,
+          "input": "nums = [1]",
+          "expected": "[[1]]",
+          "actual": "[[1]]"
+        }
+      ]
+    },
+    {
+      "slug": "combination-sum",
+      "title": "Combination Sum",
+      "error": "",
+      "results": [
+        {
+          "case": 1,
+          "passed": false,
+          "input": "candidates = [2,3,6,7], target = 7",
+          "error": "Traceback (most recent call last):\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpzwnb321o.py\", line 357, in run_tests_internal\n    result = target_method(*args)\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpzwnb321o.py\", line 37, in combinationSum\n    dfs(0, [], 0)\n    ~~~^^^^^^^^^^\nTypeError: Solution.combinationSum.<locals>.dfs() missing 1 required positional argument: 'total'\n"
+        },
+        {
+          "case": 2,
+          "passed": false,
+          "input": "candidates = [2,3,5], target = 8",
+          "error": "Traceback (most recent call last):\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpzwnb321o.py\", line 357, in run_tests_internal\n    result = target_method(*args)\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpzwnb321o.py\", line 37, in combinationSum\n    dfs(0, [], 0)\n    ~~~^^^^^^^^^^\nTypeError: Solution.combinationSum.<locals>.dfs() missing 1 required positional argument: 'total'\n"
+        },
+        {
+          "case": 3,
+          "passed": false,
+          "input": "candidates = [2], target = 1",
+          "error": "Traceback (most recent call last):\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpzwnb321o.py\", line 357, in run_tests_internal\n    result = target_method(*args)\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpzwnb321o.py\", line 37, in combinationSum\n    dfs(0, [], 0)\n    ~~~^^^^^^^^^^\nTypeError: Solution.combinationSum.<locals>.dfs() missing 1 required positional argument: 'total'\n"
+        }
+      ]
+    },
+    {
+      "slug": "delete-node-in-a-bst",
+      "title": "Delete Node in a BST",
+      "error": "",
+      "results": [
+        {
+          "case": 1,
+          "passed": false,
+          "input": "root = [5,3,6,2,4,null,7], key = 3",
+          "error": "Traceback (most recent call last):\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpy8fnylqb.py\", line 346, in run_tests_internal\n    result = target_method(*args)\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpy8fnylqb.py\", line 16, in deleteNode\n    root.left = deleteNode(root.left, key)\n                ^^^^^^^^^^\nNameError: name 'deleteNode' is not defined. Did you mean: 'self.deleteNode'?\n"
+        },
+        {
+          "case": 2,
+          "passed": false,
+          "input": "root = [5,3,6,2,4,null,7], key = 0",
+          "error": "Traceback (most recent call last):\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpy8fnylqb.py\", line 346, in run_tests_internal\n    result = target_method(*args)\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpy8fnylqb.py\", line 16, in deleteNode\n    root.left = deleteNode(root.left, key)\n                ^^^^^^^^^^\nNameError: name 'deleteNode' is not defined. Did you mean: 'self.deleteNode'?\n"
+        },
+        {
+          "case": 3,
+          "passed": true,
+          "input": "root = [], key = 0",
+          "expected": "[]",
+          "actual": "[]"
+        }
+      ]
+    },
+    {
+      "slug": "insert-into-a-binary-search-tree",
+      "title": "Insert into a Binary Search Tree",
+      "error": "",
+      "results": [
+        {
+          "case": 1,
+          "passed": false,
+          "input": "root = [4,2,7,1,3], val = 5",
+          "error": "Traceback (most recent call last):\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpf4dc2uvz.py\", line 344, in run_tests_internal\n    result = target_method(*args)\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpf4dc2uvz.py\", line 24, in insertIntoBST\n    root.right = insertIntoBST(root.right, val)\n                 ^^^^^^^^^^^^^\nNameError: name 'insertIntoBST' is not defined. Did you mean: 'self.insertIntoBST'?\n"
+        },
+        {
+          "case": 2,
+          "passed": false,
+          "input": "root = [40,20,60,10,30,50,70], val = 25",
+          "error": "Traceback (most recent call last):\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpf4dc2uvz.py\", line 344, in run_tests_internal\n    result = target_method(*args)\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpf4dc2uvz.py\", line 22, in insertIntoBST\n    root.left = insertIntoBST(root.left, val)\n                ^^^^^^^^^^^^^\nNameError: name 'insertIntoBST' is not defined. Did you mean: 'self.insertIntoBST'?\n"
+        },
+        {
+          "case": 3,
+          "passed": false,
+          "input": "root = [4,2,7,1,3,null,null,null,null,null,null], val = 5",
+          "error": "Traceback (most recent call last):\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpf4dc2uvz.py\", line 344, in run_tests_internal\n    result = target_method(*args)\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpf4dc2uvz.py\", line 24, in insertIntoBST\n    root.right = insertIntoBST(root.right, val)\n                 ^^^^^^^^^^^^^\nNameError: name 'insertIntoBST' is not defined. Did you mean: 'self.insertIntoBST'?\n"
+        }
+      ]
+    },
+    {
+      "slug": "gfg---reverse-first-k-elements-of-a-queue",
+      "title": "GFG - Reverse first K elements of a Queue",
+      "error": "",
+      "results": [
+        {
+          "case": 1,
+          "passed": false,
+          "input": "k = 3, queue = [10, 20, 30, 40, 50]",
+          "error": "Traceback (most recent call last):\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpyt359h7v.py\", line 297, in run_tests_internal\n    sig = inspect.signature(target_method)\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 3375, in signature\n    return Signature.from_callable(obj, follow_wrapped=follow_wrapped,\n           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n                                   globals=globals, locals=locals, eval_str=eval_str)\n                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 3098, in from_callable\n    return _signature_from_callable(obj, sigcls=cls,\n                                    follow_wrapper_chains=follow_wrapped,\n                                    globals=globals, locals=locals, eval_str=eval_str)\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 2653, in _signature_from_callable\n    return _signature_fromstr(sigcls, base, text_sig)\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 2236, in _signature_fromstr\n    raise ValueError(\"{!r} builtin has invalid signature\".format(obj))\nValueError: <class 'collections.deque'> builtin has invalid signature\n"
+        },
+        {
+          "case": 2,
+          "passed": false,
+          "input": "k = 4, queue = [10, 20, 30, 40, 50]",
+          "error": "Traceback (most recent call last):\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpyt359h7v.py\", line 297, in run_tests_internal\n    sig = inspect.signature(target_method)\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 3375, in signature\n    return Signature.from_callable(obj, follow_wrapped=follow_wrapped,\n           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n                                   globals=globals, locals=locals, eval_str=eval_str)\n                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 3098, in from_callable\n    return _signature_from_callable(obj, sigcls=cls,\n                                    follow_wrapper_chains=follow_wrapped,\n                                    globals=globals, locals=locals, eval_str=eval_str)\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 2653, in _signature_from_callable\n    return _signature_fromstr(sigcls, base, text_sig)\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 2236, in _signature_fromstr\n    raise ValueError(\"{!r} builtin has invalid signature\".format(obj))\nValueError: <class 'collections.deque'> builtin has invalid signature\n"
+        }
+      ]
+    },
+    {
+      "slug": "substring-with-concatenation-of-all-words",
+      "title": "Substring with Concatenation of All Words",
+      "error": "",
+      "results": [
+        {
+          "case": 1,
+          "passed": false,
+          "input": "s = \"barfoothefoobarman\", words = [\"foo\",\"bar\"]",
+          "expected": "[0, 9]",
+          "actual": "Counter()"
+        },
+        {
+          "case": 2,
+          "passed": false,
+          "input": "s = \"wordgoodgoodgoodbestword\", words = [\"word\",\"good\",\"best\",\"word\"]",
+          "expected": "[]",
+          "actual": "Counter()"
+        },
+        {
+          "case": 3,
+          "passed": false,
+          "input": "s = \"barfoofoobarthefoobarman\", words = [\"bar\",\"foo\",\"the\"]",
+          "expected": "[6, 9, 12]",
+          "actual": "Counter()"
+        }
+      ]
+    },
+    {
+      "slug": "minimum-window-substring",
+      "title": "Minimum Window Substring",
+      "error": "",
+      "results": [
+        {
+          "case": 1,
+          "passed": false,
+          "input": "s = \"ADOBECODEBANC\", t = \"ABC\"",
+          "expected": "BANC",
+          "actual": "Counter()"
+        },
+        {
+          "case": 2,
+          "passed": false,
+          "input": "s = \"a\", t = \"a\"",
+          "expected": "a",
+          "actual": "Counter()"
+        },
+        {
+          "case": 3,
+          "passed": false,
+          "input": "s = \"a\", t = \"aa\"",
+          "expected": "",
+          "actual": "Counter()"
+        }
+      ]
+    },
+    {
+      "slug": "sort-list",
+      "title": "Sort List",
+      "error": "",
+      "results": [
+        {
+          "case": 1,
+          "passed": false,
+          "input": "head = [4,2,1,3]",
+          "error": "Traceback (most recent call last):\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmp6ocydwzf.py\", line 353, in run_tests_internal\n    result = target_method(*args)\nTypeError: Solution.merge() missing 2 required positional arguments: 'l1' and 'l2'\n"
+        },
+        {
+          "case": 2,
+          "passed": false,
+          "input": "head = [-1,5,3,4,0]",
+          "error": "Traceback (most recent call last):\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmp6ocydwzf.py\", line 353, in run_tests_internal\n    result = target_method(*args)\nTypeError: Solution.merge() missing 2 required positional arguments: 'l1' and 'l2'\n"
+        },
+        {
+          "case": 3,
+          "passed": false,
+          "input": "head = []",
+          "error": "Traceback (most recent call last):\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmp6ocydwzf.py\", line 353, in run_tests_internal\n    result = target_method(*args)\nTypeError: Solution.merge() missing 2 required positional arguments: 'l1' and 'l2'\n"
+        }
+      ]
+    },
+    {
+      "slug": "construct-binary-tree-from-preorder-and-inorder-traversal",
+      "title": "Construct Binary Tree from Preorder and Inorder Traversal",
+      "error": "",
+      "results": [
+        {
+          "case": 1,
+          "passed": false,
+          "input": "preorder = [3,9,20,15,7], inorder = [9,3,15,20,7]",
+          "error": "Traceback (most recent call last):\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpb0argf3z.py\", line 346, in run_tests_internal\n    result = target_method(*args)\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpb0argf3z.py\", line 27, in buildTree\n    return build(0, len(preorder) - 1, 0, len(inorder) - 1)\nTypeError: Solution.buildTree.<locals>.build() missing 1 required positional argument: 'inR'\n"
+        },
+        {
+          "case": 2,
+          "passed": false,
+          "input": "preorder = [-1], inorder = [-1]",
+          "error": "Traceback (most recent call last):\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpb0argf3z.py\", line 346, in run_tests_internal\n    result = target_method(*args)\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpb0argf3z.py\", line 27, in buildTree\n    return build(0, len(preorder) - 1, 0, len(inorder) - 1)\nTypeError: Solution.buildTree.<locals>.build() missing 1 required positional argument: 'inR'\n"
+        }
+      ]
+    },
+    {
+      "slug": "construct-binary-tree-from-inorder-and-postorder-traversal",
+      "title": "Construct Binary Tree from Inorder and Postorder Traversal",
+      "error": "",
+      "results": [
+        {
+          "case": 1,
+          "passed": false,
+          "input": "inorder = [9,3,15,20,7], postorder = [9,15,7,20,3]",
+          "error": "Traceback (most recent call last):\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpmcjkcvs0.py\", line 345, in run_tests_internal\n    result = target_method(*args)\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpmcjkcvs0.py\", line 26, in buildTree\n    return build(0, len(inorder) - 1)\nTypeError: Solution.buildTree.<locals>.build() missing 1 required positional argument: 'inR'\n"
+        },
+        {
+          "case": 2,
+          "passed": false,
+          "input": "inorder = [-1], postorder = [-1]",
+          "error": "Traceback (most recent call last):\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpmcjkcvs0.py\", line 345, in run_tests_internal\n    result = target_method(*args)\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpmcjkcvs0.py\", line 26, in buildTree\n    return build(0, len(inorder) - 1)\nTypeError: Solution.buildTree.<locals>.build() missing 1 required positional argument: 'inR'\n"
+        }
+      ]
+    },
+    {
+      "slug": "path-sum",
+      "title": "Path Sum",
+      "error": "",
+      "results": [
+        {
+          "case": 1,
+          "passed": false,
+          "input": "root = [5,4,8,11,null,13,4,7,2,null,null,null,1], targetSum = 22",
+          "error": "Traceback (most recent call last):\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpstxo984l.py\", line 332, in run_tests_internal\n    result = target_method(*args)\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpstxo984l.py\", line 13, in hasPathSum\n    return hasPathSum(root.left, targetSum - root.val) or hasPathSum(root.right, targetSum - root.val)\n           ^^^^^^^^^^\nNameError: name 'hasPathSum' is not defined. Did you mean: 'self.hasPathSum'?\n"
+        },
+        {
+          "case": 2,
+          "passed": false,
+          "input": "root = [1,2,3], targetSum = 5",
+          "error": "Traceback (most recent call last):\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpstxo984l.py\", line 332, in run_tests_internal\n    result = target_method(*args)\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpstxo984l.py\", line 13, in hasPathSum\n    return hasPathSum(root.left, targetSum - root.val) or hasPathSum(root.right, targetSum - root.val)\n           ^^^^^^^^^^\nNameError: name 'hasPathSum' is not defined. Did you mean: 'self.hasPathSum'?\n"
+        },
+        {
+          "case": 3,
+          "passed": true,
+          "input": "root = [], targetSum = 0",
+          "expected": "False",
+          "actual": "False"
+        }
+      ]
+    },
+    {
+      "slug": "count-complete-tree-nodes",
+      "title": "Count Complete Tree Nodes",
+      "error": "",
+      "results": [
+        {
+          "case": 1,
+          "passed": false,
+          "input": "root = [1,2,3,4,5,6]",
+          "error": "Traceback (most recent call last):\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmp9nwvgouo.py\", line 346, in run_tests_internal\n    result = target_method(*args)\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmp9nwvgouo.py\", line 27, in countNodes\n    return 1 + countNodes(root.left) + countNodes(root.right)\n               ^^^^^^^^^^\nNameError: name 'countNodes' is not defined. Did you mean: 'self.countNodes'?\n"
+        },
+        {
+          "case": 2,
+          "passed": true,
+          "input": "root = []",
+          "expected": "0",
+          "actual": "0"
+        },
+        {
+          "case": 3,
+          "passed": true,
+          "input": "root = [1]",
+          "expected": "1",
+          "actual": "1"
+        }
+      ]
+    },
+    {
+      "slug": "binary-tree-right-side-view",
+      "title": "Binary Tree Right Side View",
+      "error": "",
+      "results": [
+        {
+          "case": 1,
+          "passed": false,
+          "input": "root = [1,2,3,null,5,null,4]",
+          "error": "Traceback (most recent call last):\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpv348e9_2.py\", line 296, in run_tests_internal\n    sig = inspect.signature(target_method)\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 3375, in signature\n    return Signature.from_callable(obj, follow_wrapped=follow_wrapped,\n           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n                                   globals=globals, locals=locals, eval_str=eval_str)\n                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 3098, in from_callable\n    return _signature_from_callable(obj, sigcls=cls,\n                                    follow_wrapper_chains=follow_wrapped,\n                                    globals=globals, locals=locals, eval_str=eval_str)\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 2653, in _signature_from_callable\n    return _signature_fromstr(sigcls, base, text_sig)\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 2236, in _signature_fromstr\n    raise ValueError(\"{!r} builtin has invalid signature\".format(obj))\nValueError: <class 'collections.deque'> builtin has invalid signature\n"
+        },
+        {
+          "case": 2,
+          "passed": false,
+          "input": "root = [1,2,3,4,null,null,null,5]",
+          "error": "Traceback (most recent call last):\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpv348e9_2.py\", line 296, in run_tests_internal\n    sig = inspect.signature(target_method)\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 3375, in signature\n    return Signature.from_callable(obj, follow_wrapped=follow_wrapped,\n           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n                                   globals=globals, locals=locals, eval_str=eval_str)\n                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 3098, in from_callable\n    return _signature_from_callable(obj, sigcls=cls,\n                                    follow_wrapper_chains=follow_wrapped,\n                                    globals=globals, locals=locals, eval_str=eval_str)\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 2653, in _signature_from_callable\n    return _signature_fromstr(sigcls, base, text_sig)\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 2236, in _signature_fromstr\n    raise ValueError(\"{!r} builtin has invalid signature\".format(obj))\nValueError: <class 'collections.deque'> builtin has invalid signature\n"
+        },
+        {
+          "case": 3,
+          "passed": false,
+          "input": "root = [1,null,3]",
+          "error": "Traceback (most recent call last):\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpv348e9_2.py\", line 296, in run_tests_internal\n    sig = inspect.signature(target_method)\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 3375, in signature\n    return Signature.from_callable(obj, follow_wrapped=follow_wrapped,\n           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n                                   globals=globals, locals=locals, eval_str=eval_str)\n                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 3098, in from_callable\n    return _signature_from_callable(obj, sigcls=cls,\n                                    follow_wrapper_chains=follow_wrapped,\n                                    globals=globals, locals=locals, eval_str=eval_str)\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 2653, in _signature_from_callable\n    return _signature_fromstr(sigcls, base, text_sig)\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 2236, in _signature_fromstr\n    raise ValueError(\"{!r} builtin has invalid signature\".format(obj))\nValueError: <class 'collections.deque'> builtin has invalid signature\n"
+        },
+        {
+          "case": 4,
+          "passed": false,
+          "input": "root = []",
+          "error": "Traceback (most recent call last):\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpv348e9_2.py\", line 296, in run_tests_internal\n    sig = inspect.signature(target_method)\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 3375, in signature\n    return Signature.from_callable(obj, follow_wrapped=follow_wrapped,\n           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n                                   globals=globals, locals=locals, eval_str=eval_str)\n                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 3098, in from_callable\n    return _signature_from_callable(obj, sigcls=cls,\n                                    follow_wrapper_chains=follow_wrapped,\n                                    globals=globals, locals=locals, eval_str=eval_str)\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 2653, in _signature_from_callable\n    return _signature_fromstr(sigcls, base, text_sig)\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 2236, in _signature_fromstr\n    raise ValueError(\"{!r} builtin has invalid signature\".format(obj))\nValueError: <class 'collections.deque'> builtin has invalid signature\n"
+        }
+      ]
+    },
+    {
+      "slug": "average-of-levels-in-binary-tree",
+      "title": "Average of Levels in Binary Tree",
+      "error": "",
+      "results": [
+        {
+          "case": 1,
+          "passed": false,
+          "input": "root = [3,9,20,null,null,15,7]",
+          "error": "Traceback (most recent call last):\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpd3__aav7.py\", line 345, in run_tests_internal\n    result = target_method(*args)\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpd3__aav7.py\", line 14, in averageOfLevels\n    q = deque([root])  # Initialize queue for BFS.\n        ^^^^^\nNameError: name 'deque' is not defined. Did you mean: 'self.deque'?\n"
+        },
+        {
+          "case": 2,
+          "passed": false,
+          "input": "root = [3,9,20,15,7]",
+          "error": "Traceback (most recent call last):\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpd3__aav7.py\", line 345, in run_tests_internal\n    result = target_method(*args)\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpd3__aav7.py\", line 14, in averageOfLevels\n    q = deque([root])  # Initialize queue for BFS.\n        ^^^^^\nNameError: name 'deque' is not defined. Did you mean: 'self.deque'?\n"
+        }
+      ]
+    },
+    {
+      "slug": "binary-tree-zigzag-level-order-traversal",
+      "title": "Binary Tree Zigzag Level Order Traversal",
+      "error": "",
+      "results": [
+        {
+          "case": 1,
+          "passed": false,
+          "input": "root = [3,9,20,null,null,15,7]",
+          "error": "Traceback (most recent call last):\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpz5_qxcdc.py\", line 302, in run_tests_internal\n    sig = inspect.signature(target_method)\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 3375, in signature\n    return Signature.from_callable(obj, follow_wrapped=follow_wrapped,\n           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n                                   globals=globals, locals=locals, eval_str=eval_str)\n                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 3098, in from_callable\n    return _signature_from_callable(obj, sigcls=cls,\n                                    follow_wrapper_chains=follow_wrapped,\n                                    globals=globals, locals=locals, eval_str=eval_str)\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 2653, in _signature_from_callable\n    return _signature_fromstr(sigcls, base, text_sig)\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 2236, in _signature_fromstr\n    raise ValueError(\"{!r} builtin has invalid signature\".format(obj))\nValueError: <class 'collections.deque'> builtin has invalid signature\n"
+        },
+        {
+          "case": 2,
+          "passed": false,
+          "input": "root = [1]",
+          "error": "Traceback (most recent call last):\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpz5_qxcdc.py\", line 302, in run_tests_internal\n    sig = inspect.signature(target_method)\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 3375, in signature\n    return Signature.from_callable(obj, follow_wrapped=follow_wrapped,\n           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n                                   globals=globals, locals=locals, eval_str=eval_str)\n                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 3098, in from_callable\n    return _signature_from_callable(obj, sigcls=cls,\n                                    follow_wrapper_chains=follow_wrapped,\n                                    globals=globals, locals=locals, eval_str=eval_str)\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 2653, in _signature_from_callable\n    return _signature_fromstr(sigcls, base, text_sig)\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 2236, in _signature_fromstr\n    raise ValueError(\"{!r} builtin has invalid signature\".format(obj))\nValueError: <class 'collections.deque'> builtin has invalid signature\n"
+        },
+        {
+          "case": 3,
+          "passed": false,
+          "input": "root = []",
+          "error": "Traceback (most recent call last):\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpz5_qxcdc.py\", line 302, in run_tests_internal\n    sig = inspect.signature(target_method)\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 3375, in signature\n    return Signature.from_callable(obj, follow_wrapped=follow_wrapped,\n           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n                                   globals=globals, locals=locals, eval_str=eval_str)\n                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 3098, in from_callable\n    return _signature_from_callable(obj, sigcls=cls,\n                                    follow_wrapper_chains=follow_wrapped,\n                                    globals=globals, locals=locals, eval_str=eval_str)\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 2653, in _signature_from_callable\n    return _signature_fromstr(sigcls, base, text_sig)\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 2236, in _signature_fromstr\n    raise ValueError(\"{!r} builtin has invalid signature\".format(obj))\nValueError: <class 'collections.deque'> builtin has invalid signature\n"
+        }
+      ]
+    },
+    {
+      "slug": "balance-a-binary-search-tree",
+      "title": "Balance a Binary Search Tree",
+      "error": "",
+      "results": [
+        {
+          "case": 1,
+          "passed": false,
+          "input": "root = [1,null,2,null,3,null,4,null,null]",
+          "error": "Traceback (most recent call last):\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpm5pb83nx.py\", line 348, in run_tests_internal\n    result = target_method(*args)\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpm5pb83nx.py\", line 21, in balanceBST\n    inorder(root)  # Recursive inorder traversal.\n    ~~~~~~~^^^^^^\nTypeError: Solution.balanceBST.<locals>.inorder() missing 1 required positional argument: 'node'\n"
+        },
+        {
+          "case": 2,
+          "passed": false,
+          "input": "root = [2,1,3]",
+          "error": "Traceback (most recent call last):\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpm5pb83nx.py\", line 348, in run_tests_internal\n    result = target_method(*args)\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpm5pb83nx.py\", line 21, in balanceBST\n    inorder(root)  # Recursive inorder traversal.\n    ~~~~~~~^^^^^^\nTypeError: Solution.balanceBST.<locals>.inorder() missing 1 required positional argument: 'node'\n"
+        }
+      ]
+    },
+    {
+      "slug": "evaluate-division",
+      "title": "Evaluate Division",
+      "error": "",
+      "results": [
+        {
+          "case": 1,
+          "passed": false,
+          "input": "equations = [[\"a\",\"b\"],[\"b\",\"c\"]], values = [2.0,3.0], queries = [[\"a\",\"c\"],[\"b\",\"a\"],[\"a\",\"e\"],[\"a\",\"a\"],[\"x\",\"x\"]]",
+          "error": "Traceback (most recent call last):\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpkgjxf8pk.py\", line 348, in run_tests_internal\n    result = target_method(*args)\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpkgjxf8pk.py\", line 11, in calcEquation\n    graph = defaultdict(dict)\n            ^^^^^^^^^^^\nNameError: name 'defaultdict' is not defined. Did you mean: 'self.defaultdict'?\n"
+        },
+        {
+          "case": 2,
+          "passed": false,
+          "input": "equations = [[\"a\",\"b\"],[\"b\",\"c\"],[\"bc\",\"cd\"]], values = [1.5,2.5,5.0], queries = [[\"a\",\"c\"],[\"c\",\"b\"],[\"bc\",\"cd\"],[\"cd\",\"bc\"]]",
+          "error": "Traceback (most recent call last):\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpkgjxf8pk.py\", line 348, in run_tests_internal\n    result = target_method(*args)\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpkgjxf8pk.py\", line 11, in calcEquation\n    graph = defaultdict(dict)\n            ^^^^^^^^^^^\nNameError: name 'defaultdict' is not defined. Did you mean: 'self.defaultdict'?\n"
+        },
+        {
+          "case": 3,
+          "passed": false,
+          "input": "equations = [[\"a\",\"b\"]], values = [0.5], queries = [[\"a\",\"b\"],[\"b\",\"a\"],[\"a\",\"c\"],[\"x\",\"y\"]]",
+          "error": "Traceback (most recent call last):\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpkgjxf8pk.py\", line 348, in run_tests_internal\n    result = target_method(*args)\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpkgjxf8pk.py\", line 11, in calcEquation\n    graph = defaultdict(dict)\n            ^^^^^^^^^^^\nNameError: name 'defaultdict' is not defined. Did you mean: 'self.defaultdict'?\n"
+        }
+      ]
+    },
+    {
+      "slug": "course-schedule-ii",
+      "title": "Course Schedule II",
+      "error": "",
+      "results": [
+        {
+          "case": 1,
+          "passed": false,
+          "input": "numCourses = 2, prerequisites = [[1,0]]",
+          "error": "Traceback (most recent call last):\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpb_90wam5.py\", line 296, in run_tests_internal\n    sig = inspect.signature(target_method)\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 3375, in signature\n    return Signature.from_callable(obj, follow_wrapped=follow_wrapped,\n           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n                                   globals=globals, locals=locals, eval_str=eval_str)\n                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 3098, in from_callable\n    return _signature_from_callable(obj, sigcls=cls,\n                                    follow_wrapper_chains=follow_wrapped,\n                                    globals=globals, locals=locals, eval_str=eval_str)\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 2670, in _signature_from_callable\n    raise ValueError(\n        'no signature found for builtin type {!r}'.format(obj))\nValueError: no signature found for builtin type <class 'collections.defaultdict'>\n"
+        },
+        {
+          "case": 2,
+          "passed": false,
+          "input": "numCourses = 4, prerequisites = [[1,0],[2,0],[3,1],[3,2]]",
+          "error": "Traceback (most recent call last):\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpb_90wam5.py\", line 296, in run_tests_internal\n    sig = inspect.signature(target_method)\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 3375, in signature\n    return Signature.from_callable(obj, follow_wrapped=follow_wrapped,\n           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n                                   globals=globals, locals=locals, eval_str=eval_str)\n                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 3098, in from_callable\n    return _signature_from_callable(obj, sigcls=cls,\n                                    follow_wrapper_chains=follow_wrapped,\n                                    globals=globals, locals=locals, eval_str=eval_str)\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 2670, in _signature_from_callable\n    raise ValueError(\n        'no signature found for builtin type {!r}'.format(obj))\nValueError: no signature found for builtin type <class 'collections.defaultdict'>\n"
+        },
+        {
+          "case": 3,
+          "passed": false,
+          "input": "numCourses = 1, prerequisites = []",
+          "error": "Traceback (most recent call last):\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpb_90wam5.py\", line 296, in run_tests_internal\n    sig = inspect.signature(target_method)\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 3375, in signature\n    return Signature.from_callable(obj, follow_wrapped=follow_wrapped,\n           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n                                   globals=globals, locals=locals, eval_str=eval_str)\n                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 3098, in from_callable\n    return _signature_from_callable(obj, sigcls=cls,\n                                    follow_wrapper_chains=follow_wrapped,\n                                    globals=globals, locals=locals, eval_str=eval_str)\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 2670, in _signature_from_callable\n    raise ValueError(\n        'no signature found for builtin type {!r}'.format(obj))\nValueError: no signature found for builtin type <class 'collections.defaultdict'>\n"
+        }
+      ]
+    },
+    {
+      "slug": "snakes-and-ladders",
+      "title": "Snakes and Ladders",
+      "error": "",
+      "results": [
+        {
+          "case": 1,
+          "passed": false,
+          "input": "board = [[-1,-1,-1,-1,-1,-1],[-1,-1,-1,-1,-1,-1],[-1,-1,-1,-1,-1,-1],[-1,35,-1,-1,13,-1],[-1,-1,-1,-1,-1,-1],[-1,15,-1,-1,-1,-1]]",
+          "error": "Traceback (most recent call last):\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpgwwv9aex.py\", line 305, in run_tests_internal\n    sig = inspect.signature(target_method)\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 3375, in signature\n    return Signature.from_callable(obj, follow_wrapped=follow_wrapped,\n           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n                                   globals=globals, locals=locals, eval_str=eval_str)\n                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 3098, in from_callable\n    return _signature_from_callable(obj, sigcls=cls,\n                                    follow_wrapper_chains=follow_wrapped,\n                                    globals=globals, locals=locals, eval_str=eval_str)\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 2653, in _signature_from_callable\n    return _signature_fromstr(sigcls, base, text_sig)\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 2236, in _signature_fromstr\n    raise ValueError(\"{!r} builtin has invalid signature\".format(obj))\nValueError: <class 'collections.deque'> builtin has invalid signature\n"
+        },
+        {
+          "case": 2,
+          "passed": false,
+          "input": "board = [[-1,-1],[-1,3]]",
+          "error": "Traceback (most recent call last):\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpgwwv9aex.py\", line 305, in run_tests_internal\n    sig = inspect.signature(target_method)\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 3375, in signature\n    return Signature.from_callable(obj, follow_wrapped=follow_wrapped,\n           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n                                   globals=globals, locals=locals, eval_str=eval_str)\n                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 3098, in from_callable\n    return _signature_from_callable(obj, sigcls=cls,\n                                    follow_wrapper_chains=follow_wrapped,\n                                    globals=globals, locals=locals, eval_str=eval_str)\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 2653, in _signature_from_callable\n    return _signature_fromstr(sigcls, base, text_sig)\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 2236, in _signature_fromstr\n    raise ValueError(\"{!r} builtin has invalid signature\".format(obj))\nValueError: <class 'collections.deque'> builtin has invalid signature\n"
+        }
+      ]
+    },
+    {
+      "slug": "minimum-genetic-mutation",
+      "title": "Minimum Genetic Mutation",
+      "error": "",
+      "results": [
+        {
+          "case": 1,
+          "passed": false,
+          "input": "startGene = \"AACCGGTT\", endGene = \"AACCGGTA\", bank = [\"AACCGGTA\"]",
+          "error": "Traceback (most recent call last):\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpz3i62o3v.py\", line 297, in run_tests_internal\n    sig = inspect.signature(target_method)\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 3375, in signature\n    return Signature.from_callable(obj, follow_wrapped=follow_wrapped,\n           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n                                   globals=globals, locals=locals, eval_str=eval_str)\n                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 3098, in from_callable\n    return _signature_from_callable(obj, sigcls=cls,\n                                    follow_wrapper_chains=follow_wrapped,\n                                    globals=globals, locals=locals, eval_str=eval_str)\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 2653, in _signature_from_callable\n    return _signature_fromstr(sigcls, base, text_sig)\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 2236, in _signature_fromstr\n    raise ValueError(\"{!r} builtin has invalid signature\".format(obj))\nValueError: <class 'collections.deque'> builtin has invalid signature\n"
+        },
+        {
+          "case": 2,
+          "passed": false,
+          "input": "startGene = \"AACCGGTT\", endGene = \"AAACGGTA\", bank = [\"AACCGGTA\",\"AACCGCTA\",\"AAACGGTA\"]",
+          "error": "Traceback (most recent call last):\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpz3i62o3v.py\", line 297, in run_tests_internal\n    sig = inspect.signature(target_method)\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 3375, in signature\n    return Signature.from_callable(obj, follow_wrapped=follow_wrapped,\n           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n                                   globals=globals, locals=locals, eval_str=eval_str)\n                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 3098, in from_callable\n    return _signature_from_callable(obj, sigcls=cls,\n                                    follow_wrapper_chains=follow_wrapped,\n                                    globals=globals, locals=locals, eval_str=eval_str)\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 2653, in _signature_from_callable\n    return _signature_fromstr(sigcls, base, text_sig)\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 2236, in _signature_fromstr\n    raise ValueError(\"{!r} builtin has invalid signature\".format(obj))\nValueError: <class 'collections.deque'> builtin has invalid signature\n"
+        }
+      ]
+    },
+    {
+      "slug": "word-ladder",
+      "title": "Word Ladder",
+      "error": "",
+      "results": [
+        {
+          "case": 1,
+          "passed": false,
+          "input": "beginWord = \"hit\", endWord = \"cog\", wordList = [\"hot\",\"dot\",\"dog\",\"lot\",\"log\",\"cog\"]",
+          "error": "Traceback (most recent call last):\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpd6nin6vx.py\", line 297, in run_tests_internal\n    sig = inspect.signature(target_method)\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 3375, in signature\n    return Signature.from_callable(obj, follow_wrapped=follow_wrapped,\n           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n                                   globals=globals, locals=locals, eval_str=eval_str)\n                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 3098, in from_callable\n    return _signature_from_callable(obj, sigcls=cls,\n                                    follow_wrapper_chains=follow_wrapped,\n                                    globals=globals, locals=locals, eval_str=eval_str)\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 2670, in _signature_from_callable\n    raise ValueError(\n        'no signature found for builtin type {!r}'.format(obj))\nValueError: no signature found for builtin type <class 'collections.defaultdict'>\n"
+        },
+        {
+          "case": 2,
+          "passed": false,
+          "input": "beginWord = \"hit\", endWord = \"cog\", wordList = [\"hot\",\"dot\",\"dog\",\"lot\",\"log\"]",
+          "error": "Traceback (most recent call last):\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpd6nin6vx.py\", line 297, in run_tests_internal\n    sig = inspect.signature(target_method)\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 3375, in signature\n    return Signature.from_callable(obj, follow_wrapped=follow_wrapped,\n           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n                                   globals=globals, locals=locals, eval_str=eval_str)\n                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 3098, in from_callable\n    return _signature_from_callable(obj, sigcls=cls,\n                                    follow_wrapper_chains=follow_wrapped,\n                                    globals=globals, locals=locals, eval_str=eval_str)\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 2670, in _signature_from_callable\n    raise ValueError(\n        'no signature found for builtin type {!r}'.format(obj))\nValueError: no signature found for builtin type <class 'collections.defaultdict'>\n"
+        }
+      ]
+    },
+    {
+      "slug": "minimum-depth-of-binary-tree",
+      "title": "Minimum Depth of Binary Tree",
+      "error": "",
+      "results": [
+        {
+          "case": 1,
+          "passed": false,
+          "input": "root = [3,9,20,null,null,15,7]",
+          "error": "Traceback (most recent call last):\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpoy0k7jk_.py\", line 293, in run_tests_internal\n    sig = inspect.signature(target_method)\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 3375, in signature\n    return Signature.from_callable(obj, follow_wrapped=follow_wrapped,\n           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n                                   globals=globals, locals=locals, eval_str=eval_str)\n                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 3098, in from_callable\n    return _signature_from_callable(obj, sigcls=cls,\n                                    follow_wrapper_chains=follow_wrapped,\n                                    globals=globals, locals=locals, eval_str=eval_str)\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 2653, in _signature_from_callable\n    return _signature_fromstr(sigcls, base, text_sig)\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 2236, in _signature_fromstr\n    raise ValueError(\"{!r} builtin has invalid signature\".format(obj))\nValueError: <class 'collections.deque'> builtin has invalid signature\n"
+        },
+        {
+          "case": 2,
+          "passed": false,
+          "input": "root = [2,null,3,null,4,null,5,null,6]",
+          "error": "Traceback (most recent call last):\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpoy0k7jk_.py\", line 293, in run_tests_internal\n    sig = inspect.signature(target_method)\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 3375, in signature\n    return Signature.from_callable(obj, follow_wrapped=follow_wrapped,\n           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n                                   globals=globals, locals=locals, eval_str=eval_str)\n                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 3098, in from_callable\n    return _signature_from_callable(obj, sigcls=cls,\n                                    follow_wrapper_chains=follow_wrapped,\n                                    globals=globals, locals=locals, eval_str=eval_str)\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 2653, in _signature_from_callable\n    return _signature_fromstr(sigcls, base, text_sig)\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 2236, in _signature_fromstr\n    raise ValueError(\"{!r} builtin has invalid signature\".format(obj))\nValueError: <class 'collections.deque'> builtin has invalid signature\n"
+        }
+      ]
+    },
+    {
+      "slug": "merge-k-sorted-lists",
+      "title": "Merge k Sorted Lists",
+      "error": "",
+      "results": [
+        {
+          "case": 1,
+          "passed": false,
+          "input": "lists = [[1,4,5],[1,3,4],[2,6]]",
+          "error": "Traceback (most recent call last):\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmp6h2ij9dd.py\", line 340, in run_tests_internal\n    result = target_method(*args)\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmp6h2ij9dd.py\", line 14, in mergeKLists\n    heapq.heappush(heap, (lst[0], i, 0))\n    ^^^^^\nNameError: name 'heapq' is not defined. Did you mean: 'self.heapq'? Or did you forget to import 'heapq'?\n"
+        },
+        {
+          "case": 2,
+          "passed": true,
+          "input": "lists = []",
+          "expected": "[]",
+          "actual": "[]"
+        },
+        {
+          "case": 3,
+          "passed": true,
+          "input": "lists = [[]]",
+          "expected": "[]",
+          "actual": "[]"
+        }
+      ]
+    },
+    {
+      "slug": "max-points-on-a-line",
+      "title": "Max Points on a Line",
+      "error": "",
+      "results": [
+        {
+          "case": 1,
+          "passed": false,
+          "input": "points = [[1,1],[2,2],[3,3]]",
+          "error": "Traceback (most recent call last):\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpduyoorv9.py\", line 297, in run_tests_internal\n    sig = inspect.signature(target_method)\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 3375, in signature\n    return Signature.from_callable(obj, follow_wrapped=follow_wrapped,\n           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n                                   globals=globals, locals=locals, eval_str=eval_str)\n                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 3098, in from_callable\n    return _signature_from_callable(obj, sigcls=cls,\n                                    follow_wrapper_chains=follow_wrapped,\n                                    globals=globals, locals=locals, eval_str=eval_str)\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 2670, in _signature_from_callable\n    raise ValueError(\n        'no signature found for builtin type {!r}'.format(obj))\nValueError: no signature found for builtin type <class 'collections.defaultdict'>\n"
+        },
+        {
+          "case": 2,
+          "passed": false,
+          "input": "points = [[1,1],[3,2],[5,3],[4,1],[2,3],[1,4]]",
+          "error": "Traceback (most recent call last):\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpduyoorv9.py\", line 297, in run_tests_internal\n    sig = inspect.signature(target_method)\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 3375, in signature\n    return Signature.from_callable(obj, follow_wrapped=follow_wrapped,\n           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n                                   globals=globals, locals=locals, eval_str=eval_str)\n                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 3098, in from_callable\n    return _signature_from_callable(obj, sigcls=cls,\n                                    follow_wrapper_chains=follow_wrapped,\n                                    globals=globals, locals=locals, eval_str=eval_str)\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 2670, in _signature_from_callable\n    raise ValueError(\n        'no signature found for builtin type {!r}'.format(obj))\nValueError: no signature found for builtin type <class 'collections.defaultdict'>\n"
+        }
+      ]
+    },
+    {
+      "slug": "longest-increasing-subsequence",
+      "title": "Longest Increasing Subsequence",
+      "error": "",
+      "results": [
+        {
+          "case": 1,
+          "passed": false,
+          "input": "nums = [10,9,2,5,3,7,101,18]",
+          "error": "Traceback (most recent call last):\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmp4mpu1ji9.py\", line 337, in run_tests_internal\n    result = target_method(*args)\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmp4mpu1ji9.py\", line 13, in lengthOfLIS\n    pos = bisect.bisect_left(tails, n)\n          ^^^^^^\nNameError: name 'bisect' is not defined. Did you mean: 'self.bisect'? Or did you forget to import 'bisect'?\n"
+        },
+        {
+          "case": 2,
+          "passed": false,
+          "input": "nums = [0,1,0,3,2,3]",
+          "error": "Traceback (most recent call last):\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmp4mpu1ji9.py\", line 337, in run_tests_internal\n    result = target_method(*args)\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmp4mpu1ji9.py\", line 13, in lengthOfLIS\n    pos = bisect.bisect_left(tails, n)\n          ^^^^^^\nNameError: name 'bisect' is not defined. Did you mean: 'self.bisect'? Or did you forget to import 'bisect'?\n"
+        },
+        {
+          "case": 3,
+          "passed": false,
+          "input": "nums = [7,7,7,7,7,7,7]",
+          "error": "Traceback (most recent call last):\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmp4mpu1ji9.py\", line 337, in run_tests_internal\n    result = target_method(*args)\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmp4mpu1ji9.py\", line 13, in lengthOfLIS\n    pos = bisect.bisect_left(tails, n)\n          ^^^^^^\nNameError: name 'bisect' is not defined. Did you mean: 'self.bisect'? Or did you forget to import 'bisect'?\n"
+        }
+      ]
+    },
+    {
+      "slug": "populating-next-right-pointers-in-each-node-ii",
+      "title": "Populating Next Right Pointers in Each Node II",
+      "error": "",
+      "results": [
+        {
+          "case": 1,
+          "passed": false,
+          "input": "root = [1,2,3,4,5,null,7]",
+          "error": "Traceback (most recent call last):\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmp8v3wwula.py\", line 346, in run_tests_internal\n    result = target_method(*args)\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmp8v3wwula.py\", line 13, in connect\n    q = deque([root])  # Initialize queue for BFS.\n        ^^^^^\nNameError: name 'deque' is not defined. Did you mean: 'self.deque'?\n"
+        },
+        {
+          "case": 2,
+          "passed": true,
+          "input": "root = []",
+          "expected": "[]",
+          "actual": "[]"
+        }
+      ]
+    },
+    {
+      "slug": "convert-sorted-array-to-binary-search-tree",
+      "title": "Convert Sorted Array to Binary Search Tree",
+      "error": "",
+      "results": [
+        {
+          "case": 1,
+          "passed": false,
+          "input": "nums = [-10,-3,0,5,9]",
+          "error": "Traceback (most recent call last):\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpl4hs6orn.py\", line 342, in run_tests_internal\n    result = target_method(*args)\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpl4hs6orn.py\", line 23, in sortedArrayToBST\n    return helper(0, len(nums) - 1)\nTypeError: Solution.sortedArrayToBST.<locals>.helper() missing 1 required positional argument: 'right'\n"
+        },
+        {
+          "case": 2,
+          "passed": false,
+          "input": "nums = [1,3]",
+          "error": "Traceback (most recent call last):\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpl4hs6orn.py\", line 342, in run_tests_internal\n    result = target_method(*args)\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpl4hs6orn.py\", line 23, in sortedArrayToBST\n    return helper(0, len(nums) - 1)\nTypeError: Solution.sortedArrayToBST.<locals>.helper() missing 1 required positional argument: 'right'\n"
+        }
+      ]
+    },
+    {
+      "slug": "ipo",
+      "title": "IPO",
+      "error": "",
+      "results": [
+        {
+          "case": 1,
+          "passed": false,
+          "input": "k = 2, w = 0, profits = [1,2,3], capital = [0,1,1]",
+          "error": "Traceback (most recent call last):\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpo1jwqnww.py\", line 340, in run_tests_internal\n    result = target_method(*args)\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpo1jwqnww.py\", line 16, in findMaximizedCapital\n    heapq.heappush(maxHeap, -projects[i][1])\n    ^^^^^\nNameError: name 'heapq' is not defined. Did you mean: 'self.heapq'? Or did you forget to import 'heapq'?\n"
+        },
+        {
+          "case": 2,
+          "passed": false,
+          "input": "k = 3, w = 0, profits = [1,2,3], capital = [0,1,2]",
+          "error": "Traceback (most recent call last):\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpo1jwqnww.py\", line 340, in run_tests_internal\n    result = target_method(*args)\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpo1jwqnww.py\", line 16, in findMaximizedCapital\n    heapq.heappush(maxHeap, -projects[i][1])\n    ^^^^^\nNameError: name 'heapq' is not defined. Did you mean: 'self.heapq'? Or did you forget to import 'heapq'?\n"
+        }
+      ]
+    },
+    {
+      "slug": "find-k-pairs-with-smallest-sums",
+      "title": "Find K Pairs with Smallest Sums",
+      "error": "",
+      "results": [
+        {
+          "case": 1,
+          "passed": false,
+          "input": "nums1 = [1,7,11], nums2 = [2,4,6], k = 3",
+          "error": "Traceback (most recent call last):\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmp99vv70hl.py\", line 344, in run_tests_internal\n    result = target_method(*args)\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmp99vv70hl.py\", line 17, in kSmallestPairs\n    _, i, j = heapq.heappop(heap)  # Remove and return last element.\n              ^^^^^\nNameError: name 'heapq' is not defined. Did you mean: 'self.heapq'? Or did you forget to import 'heapq'?\n"
+        },
+        {
+          "case": 2,
+          "passed": false,
+          "input": "nums1 = [1,1,2], nums2 = [1,2,3], k = 2",
+          "error": "Traceback (most recent call last):\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmp99vv70hl.py\", line 344, in run_tests_internal\n    result = target_method(*args)\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmp99vv70hl.py\", line 17, in kSmallestPairs\n    _, i, j = heapq.heappop(heap)  # Remove and return last element.\n              ^^^^^\nNameError: name 'heapq' is not defined. Did you mean: 'self.heapq'? Or did you forget to import 'heapq'?\n"
+        }
+      ]
+    },
+    {
+      "slug": "find-median-from-data-stream",
+      "title": "Find Median from Data Stream",
+      "error": "No output",
+      "results": []
+    },
+    {
+      "slug": "task-scheduler",
+      "title": "Task Scheduler",
+      "error": "",
+      "results": [
+        {
+          "case": 1,
+          "passed": false,
+          "input": "tasks = [\"A\",\"A\",\"A\",\"B\",\"B\",\"B\"], n = 2",
+          "expected": "8",
+          "actual": "Counter()"
+        },
+        {
+          "case": 2,
+          "passed": false,
+          "input": "tasks = [\"A\",\"C\",\"A\",\"B\",\"D\",\"B\"], n = 1",
+          "expected": "6",
+          "actual": "Counter()"
+        },
+        {
+          "case": 3,
+          "passed": false,
+          "input": "tasks = [\"A\",\"A\",\"A\", \"B\",\"B\",\"B\"], n = 3",
+          "expected": "10",
+          "actual": "Counter()"
+        }
+      ]
+    },
+    {
+      "slug": "k-closest-points-to-origin",
+      "title": "K Closest Points to Origin",
+      "error": "",
+      "results": [
+        {
+          "case": 1,
+          "passed": false,
+          "input": "points = [[1,3],[-2,2]], k = 1",
+          "error": "Traceback (most recent call last):\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmprtqd3uqe.py\", line 337, in run_tests_internal\n    result = target_method(*args)\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmprtqd3uqe.py\", line 15, in kClosest\n    heapq.heappush(heap, (-dist, [x, y]))\n    ^^^^^\nNameError: name 'heapq' is not defined. Did you mean: 'self.heapq'? Or did you forget to import 'heapq'?\n"
+        },
+        {
+          "case": 2,
+          "passed": false,
+          "input": "points = [[3,3],[5,-1],[-2,4]], k = 2",
+          "error": "Traceback (most recent call last):\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmprtqd3uqe.py\", line 337, in run_tests_internal\n    result = target_method(*args)\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmprtqd3uqe.py\", line 15, in kClosest\n    heapq.heappush(heap, (-dist, [x, y]))\n    ^^^^^\nNameError: name 'heapq' is not defined. Did you mean: 'self.heapq'? Or did you forget to import 'heapq'?\n"
+        }
+      ]
+    },
+    {
+      "slug": "range-sum-query---immutable",
+      "title": "Range Sum Query - Immutable",
+      "error": "No output",
+      "results": []
+    },
+    {
+      "slug": "encode-and-decode-strings",
+      "title": "Encode and Decode Strings",
+      "error": "No output",
+      "results": []
+    },
+    {
+      "slug": "longest-repeating-character-replacement",
+      "title": "Longest Repeating Character Replacement",
+      "error": "",
+      "results": [
+        {
+          "case": 1,
+          "passed": false,
+          "input": "s = \"ABAB\", k = 2",
+          "error": "Traceback (most recent call last):\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmp7_x5yl7m.py\", line 346, in run_tests_internal\n    result = target_method(*args)\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmp7_x5yl7m.py\", line 13, in characterReplacement\n    for right in range(len(s)):  # Iterate through the range.\n                       ~~~^^^\nTypeError: object of type 'Solution' has no len()\n"
+        },
+        {
+          "case": 2,
+          "passed": false,
+          "input": "s = \"AABABBA\", k = 1",
+          "error": "Traceback (most recent call last):\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmp7_x5yl7m.py\", line 346, in run_tests_internal\n    result = target_method(*args)\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmp7_x5yl7m.py\", line 13, in characterReplacement\n    for right in range(len(s)):  # Iterate through the range.\n                       ~~~^^^\nTypeError: object of type 'Solution' has no len()\n"
+        }
+      ]
+    },
+    {
+      "slug": "sliding-window-maximum",
+      "title": "Sliding Window Maximum",
+      "error": "",
+      "results": [
+        {
+          "case": 1,
+          "passed": false,
+          "input": "nums = [1,3,-1,-3,5,3,6,7], k = 3",
+          "error": "Traceback (most recent call last):\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmptto52wci.py\", line 299, in run_tests_internal\n    sig = inspect.signature(target_method)\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 3375, in signature\n    return Signature.from_callable(obj, follow_wrapped=follow_wrapped,\n           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n                                   globals=globals, locals=locals, eval_str=eval_str)\n                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 3098, in from_callable\n    return _signature_from_callable(obj, sigcls=cls,\n                                    follow_wrapper_chains=follow_wrapped,\n                                    globals=globals, locals=locals, eval_str=eval_str)\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 2653, in _signature_from_callable\n    return _signature_fromstr(sigcls, base, text_sig)\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 2236, in _signature_fromstr\n    raise ValueError(\"{!r} builtin has invalid signature\".format(obj))\nValueError: <class 'collections.deque'> builtin has invalid signature\n"
+        },
+        {
+          "case": 2,
+          "passed": false,
+          "input": "nums = [1], k = 1",
+          "error": "Traceback (most recent call last):\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmptto52wci.py\", line 299, in run_tests_internal\n    sig = inspect.signature(target_method)\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 3375, in signature\n    return Signature.from_callable(obj, follow_wrapped=follow_wrapped,\n           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n                                   globals=globals, locals=locals, eval_str=eval_str)\n                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 3098, in from_callable\n    return _signature_from_callable(obj, sigcls=cls,\n                                    follow_wrapper_chains=follow_wrapped,\n                                    globals=globals, locals=locals, eval_str=eval_str)\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 2653, in _signature_from_callable\n    return _signature_fromstr(sigcls, base, text_sig)\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 2236, in _signature_fromstr\n    raise ValueError(\"{!r} builtin has invalid signature\".format(obj))\nValueError: <class 'collections.deque'> builtin has invalid signature\n"
+        }
+      ]
+    },
+    {
+      "slug": "minimum-interval-to-include-each-query",
+      "title": "Minimum Interval to Include Each Query",
+      "error": "",
+      "results": [
+        {
+          "case": 1,
+          "passed": false,
+          "input": "intervals = [[1,4],[2,4],[3,6],[4,4]], queries = [2,3,4,5]",
+          "error": "Traceback (most recent call last):\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpcxm7e04y.py\", line 350, in run_tests_internal\n    result = target_method(*args)\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpcxm7e04y.py\", line 20, in minInterval\n    heapq.heappush(min_heap, (right - left + 1, right))\n    ^^^^^\nNameError: name 'heapq' is not defined. Did you mean: 'self.heapq'? Or did you forget to import 'heapq'?\n"
+        },
+        {
+          "case": 2,
+          "passed": false,
+          "input": "intervals = [[2,3],[2,5],[1,8],[20,25]], queries = [2,19,5,22]",
+          "error": "Traceback (most recent call last):\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpcxm7e04y.py\", line 350, in run_tests_internal\n    result = target_method(*args)\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpcxm7e04y.py\", line 20, in minInterval\n    heapq.heappush(min_heap, (right - left + 1, right))\n    ^^^^^\nNameError: name 'heapq' is not defined. Did you mean: 'self.heapq'? Or did you forget to import 'heapq'?\n"
+        }
+      ]
+    },
+    {
+      "slug": "balanced-binary-tree",
+      "title": "Balanced Binary Tree",
+      "error": "",
+      "results": [
+        {
+          "case": 1,
+          "passed": false,
+          "input": "root = [3,9,20,null,null,15,7]",
+          "error": "Traceback (most recent call last):\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpceg_uf27.py\", line 350, in run_tests_internal\n    result = target_method(*args)\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpceg_uf27.py\", line 31, in isBalanced\n    return check_height(root) != -1\n           ~~~~~~~~~~~~^^^^^^\nTypeError: Solution.isBalanced.<locals>.check_height() missing 1 required positional argument: 'node'\n"
+        },
+        {
+          "case": 2,
+          "passed": false,
+          "input": "root = [1,2,2,3,3,null,null,4,4]",
+          "error": "Traceback (most recent call last):\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpceg_uf27.py\", line 350, in run_tests_internal\n    result = target_method(*args)\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpceg_uf27.py\", line 31, in isBalanced\n    return check_height(root) != -1\n           ~~~~~~~~~~~~^^^^^^\nTypeError: Solution.isBalanced.<locals>.check_height() missing 1 required positional argument: 'node'\n"
+        },
+        {
+          "case": 3,
+          "passed": false,
+          "input": "root = []",
+          "error": "Traceback (most recent call last):\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpceg_uf27.py\", line 350, in run_tests_internal\n    result = target_method(*args)\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpceg_uf27.py\", line 31, in isBalanced\n    return check_height(root) != -1\n           ~~~~~~~~~~~~^^^^^^\nTypeError: Solution.isBalanced.<locals>.check_height() missing 1 required positional argument: 'node'\n"
+        }
+      ]
+    },
+    {
+      "slug": "subtree-of-another-tree",
+      "title": "Subtree of Another Tree",
+      "error": "",
+      "results": [
+        {
+          "case": 1,
+          "passed": false,
+          "input": "root = [3,4,5,1,2], subRoot = [4,1,2]",
+          "error": "Traceback (most recent call last):\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmp8z0zvg3s.py\", line 344, in run_tests_internal\n    result = target_method(*args)\nTypeError: Solution.isSameTree() missing 2 required positional arguments: 'p' and 'q'\n"
+        },
+        {
+          "case": 2,
+          "passed": false,
+          "input": "root = [3,4,5,1,2,null,null,null,null,0], subRoot = [4,1,2]",
+          "error": "Traceback (most recent call last):\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmp8z0zvg3s.py\", line 344, in run_tests_internal\n    result = target_method(*args)\nTypeError: Solution.isSameTree() missing 2 required positional arguments: 'p' and 'q'\n"
+        }
+      ]
+    },
+    {
+      "slug": "pacific-atlantic-water-flow",
+      "title": "Pacific Atlantic Water Flow",
+      "error": "",
+      "results": [
+        {
+          "case": 1,
+          "passed": false,
+          "input": "heights = [[1,2,2,3,5],[3,2,3,4,4],[2,4,5,3,1],[6,7,1,4,5],[5,1,1,2,4]]",
+          "error": "Traceback (most recent call last):\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpf0ymztw0.py\", line 323, in run_tests_internal\n    sig = inspect.signature(target_method)\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 3375, in signature\n    return Signature.from_callable(obj, follow_wrapped=follow_wrapped,\n           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n                                   globals=globals, locals=locals, eval_str=eval_str)\n                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 3098, in from_callable\n    return _signature_from_callable(obj, sigcls=cls,\n                                    follow_wrapper_chains=follow_wrapped,\n                                    globals=globals, locals=locals, eval_str=eval_str)\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 2653, in _signature_from_callable\n    return _signature_fromstr(sigcls, base, text_sig)\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 2236, in _signature_fromstr\n    raise ValueError(\"{!r} builtin has invalid signature\".format(obj))\nValueError: <class 'collections.deque'> builtin has invalid signature\n"
+        },
+        {
+          "case": 2,
+          "passed": false,
+          "input": "heights = [[1]]",
+          "error": "Traceback (most recent call last):\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpf0ymztw0.py\", line 323, in run_tests_internal\n    sig = inspect.signature(target_method)\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 3375, in signature\n    return Signature.from_callable(obj, follow_wrapped=follow_wrapped,\n           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n                                   globals=globals, locals=locals, eval_str=eval_str)\n                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 3098, in from_callable\n    return _signature_from_callable(obj, sigcls=cls,\n                                    follow_wrapper_chains=follow_wrapped,\n                                    globals=globals, locals=locals, eval_str=eval_str)\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 2653, in _signature_from_callable\n    return _signature_fromstr(sigcls, base, text_sig)\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 2236, in _signature_fromstr\n    raise ValueError(\"{!r} builtin has invalid signature\".format(obj))\nValueError: <class 'collections.deque'> builtin has invalid signature\n"
+        }
+      ]
+    },
+    {
+      "slug": "rotting-oranges",
+      "title": "Rotting Oranges",
+      "error": "",
+      "results": [
+        {
+          "case": 1,
+          "passed": false,
+          "input": "grid = [[2,1,1],[1,1,0],[0,1,1]]",
+          "error": "Traceback (most recent call last):\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpak3841wg.py\", line 323, in run_tests_internal\n    sig = inspect.signature(target_method)\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 3375, in signature\n    return Signature.from_callable(obj, follow_wrapped=follow_wrapped,\n           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n                                   globals=globals, locals=locals, eval_str=eval_str)\n                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 3098, in from_callable\n    return _signature_from_callable(obj, sigcls=cls,\n                                    follow_wrapper_chains=follow_wrapped,\n                                    globals=globals, locals=locals, eval_str=eval_str)\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 2653, in _signature_from_callable\n    return _signature_fromstr(sigcls, base, text_sig)\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 2236, in _signature_fromstr\n    raise ValueError(\"{!r} builtin has invalid signature\".format(obj))\nValueError: <class 'collections.deque'> builtin has invalid signature\n"
+        },
+        {
+          "case": 2,
+          "passed": false,
+          "input": "grid = [[2,1,1],[0,1,1],[1,0,1]]",
+          "error": "Traceback (most recent call last):\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpak3841wg.py\", line 323, in run_tests_internal\n    sig = inspect.signature(target_method)\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 3375, in signature\n    return Signature.from_callable(obj, follow_wrapped=follow_wrapped,\n           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n                                   globals=globals, locals=locals, eval_str=eval_str)\n                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 3098, in from_callable\n    return _signature_from_callable(obj, sigcls=cls,\n                                    follow_wrapper_chains=follow_wrapped,\n                                    globals=globals, locals=locals, eval_str=eval_str)\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 2653, in _signature_from_callable\n    return _signature_fromstr(sigcls, base, text_sig)\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 2236, in _signature_fromstr\n    raise ValueError(\"{!r} builtin has invalid signature\".format(obj))\nValueError: <class 'collections.deque'> builtin has invalid signature\n"
+        },
+        {
+          "case": 3,
+          "passed": false,
+          "input": "grid = [[0,2]]",
+          "error": "Traceback (most recent call last):\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpak3841wg.py\", line 323, in run_tests_internal\n    sig = inspect.signature(target_method)\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 3375, in signature\n    return Signature.from_callable(obj, follow_wrapped=follow_wrapped,\n           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n                                   globals=globals, locals=locals, eval_str=eval_str)\n                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 3098, in from_callable\n    return _signature_from_callable(obj, sigcls=cls,\n                                    follow_wrapper_chains=follow_wrapped,\n                                    globals=globals, locals=locals, eval_str=eval_str)\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 2653, in _signature_from_callable\n    return _signature_fromstr(sigcls, base, text_sig)\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 2236, in _signature_fromstr\n    raise ValueError(\"{!r} builtin has invalid signature\".format(obj))\nValueError: <class 'collections.deque'> builtin has invalid signature\n"
+        }
+      ]
+    },
+    {
+      "slug": "walls-and-gates",
+      "title": "Walls And Gates",
+      "error": "",
+      "results": [
+        {
+          "case": 1,
+          "passed": false,
+          "input": "rooms = [[2147483647,-1,0,2147483647],[2147483647,2147483647,2147483647,-1],[2147483647,-1,2147483647,-1],[0,-1,2147483647,2147483647]]",
+          "error": "Traceback (most recent call last):\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpbsk1of2o.py\", line 306, in run_tests_internal\n    sig = inspect.signature(target_method)\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 3375, in signature\n    return Signature.from_callable(obj, follow_wrapped=follow_wrapped,\n           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n                                   globals=globals, locals=locals, eval_str=eval_str)\n                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 3098, in from_callable\n    return _signature_from_callable(obj, sigcls=cls,\n                                    follow_wrapper_chains=follow_wrapped,\n                                    globals=globals, locals=locals, eval_str=eval_str)\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 2653, in _signature_from_callable\n    return _signature_fromstr(sigcls, base, text_sig)\n  File \"/Users/nileshchakraborty/.pyenv/versions/3.13.5/lib/python3.13/inspect.py\", line 2236, in _signature_fromstr\n    raise ValueError(\"{!r} builtin has invalid signature\".format(obj))\nValueError: <class 'collections.deque'> builtin has invalid signature\n"
+        }
+      ]
+    },
+    {
+      "slug": "min-cost-to-connect-all-points",
+      "title": "Min Cost to Connect All Points",
+      "error": "",
+      "results": [
+        {
+          "case": 1,
+          "passed": false,
+          "input": "points = [[0,0],[2,2],[3,10],[5,2],[7,0]]",
+          "error": "Traceback (most recent call last):\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmp6td08xfi.py\", line 373, in run_tests_internal\n    result = target_method(*args)\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmp6td08xfi.py\", line 48, in minCostConnectPoints\n    if union(u, v):\n       ~~~~~^^^^^^\nTypeError: Solution.minCostConnectPoints.<locals>.union() missing 1 required positional argument: 'y'\n"
+        },
+        {
+          "case": 2,
+          "passed": false,
+          "input": "points = [[3,12],[-2,5],[-4,1]]",
+          "error": "Traceback (most recent call last):\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmp6td08xfi.py\", line 373, in run_tests_internal\n    result = target_method(*args)\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmp6td08xfi.py\", line 48, in minCostConnectPoints\n    if union(u, v):\n       ~~~~~^^^^^^\nTypeError: Solution.minCostConnectPoints.<locals>.union() missing 1 required positional argument: 'y'\n"
+        }
+      ]
+    },
+    {
+      "slug": "network-delay-time",
+      "title": "Network Delay Time",
+      "error": "",
+      "results": [
+        {
+          "case": 1,
+          "passed": false,
+          "input": "times = [[2,1,1],[2,3,1],[3,4,1]], n = 4, k = 2",
+          "error": "Traceback (most recent call last):\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpjc97nuwu.py\", line 354, in run_tests_internal\n    result = target_method(*args)\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpjc97nuwu.py\", line 23, in networkDelayTime\n    d, node = heapq.heappop(pq)  # Remove and return last element.\n              ^^^^^\nNameError: name 'heapq' is not defined. Did you mean: 'self.heapq'? Or did you forget to import 'heapq'?\n"
+        },
+        {
+          "case": 2,
+          "passed": false,
+          "input": "times = [[1,2,1]], n = 2, k = 1",
+          "error": "Traceback (most recent call last):\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpjc97nuwu.py\", line 354, in run_tests_internal\n    result = target_method(*args)\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpjc97nuwu.py\", line 23, in networkDelayTime\n    d, node = heapq.heappop(pq)  # Remove and return last element.\n              ^^^^^\nNameError: name 'heapq' is not defined. Did you mean: 'self.heapq'? Or did you forget to import 'heapq'?\n"
+        },
+        {
+          "case": 3,
+          "passed": false,
+          "input": "times = [[1,2,1]], n = 2, k = 2",
+          "error": "Traceback (most recent call last):\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpjc97nuwu.py\", line 354, in run_tests_internal\n    result = target_method(*args)\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpjc97nuwu.py\", line 23, in networkDelayTime\n    d, node = heapq.heappop(pq)  # Remove and return last element.\n              ^^^^^\nNameError: name 'heapq' is not defined. Did you mean: 'self.heapq'? Or did you forget to import 'heapq'?\n"
+        }
+      ]
+    },
+    {
+      "slug": "alien-dictionary",
+      "title": "Alien Dictionary",
+      "error": "",
+      "results": [
+        {
+          "case": 1,
+          "passed": false,
+          "input": "words = [\"wrt\",\"wrf\",\"er\",\"ett\",\"rftt\"]",
+          "error": "Traceback (most recent call last):\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmp9oge8l77.py\", line 370, in run_tests_internal\n    result = target_method(*args)\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmp9oge8l77.py\", line 11, in alienOrder\n    graph = defaultdict(set)\n            ^^^^^^^^^^^\nNameError: name 'defaultdict' is not defined. Did you mean: 'self.defaultdict'?\n"
+        },
+        {
+          "case": 2,
+          "passed": false,
+          "input": "words = [\"z\",\"x\"]",
+          "error": "Traceback (most recent call last):\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmp9oge8l77.py\", line 370, in run_tests_internal\n    result = target_method(*args)\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmp9oge8l77.py\", line 11, in alienOrder\n    graph = defaultdict(set)\n            ^^^^^^^^^^^\nNameError: name 'defaultdict' is not defined. Did you mean: 'self.defaultdict'?\n"
+        },
+        {
+          "case": 3,
+          "passed": false,
+          "input": "words = [\"z\",\"x\",\"z\"]",
+          "error": "Traceback (most recent call last):\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmp9oge8l77.py\", line 370, in run_tests_internal\n    result = target_method(*args)\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmp9oge8l77.py\", line 11, in alienOrder\n    graph = defaultdict(set)\n            ^^^^^^^^^^^\nNameError: name 'defaultdict' is not defined. Did you mean: 'self.defaultdict'?\n"
+        }
+      ]
+    },
+    {
+      "slug": "koko-eating-bananas",
+      "title": "Koko Eating Bananas",
+      "error": "",
+      "results": [
+        {
+          "case": 1,
+          "passed": false,
+          "input": "piles = [3,6,7,11], h = 8",
+          "error": "Traceback (most recent call last):\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpyaa49ymi.py\", line 344, in run_tests_internal\n    result = target_method(*args)\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpyaa49ymi.py\", line 17, in minEatingSpeed\n    hours += math.ceil(pile / k)\n             ^^^^\nNameError: name 'math' is not defined. Did you mean: 'self.math'? Or did you forget to import 'math'?\n"
+        },
+        {
+          "case": 2,
+          "passed": false,
+          "input": "piles = [30,11,23,4,20], h = 5",
+          "error": "Traceback (most recent call last):\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpyaa49ymi.py\", line 344, in run_tests_internal\n    result = target_method(*args)\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpyaa49ymi.py\", line 17, in minEatingSpeed\n    hours += math.ceil(pile / k)\n             ^^^^\nNameError: name 'math' is not defined. Did you mean: 'self.math'? Or did you forget to import 'math'?\n"
+        },
+        {
+          "case": 3,
+          "passed": false,
+          "input": "piles = [30,11,23,4,20], h = 6",
+          "error": "Traceback (most recent call last):\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpyaa49ymi.py\", line 344, in run_tests_internal\n    result = target_method(*args)\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpyaa49ymi.py\", line 17, in minEatingSpeed\n    hours += math.ceil(pile / k)\n             ^^^^\nNameError: name 'math' is not defined. Did you mean: 'self.math'? Or did you forget to import 'math'?\n"
+        }
+      ]
+    },
+    {
+      "slug": "time-based-key-value-store",
+      "title": "Time Based Key-Value Store",
+      "error": "No output",
+      "results": []
+    },
+    {
+      "slug": "kth-largest-element-in-a-stream",
+      "title": "Kth Largest Element in a Stream",
+      "error": "No output",
+      "results": []
+    },
+    {
+      "slug": "last-stone-weight",
+      "title": "Last Stone Weight",
+      "error": "",
+      "results": [
+        {
+          "case": 1,
+          "passed": false,
+          "input": "stones = [2,7,4,1,8,1]",
+          "error": "Traceback (most recent call last):\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpvn4eqoa2.py\", line 342, in run_tests_internal\n    result = target_method(*args)\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpvn4eqoa2.py\", line 12, in lastStoneWeight\n    heapq.heapify(heap)  # Convert list into a heap.\n    ^^^^^\nNameError: name 'heapq' is not defined. Did you mean: 'self.heapq'? Or did you forget to import 'heapq'?\n"
+        },
+        {
+          "case": 2,
+          "passed": false,
+          "input": "stones = [1]",
+          "error": "Traceback (most recent call last):\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpvn4eqoa2.py\", line 342, in run_tests_internal\n    result = target_method(*args)\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpvn4eqoa2.py\", line 12, in lastStoneWeight\n    heapq.heapify(heap)  # Convert list into a heap.\n    ^^^^^\nNameError: name 'heapq' is not defined. Did you mean: 'self.heapq'? Or did you forget to import 'heapq'?\n"
+        }
+      ]
+    },
+    {
+      "slug": "design-twitter",
+      "title": "Design Twitter",
+      "error": "No output",
+      "results": []
+    },
+    {
+      "slug": "detect-squares",
+      "title": "Detect Squares",
+      "error": "No output",
+      "results": []
+    },
+    {
+      "slug": "palindromic-substrings",
+      "title": "Palindromic Substrings",
+      "error": "",
+      "results": [
+        {
+          "case": 1,
+          "passed": false,
+          "input": "s = \"abc\"",
+          "error": "Traceback (most recent call last):\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpzm3_67hx.py\", line 341, in run_tests_internal\n    result = target_method(*args)\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpzm3_67hx.py\", line 9, in countSubstrings\n    for i in range(len(s)):  # Iterate through the range.\n                   ~~~^^^\nTypeError: object of type 'Solution' has no len()\n"
+        },
+        {
+          "case": 2,
+          "passed": false,
+          "input": "s = \"aaa\"",
+          "error": "Traceback (most recent call last):\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpzm3_67hx.py\", line 341, in run_tests_internal\n    result = target_method(*args)\n  File \"/var/folders/zt/xtrvqcm53xg3w_ptb8gklwxc0000gn/T/tmpzm3_67hx.py\", line 9, in countSubstrings\n    for i in range(len(s)):  # Iterate through the range.\n                   ~~~^^^\nTypeError: object of type 'Solution' has no len()\n"
+        }
+      ]
+    },
+    {
+      "slug": "hand-of-straights",
+      "title": "Hand of Straights",
+      "error": "",
+      "results": [
+        {
+          "case": 1,
+          "passed": false,
+          "input": "hand = [1,2,3,6,2,3,4,7,8], groupSize = 3",
+          "expected": "True",
+          "actual": "Counter()"
+        },
+        {
+          "case": 2,
+          "passed": false,
+          "input": "hand = [1,2,3,4,5], groupSize = 4",
+          "expected": "False",
+          "actual": "Counter()"
+        }
+      ]
+    }
+  ]
+}

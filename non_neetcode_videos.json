@@ -1,0 +1,326 @@
+[
+  {
+    "slug": "ransom-note",
+    "video_id": "i3bvxJyUB40",
+    "channel": "Greg Hogg",
+    "title": "Ransom Note - Leetcode 383 - Hashmaps & Sets (Python)"
+  },
+  {
+    "slug": "middle-of-the-linked-list",
+    "video_id": "A2_ldqM4QcY",
+    "channel": "NeetCodeIO",
+    "title": "Middle of the Linked List - Leetcode 876 - Python"
+  },
+  {
+    "slug": "time-needed-to-buy-tickets",
+    "video_id": "cVmS9N6kf2Y",
+    "channel": "NeetCodeIO",
+    "title": "Time Needed to Buy Tickets - Leetcode 2073 - Python"
+  },
+  {
+    "slug": "minimum-absolute-difference",
+    "video_id": "mH1aEjOEjcQ",
+    "channel": "Fisher Coder",
+    "title": "LeetCode 1200: Minimum Absolute Difference - Interview Prep Ep 2"
+  },
+  {
+    "slug": "minimum-time-visiting-all-points",
+    "video_id": "jqcmjnXmCaw",
+    "channel": "Knowledge Center",
+    "title": "Minimum Time Visiting All Points | LeetCode 1266 | C++, Java, Python"
+  },
+  {
+    "slug": "fizz-buzz",
+    "video_id": "FdqhMGzVa98",
+    "channel": "Greg Hogg",
+    "title": "The Most Classic Coding Question! | FizzBuzz - Leetcode 412"
+  },
+  {
+    "slug": "count-and-say",
+    "video_id": "htSwmFGdFUI",
+    "channel": "Techdose",
+    "title": "Count and Say | Leetcode 38"
+  },
+  {
+    "slug": "two-sum-iv---input-is-a-bst",
+    "video_id": "ssL3sHwPeb4",
+    "channel": "take U forward",
+    "title": "L51. Two Sum In BST | Check if there exists a pair with Sum K"
+  },
+  {
+    "slug": "contains-duplicate-ii",
+    "video_id": "ypn0aZ0nrL4",
+    "channel": "NeetCodeIO",
+    "title": "Contains Duplicate II - Leetcode 219 - Python"
+  },
+  {
+    "slug": "how-many-numbers-are-smaller-than-the-current-number",
+    "video_id": "yajqqld8Svc",
+    "channel": "Knowledge Mavens",
+    "title": "LeetCode - How Many Numbers Are Smaller Than the Current Number - Python"
+  },
+  {
+    "slug": "basic-calculator",
+    "video_id": "081AqOuasw0",
+    "channel": "Jessica Lin",
+    "title": "Code with Jess - Leetcode #224 Basic Calculator"
+  },
+  {
+    "slug": "symmetric-tree",
+    "video_id": "Mao9uzxwvmc",
+    "channel": "NeetCodeIO",
+    "title": "Symmetric Tree - Leetcode 101 - Python"
+  },
+  {
+    "slug": "remove-duplicates-from-sorted-list-ii",
+    "video_id": "ycAq8iqh0TI",
+    "channel": "NeetCodeIO",
+    "title": "Remove Duplicates from Sorted Array II - Leetcode 80 - Python"
+  },
+  {
+    "slug": "h-index",
+    "video_id": "mgG5KFTvfPw",
+    "channel": "Greg Hogg",
+    "title": "H Index - Leetcode 274 - Arrays & Strings (Python)"
+  },
+  {
+    "slug": "candy",
+    "video_id": "1IzCRCcK17A",
+    "channel": "NeetCodeIO",
+    "title": "Candy - Leetcode 135 - Python"
+  },
+  {
+    "slug": "reverse-words-in-a-string",
+    "video_id": "vhnRAaJybpA",
+    "channel": "Knowledge Center",
+    "title": "Reverse Words in a String | LeetCode 151 | C++, Java, Python"
+  },
+  {
+    "slug": "text-justification",
+    "video_id": "TzMl4Z7pVh8",
+    "channel": "NeetCodeIO",
+    "title": "Text Justification - Leetcode 68 - Python"
+  },
+  {
+    "slug": "longest-mountain-in-array",
+    "video_id": "rh2Bkul2zzQ",
+    "channel": "Algorithms Made Easy",
+    "title": "Longest Mountain in Array | Live Coding with Explanation | Leetcode #845"
+  },
+  {
+    "slug": "delete-node-in-a-bst",
+    "video_id": "LFzAoJJt92M",
+    "channel": "NeetCodeIO",
+    "title": "Delete Node in a BST - Leetcode 450 - Python"
+  },
+  {
+    "slug": "insert-into-a-binary-search-tree",
+    "video_id": "Cpg8f79luEA",
+    "channel": "NeetCodeIO",
+    "title": "Insert into a Binary Search Tree - Leetcode 701 - Python"
+  },
+  {
+    "slug": "gfg---reverse-first-k-elements-of-a-queue",
+    "video_id": "VAZkSMoNHik",
+    "channel": "GeeksforGeeks Practice",
+    "title": "POTD- 12/01/2024 | Reverse First K elements of Queue | Problem of the Day | GeeksforGeeks"
+  },
+  {
+    "slug": "substring-with-concatenation-of-all-words",
+    "video_id": "-wlDdMmaYwI",
+    "channel": "CodingNinja",
+    "title": "Substring with Concatenation of All Words - LeetCode #30 with Python, JavaScript and Java"
+  },
+  {
+    "slug": "summary-ranges",
+    "video_id": "ZHJDwbfqoa8",
+    "channel": "Greg Hogg",
+    "title": "Summary Ranges - Leetcode 228 - Arrays & Strings (Python)"
+  },
+  {
+    "slug": "minimum-number-of-arrows-to-burst-balloons",
+    "video_id": "lPmkKnvNPrw",
+    "channel": "NeetCodeIO",
+    "title": "Minimum Number of Arrows to Burst Balloons - Leetcode 452 - Python"
+  },
+  {
+    "slug": "construct-binary-tree-from-inorder-and-postorder-traversal",
+    "video_id": "vm63HuIU7kw",
+    "channel": "NeetCodeIO",
+    "title": "Construct Binary Tree from Inorder and Postorder Traversal - Leetcode 106 - Python"
+  },
+  {
+    "slug": "count-complete-tree-nodes",
+    "video_id": "u-yWemKGWO0",
+    "channel": "take U forward",
+    "title": "L32. Count total Nodes in a COMPLETE Binary Tree | O(Log^2 N) Approach | C++ | Java"
+  },
+  {
+    "slug": "average-of-levels-in-binary-tree",
+    "video_id": "115txA-rS5s",
+    "channel": "Nikhil Lohia",
+    "title": "Average of Levels Binary Tree (LeetCode 637) | Solution with easy explanation | Study Algorithms"
+  },
+  {
+    "slug": "binary-tree-zigzag-level-order-traversal",
+    "video_id": "igbboQbiwqw",
+    "channel": "NeetCodeIO",
+    "title": "Binary Tree Zigzag Level Order Traversal - Leetcode 103 - Python"
+  },
+  {
+    "slug": "minimum-absolute-difference-in-bst",
+    "video_id": "NttA_NC_ZhI",
+    "channel": "Greg Hogg",
+    "title": "Minimum Absolute Difference in BST - Leetcode 530 - Trees (Python)"
+  },
+  {
+    "slug": "balance-a-binary-search-tree",
+    "video_id": "fqx8z3VepMA",
+    "channel": "CodeHelp - by Babbar",
+    "title": "Lecture 73: Largest BST in a Binary Tree || C++ Placement Series"
+  },
+  {
+    "slug": "evaluate-division",
+    "video_id": "Uei1fwDoyKk",
+    "channel": "NeetCodeIO",
+    "title": "Evaluate Division - Leetcode 399 - Python"
+  },
+  {
+    "slug": "minimum-genetic-mutation",
+    "video_id": "9lkn3rHCSLg",
+    "channel": "code Explainer",
+    "title": "433. Minimum Genetic Mutation | LEETCODE MEDIUM | BFS | GRAPH TRAVERSAL"
+  },
+  {
+    "slug": "minimum-depth-of-binary-tree",
+    "video_id": "tZS4VHtbYoo",
+    "channel": "Nikhil Lohia",
+    "title": "Minimum Depth of Binary Tree (LeetCode 111) | Full solution w/ graphical examples | Study Algorithms"
+  },
+  {
+    "slug": "letter-case-permutation",
+    "video_id": "IYXWcjwhUYo",
+    "channel": "Algorithms Made Easy",
+    "title": "Letter Case Permutation | Live Coding with Explanation | Leetcode #784"
+  },
+  {
+    "slug": "find-peak-element",
+    "video_id": "kMzJy9es7Hc",
+    "channel": "NeetCodeIO",
+    "title": "Find Peak Element - Leetcode 162 - Python"
+  },
+  {
+    "slug": "maximum-sum-circular-subarray",
+    "video_id": "fxT9KjakYPM",
+    "channel": "NeetCodeIO",
+    "title": "Maximum Sum Circular Subarray - Leetcode 918 - Python"
+  },
+  {
+    "slug": "single-number-ii",
+    "video_id": "cOFAmaMBVps",
+    "channel": "Techdose",
+    "title": "Single Number II | 4 Methods | Leetcode #137"
+  },
+  {
+    "slug": "bitwise-and-of-numbers-range",
+    "video_id": "R3T0olAhUq0",
+    "channel": "NeetCodeIO",
+    "title": "Bitwise AND of Numbers Range - Leetcode 201 - Python"
+  },
+  {
+    "slug": "factorial-trailing-zeroes",
+    "video_id": "_NxbBkunCEM",
+    "channel": "Code Scribbler",
+    "title": "LeetCode 172: Factorial Trailing Zeroes | Python Solution | Math & Number Theory"
+  },
+  {
+    "slug": "sqrtx",
+    "video_id": "zdMhGxRWutQ",
+    "channel": "NeetCodeIO",
+    "title": "Sqrt(x) - Leetcode 69 - Python"
+  },
+  {
+    "slug": "max-points-on-a-line",
+    "video_id": "Bb9lOXUOnFw",
+    "channel": "NeetCodeIO",
+    "title": "Leetcode 149 - Maximum Points on a Line - Python"
+  },
+  {
+    "slug": "unique-paths-ii",
+    "video_id": "d3UOz7zdE4I",
+    "channel": "NeetCodeIO",
+    "title": "Unique Paths II - Leetcode 63 - Python"
+  },
+  {
+    "slug": "best-time-to-buy-and-sell-stock-iii",
+    "video_id": "37s1_xBiqH0",
+    "channel": "Techdose",
+    "title": "Best Time to Buy and Sell Stock III | Leetcode #123"
+  },
+  {
+    "slug": "best-time-to-buy-and-sell-stock-iv",
+    "video_id": "6928FkPhGUA",
+    "channel": "Techdose",
+    "title": "Best time to buy and sell stock 4 | Leetcode #188"
+  },
+  {
+    "slug": "lowest-common-ancestor-of-a-binary-tree",
+    "video_id": "py3R23aAPCA",
+    "channel": "Back To Back SWE",
+    "title": "Lowest Common Ancestor Between 2 Binary Tree Nodes (A Recursive Approach)"
+  },
+  {
+    "slug": "populating-next-right-pointers-in-each-node-ii",
+    "video_id": "yl-fdkyQD8A",
+    "channel": "Algorithms Made Easy",
+    "title": "Populating Next Right Pointers in Each Node II | Live Coding with Explanation | Leetcode - 117"
+  },
+  {
+    "slug": "construct-quad-tree",
+    "video_id": "UQ-1sBMV0v4",
+    "channel": "NeetCodeIO",
+    "title": "Construct Quad Tree - Leetcode 427 - Python"
+  },
+  {
+    "slug": "search-in-a-binary-search-tree",
+    "video_id": "kPcYYCbUUEA",
+    "channel": "CodingNinja",
+    "title": "Search in a Binary Search Tree - LeetCode #700 - Python, JavaScript, Java, C++"
+  },
+  {
+    "slug": "ipo",
+    "video_id": "1IUzNJ6TPEM",
+    "channel": "NeetCodeIO",
+    "title": "IPO - Leetcode 502 - Python"
+  },
+  {
+    "slug": "find-k-pairs-with-smallest-sums",
+    "video_id": "Youk8DDnLU8",
+    "channel": "TechError",
+    "title": "Find K Pairs with Smallest Sums - Leetcode 373 - Python"
+  },
+  {
+    "slug": "minimum-operations-to-reduce-an-integer-to-0",
+    "video_id": "O3VbqTLzTu8",
+    "channel": "Aryan Mittal",
+    "title": "Minimum Operations to Reduce an Integer to 0 || Leetcode-2571 || C++"
+  },
+  {
+    "slug": "integer-replacement",
+    "video_id": "xzoLTiPDY0M",
+    "channel": "Sleepy Cracker",
+    "title": "LeetCode 397 | Integer Replacement | Java"
+  },
+  {
+    "slug": "range-sum-query---immutable",
+    "video_id": "ZMOFmHBVEcg",
+    "channel": "Back To Back SWE",
+    "title": "Range Sum Querying - Preventing Repeated Work With Caching (\"Range Sum Query\" on Leetcode)"
+  },
+  {
+    "slug": "transformed-array",
+    "video_id": "b5vu-orCfYQ",
+    "channel": "Programming Live with Larry",
+    "title": "3379. Transformed Array (Leetcode Easy)"
+  }
+]

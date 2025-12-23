@@ -1,0 +1,34 @@
+{
+  "valid_count": 245,
+  "mismatch_count": 3,
+  "missing_count": 0,
+  "mismatches": [
+    {
+      "slug": "fizz-buzz",
+      "problem_title": "Fizz Buzz",
+      "video_id": "FdqhMGzVa98",
+      "video_title": "The Most Classic Coding Question! | FizzBuzz - Leetcode 412",
+      "channel": "Greg Hogg",
+      "overlap": []
+    },
+    {
+      "slug": "h-index",
+      "problem_title": "H-Index",
+      "video_id": "mgG5KFTvfPw",
+      "video_title": "H Index - Leetcode 274 - Arrays & Strings (Python)",
+      "channel": "Greg Hogg",
+      "overlap": []
+    },
+    {
+      "slug": "burst-balloons",
+      "problem_title": "Burst Balloons",
+      "video_id": "VFskby7lUbw",
+      "video_title": "Burst Baloons - Dynamic Programming - Leetcode 312 - Python",
+      "channel": "NeetCode",
+      "overlap": [
+        "burst"
+      ]
+    }
+  ],
+  "missing": []
+}
