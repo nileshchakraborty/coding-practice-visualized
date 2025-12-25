@@ -47,6 +47,7 @@ import { generalLimiter, aiLimiter } from '../src/infrastructure/middleware/Rate
 import { cacheService } from '../src/infrastructure/cache/CacheService';
 import { jobQueue, type JobType, type Job } from '../src/infrastructure/queue/JobQueue';
 import { progressStore, type UserProgress } from '../src/infrastructure/store/ProgressStore';
+import { recommendationStore } from '../src/infrastructure/store/RecommendationStore';
 log('[STARTUP] Middleware loaded ✅');
 
 // Robust Env Loading
@@ -213,11 +214,38 @@ app.get('/api/problems', async (req, res) => {
     }
 });
 
+// ============================================
+// RECOMMENDATIONS API - Hot Topics & Problems
+// ============================================
+app.get('/api/recommendations', async (req, res) => {
+    try {
+        const k = parseInt(req.query.k as string) || 10;
+        const topicK = parseInt(req.query.topicK as string) || 5;
+
+        const hotProblems = recommendationStore.getHotProblems(k);
+        const hotTopics = recommendationStore.getHotTopics(topicK);
+        const stats = recommendationStore.getStats();
+
+        res.json({
+            hotProblems,
+            hotTopics,
+            stats,
+        });
+    } catch (e: any) {
+        console.error("Error fetching recommendations:", e);
+        res.status(500).json({ error: e.message });
+    }
+});
+
 app.get('/api/solutions/:slug', async (req, res) => {
     try {
         const { slug } = req.params;
         const cacheKey = `solution_${slug}`;
         const cachedSolution = cacheService.get(cacheKey);
+
+        // Track view for recommendations
+        const category = req.query.category as string | undefined;
+        recommendationStore.recordView(slug, category);
 
         if (cachedSolution) {
             console.log(`Cache Hit: Solution ${slug}`);

@@ -2,8 +2,8 @@
 
 > A premium, next-generation platform for visualizing algorithms and data structures with interactive step-by-step animations, AI-powered tutoring, and a comprehensive library of 250+ LeetCode problems.
 
-![Desktop View](.agent/desktop_light.png)
-*Interactive Problem Dashboard with Unified Filter System*
+![Dashboard](docs/screenshots/dashboard.png)
+*Interactive Problem Dashboard with Hot Topics, List Filters, and Categories*
 
 ---
 
@@ -60,9 +60,16 @@ Codenium is a full-stack learning platform designed to help developers master co
 - **Dark/Light Themes**: Premium design with full theme support
 
 ### 5. **Unified Filter System**
+- **List Filters**: Quick access to curated lists (Blind 75, Top 150, All Problems)
 - **Pattern-Based**: Filter by algorithm patterns (Two Pointers, Sliding Window, BFS/DFS)
 - **Difficulty Ladders**: Progress from Easy → Medium → Hard
 - **Status Tracking**: Solved, Attempted, Not Started
+
+### 6. **Hot Right Now 🔥**
+- **Trending Topics**: View most practiced categories at a glance
+- **Popular Problems**: See what problems are hot based on community activity
+- **View/Solve Counts**: Real-time engagement metrics
+- **Persistent Stats**: Data survives server restarts
 
 ---
 
@@ -542,10 +549,14 @@ Private Project - All Rights Reserved
 
 ## 🎨 Screenshots
 
-| Light Mode | Dark Mode |
-|------------|-----------|
-| ![Light Mode](.agent/desktop_light.png) | ![Filters](.agent/desktop_filter_view.png) |
+### Dashboard with Hot Topics
+![Dashboard](docs/screenshots/dashboard.png)
+*Main dashboard showing Hot Right Now section with trending topics and popular problems*
 
-| Mobile View |
-|-------------|
-| ![Mobile](.agent/mobile_filter_view.png) |
+### Blind 75 Filtered View
+![Blind 75](docs/screenshots/blind75_filter.png)
+*Filtered view showing Blind 75 problems with progress tracking*
+
+### Problem Page
+![Problem Page](docs/screenshots/problem_page.png)
+*Interactive problem page with code editor, visualizations, and AI tutor*

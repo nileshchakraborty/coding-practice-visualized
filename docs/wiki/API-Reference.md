@@ -88,6 +88,50 @@ Get all problems with metadata.
 
 ---
 
+### Recommendations
+
+#### `GET /api/recommendations`
+
+Get hot topics and popular problems based on user activity.
+
+**Query Parameters:**
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| `k` | number | 10 | Number of hot problems to return |
+| `topicK` | number | 5 | Number of hot topics to return |
+
+**Response:**
+```json
+{
+    "hotProblems": [
+        {
+            "slug": "two-sum",
+            "score": 245.5,
+            "views": 150,
+            "solves": 45
+        }
+    ],
+    "hotTopics": [
+        {
+            "category": "Array / String",
+            "engagement": 340,
+            "problemCount": 5
+        }
+    ],
+    "stats": {
+        "problems": 10,
+        "categories": 6
+    }
+}
+```
+
+**Notes:**
+- Scores are calculated with time-decay (recent activity weighted higher)
+- Data persists across server restarts
+- Views are tracked when solution pages are accessed
+
+---
+
 #### `GET /api/solution/:slug`
 
 Get full solution data for a problem.

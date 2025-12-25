@@ -47,6 +47,8 @@ Codenium is a premium, next-generation platform for visualizing algorithms and d
 - **AI-powered tutoring** for personalized learning
 - **Interactive code execution** with real-time feedback
 - **Progress tracking** with cloud sync
+- **List Filters** - Quick access to Blind 75, Top 150 curated lists
+- **Hot Right Now 🔥** - Trending topics and popular problems based on community activity
 
 ---
 

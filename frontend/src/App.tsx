@@ -11,6 +11,8 @@ import { useAuth } from './hooks/useAuth';
 import { SearchEngine } from './utils/SearchEngine';
 import { ThemeToggle } from './components/ThemeToggle';
 import { LoginButton } from './components/LoginButton';
+import { BLIND_75, TOP_150, type ListFilter } from './data/problemLists';
+import { HotSection } from './components/HotSection';
 import CodeniumLogo from './assets/logo.svg';
 import { Search, Filter, ChevronUp, ChevronDown, Check, Zap, CheckCircle, Pencil } from 'lucide-react';
 
@@ -35,6 +37,9 @@ function App() {
 
   // Status filter: All, In Progress, Solved
   const [statusFilter, setStatusFilter] = useState<'All' | 'In Progress' | 'Solved'>('All');
+
+  // List filter: All, Blind 75, Top 150
+  const [listFilter, setListFilter] = useState<ListFilter>('all');
 
   // Compute stats from viewmodel
   const stats = useMemo(() => {
@@ -145,6 +150,14 @@ function App() {
       const matchesDiff = problems.filter.difficulty === 'All' || p.difficulty === problems.filter.difficulty;
       const matchesSubTopic = selectedSubTopics.size === 0 || (p.subTopic && selectedSubTopics.has(p.subTopic));
 
+      // List filter
+      let matchesList = true;
+      if (listFilter === 'blind75') {
+        matchesList = BLIND_75.includes(p.slug);
+      } else if (listFilter === 'top150') {
+        matchesList = TOP_150.includes(p.slug);
+      }
+
       // Status filter
       let matchesStatus = true;
       if (statusFilter === 'Solved') {
@@ -153,9 +166,9 @@ function App() {
         matchesStatus = isAttempted(p.slug);
       }
 
-      return matchesSearch && matchesDiff && matchesSubTopic && matchesStatus;
+      return matchesSearch && matchesDiff && matchesSubTopic && matchesList && matchesStatus;
     });
-  }, [problems.filter.difficulty, searchResults, selectedSubTopics, statusFilter, isSolved, isAttempted]);
+  }, [problems.filter.difficulty, searchResults, selectedSubTopics, listFilter, statusFilter, isSolved, isAttempted]);
 
   // All subtopics
   const allSubTopics = useMemo(() => {
@@ -250,10 +263,10 @@ function App() {
 
         {/* Filters */}
         <div className="mb-4 sm:mb-8 flex flex-col gap-3 sm:gap-4">
-          {/* Search and Difficulty Row */}
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-4">
+          {/* Row 1: Search + List Selector + Progress (when filtered) */}
+          <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4">
             {/* Search */}
-            <div className="relative w-full sm:w-80 lg:w-96">
+            <div className="relative flex-1 sm:max-w-sm">
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 dark:text-slate-500" size={18} />
               <input
                 type="text"
@@ -271,42 +284,72 @@ function App() {
                 }}
               />
             </div>
-            {/* Difficulty Filter - Right aligned on desktop */}
-            <div className="flex gap-2 overflow-x-auto pb-1 -mx-3 px-3 sm:mx-0 sm:px-0 custom-scrollbar">
-              {(['All', 'Easy', 'Medium', 'Hard'] as const).map(diff => (
-                <button
-                  key={diff}
-                  onClick={() => problems.updateFilter({ difficulty: diff })}
-                  className={`px-3 sm:px-4 py-2 rounded-lg font-medium text-xs sm:text-sm transition-all flex-shrink-0 ${problems.filter.difficulty === diff
-                    ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-500/25'
-                    : 'bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-400 border border-slate-300 dark:border-slate-800 hover:border-slate-400 dark:hover:border-slate-600'
-                    }`}
-                >
-                  {diff}
-                </button>
-              ))}
 
-              {/* Divider - Only show when authenticated */}
-              {isAuthenticated && <div className="w-px h-8 bg-slate-300 dark:bg-slate-700 mx-1 flex-shrink-0" />}
-
-              {/* Status Filter - Only show when authenticated */}
-              {isAuthenticated && (['All', 'In Progress', 'Solved'] as const).map(status => (
-                <button
-                  key={status}
-                  onClick={() => setStatusFilter(status)}
-                  className={`px-3 sm:px-4 py-2 rounded-lg font-medium text-xs sm:text-sm transition-all flex-shrink-0 ${statusFilter === status
-                    ? status === 'Solved'
-                      ? 'bg-emerald-500 text-white shadow-lg shadow-emerald-500/25'
-                      : status === 'In Progress'
-                        ? 'bg-amber-500 text-white shadow-lg shadow-amber-500/25'
-                        : 'bg-indigo-600 text-white shadow-lg shadow-indigo-500/25'
-                    : 'bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-400 border border-slate-300 dark:border-slate-800 hover:border-slate-400 dark:hover:border-slate-600'
-                    }`}
-                >
-                  {status === 'In Progress' ? <Pencil size={12} className="mr-1" /> : status === 'Solved' ? <CheckCircle size={14} className="mr-1" /> : null}{status}
-                </button>
-              ))}
+            {/* List Selector Dropdown */}
+            <div className="relative">
+              <select
+                value={listFilter}
+                onChange={(e) => setListFilter(e.target.value as ListFilter)}
+                className="appearance-none bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-xl py-2.5 pl-4 pr-10 text-sm font-medium text-slate-900 dark:text-slate-200 focus:outline-none focus:border-purple-500 cursor-pointer transition-colors"
+              >
+                <option value="all">📚 All Problems</option>
+                <option value="blind75">🔥 Blind 75</option>
+                <option value="top150">⭐ Top 150</option>
+              </select>
+              <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none" size={16} />
             </div>
+
+            {/* Compact Progress Display - Show when authenticated and filtered */}
+            {isAuthenticated && listFilter !== 'all' && (
+              <div className="flex items-center gap-4 bg-slate-900 rounded-xl px-4 py-2 border border-slate-800">
+                <div className="flex items-center gap-3 text-sm">
+                  <span className="text-emerald-400 font-medium">{stats.categories.flatMap(c => c.problems).filter(p => p.difficulty === 'Easy' && (listFilter === 'blind75' ? BLIND_75.includes(p.slug) : TOP_150.includes(p.slug)) && isSolved(p.slug)).length}/{stats.categories.flatMap(c => c.problems).filter(p => p.difficulty === 'Easy' && (listFilter === 'blind75' ? BLIND_75.includes(p.slug) : TOP_150.includes(p.slug))).length}</span>
+                  <span className="text-amber-400 font-medium">{stats.categories.flatMap(c => c.problems).filter(p => p.difficulty === 'Medium' && (listFilter === 'blind75' ? BLIND_75.includes(p.slug) : TOP_150.includes(p.slug)) && isSolved(p.slug)).length}/{stats.categories.flatMap(c => c.problems).filter(p => p.difficulty === 'Medium' && (listFilter === 'blind75' ? BLIND_75.includes(p.slug) : TOP_150.includes(p.slug))).length}</span>
+                  <span className="text-rose-400 font-medium">{stats.categories.flatMap(c => c.problems).filter(p => p.difficulty === 'Hard' && (listFilter === 'blind75' ? BLIND_75.includes(p.slug) : TOP_150.includes(p.slug)) && isSolved(p.slug)).length}/{stats.categories.flatMap(c => c.problems).filter(p => p.difficulty === 'Hard' && (listFilter === 'blind75' ? BLIND_75.includes(p.slug) : TOP_150.includes(p.slug))).length}</span>
+                </div>
+                <div className="h-5 w-px bg-slate-700" />
+                <span className="text-white font-bold">{solvedCount}<span className="text-slate-500 font-normal">/{listFilter === 'blind75' ? BLIND_75.length : TOP_150.length}</span></span>
+              </div>
+            )}
+          </div>
+
+          {/* Row 2: Difficulty + Status Filters */}
+          <div className="flex flex-wrap gap-2">
+            {/* Difficulty Filter */}
+            {(['All', 'Easy', 'Medium', 'Hard'] as const).map(diff => (
+              <button
+                key={diff}
+                onClick={() => problems.updateFilter({ difficulty: diff })}
+                className={`px-3 py-1.5 rounded-lg font-medium text-xs transition-all ${problems.filter.difficulty === diff
+                  ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-500/25'
+                  : 'bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-400 border border-slate-300 dark:border-slate-800 hover:border-slate-400 dark:hover:border-slate-600'
+                  }`}
+              >
+                {diff}
+              </button>
+            ))}
+
+            {/* Divider - Only show when authenticated */}
+            {isAuthenticated && <div className="w-px h-6 bg-slate-300 dark:bg-slate-700 mx-1 self-center" />}
+
+            {/* Status Filter - Only show when authenticated */}
+            {isAuthenticated && (['All', 'In Progress', 'Solved'] as const).map(status => (
+              <button
+                key={`status-${status}`}
+                onClick={() => setStatusFilter(status)}
+                className={`px-3 py-1.5 rounded-lg font-medium text-xs transition-all flex items-center gap-1 ${statusFilter === status
+                  ? status === 'Solved'
+                    ? 'bg-emerald-500 text-white shadow-lg shadow-emerald-500/25'
+                    : status === 'In Progress'
+                      ? 'bg-amber-500 text-white shadow-lg shadow-amber-500/25'
+                      : 'bg-indigo-600 text-white shadow-lg shadow-indigo-500/25'
+                  : 'bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-400 border border-slate-300 dark:border-slate-800 hover:border-slate-400 dark:hover:border-slate-600'
+                  }`}
+              >
+                {status === 'In Progress' ? <Pencil size={10} /> : status === 'Solved' ? <CheckCircle size={12} /> : null}
+                {status === 'All' ? 'All Status' : status}
+              </button>
+            ))}
           </div>
 
           {/* Subtopic Filter */}
@@ -366,6 +409,21 @@ function App() {
             </div>
           )}
         </div>
+
+        {/* Hot Topics & Problems Section */}
+        <HotSection
+          onProblemClick={handleProblemClick}
+          onTopicClick={(category) => {
+            // Find and select the subtopic for this category
+            const subtopic = allSubTopics.find(st =>
+              st.toLowerCase().includes(category.toLowerCase()) ||
+              category.toLowerCase().includes(st.toLowerCase())
+            );
+            if (subtopic) {
+              toggleSubTopic(subtopic);
+            }
+          }}
+        />
 
         {/* Categories Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">

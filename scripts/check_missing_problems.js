@@ -1,0 +1,100 @@
+const fs = require('fs');
+const data = JSON.parse(fs.readFileSync('api/data/problems.json', 'utf8'));
+const slugs = new Set(data.categories.flatMap(c => c.problems.map(p => p.slug)));
+
+const BLIND_75 = [
+    'two-sum', 'contains-duplicate', 'valid-anagram', 'group-anagrams',
+    'top-k-frequent-elements', 'product-of-array-except-self', 'longest-consecutive-sequence',
+    'encode-and-decode-strings', 'valid-sudoku', 'valid-palindrome', '3sum',
+    'container-with-most-water', 'two-sum-ii-input-array-is-sorted', 'trapping-rain-water',
+    'longest-substring-without-repeating-characters', 'longest-repeating-character-replacement',
+    'permutation-in-string', 'minimum-window-substring', 'valid-parentheses', 'min-stack',
+    'binary-search', 'search-a-2d-matrix', 'koko-eating-bananas',
+    'find-minimum-in-rotated-sorted-array', 'search-in-rotated-sorted-array',
+    'reverse-linked-list', 'merge-two-sorted-lists', 'reorder-list',
+    'remove-nth-node-from-end-of-list', 'linked-list-cycle', 'merge-k-sorted-lists',
+    'invert-binary-tree', 'maximum-depth-of-binary-tree', 'same-tree',
+    'subtree-of-another-tree', 'lowest-common-ancestor-of-a-binary-search-tree',
+    'binary-tree-level-order-traversal', 'validate-binary-search-tree',
+    'kth-smallest-element-in-a-bst', 'construct-binary-tree-from-preorder-and-inorder-traversal',
+    'binary-tree-maximum-path-sum', 'serialize-and-deserialize-binary-tree',
+    'count-good-nodes-in-binary-tree', 'binary-tree-right-side-view', 'diameter-of-binary-tree',
+    'implement-trie-prefix-tree', 'design-add-and-search-words-data-structure', 'word-search-ii',
+    'kth-largest-element-in-a-stream', 'kth-largest-element-in-an-array', 'find-median-from-data-stream',
+    'subsets', 'combination-sum', 'permutations', 'word-search',
+    'number-of-islands', 'clone-graph', 'pacific-atlantic-water-flow', 'course-schedule',
+    'graph-valid-tree', 'number-of-connected-components-in-an-undirected-graph', 'rotting-oranges', 'walls-and-gates',
+    'climbing-stairs', 'house-robber', 'house-robber-ii', 'longest-palindromic-substring',
+    'palindromic-substrings', 'decode-ways', 'coin-change', 'maximum-product-subarray',
+    'word-break', 'longest-increasing-subsequence', 'partition-equal-subset-sum', 'unique-paths',
+    'maximum-subarray', 'jump-game', 'insert-interval', 'merge-intervals',
+    'non-overlapping-intervals', 'meeting-rooms', 'meeting-rooms-ii',
+    'single-number', 'number-of-1-bits', 'counting-bits', 'reverse-bits', 'missing-number'
+];
+
+const TOP_150 = [
+    'merge-sorted-array', 'remove-element', 'remove-duplicates-from-sorted-array',
+    'remove-duplicates-from-sorted-array-ii', 'majority-element', 'rotate-array',
+    'best-time-to-buy-and-sell-stock', 'best-time-to-buy-and-sell-stock-ii', 'jump-game',
+    'jump-game-ii', 'h-index', 'product-of-array-except-self', 'gas-station', 'candy',
+    'trapping-rain-water', 'roman-to-integer', 'integer-to-roman', 'length-of-last-word',
+    'longest-common-prefix', 'reverse-words-in-a-string', 'zigzag-conversion',
+    'find-the-index-of-the-first-occurrence-in-a-string', 'text-justification',
+    'valid-palindrome', 'is-subsequence', 'two-sum-ii-input-array-is-sorted',
+    'container-with-most-water', '3sum', 'two-sum', 'minimum-size-subarray-sum',
+    'longest-substring-without-repeating-characters', 'substring-with-concatenation-of-all-words',
+    'minimum-window-substring', 'valid-sudoku', 'spiral-matrix', 'rotate-image',
+    'set-matrix-zeroes', 'game-of-life', 'ransom-note', 'isomorphic-strings', 'word-pattern',
+    'valid-anagram', 'group-anagrams', 'happy-number', 'contains-duplicate-ii',
+    'longest-consecutive-sequence', 'summary-ranges', 'merge-intervals', 'insert-interval',
+    'minimum-number-of-arrows-to-burst-balloons', 'valid-parentheses', 'simplify-path',
+    'min-stack', 'evaluate-reverse-polish-notation', 'basic-calculator', 'daily-temperatures',
+    'largest-rectangle-in-histogram', 'linked-list-cycle', 'add-two-numbers',
+    'merge-two-sorted-lists', 'copy-list-with-random-pointer', 'reverse-linked-list-ii',
+    'reverse-nodes-in-k-group', 'remove-nth-node-from-end-of-list',
+    'remove-duplicates-from-sorted-list-ii', 'rotate-list', 'partition-list', 'lru-cache',
+    'maximum-depth-of-binary-tree', 'same-tree', 'invert-binary-tree', 'symmetric-tree',
+    'construct-binary-tree-from-preorder-and-inorder-traversal',
+    'construct-binary-tree-from-inorder-and-postorder-traversal',
+    'populating-next-right-pointers-in-each-node-ii', 'flatten-binary-tree-to-linked-list',
+    'path-sum', 'sum-root-to-leaf-numbers', 'binary-tree-maximum-path-sum',
+    'count-complete-tree-nodes', 'lowest-common-ancestor-of-a-binary-tree',
+    'binary-search-tree-iterator', 'binary-tree-right-side-view',
+    'average-of-levels-in-binary-tree', 'binary-tree-level-order-traversal',
+    'binary-tree-zigzag-level-order-traversal', 'minimum-absolute-difference-in-bst',
+    'kth-smallest-element-in-a-bst', 'validate-binary-search-tree', 'number-of-islands',
+    'surrounded-regions', 'clone-graph', 'evaluate-division', 'course-schedule',
+    'course-schedule-ii', 'snakes-and-ladders', 'minimum-genetic-mutation', 'word-ladder',
+    'implement-trie-prefix-tree', 'design-add-and-search-words-data-structure', 'word-search-ii',
+    'letter-combinations-of-a-phone-number', 'combinations', 'permutations', 'combination-sum',
+    'n-queens-ii', 'generate-parentheses', 'word-search', 'convert-sorted-array-to-binary-search-tree',
+    'sort-list', 'construct-quad-tree', 'merge-k-sorted-lists', 'search-insert-position',
+    'search-a-2d-matrix', 'find-peak-element', 'search-in-rotated-sorted-array',
+    'find-first-and-last-position-of-element-in-sorted-array', 'find-minimum-in-rotated-sorted-array',
+    'median-of-two-sorted-arrays', 'kth-largest-element-in-an-array', 'ipo',
+    'find-k-pairs-with-smallest-sums', 'find-median-from-data-stream', 'add-binary',
+    'reverse-bits', 'number-of-1-bits', 'single-number', 'single-number-ii',
+    'bitwise-and-of-numbers-range', 'palindrome-number', 'plus-one', 'factorial-trailing-zeroes',
+    'sqrtx', 'powx-n', 'max-points-on-a-line', 'climbing-stairs', 'house-robber', 'word-break',
+    'coin-change', 'longest-increasing-subsequence', 'triangle', 'minimum-path-sum',
+    'unique-paths-ii', 'longest-common-subsequence', 'edit-distance', 'interleaving-string', 'maximal-square'
+];
+
+const missingBlind75 = BLIND_75.filter(s => !slugs.has(s));
+const missingTop150 = [...new Set(TOP_150)].filter(s => !slugs.has(s));
+
+console.log('=== Missing Blind 75 Problems ===');
+console.log(`Count: ${missingBlind75.length}`);
+if (missingBlind75.length > 0) {
+    console.log(missingBlind75.join('\n'));
+}
+
+console.log('\n=== Missing Top 150 Problems ===');
+console.log(`Count: ${missingTop150.length}`);
+if (missingTop150.length > 0) {
+    console.log(missingTop150.join('\n'));
+}
+
+console.log('\n=== Available in lists ===');
+console.log(`Blind 75: ${BLIND_75.length - missingBlind75.length}/${BLIND_75.length}`);
+console.log(`Top 150: ${[...new Set(TOP_150)].length - missingTop150.length}/${[...new Set(TOP_150)].length}`);

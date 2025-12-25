@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+  <defs>
+    <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6366f1"/>
+      <stop offset="100%" style="stop-color:#a855f7"/>
+    </linearGradient>
+    <linearGradient id="codeGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ffffff"/>
+      <stop offset="100%" style="stop-color:#e0e7ff"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Brain-inspired hexagonal backdrop -->
+  <path d="M24 4L42 14V34L24 44L6 34V14L24 4Z" fill="url(#logoGradient)" opacity="0.15"/>
+  <path d="M24 8L38 16V32L24 40L10 32V16L24 8Z" fill="url(#logoGradient)"/>
+  
+  <!-- Code brackets < /> -->
+  <g stroke="url(#codeGradient)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <!-- Left bracket < -->
+    <path d="M18 18L13 24L18 30"/>
+    <!-- Right bracket > -->
+    <path d="M30 18L35 24L30 30"/>
+    <!-- Forward slash / -->
+    <path d="M26 17L22 31"/>
+  </g>
+  
+  <!-- Neural connection dots -->
+  <circle cx="24" cy="8" r="1.5" fill="#a855f7"/>
+  <circle cx="38" cy="16" r="1.5" fill="#818cf8"/>
+  <circle cx="38" cy="32" r="1.5" fill="#c084fc"/>
+  <circle cx="24" cy="40" r="1.5" fill="#a855f7"/>
+  <circle cx="10" cy="32" r="1.5" fill="#818cf8"/>
+  <circle cx="10" cy="16" r="1.5" fill="#c084fc"/>
+</svg>
