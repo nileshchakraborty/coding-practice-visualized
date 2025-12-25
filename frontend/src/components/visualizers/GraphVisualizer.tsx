@@ -27,16 +27,10 @@ const GraphVisualizer: React.FC<GraphVisualizerProps> = ({
     highlightedEdges = [],
     directed = true
 }) => {
-    if (!nodes || nodes.length === 0) {
-        return (
-            <div className="flex items-center justify-center h-48 text-slate-500">
-                Empty graph
-            </div>
-        );
-    }
-
-    // Calculate node positions in a circle
+    // Calculate node positions in a circle (must be before any early returns)
     const nodePositions = useMemo(() => {
+        if (!nodes || nodes.length === 0) return [];
+
         const centerX = 150;
         const centerY = 120;
         const radius = 80;
@@ -50,6 +44,14 @@ const GraphVisualizer: React.FC<GraphVisualizerProps> = ({
             };
         });
     }, [nodes]);
+
+    if (!nodes || nodes.length === 0) {
+        return (
+            <div className="flex items-center justify-center h-48 text-slate-500">
+                Empty graph
+            </div>
+        );
+    }
 
     const getNodePos = (id: number | string) => {
         return nodePositions.find(n => n.id === id);

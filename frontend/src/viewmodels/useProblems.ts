@@ -36,11 +36,6 @@ export function useProblems() {
     const [filter, setFilter] = useState<ProblemsFilter>(defaultFilter);
     const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
-    // Fetch problems on mount
-    useEffect(() => {
-        fetchProblems();
-    }, []);
-
     const fetchProblems = useCallback(async () => {
         try {
             setLoading(true);
@@ -53,6 +48,11 @@ export function useProblems() {
             setLoading(false);
         }
     }, []);
+
+    // Fetch problems on mount
+    useEffect(() => {
+        fetchProblems();
+    }, [fetchProblems]);
 
     // Filter problems based on current filter
     const filterProblems = useCallback((problems: Problem[]): Problem[] => {

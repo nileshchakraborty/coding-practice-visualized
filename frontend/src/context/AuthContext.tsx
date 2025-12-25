@@ -15,6 +15,7 @@ import { AuthContext } from './AuthContextDefinition';
 // Inner provider (needs to be inside GoogleOAuthProvider)
 const AuthProviderInner: React.FC<{ children: ReactNode }> = ({ children }) => {
     const [user, setUser] = useState<User | null>(null);
+    const [accessToken, setAccessToken] = useState<string | null>(null);
     const [isLoading, setIsLoading] = useState(true);
 
     // Restore session on mount
@@ -28,9 +29,11 @@ const AuthProviderInner: React.FC<{ children: ReactNode }> = ({ children }) => {
                 // Check if token is expired (default 1 hour from Google)
                 if (tokenExpiry && parseInt(tokenExpiry, 10) > Date.now()) {
                     setUser(JSON.parse(savedUser));
+                    setAccessToken(savedToken);
                 } else if (!tokenExpiry) {
                     // Legacy: no expiry stored, assume valid for now
                     setUser(JSON.parse(savedUser));
+                    setAccessToken(savedToken);
                 } else {
                     // Token expired, clear storage
                     localStorage.removeItem(TOKEN_KEY);
@@ -69,6 +72,7 @@ const AuthProviderInner: React.FC<{ children: ReactNode }> = ({ children }) => {
                 localStorage.setItem(USER_KEY, JSON.stringify(userData));
                 localStorage.setItem('codenium_token_expiry', String(Date.now() + 3600 * 1000));
                 setUser(userData);
+                setAccessToken(tokenResponse.access_token);
             } catch (error) {
                 console.error('Error fetching user info:', error);
             }
@@ -85,7 +89,9 @@ const AuthProviderInner: React.FC<{ children: ReactNode }> = ({ children }) => {
     const logout = useCallback(() => {
         localStorage.removeItem(TOKEN_KEY);
         localStorage.removeItem(USER_KEY);
+        localStorage.removeItem('codenium_token_expiry');
         setUser(null);
+        setAccessToken(null);
     }, []);
 
     return (
@@ -93,6 +99,7 @@ const AuthProviderInner: React.FC<{ children: ReactNode }> = ({ children }) => {
             user,
             isAuthenticated: !!user,
             isLoading,
+            accessToken,
             login,
             logout
         }}>
@@ -113,6 +120,7 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
                 user: null,
                 isAuthenticated: false,
                 isLoading: false,
+                accessToken: null,
                 login: () => {
                     alert('Google OAuth is not configured.\n\nTo enable login:\n1. Create a Google OAuth Client ID at console.cloud.google.com/apis/credentials\n2. Add VITE_GOOGLE_CLIENT_ID to your .env file\n3. Restart the development server');
                 },

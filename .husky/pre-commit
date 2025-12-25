@@ -1,0 +1,26 @@
+#!/bin/sh
+
+echo "🔍 Running pre-commit checks..."
+
+# Run ESLint on frontend
+echo "📝 Running ESLint..."
+(cd frontend && npm run lint)
+LINT_EXIT_CODE=$?
+
+if [ $LINT_EXIT_CODE -ne 0 ]; then
+    echo "❌ ESLint failed. Please fix lint errors before committing."
+    exit 1
+fi
+
+# Run TypeScript check on frontend
+echo "🔧 Running TypeScript check..."
+(cd frontend && npx tsc --noEmit)
+TSC_EXIT_CODE=$?
+
+if [ $TSC_EXIT_CODE -ne 0 ]; then
+    echo "❌ TypeScript check failed. Please fix type errors before committing."
+    exit 1
+fi
+
+echo "✅ All pre-commit checks passed!"
+exit 0

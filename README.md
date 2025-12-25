@@ -392,6 +392,62 @@ DEBUG_LOGS=false make run-api
 | General API | 100 requests/minute |
 | AI Endpoints | 10 requests/minute |
 
+### Admin Section 🔐
+
+> Admin access is **localhost-only** and requires JWE token authentication tied to your Google session.
+
+#### Generating an Admin Token
+
+```bash
+# 1. Login to the site with Google OAuth
+
+# 2. Get your Google ID from browser DevTools:
+#    Application → Local Storage → [your-site] → codenium_user
+#    Copy the "id" or "sub" field
+
+# 3. Run the admin token generator script:
+npx ts-node scripts/grant-admin.ts <your-google-id>
+
+# Example:
+npx ts-node scripts/grant-admin.ts 118234567890123456789
+```
+
+The script outputs a JWE token and a curl command to activate your session.
+
+#### Activating Admin Access
+
+**Option A: Via Web UI**
+1. Navigate to `/access-admin` (hidden URL, no navigation links)
+2. Enter your Google ID and JWE token
+3. Click "Activate Admin Session"
+
+**Option B: Via API (Postman/curl)**
+```bash
+curl -X POST http://localhost:3001/api/admin/activate \
+  -H "Content-Type: application/json" \
+  -d '{"token": "<jwe-token>", "googleId": "<google-id>"}'
+```
+
+#### Admin API Endpoints
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | `/api/admin/activate` | Activate admin session with JWE |
+| POST | `/api/admin/revoke` | Revoke admin session |
+| GET | `/api/admin/status` | Check session status |
+| GET | `/api/admin/stats` | Site statistics |
+| GET | `/api/admin/study-plans` | List study plans |
+| POST | `/api/admin/study-plans` | Create study plan |
+| PUT | `/api/admin/study-plans/:id` | Update study plan |
+| DELETE | `/api/admin/study-plans/:id` | Delete study plan |
+
+#### Security Features
+
+- 🔐 **JWE Encryption**: AES-256-GCM encrypted tokens
+- 🖥️ **Localhost Only**: Remote access blocked in production
+- ⏰ **Auto-Expiration**: Sessions expire with Google auth (24h)
+- 🚫 **No Persistence**: Tokens stored in memory only
+
 ---
 
 ## 🛠 Scripts & Utilities

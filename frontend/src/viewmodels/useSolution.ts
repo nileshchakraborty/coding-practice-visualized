@@ -26,7 +26,18 @@ export function useSolution(slug: string | null) {
     // Fetch solution when slug changes
     useEffect(() => {
         if (slug) {
-            fetchSolution(slug);
+            (async () => {
+                try {
+                    setLoading(true);
+                    setError(null);
+                    const data = await SolutionsAPI.getBySlug(slug);
+                    setSolution(data);
+                } catch (err) {
+                    setError(err instanceof Error ? err.message : 'Failed to fetch solution');
+                } finally {
+                    setLoading(false);
+                }
+            })();
         } else {
             setSolution(null);
             setError(null);

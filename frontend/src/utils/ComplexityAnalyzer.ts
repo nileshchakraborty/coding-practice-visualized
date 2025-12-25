@@ -60,11 +60,11 @@ export class ComplexityAnalyzer {
                 hasLoop = true;
                 if (currentDepth >= 1) hasNestedLoop = true;
                 if (currentDepth >= 2) hasTripleLoop = true;
+            }
 
-                // Check for logarithmic patterns
-                if (trimmed.includes('*=') || trimmed.includes('/=') || trimmed.includes('>>') || trimmed.includes('<<')) {
-                    hasLogPattern = true;
-                }
+            // Check for logarithmic patterns
+            if (trimmed.includes('*=') || trimmed.includes('/=') || trimmed.includes('>>') || trimmed.includes('<<')) {
+                hasLogPattern = true;
             }
 
             // Simple recursion check (function calling itself)

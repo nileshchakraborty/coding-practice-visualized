@@ -549,6 +549,474 @@ app.get('/api/debug', (req, res) => {
     }
 });
 
+// =============================================
+// ADMIN ROUTES (Production-ready with TOTP + Email Allowlist)
+// =============================================
+
+import * as crypto from 'crypto';
+import * as adminSecurity from './admin-security';
+
+// Re-export types for backward compatibility
+type AdminSession = adminSecurity.AdminSession;
+
+// Admin secret (same as grant-admin.ts script)
+const ADMIN_SECRET = process.env.ADMIN_SECRET;
+
+// Middleware: Check if request is from localhost
+const isLocalRequest = (req: express.Request): boolean => {
+    const ip = req.ip || req.socket?.remoteAddress || '';
+    const localIps = ['127.0.0.1', '::1', '::ffff:127.0.0.1'];
+    return localIps.some(local => ip.includes(local));
+};
+
+// Secure admin middleware chain for production
+const secureAdmin = [
+    adminSecurity.adminRateLimiter
+];
+
+// =============================================
+// AUTHENTICATION ENDPOINTS
+// =============================================
+
+// POST /api/admin/auth/google - Authenticate with Google OAuth for production
+app.post('/api/admin/auth/google', adminSecurity.adminRateLimiter, async (req: express.Request, res: express.Response) => {
+    try {
+        const authHeader = req.headers.authorization;
+
+        if (!authHeader?.startsWith('Bearer ')) {
+            res.status(401).json({ error: 'Google auth token required', code: 'AUTH_REQUIRED' });
+            return;
+        }
+
+        const googleToken = authHeader.substring(7);
+
+        // Verify Google token
+        const userInfoResponse = await fetch('https://www.googleapis.com/oauth2/v3/userinfo', {
+            headers: { Authorization: `Bearer ${googleToken}` }
+        });
+
+        if (!userInfoResponse.ok) {
+            res.status(401).json({ error: 'Invalid Google token', code: 'GOOGLE_TOKEN_INVALID' });
+            return;
+        }
+
+        const userInfo = await userInfoResponse.json();
+        const email = userInfo.email?.toLowerCase();
+
+        if (!email) {
+            res.status(401).json({ error: 'Email not found in Google profile', code: 'EMAIL_MISSING' });
+            return;
+        }
+
+        // Check allowlist
+        if (!adminSecurity.isEmailAllowed(email)) {
+            adminSecurity.logActivity('ACCESS_DENIED', `Unauthorized email: ${email}`, req, email);
+            res.status(403).json({
+                error: 'Your email is not authorized for admin access',
+                code: 'EMAIL_NOT_ALLOWED'
+            });
+            return;
+        }
+
+        // Check if TOTP is required and set up
+        const needsTotpSetup = adminSecurity.requiresTotpSetup(email);
+        const hasTotpVerified = adminSecurity.isTotpSetup(email);
+
+        // Generate session token
+        const sessionToken = adminSecurity.generateSessionToken();
+
+        // Create session (not fully verified until TOTP is verified in production)
+        const session = adminSecurity.createSession(
+            sessionToken,
+            userInfo.sub,
+            email,
+            req,
+            isLocalRequest(req) // Localhost doesn't need TOTP
+        );
+
+        adminSecurity.logActivity('AUTH_GOOGLE', 'Google authentication successful', req, email);
+
+        res.json({
+            success: true,
+            token: sessionToken,
+            email,
+            expiresAt: new Date(session.expiresAt).toISOString(),
+            totpRequired: !isLocalRequest(req), // Production requires TOTP
+            totpSetup: !needsTotpSetup,
+            totpVerified: session.totpVerified
+        });
+    } catch (error) {
+        console.error('Google auth error:', error);
+        res.status(500).json({ error: 'Authentication failed' });
+    }
+});
+
+// POST /api/admin/totp/setup - Generate TOTP secret and QR code
+app.post('/api/admin/totp/setup', adminSecurity.adminRateLimiter, async (req: express.Request, res: express.Response) => {
+    try {
+        const token = req.headers['x-admin-token'] as string;
+        const session = adminSecurity.getSession(token);
+
+        if (!session) {
+            res.status(401).json({ error: 'Admin session required', code: 'SESSION_REQUIRED' });
+            return;
+        }
+
+        // Generate new TOTP secret
+        const { secret, qrCodeUrl } = adminSecurity.generateTotpSecret(session.email);
+
+        // Generate QR code
+        const qrCodeDataUrl = await adminSecurity.getTotpQRCode(session.email);
+
+        adminSecurity.logActivity('TOTP_SETUP', 'TOTP setup initiated', req, session.email);
+
+        res.json({
+            success: true,
+            secret, // Manual entry backup
+            qrCodeUrl, // otpauth:// URL
+            qrCodeDataUrl, // Data URL for <img> tag
+            instructions: 'Scan QR code with Microsoft Authenticator or enter secret manually'
+        });
+    } catch (error) {
+        console.error('TOTP setup error:', error);
+        res.status(500).json({ error: 'Failed to setup TOTP' });
+    }
+});
+
+// POST /api/admin/totp/verify - Verify TOTP code
+app.post('/api/admin/totp/verify', adminSecurity.adminRateLimiter, (req: express.Request, res: express.Response) => {
+    try {
+        const token = req.headers['x-admin-token'] as string;
+        const { code } = req.body;
+
+        const session = adminSecurity.getSession(token);
+
+        if (!session) {
+            res.status(401).json({ error: 'Admin session required', code: 'SESSION_REQUIRED' });
+            return;
+        }
+
+        if (!code || typeof code !== 'string') {
+            res.status(400).json({ error: 'TOTP code required' });
+            return;
+        }
+
+        const isValid = adminSecurity.verifyTotpCode(session.email, code);
+
+        if (!isValid) {
+            adminSecurity.logActivity('TOTP_VERIFY_FAILED', 'Invalid TOTP code', req, session.email);
+            res.status(401).json({ error: 'Invalid TOTP code', code: 'TOTP_INVALID' });
+            return;
+        }
+
+        // Update session to mark TOTP as verified
+        session.totpVerified = true;
+
+        adminSecurity.logActivity('TOTP_VERIFY', 'TOTP verification successful', req, session.email);
+
+        res.json({
+            success: true,
+            message: 'TOTP verified successfully',
+            fullyAuthenticated: true
+        });
+    } catch (error) {
+        console.error('TOTP verify error:', error);
+        res.status(500).json({ error: 'TOTP verification failed' });
+    }
+});
+
+// POST /api/admin/activate - Activate admin session with JWE token (localhost only)
+app.post('/api/admin/activate', (req: express.Request, res: express.Response) => {
+    try {
+        // Only allow JWE activation from localhost/development
+        if (!isLocalRequest(req) && process.env.NODE_ENV !== 'development') {
+            res.status(403).json({
+                error: 'JWE activation only available on localhost. Use Google OAuth for production.',
+                code: 'LOCALHOST_ONLY'
+            });
+            return;
+        }
+
+        const { token, googleId } = req.body;
+
+        if (!token || !googleId) {
+            res.status(400).json({ error: 'Missing token or googleId' });
+            return;
+        }
+
+        // Verify JWE token
+        const result = adminSecurity.verifyJWE(token);
+        if (!result.valid) {
+            res.status(401).json({ error: 'Invalid or expired JWE token' });
+            return;
+        }
+
+        // Verify googleId matches token
+        if (result.payload?.sub !== googleId) {
+            res.status(401).json({ error: 'Google ID mismatch' });
+            return;
+        }
+
+        // Create admin session with TOTP pre-verified (localhost bypass)
+        const session = adminSecurity.createSession(
+            token,
+            googleId,
+            'localhost@local', // Placeholder for JWE sessions
+            req,
+            true // TOTP pre-verified for localhost
+        );
+
+        adminSecurity.logActivity('ACTIVATE_SESSION', `Admin session activated via JWE, expires ${new Date(session.expiresAt).toISOString()}`, req, googleId);
+
+        res.json({
+            success: true,
+            message: 'Admin session activated',
+            expiresAt: new Date(session.expiresAt).toISOString(),
+            token: token
+        });
+    } catch (error) {
+        res.status(500).json({ error: 'Failed to activate admin session' });
+    }
+});
+
+// POST /api/admin/revoke - Revoke admin session
+app.post('/api/admin/revoke', (req: express.Request, res: express.Response) => {
+    const token = req.headers['x-admin-token'] as string || req.body.token;
+
+    if (token) {
+        const session = adminSecurity.getSession(token);
+        if (session) {
+            adminSecurity.deleteSession(token);
+            adminSecurity.logActivity('REVOKE_SESSION', 'Admin session revoked', req, session.email);
+            res.json({ success: true, message: 'Admin session revoked' });
+            return;
+        }
+    }
+
+    res.json({ success: true, message: 'No active session to revoke' });
+});
+
+// GET /api/admin/status - Check admin session status
+app.get('/api/admin/status', (req: express.Request, res: express.Response) => {
+    const token = req.headers['x-admin-token'] as string;
+
+    if (!token) {
+        res.json({ active: false, message: 'No admin token provided' });
+        return;
+    }
+
+    const session = adminSecurity.getSession(token);
+
+    if (!session) {
+        res.json({ active: false, message: 'Session not found or expired' });
+        return;
+    }
+
+    const isLocal = isLocalRequest(req);
+    const fullyAuthenticated = isLocal || session.totpVerified;
+
+    res.json({
+        active: true,
+        fullyAuthenticated,
+        totpRequired: !isLocal && !session.totpVerified,
+        email: session.email,
+        expiresAt: new Date(session.expiresAt).toISOString(),
+        remainingMs: session.expiresAt - Date.now()
+    });
+});
+
+// =============================================
+// PROTECTED ADMIN ENDPOINTS
+// =============================================
+
+// Middleware for protected admin routes
+const validateAdmin = (req: express.Request, res: express.Response, next: express.NextFunction) => {
+    const token = req.headers['x-admin-token'] as string;
+
+    if (!token) {
+        res.status(401).json({ error: 'Admin session required', code: 'SESSION_REQUIRED' });
+        return;
+    }
+
+    const session = adminSecurity.getSession(token);
+
+    if (!session) {
+        res.status(401).json({ error: 'Invalid or expired session', code: 'SESSION_INVALID' });
+        return;
+    }
+
+    // For production, require TOTP verification
+    if (!isLocalRequest(req) && !session.totpVerified) {
+        res.status(401).json({ error: 'TOTP verification required', code: 'TOTP_REQUIRED' });
+        return;
+    }
+
+    (req as any).adminSession = session;
+    next();
+};
+
+// GET /api/admin/logs - Get admin activity logs
+app.get('/api/admin/logs', adminSecurity.adminRateLimiter, validateAdmin, (req: express.Request, res: express.Response) => {
+    const limit = Math.min(parseInt(req.query.limit as string) || 50, 100);
+    const session = (req as any).adminSession;
+    adminSecurity.logActivity('VIEW_LOGS', `Retrieved ${limit} logs`, req, session?.email);
+    const logs = adminSecurity.getActivityLogs(limit);
+    res.json(logs);
+});
+
+// Data file paths for admin
+const adminDataDir = path.join(process.cwd(), 'api', 'data');
+const STUDY_PLANS_FILE = path.join(adminDataDir, 'study-plans.json');
+
+// GET /api/admin/stats - Site statistics
+app.get('/api/admin/stats', adminSecurity.adminRateLimiter, validateAdmin, (req: express.Request, res: express.Response) => {
+    try {
+        const studyPlans = JSON.parse(fs.readFileSync(STUDY_PLANS_FILE, 'utf-8'));
+        const problems = JSON.parse(fs.readFileSync(path.join(adminDataDir, 'problems.json'), 'utf-8'));
+        const solutions = JSON.parse(fs.readFileSync(path.join(adminDataDir, 'solutions.json'), 'utf-8'));
+
+        const totalProblems = Object.values(problems).reduce((acc: number, cat: unknown) => acc + ((cat as { problems?: unknown[] }).problems?.length || 0), 0);
+        const totalSolutions = Object.keys(solutions).length;
+        const totalPlans = Object.keys(studyPlans.plans).length;
+
+        const session = (req as any).adminSession;
+        adminSecurity.logActivity('VIEW_STATS', 'Retrieved site statistics', req, session?.email);
+
+        res.json({
+            totalProblems,
+            totalSolutions,
+            totalPlans,
+            studyPlanStats: Object.entries(studyPlans.plans).map(([id, plan]: [string, unknown]) => ({
+                id,
+                name: (plan as { name: string }).name,
+                problemCount: ((plan as { problems: unknown[] }).problems?.length || 0)
+            }))
+        });
+    } catch (error) {
+        res.status(500).json({ error: 'Failed to get stats' });
+    }
+});
+
+// GET /api/admin/analytics - Full analytics data
+app.get('/api/admin/analytics', adminSecurity.adminRateLimiter, validateAdmin, async (req: express.Request, res: express.Response) => {
+    try {
+        const session = (req as any).adminSession;
+
+        // Get recommendation data
+        const hotProblems = recommendationStore.getHotProblems(10);
+        const hotTopics = recommendationStore.getHotTopics(5);
+        const recStats = recommendationStore.getStats();
+
+        // Get progress stats
+        const progressStats = progressStore.getStats();
+
+        // Get cache stats
+        const cacheStats = cacheService.getStats();
+
+        // Get recent activity logs
+        const logs = adminSecurity.getActivityLogs(20);
+
+        adminSecurity.logActivity('VIEW_ANALYTICS', 'Retrieved analytics data', req, session?.email);
+
+        res.json({
+            recommendations: {
+                hotProblems,
+                hotTopics,
+                stats: recStats
+            },
+            progress: progressStats,
+            cache: cacheStats,
+            recentActivity: logs.logs
+        });
+    } catch (error) {
+        res.status(500).json({ error: 'Failed to get analytics' });
+    }
+});
+
+// GET /api/admin/study-plans - List all study plans
+app.get('/api/admin/study-plans', adminSecurity.adminRateLimiter, validateAdmin, (req: express.Request, res: express.Response) => {
+    try {
+        const data = JSON.parse(fs.readFileSync(STUDY_PLANS_FILE, 'utf-8'));
+        const session = (req as any).adminSession;
+        adminSecurity.logActivity('VIEW_STUDY_PLANS', `Listed ${Object.keys(data.plans).length} study plans`, req, session?.email);
+        res.json(data);
+    } catch (error) {
+        res.status(500).json({ error: 'Failed to read study plans' });
+    }
+});
+
+// POST /api/admin/study-plans - Create study plan
+app.post('/api/admin/study-plans', adminSecurity.adminRateLimiter, validateAdmin, (req: express.Request, res: express.Response) => {
+    try {
+        const { id, name, icon, description, problems } = req.body;
+        if (!id || !name) {
+            res.status(400).json({ error: 'Missing required fields' });
+            return;
+        }
+
+        const data = JSON.parse(fs.readFileSync(STUDY_PLANS_FILE, 'utf-8'));
+        if (data.plans[id]) {
+            res.status(409).json({ error: 'Plan already exists' });
+            return;
+        }
+
+        data.plans[id] = { id, name, icon: icon || '📚', description: description || '', problems: problems || [] };
+        fs.writeFileSync(STUDY_PLANS_FILE, JSON.stringify(data, null, 2));
+
+        const session = (req as any).adminSession;
+        adminSecurity.logActivity('CREATE_STUDY_PLAN', `Created study plan '${name}' (${id}) with ${(problems || []).length} problems`, req, session?.email);
+        res.status(201).json({ success: true, plan: data.plans[id] });
+    } catch (error) {
+        res.status(500).json({ error: 'Failed to create study plan' });
+    }
+});
+
+// PUT /api/admin/study-plans/:id - Update study plan
+app.put('/api/admin/study-plans/:id', adminSecurity.adminRateLimiter, validateAdmin, (req: express.Request, res: express.Response) => {
+    try {
+        const { id } = req.params;
+        const updates = req.body;
+
+        const data = JSON.parse(fs.readFileSync(STUDY_PLANS_FILE, 'utf-8'));
+        if (!data.plans[id]) {
+            res.status(404).json({ error: 'Plan not found' });
+            return;
+        }
+
+        data.plans[id] = { ...data.plans[id], ...updates, id };
+        fs.writeFileSync(STUDY_PLANS_FILE, JSON.stringify(data, null, 2));
+
+        const session = (req as any).adminSession;
+        adminSecurity.logActivity('UPDATE_STUDY_PLAN', `Updated study plan '${id}'`, req, session?.email);
+        res.json({ success: true, plan: data.plans[id] });
+    } catch (error) {
+        res.status(500).json({ error: 'Failed to update study plan' });
+    }
+});
+
+// DELETE /api/admin/study-plans/:id - Delete study plan
+app.delete('/api/admin/study-plans/:id', adminSecurity.adminRateLimiter, validateAdmin, (req: express.Request, res: express.Response) => {
+    try {
+        const { id } = req.params;
+
+        const data = JSON.parse(fs.readFileSync(STUDY_PLANS_FILE, 'utf-8'));
+        if (!data.plans[id]) {
+            res.status(404).json({ error: 'Plan not found' });
+            return;
+        }
+
+        const planName = data.plans[id]?.name || id;
+        delete data.plans[id];
+        fs.writeFileSync(STUDY_PLANS_FILE, JSON.stringify(data, null, 2));
+
+        const session = (req as any).adminSession;
+        adminSecurity.logActivity('DELETE_STUDY_PLAN', `Deleted study plan '${planName}' (${id})`, req, session?.email);
+        res.json({ success: true });
+    } catch (error) {
+        res.status(500).json({ error: 'Failed to delete study plan' });
+    }
+});
+
 // Start for local dev
 const PORT = process.env.PORT || 3001;
 if (process.env.NODE_ENV !== 'production') {
