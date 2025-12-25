@@ -1,6 +1,7 @@
-import { defineConfig } from 'vite'
+import { defineConfig } from 'vitest/config'
 import react from '@vitejs/plugin-react'
 
+// https://vite.dev/config/
 // https://vite.dev/config/
 export default defineConfig({
   base: '/',
@@ -13,6 +14,22 @@ export default defineConfig({
         target: process.env.VITE_BACKEND_URL || 'http://127.0.0.1:3001',
         changeOrigin: true,
         secure: false,
+      }
+    }
+  },
+  test: {
+    globals: true,
+    environment: 'jsdom',
+    setupFiles: './src/setupTests.ts',
+    css: true,
+    coverage: {
+      provider: 'v8',
+      reporter: ['text', 'json', 'html'],
+      thresholds: {
+        lines: 65,
+        functions: 65,
+        branches: 65,
+        statements: 65
       }
     }
   }

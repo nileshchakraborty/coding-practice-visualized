@@ -26,13 +26,14 @@ export function useTutor(slug: string | null) {
 
         // Add user message
         const userMessage: ChatMessage = { role: 'user', content };
-        setMessages(prev => [...prev, userMessage]);
+        const newMessages = [...messages, userMessage];
+        setMessages(newMessages);
 
         try {
             setIsLoading(true);
             setError(null);
 
-            const response = await TutorAPI.chat(slug, content, messages);
+            const response = await TutorAPI.chat(slug, content, newMessages);
 
             if (response.error) {
                 setError(response.error);
