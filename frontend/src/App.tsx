@@ -41,19 +41,29 @@ function App() {
   // List filter: All, Blind 75, Top 150
   const [listFilter, setListFilter] = useState<ListFilter>('all');
 
-  // Compute stats from viewmodel
+  // Compute stats from viewmodel (respects list filter)
   const stats = useMemo(() => {
     if (!problems.stats) return null;
 
+    // Filter function based on list selection
+    const isInList = (slug: string) => {
+      if (listFilter === 'all') return true;
+      if (listFilter === 'blind75') return BLIND_75.includes(slug);
+      if (listFilter === 'top150') return TOP_150.includes(slug);
+      return true;
+    };
+
     let totalEasy = 0, totalMedium = 0, totalHard = 0;
     const categoriesWithStats = problems.stats.categories.map(cat => {
-      const easy = cat.problems.filter(p => p.difficulty === 'Easy').length;
-      const medium = cat.problems.filter(p => p.difficulty === 'Medium').length;
-      const hard = cat.problems.filter(p => p.difficulty === 'Hard').length;
+      // Filter problems by list first
+      const filteredProblems = cat.problems.filter(p => isInList(p.slug));
+      const easy = filteredProblems.filter(p => p.difficulty === 'Easy').length;
+      const medium = filteredProblems.filter(p => p.difficulty === 'Medium').length;
+      const hard = filteredProblems.filter(p => p.difficulty === 'Hard').length;
       totalEasy += easy;
       totalMedium += medium;
       totalHard += hard;
-      return { ...cat, count: cat.problems.length, easy, medium, hard };
+      return { ...cat, count: filteredProblems.length, easy, medium, hard };
     });
 
     return {
@@ -62,7 +72,7 @@ function App() {
       hard: totalHard,
       categories: categoriesWithStats
     };
-  }, [problems.stats]);
+  }, [problems.stats, listFilter]);
 
   // Initialize Search Engine (Trie)
   const allProblems = useMemo(() => {

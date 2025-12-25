@@ -5,7 +5,7 @@
  * These are the canonical LeetCode problems for interview prep.
  */
 
-// Blind 75 - Core interview problems
+// Blind 75 - Core interview problems (87 problems - extended version)
 export const BLIND_75: string[] = [
     // Arrays & Hashing (9)
     "two-sum",
@@ -125,9 +125,9 @@ export const BLIND_75: string[] = [
     "missing-number",
 ];
 
-// Top Interview 150 - Extended interview list
+// Top Interview 150+ - Extended interview list (no duplicates)
 export const TOP_150: string[] = [
-    // Array / String (30)
+    // Array / String
     "merge-sorted-array",
     "remove-element",
     "remove-duplicates-from-sorted-array",
@@ -136,6 +136,7 @@ export const TOP_150: string[] = [
     "rotate-array",
     "best-time-to-buy-and-sell-stock",
     "best-time-to-buy-and-sell-stock-ii",
+    "best-time-to-buy-and-sell-stock-iii",
     "jump-game",
     "jump-game-ii",
     "h-index",
@@ -151,6 +152,8 @@ export const TOP_150: string[] = [
     "zigzag-conversion",
     "find-the-index-of-the-first-occurrence-in-a-string",
     "text-justification",
+
+    // Two Pointers
     "valid-palindrome",
     "is-subsequence",
     "two-sum-ii-input-array-is-sorted",
@@ -158,44 +161,36 @@ export const TOP_150: string[] = [
     "3sum",
     "two-sum",
 
-    // Two Pointers (6)
-    "valid-palindrome",
-    "is-subsequence",
-    "two-sum-ii-input-array-is-sorted",
-    "container-with-most-water",
-    "3sum",
-
-    // Sliding Window (4)
+    // Sliding Window
     "minimum-size-subarray-sum",
     "longest-substring-without-repeating-characters",
     "substring-with-concatenation-of-all-words",
     "minimum-window-substring",
 
-    // Matrix (5)
+    // Matrix
     "valid-sudoku",
     "spiral-matrix",
     "rotate-image",
     "set-matrix-zeroes",
     "game-of-life",
 
-    // Hashmap (8)
+    // Hashmap
     "ransom-note",
     "isomorphic-strings",
     "word-pattern",
     "valid-anagram",
     "group-anagrams",
-    "two-sum",
     "happy-number",
     "contains-duplicate-ii",
     "longest-consecutive-sequence",
 
-    // Intervals (5)
+    // Intervals
     "summary-ranges",
     "merge-intervals",
     "insert-interval",
     "minimum-number-of-arrows-to-burst-balloons",
 
-    // Stack (8)
+    // Stack
     "valid-parentheses",
     "simplify-path",
     "min-stack",
@@ -204,11 +199,12 @@ export const TOP_150: string[] = [
     "daily-temperatures",
     "largest-rectangle-in-histogram",
 
-    // Linked List (11)
+    // Linked List
     "linked-list-cycle",
     "add-two-numbers",
     "merge-two-sorted-lists",
     "copy-list-with-random-pointer",
+    "reverse-linked-list",
     "reverse-linked-list-ii",
     "reverse-nodes-in-k-group",
     "remove-nth-node-from-end-of-list",
@@ -217,7 +213,7 @@ export const TOP_150: string[] = [
     "partition-list",
     "lru-cache",
 
-    // Binary Tree General (14)
+    // Binary Tree General
     "maximum-depth-of-binary-tree",
     "same-tree",
     "invert-binary-tree",
@@ -233,18 +229,18 @@ export const TOP_150: string[] = [
     "lowest-common-ancestor-of-a-binary-tree",
     "binary-search-tree-iterator",
 
-    // Binary Tree BFS (4)
+    // Binary Tree BFS
     "binary-tree-right-side-view",
     "average-of-levels-in-binary-tree",
     "binary-tree-level-order-traversal",
     "binary-tree-zigzag-level-order-traversal",
 
-    // Binary Search Tree (4)
+    // Binary Search Tree
     "minimum-absolute-difference-in-bst",
     "kth-smallest-element-in-a-bst",
     "validate-binary-search-tree",
 
-    // Graph General (8)
+    // Graph General
     "number-of-islands",
     "surrounded-regions",
     "clone-graph",
@@ -252,17 +248,17 @@ export const TOP_150: string[] = [
     "course-schedule",
     "course-schedule-ii",
 
-    // Graph BFS (3)
+    // Graph BFS
     "snakes-and-ladders",
     "minimum-genetic-mutation",
     "word-ladder",
 
-    // Trie (3)
+    // Trie
     "implement-trie-prefix-tree",
     "design-add-and-search-words-data-structure",
     "word-search-ii",
 
-    // Backtracking (7)
+    // Backtracking
     "letter-combinations-of-a-phone-number",
     "combinations",
     "permutations",
@@ -271,13 +267,13 @@ export const TOP_150: string[] = [
     "generate-parentheses",
     "word-search",
 
-    // Divide & Conquer (4)
+    // Divide & Conquer
     "convert-sorted-array-to-binary-search-tree",
     "sort-list",
     "construct-quad-tree",
     "merge-k-sorted-lists",
 
-    // Binary Search (8)
+    // Binary Search
     "search-insert-position",
     "search-a-2d-matrix",
     "find-peak-element",
@@ -286,13 +282,15 @@ export const TOP_150: string[] = [
     "find-minimum-in-rotated-sorted-array",
     "median-of-two-sorted-arrays",
 
-    // Heap / Priority Queue (6)
+    // Heap / Priority Queue
     "kth-largest-element-in-an-array",
     "ipo",
     "find-k-pairs-with-smallest-sums",
     "find-median-from-data-stream",
+    "task-scheduler",
+    "design-twitter",
 
-    // Bit Manipulation (5)
+    // Bit Manipulation
     "add-binary",
     "reverse-bits",
     "number-of-1-bits",
@@ -300,7 +298,7 @@ export const TOP_150: string[] = [
     "single-number-ii",
     "bitwise-and-of-numbers-range",
 
-    // Math (8)
+    // Math
     "palindrome-number",
     "plus-one",
     "factorial-trailing-zeroes",
@@ -308,14 +306,14 @@ export const TOP_150: string[] = [
     "powx-n",
     "max-points-on-a-line",
 
-    // 1D DP (10)
+    // 1D DP
     "climbing-stairs",
     "house-robber",
     "word-break",
     "coin-change",
     "longest-increasing-subsequence",
 
-    // Multidimensional DP (6)
+    // Multidimensional DP
     "triangle",
     "minimum-path-sum",
     "unique-paths-ii",
@@ -323,6 +321,7 @@ export const TOP_150: string[] = [
     "edit-distance",
     "interleaving-string",
     "maximal-square",
+    "distinct-subsequences",
 ];
 
 export type ListFilter = 'all' | 'blind75' | 'top150';
