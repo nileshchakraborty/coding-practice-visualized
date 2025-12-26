@@ -16,4 +16,5 @@ export const config = {
     // Data paths
     problemsPath: process.env.PROBLEMS_PATH || '../data/problems.json',
     solutionsPath: process.env.SOLUTIONS_PATH || '../data/solutions.json',
+    statsPath: process.env.STATS_PATH || '../data/stats.json',
 };

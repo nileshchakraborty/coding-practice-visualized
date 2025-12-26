@@ -1,9 +1,11 @@
+/* eslint-disable max-lines, max-lines-per-function */
 import React, { useState, useRef, useEffect } from 'react';
-import type { Solution, TestCaseResult } from '../types';
+import type { Solution } from '../types';
 import { PlaygroundAPI } from '../models/api';
 import SmartVisualizer from './SmartVisualizer';
 import TutorChat from './TutorChat';
 import { AuthUnlockModal } from './AuthUnlockModal';
+import { SignInGate } from './SignInGate';
 import {
     X,
     Play,
@@ -34,6 +36,8 @@ import type { editor } from 'monaco-editor';
 import Editor from '@monaco-editor/react';
 import { useAuth } from '../hooks/useAuth';
 import { useProgress } from '../hooks/useProgress';
+import { useActivityTracking } from '../hooks/useActivityTracking';
+import { YouTubePlayer } from './YouTubePlayer';
 import { useEditorSettings } from '../hooks/useEditorSettings';
 import { EditorSettingsModal } from './EditorSettingsModal';
 import { initVimMode, type VimMode } from 'monaco-vim';
@@ -42,6 +46,7 @@ import { useTheme } from '../context/useTheme';
 import { ConstraintValidator } from '../utils/ConstraintValidator';
 import { browserJSRunner } from '../utils/BrowserJSRunner';
 import { ComplexityAnalyzer, type ComplexityResult } from '../utils/ComplexityAnalyzer';
+import { registerCompleters } from '../utils/monacoCompleters';
 
 interface SolutionModalProps {
     isOpen: boolean;
@@ -51,18 +56,34 @@ interface SolutionModalProps {
     problemStatus?: 'solved' | 'in-progress' | null;
 }
 
+const TABS = {
+    PROBLEM: 'problem',
+    EXPLANATION: 'explanation',
+    PLAYGROUND: 'playground',
+    TUTOR: 'tutor'
+} as const;
+
+type TabType = typeof TABS[keyof typeof TABS];
+
+const TAB_STYLES = {
+    ACTIVE: 'bg-indigo-600 text-white shadow-lg shadow-indigo-500/25',
+    INACTIVE: 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-200 dark:hover:bg-white/5'
+} as const;
+
+/* eslint-disable complexity */
 const SolutionModal: React.FC<SolutionModalProps> = ({ isOpen, onClose, solution, slug, problemStatus }) => {
-    const [activeTab, setActiveTab] = useState<'problem' | 'explanation' | 'playground' | 'tutor'>('problem');
+    const { isAuthenticated, login } = useAuth();
+    const { isSolved, markSolved, saveDraft, getDraft, clearDraft, sync } = useProgress();
+    const { settings, updateSetting } = useEditorSettings();
+    const { logEvent } = useActivityTracking();
+    const { theme: appTheme } = useTheme();
+
+    const [activeTab, setActiveTab] = useState<TabType>(TABS.PROBLEM);
     const [activeApproach, setActiveApproach] = useState<'bruteforce' | 'optimal'>('optimal');
     const [language, setLanguage] = useState<'python' | 'javascript' | 'typescript' | 'java' | 'go' | 'rust' | 'cpp'>('python');
     const [code, setCode] = useState(solution?.code || '');
 
-    // Auth state for feature gating
-    const { isAuthenticated, login } = useAuth();
-    const { theme: appTheme } = useTheme();
-
-    // Progress tracking
-    const { markSolved, saveDraft, getDraft, clearDraft, isSolved, sync } = useProgress();
+    // Track if problem is solved locally for immediate UI update
     const [isProblemSolved, setIsProblemSolved] = useState(false);
 
     // Complexity Analysis
@@ -110,6 +131,9 @@ const SolutionModal: React.FC<SolutionModalProps> = ({ isOpen, onClose, solution
     // Test results for each case (after running) - will be used when integrating run results
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const [testResults, _setTestResults] = useState<{ passed: boolean; actualOutput: string }[]>([]);
+
+    // Run custom only toggle
+    const [runOnlyCustom, setRunOnlyCustom] = useState(false);
 
     // Tutor Chat State (persisted across tab switches)
     const [tutorMessages, setTutorMessages] = useState<{ role: 'user' | 'assistant'; content: string }[]>([]);
@@ -249,21 +273,38 @@ const SolutionModal: React.FC<SolutionModalProps> = ({ isOpen, onClose, solution
     React.useEffect(() => {
         setActiveTab('problem');
         setSpeakingSection(null);
-        window.speechSynthesis.cancel();
+        window.speechSynthesis?.cancel();
     }, [slug]);
 
     // Reset scroll position when tab changes
     useEffect(() => {
+        // Log tab view
+        if (isOpen && slug) {
+            logEvent('view_tab', { slug, tab: activeTab });
+            if (activeTab === 'explanation') {
+                logEvent('view_solution', { slug });
+            }
+        }
+
         // Use requestAnimationFrame to ensure DOM is updated before scrolling
         requestAnimationFrame(() => {
             if (contentRef.current) {
                 contentRef.current.scrollTop = 0;
             }
         });
-    }, [activeTab]);
+    }, [activeTab, isOpen, slug, logEvent]);
 
+    // eslint-disable-next-line sonarjs/cognitive-complexity
     const handleRunCode = async () => {
         if (!slug) return;
+
+        // Log practice event
+        logEvent('practice_run', {
+            slug,
+            language,
+            isCustom: !!(customTestCase && customTestCase.input && runOnlyCustom)
+        });
+
         setIsRunning(true);
         setOutput('Running code...');
         setDebugLogs(''); // Clear previous debug logs
@@ -297,11 +338,15 @@ const SolutionModal: React.FC<SolutionModalProps> = ({ isOpen, onClose, solution
 
             if (hasCustomCase) {
                 // Custom test case - mark with empty output so reference solution computes it
+                if (runOnlyCustom) {
+                    allTestCases.length = 0; // Clear built-in cases if running only custom
+                }
                 allTestCases.push({ input: customTestCase.input, output: '' });
             }
 
             // Get reference code and constraints for custom test cases
-            const referenceCode = hasCustomCase ? (solution?.implementations?.[language]?.code || solution?.code || '') : undefined;
+            // Fix: Only use solution.code as fallback if it's the right language (Python)
+            const referenceCode = hasCustomCase ? (solution?.implementations?.[language]?.code || (language === 'python' ? solution?.code : '') || '') : undefined;
             const constraints = solution?.constraints || [];
 
             // Check if we can execute client-side (JavaScript/TypeScript)
@@ -324,17 +369,13 @@ const SolutionModal: React.FC<SolutionModalProps> = ({ isOpen, onClose, solution
 
             // Handle results uniformly for both client-side and server-side execution
             if (res.success) {
-                if (res.logs) {
-                    setDebugLogs(res.logs);
-                } else {
-                    setDebugLogs('No output recorded.');
-                }
+                setDebugLogs(res.logs || 'No output recorded.');
 
                 if (res.results) {
-                    const allPassed = res.results.every((r: TestCaseResult) => r.passed);
+                    const allPassed = res.results.every((r) => r.passed);
 
                     // Store structured results for beautiful UI rendering
-                    const structuredResults = res.results.map((r: TestCaseResult) => ({
+                    const structuredResults = res.results.map((r) => ({
                         passed: r.passed,
                         input: r.input || '',
                         expected: r.expected || '',
@@ -345,26 +386,20 @@ const SolutionModal: React.FC<SolutionModalProps> = ({ isOpen, onClose, solution
                     setAllTestsPassed(allPassed);
 
                     if (allPassed) {
-                        // Mark as solved if all tests passed
                         if (slug) {
                             markSolved(slug, code);
                             setIsProblemSolved(true);
-                            // Sync progress with server after successful submission
                             sync();
                         }
+                        setOutput('');
+                        setActiveBottomTab('result');
+                    } else {
+                        setOutput('Some test cases failed. Check logs for details.');
+                        setActiveBottomTab('logs');
                     }
-
-                    setOutput('');
-                    setActiveBottomTab('result');
-                } else {
-                    setOutput('Code executed successfully. Check Debug Log for any print output.');
-                    if (res.logs) {
-                        setDebugLogs(res.logs);
-                    }
-                    setActiveBottomTab('logs');
                 }
             } else {
-                // Execution failed
+                // Execution failed or crash
                 setOutput(`Execution Failed:\n${res.error || 'Unknown error'}`);
                 setDebugLogs(res.logs || res.error || 'Execution failed');
                 setActiveBottomTab('logs');
@@ -372,7 +407,7 @@ const SolutionModal: React.FC<SolutionModalProps> = ({ isOpen, onClose, solution
         } catch (err: unknown) {
             const errorMessage = err instanceof Error ? err.message : String(err);
             setOutput(`Error: ${errorMessage}`);
-            setDebugLogs(`Error: ${errorMessage}`);
+            setDebugLogs(`Error: ${errorMessage}\n\nPlease check your code or try again.`);
             setActiveBottomTab('logs');
         } finally {
             setIsRunning(false);
@@ -393,7 +428,6 @@ const SolutionModal: React.FC<SolutionModalProps> = ({ isOpen, onClose, solution
     const [speakingSection, setSpeakingSection] = useState<string | null>(null);
 
     // Editor Settings
-    const { settings, updateSetting } = useEditorSettings();
     const [showSettingsModal, setShowSettingsModal] = useState(false);
     const editorRef = useRef<editor.IStandaloneCodeEditor | null>(null);
     const vimModeRef = useRef<VimMode | null>(null);
@@ -459,12 +493,22 @@ const SolutionModal: React.FC<SolutionModalProps> = ({ isOpen, onClose, solution
         setShowResetConfirm(false);
     };
 
-    const handleEditorMount = (editor: editor.IStandaloneCodeEditor) => {
+    const handleEditorMount = (editor: editor.IStandaloneCodeEditor, monaco: typeof import('monaco-editor')) => {
         editorRef.current = editor;
+
+        // Register custom autocomplete providers
+        const disposables = registerCompleters(monaco);
+
+        // Cleanup when component unmounts
+        // Note: In strict mode, mount might happen twice, but Monaco handles provider registration reasonably well.
+        // Ideally we store disposables ref to clear them, but Monaco's lifetime here is bound to app session mostly.
+        return () => {
+            disposables.forEach(d => d.dispose());
+        };
     };
     React.useEffect(() => {
         return () => {
-            window.speechSynthesis.cancel();
+            window.speechSynthesis?.cancel();
             setSpeakingSection(null);
         };
     }, [activeTab, isOpen]);
@@ -473,12 +517,12 @@ const SolutionModal: React.FC<SolutionModalProps> = ({ isOpen, onClose, solution
         if (!solution || !text) return;
 
         if (speakingSection === section) {
-            window.speechSynthesis.cancel();
+            window.speechSynthesis?.cancel();
             setSpeakingSection(null);
             return;
         }
 
-        window.speechSynthesis.cancel();
+        window.speechSynthesis?.cancel();
         const utterance = new SpeechSynthesisUtterance(text);
         utterance.rate = 1.0;
         utterance.pitch = 1.0;
@@ -487,7 +531,7 @@ const SolutionModal: React.FC<SolutionModalProps> = ({ isOpen, onClose, solution
         utterance.onend = () => setSpeakingSection(null);
         utterance.onerror = () => setSpeakingSection(null);
 
-        window.speechSynthesis.speak(utterance);
+        window.speechSynthesis?.speak(utterance);
         setSpeakingSection(section);
     };
 
@@ -701,15 +745,7 @@ const SolutionModal: React.FC<SolutionModalProps> = ({ isOpen, onClose, solution
                             <Youtube size={16} /> Video Explanation
                         </h3>
                         <div className="aspect-video rounded-xl overflow-hidden border border-slate-200 dark:border-slate-700">
-                            <iframe
-                                width="100%"
-                                height="100%"
-                                src={`https://www.youtube.com/embed/${solution.videoId}`}
-                                title="Solution Video"
-                                frameBorder="0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                allowFullScreen
-                            ></iframe>
+                            <YouTubePlayer videoId={solution.videoId} />
                         </div>
                     </div>
                 )}
@@ -1152,6 +1188,7 @@ const SolutionModal: React.FC<SolutionModalProps> = ({ isOpen, onClose, solution
     );
 
     // Render Playground Tab (Code Editor + Test Runner)
+    // eslint-disable-next-line sonarjs/cognitive-complexity
     const renderPlaygroundTab = () => (
         <ResizablePanelGroup direction="vertical" className="h-full min-h-[400px]">
             {/* Code Editor */}
@@ -1182,12 +1219,12 @@ const SolutionModal: React.FC<SolutionModalProps> = ({ isOpen, onClose, solution
                         <span>{language === 'python' ? 'main.py' : language === 'javascript' ? 'main.js' : language === 'typescript' ? 'main.ts' : language === 'java' ? 'Solution.java' : language === 'go' ? 'main.go' : language === 'rust' ? 'solution.rs' : 'solution.cpp'}</span>
 
                         {complexity && (
-                            <div className="hidden xl:flex items-center gap-4 text-xs text-slate-500 dark:text-slate-500 ml-4 pl-4 border-l border-slate-200 dark:border-[#444]">
-                                <div className="flex items-center gap-1.5" title={complexity.explanation.join('\n')}>
+                            <div className="flex items-center gap-2 sm:gap-4 text-xs text-slate-500 dark:text-slate-500 ml-2 sm:ml-4 pl-2 sm:pl-4 border-l border-slate-200 dark:border-[#444] overflow-hidden">
+                                <div className="flex items-center gap-1.5 shrink-0" title={complexity.explanation.join('\n')}>
                                     <Clock size={12} className="text-blue-500 dark:text-blue-400" />
                                     <span className="font-mono">{complexity.time}</span>
                                 </div>
-                                <div className="flex items-center gap-1.5" title="Estimated Space Complexity">
+                                <div className="hidden xs:flex items-center gap-1.5 shrink-0" title="Estimated Space Complexity">
                                     <Database size={12} className="text-purple-500 dark:text-purple-400" />
                                     <span className="font-mono">{complexity.space}</span>
                                 </div>
@@ -1290,16 +1327,29 @@ const SolutionModal: React.FC<SolutionModalProps> = ({ isOpen, onClose, solution
                         <span className="text-[10px] uppercase font-bold text-slate-600 dark:text-slate-600 hidden sm:inline tracking-wider">
                             {solution.testCases?.length || 0} Test Cases
                         </span>
-                        <button
-                            onClick={isAuthenticated ? handleRunCode : () => openAuthModal('Code Execution')}
-                            disabled={isAuthenticated && isRunning}
-                            className={`px-3 py-1 text-xs font-bold uppercase tracking-wide rounded transition-all flex items-center gap-2 ${isAuthenticated && isRunning
-                                ? 'bg-slate-200 dark:bg-slate-700 text-slate-500 dark:text-slate-400 cursor-not-allowed'
-                                : 'bg-green-600 hover:bg-green-500 text-white shadow-lg shadow-green-900/20'}`}
-                        >
-                            {isAuthenticated && isRunning ? <Loader2 size={12} className="animate-spin" /> : <Play size={10} fill="currentColor" />}
-                            {isAuthenticated && isRunning ? 'Running...' : 'Run Code'}
-                        </button>
+                        <div className="flex items-center gap-4">
+                            {customTestCase && customTestCase.input && (
+                                <label className="flex items-center gap-2 cursor-pointer group">
+                                    <input
+                                        type="checkbox"
+                                        checked={runOnlyCustom}
+                                        onChange={(e) => setRunOnlyCustom(e.target.checked)}
+                                        className="w-3.5 h-3.5 rounded border-slate-300 dark:border-slate-600 text-indigo-600 focus:ring-indigo-500 dark:bg-slate-800"
+                                    />
+                                    <span className="text-[10px] font-bold uppercase tracking-wider text-slate-500 group-hover:text-indigo-500 transition-colors hidden xs:inline">Run Custom Only</span>
+                                </label>
+                            )}
+                            <button
+                                onClick={isAuthenticated ? handleRunCode : () => openAuthModal('Code Execution')}
+                                disabled={isAuthenticated && isRunning}
+                                className={`px-3 py-1 text-xs font-bold uppercase tracking-wide rounded transition-all flex items-center gap-2 ${isAuthenticated && isRunning
+                                    ? 'bg-slate-200 dark:bg-slate-700 text-slate-500 dark:text-slate-400 cursor-not-allowed'
+                                    : 'bg-green-600 hover:bg-green-500 text-white shadow-lg shadow-green-900/20'}`}
+                            >
+                                {isAuthenticated && isRunning ? <Loader2 size={12} className="animate-spin" /> : <Play size={10} fill="currentColor" />}
+                                {isAuthenticated && isRunning ? 'Running...' : 'Run Code'}
+                            </button>
+                        </div>
                     </div>
                 </div>
 
@@ -1342,6 +1392,8 @@ const SolutionModal: React.FC<SolutionModalProps> = ({ isOpen, onClose, solution
                                     >
                                         <Plus size={12} /> Custom Case
                                     </button>
+
+                                    {/* runOnlyCustom toggle removed from here */}
                                 </div>
 
                                 {/* Case Content */}
@@ -1582,20 +1634,20 @@ const SolutionModal: React.FC<SolutionModalProps> = ({ isOpen, onClose, solution
                                     {/* Tabs */}
                                     <div className="flex items-center gap-2 px-4 py-2 border-b border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900">
                                         <button
-                                            onClick={() => setActiveTab('problem')}
-                                            className={`flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-sm font-medium transition-all ${activeTab === 'problem' ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-500/25' : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-200 dark:hover:bg-white/5'}`}
+                                            onClick={() => setActiveTab(TABS.PROBLEM)}
+                                            className={`flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-sm font-medium transition-all ${activeTab === TABS.PROBLEM ? TAB_STYLES.ACTIVE : TAB_STYLES.INACTIVE}`}
                                         >
                                             <FileText size={16} /> Problem
                                         </button>
                                         <button
-                                            onClick={() => setActiveTab('explanation')}
-                                            className={`flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-sm font-medium transition-all ${activeTab === 'explanation' ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-500/25' : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-200 dark:hover:bg-white/5'}`}
+                                            onClick={() => setActiveTab(TABS.EXPLANATION)}
+                                            className={`flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-sm font-medium transition-all ${activeTab === TABS.EXPLANATION ? TAB_STYLES.ACTIVE : TAB_STYLES.INACTIVE}`}
                                         >
                                             <BookOpen size={16} /> Explain
                                         </button>
                                         <button
-                                            onClick={() => setActiveTab('tutor')}
-                                            className={`flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-sm font-medium transition-all ${activeTab === 'tutor' ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-500/25' : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-200 dark:hover:bg-white/5'}`}
+                                            onClick={() => setActiveTab(TABS.TUTOR)}
+                                            className={`flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-sm font-medium transition-all ${activeTab === TABS.TUTOR ? TAB_STYLES.ACTIVE : TAB_STYLES.INACTIVE}`}
                                         >
                                             <MessageCircle size={16} /> Tutor
                                         </button>
@@ -1603,9 +1655,13 @@ const SolutionModal: React.FC<SolutionModalProps> = ({ isOpen, onClose, solution
 
                                     {/* Tab Content */}
                                     <div ref={contentRef} className="flex-1 overflow-y-auto p-4 sm:p-6 custom-scrollbar bg-slate-50 dark:bg-slate-800/50">
-                                        {activeTab === 'problem' && renderProblemTab()}
-                                        {activeTab === 'explanation' && renderExplanationTab()}
-                                        {activeTab === 'tutor' && renderTutorTab()}
+                                        {activeTab === TABS.PROBLEM && renderProblemTab()}
+                                        {activeTab === TABS.EXPLANATION && (
+                                            <SignInGate feature="solutions" description="Sign in to view detailed explanations, code solutions, and video walkthroughs.">
+                                                {renderExplanationTab()}
+                                            </SignInGate>
+                                        )}
+                                        {activeTab === TABS.TUTOR && renderTutorTab()}
                                     </div>
                                 </div>
                             </ResizablePanel>
@@ -1625,37 +1681,41 @@ const SolutionModal: React.FC<SolutionModalProps> = ({ isOpen, onClose, solution
                             {/* Tabs */}
                             <div className="flex items-center gap-2 px-4 py-2 border-b border-slate-200 dark:border-slate-700 bg-slate-100 dark:bg-slate-800">
                                 <button
-                                    onClick={() => setActiveTab('problem')}
-                                    className={`flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-sm font-medium transition-all ${activeTab === 'problem' ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-500/25' : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-200 dark:hover:bg-white/5'}`}
+                                    onClick={() => setActiveTab(TABS.PROBLEM)}
+                                    className={`flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-sm font-medium transition-all ${activeTab === TABS.PROBLEM ? TAB_STYLES.ACTIVE : TAB_STYLES.INACTIVE}`}
                                 >
-                                    <FileText size={16} />
+                                    <FileText size={16} /> Problem
                                 </button>
                                 <button
-                                    onClick={() => setActiveTab('explanation')}
-                                    className={`flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-sm font-medium transition-all ${activeTab === 'explanation' ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-500/25' : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-200 dark:hover:bg-white/5'}`}
+                                    onClick={() => setActiveTab(TABS.EXPLANATION)}
+                                    className={`flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-sm font-medium transition-all ${activeTab === TABS.EXPLANATION ? TAB_STYLES.ACTIVE : TAB_STYLES.INACTIVE}`}
                                 >
-                                    <BookOpen size={16} />
+                                    <BookOpen size={16} /> Explain
                                 </button>
                                 <button
-                                    onClick={() => setActiveTab('playground')}
-                                    className={`flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-sm font-medium transition-all ${activeTab === 'playground' ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-500/25' : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-200 dark:hover:bg-white/5'}`}
+                                    onClick={() => setActiveTab(TABS.PLAYGROUND)}
+                                    className={`flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-sm font-medium transition-all ${activeTab === TABS.PLAYGROUND ? TAB_STYLES.ACTIVE : TAB_STYLES.INACTIVE}`}
                                 >
-                                    <Terminal size={16} />
+                                    <Terminal size={16} /> Code
                                 </button>
                                 <button
-                                    onClick={() => setActiveTab('tutor')}
-                                    className={`flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-sm font-medium transition-all ${activeTab === 'tutor' ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-500/25' : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-200 dark:hover:bg-white/5'}`}
+                                    onClick={() => setActiveTab(TABS.TUTOR)}
+                                    className={`flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-sm font-medium transition-all ${activeTab === TABS.TUTOR ? TAB_STYLES.ACTIVE : TAB_STYLES.INACTIVE}`}
                                 >
-                                    <MessageCircle size={16} />
+                                    <MessageCircle size={16} /> Tutor
                                 </button>
                             </div>
 
                             {/* Tab Content */}
                             <div ref={contentRef} className="flex-1 overflow-y-auto p-4 custom-scrollbar">
-                                {activeTab === 'problem' && renderProblemTab()}
-                                {activeTab === 'explanation' && renderExplanationTab()}
-                                {activeTab === 'tutor' && renderTutorTab()}
-                                {activeTab === 'playground' && renderPlaygroundTab()}
+                                {activeTab === TABS.PROBLEM && renderProblemTab()}
+                                {activeTab === TABS.EXPLANATION && (
+                                    <SignInGate feature="solutions" description="Sign in to view detailed explanations, code solutions, and video walkthroughs.">
+                                        {renderExplanationTab()}
+                                    </SignInGate>
+                                )}
+                                {activeTab === TABS.TUTOR && renderTutorTab()}
+                                {activeTab === TABS.PLAYGROUND && renderPlaygroundTab()}
                             </div>
                         </div>
                     )}

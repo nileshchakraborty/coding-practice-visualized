@@ -423,4 +423,118 @@ describe('SmartVisualizer', () => {
         });
         expect(screen.getByText(/Check 2/i)).toBeInTheDocument();
     });
+
+    it('ignores keyboard shortcuts when focus is in Monaco editor', async () => {
+        render(<SmartVisualizer solution={mockSolution as unknown as Solution} />);
+
+        // Create a mock Monaco editor element
+        const monacoEditor = document.createElement('div');
+        monacoEditor.className = 'monaco-editor';
+        document.body.appendChild(monacoEditor);
+
+        // Create a mock textarea inside it
+        const textarea = document.createElement('textarea');
+        textarea.className = 'inputarea';
+        monacoEditor.appendChild(textarea);
+
+        // Focus it
+        textarea.focus();
+        expect(document.activeElement).toBe(textarea);
+
+        // ArrowRight -> Should NOT advance
+        fireEvent.keyDown(textarea, { code: 'ArrowRight' });
+        await act(async () => { });
+        expect(screen.queryByText(/Check 2/i)).not.toBeInTheDocument();
+
+        // Move to step 1 WITHOUT focus
+        textarea.blur();
+        document.body.focus();
+        fireEvent.keyDown(window, { code: 'ArrowRight' });
+        await act(async () => { });
+        expect(screen.getByText(/Check 2/i)).toBeInTheDocument();
+
+        // Now focus and try to reset with 'KeyR'
+        textarea.focus();
+        fireEvent.keyDown(textarea, { code: 'KeyR' });
+        await act(async () => { });
+        // Should STILL be at step 1
+        expect(screen.getByText(/Check 2/i)).toBeInTheDocument();
+
+        // Cleanup
+        document.body.removeChild(monacoEditor);
+    });
+
+    it('renders pointers and messages correctly', async () => {
+        const solutionWithExtras = {
+            ...mockSolution,
+            steps: [
+                {
+                    arrayState: [2, 7, 11, 15],
+                    indices: [0],
+                    pointers: [{ label: 'i', index: 0 }],
+                    transientMessage: 'Looking for partner',
+                    description: 'Step 1'
+                }
+            ]
+        };
+        render(<SmartVisualizer solution={solutionWithExtras as unknown as Solution} />);
+
+        // Move to step 1
+        const nextBtn = screen.getAllByRole('button')[3];
+        fireEvent.click(nextBtn);
+        await act(async () => { });
+
+        expect(screen.getByText('Looking for partner')).toBeInTheDocument();
+        const pointers = screen.getAllByText('i');
+        expect(pointers.length).toBeGreaterThan(0);
+        expect(pointers.some(el => el.classList.contains('bg-indigo-500'))).toBe(true);
+    });
+
+    it('covers graph branches (label, visited)', () => {
+        const graphSol = {
+            ...mockSolution,
+            visualizationType: 'graph',
+            steps: [
+                {
+                    graphState: {
+                        nodes: [
+                            { id: '1', label: 'Simple', x: 0, y: 0 },
+                            { id: '2', label: 'Match Info', x: 10, y: 10, visited: true }
+                        ]
+                    }
+                }
+            ]
+        };
+        render(<SmartVisualizer solution={graphSol as unknown as Solution} />);
+        const nextBtn = screen.getAllByRole('button')[3];
+        fireEvent.click(nextBtn);
+        expect(screen.getByText('Simple')).toBeInTheDocument();
+        expect(screen.getByText('Match')).toBeInTheDocument();
+        expect(screen.getByText('Info')).toBeInTheDocument();
+    });
+
+    it('covers accent color branch', async () => {
+        const accentSol = {
+            ...mockSolution,
+            steps: [{ arrayState: [1], indices: [0], color: 'accent' }]
+        };
+        render(<SmartVisualizer solution={accentSol as unknown as Solution} />);
+        const nextBtn = screen.getAllByRole('button')[3];
+        fireEvent.click(nextBtn);
+        // Success indices check via class
+        const item = screen.getByText('1').parentElement;
+        expect(item).toHaveClass('border-indigo-500');
+    });
+
+    it('falls back to static GraphVisualizer when graphState is missing', () => {
+        const graphSol = {
+            ...mockSolution,
+            visualizationType: 'graph',
+            steps: [{ description: 'Missing graphState' }]
+        };
+        render(<SmartVisualizer solution={graphSol as unknown as Solution} />);
+        const nextBtn = screen.getAllByRole('button')[3];
+        fireEvent.click(nextBtn);
+        expect(screen.getByTestId('graph-viz')).toBeInTheDocument();
+    });
 });

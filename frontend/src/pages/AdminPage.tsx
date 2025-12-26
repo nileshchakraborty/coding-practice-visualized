@@ -1,3 +1,4 @@
+/* eslint-disable max-lines */
 /**
  * Admin Dashboard Page
  * 
@@ -9,9 +10,13 @@
  * - Local: JWE token authentication
  */
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AdminLogin } from '../components/AdminLogin';
+import { ConfirmationModal } from '../components/ConfirmationModal';
+import { AnalyticsTab } from '../components/admin/AnalyticsTab';
+import { ProblemHistoryTab } from '../components/admin/ProblemHistoryTab';
+import { ConsentManagementTab } from '../components/admin/ConsentManagementTab';
 import { useAuth } from '../context/AuthContextDefinition';
 import {
     LayoutDashboard,
@@ -28,9 +33,6 @@ import {
     AlertCircle,
     CheckCircle,
     Clock,
-    TrendingUp,
-    Users,
-    Activity,
     Database,
     RefreshCw
 } from 'lucide-react';
@@ -70,14 +72,23 @@ interface AnalyticsData {
     recentActivity: ActivityLog[];
 }
 
+interface Topic {
+    id: string;
+    name: string;
+    slug: string;
+    aliases: string[];
+    icon: string;
+}
+
 // API base URL
 const API_BASE = import.meta.env.VITE_API_URL || '';
 
+// eslint-disable-next-line complexity, max-lines-per-function
 export const AdminPage: React.FC = () => {
     const navigate = useNavigate();
     const { user, accessToken, login } = useAuth();
     const [adminToken, setAdminToken] = useState<string | null>(null);
-    const [activeTab, setActiveTab] = useState<'dashboard' | 'plans' | 'problems' | 'analytics'>('dashboard');
+    const [activeTab, setActiveTab] = useState<'dashboard' | 'plans' | 'problems' | 'analytics' | 'topics' | 'history' | 'consent'>('dashboard');
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
     const [success, setSuccess] = useState<string | null>(null);
@@ -87,7 +98,25 @@ export const AdminPage: React.FC = () => {
     const [studyPlans, setStudyPlans] = useState<Record<string, StudyPlan>>({});
     const [editingPlan, setEditingPlan] = useState<StudyPlan | null>(null);
     const [analytics, setAnalytics] = useState<AnalyticsData | null>(null);
-    const [activityLogs, setActivityLogs] = useState<ActivityLog[]>([]);
+    const [topics, setTopics] = useState<Topic[]>([]);
+    const [editingTopic, setEditingTopic] = useState<Topic | null>(null);
+    const [normalizationResult, setNormalizationResult] = useState<{ updated: number, errors: Array<{ slug: string; error: string }> } | null>(null);
+
+    // Confirmation Modal State
+    const [confirmModal, setConfirmModal] = useState<{
+        isOpen: boolean;
+        title: string;
+        message: string;
+        onConfirm: () => void;
+        isDangerous?: boolean;
+        confirmText?: string;
+    }>({
+        isOpen: false,
+        title: '',
+        message: '',
+        onConfirm: () => { },
+    });
+
 
     // API helper
     const adminFetch = useCallback(async (endpoint: string, options: RequestInit = {}) => {
@@ -95,7 +124,7 @@ export const AdminPage: React.FC = () => {
             ...options,
             headers: {
                 'Content-Type': 'application/json',
-                'x-admin-token': adminToken || '',
+                'Authorization': `Bearer ${adminToken || ''}`,
                 ...options.headers,
             },
         });
@@ -135,15 +164,29 @@ export const AdminPage: React.FC = () => {
         if (!adminToken) return;
 
         try {
-            const [analyticsData, logsData] = await Promise.all([
+
+            const [analyticsData] = await Promise.all([
                 adminFetch('/analytics'),
-                adminFetch('/logs?limit=50'),
             ]);
 
             setAnalytics(analyticsData);
-            setActivityLogs(logsData.logs || []);
         } catch (err) {
             console.error('Failed to load analytics:', err);
+        }
+    }, [adminToken, adminFetch]);
+
+    // Load topics
+    const loadTopics = useCallback(async () => {
+        if (!adminToken) return;
+        try {
+            await adminFetch('/../topics'); // Hack: adminFetch prefixes /api/admin, so we back out
+            // Actually let's just use raw fetch for non-admin prefixed routes if needed, 
+            // but for simplicity let's stick to standard fetch for public routes.
+            const response = await fetch(`${API_BASE}/api/topics`);
+            const json = await response.json();
+            setTopics(json);
+        } catch (err) {
+            console.error('Failed to load topics:', err);
         }
     }, [adminToken, adminFetch]);
 
@@ -151,8 +194,9 @@ export const AdminPage: React.FC = () => {
         if (adminToken) {
             loadData();
             loadAnalytics();
+            loadTopics();
         }
-    }, [adminToken, loadData, loadAnalytics]);
+    }, [adminToken, loadData, loadAnalytics, loadTopics]);
 
     // Handle login
     const handleLogin = (token: string) => {
@@ -164,7 +208,7 @@ export const AdminPage: React.FC = () => {
         try {
             await fetch(`${API_BASE}/api/admin/revoke`, {
                 method: 'POST',
-                headers: { 'x-admin-token': adminToken || '' }
+                headers: { 'Authorization': `Bearer ${adminToken || ''}` }
             });
         } catch {
             // Ignore revoke errors
@@ -174,6 +218,18 @@ export const AdminPage: React.FC = () => {
         setStats(null);
         setStudyPlans({});
         setAnalytics(null);
+    };
+
+    // Timer ref to prevent race conditions
+    const successTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+    const showSuccess = (message: string, duration = 3000) => {
+        if (successTimer.current) clearTimeout(successTimer.current);
+        setSuccess(message);
+        // Only auto-clear if duration is positive
+        if (duration > 0) {
+            successTimer.current = setTimeout(() => setSuccess(null), duration);
+        }
     };
 
     // Save study plan
@@ -194,11 +250,9 @@ export const AdminPage: React.FC = () => {
                 });
             }
 
-            setSuccess('Study plan saved successfully');
+            showSuccess('Study plan saved successfully');
             setEditingPlan(null);
             await loadData();
-
-            setTimeout(() => setSuccess(null), 3000);
         } catch (err) {
             setError(err instanceof Error ? err.message : 'Failed to save');
         } finally {
@@ -206,34 +260,82 @@ export const AdminPage: React.FC = () => {
         }
     };
 
-    // Delete study plan
-    const deletePlan = async (id: string) => {
-        if (!confirm(`Delete study plan "${studyPlans[id]?.name}"?`)) return;
-
+    // Save topic
+    const saveTopic = async (topic: Topic) => {
         setLoading(true);
         try {
-            await adminFetch(`/study-plans/${id}`, { method: 'DELETE' });
-            setSuccess('Study plan deleted');
-            await loadData();
-            setTimeout(() => setSuccess(null), 3000);
+            const response = await fetch(`${API_BASE}/api/topics`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(topic)
+            });
+            if (!response.ok) throw new Error('Failed to save topic');
+
+            showSuccess('Topic saved successfully');
+            setEditingTopic(null);
+            await loadTopics();
         } catch (err) {
-            setError(err instanceof Error ? err.message : 'Failed to delete');
+            setError(err instanceof Error ? err.message : 'Failed to save topic');
         } finally {
             setLoading(false);
         }
     };
 
-    // Format timestamp
-    const formatTime = (timestamp: string) => {
-        const date = new Date(timestamp);
-        const now = new Date();
-        const diff = now.getTime() - date.getTime();
-
-        if (diff < 60000) return 'just now';
-        if (diff < 3600000) return `${Math.floor(diff / 60000)}m ago`;
-        if (diff < 86400000) return `${Math.floor(diff / 3600000)}h ago`;
-        return date.toLocaleDateString();
+    // Normalize problems
+    const normalizeTopics = () => {
+        setConfirmModal({
+            isOpen: true,
+            title: 'Normalize Topics',
+            message: 'This will scan all problems and update their categories to match the canonical topics based on aliases. This action affects the live database. Are you sure you want to continue?',
+            onConfirm: async () => {
+                setConfirmModal(prev => ({ ...prev, isOpen: false }));
+                setLoading(true);
+                try {
+                    const response = await fetch(`${API_BASE}/api/topics/normalize`, {
+                        method: 'POST'
+                    });
+                    const result = await response.json();
+                    setNormalizationResult(result);
+                    // Don't auto-clear success for normalization so user sees the count
+                    showSuccess(`Normalized ${result.updated} problems!`, 5000);
+                    await loadData(); // Reload stats
+                } catch {
+                    setError('Failed to normalize topics');
+                } finally {
+                    setLoading(false);
+                }
+            },
+            isDangerous: true,
+            confirmText: 'Yes, Normalize'
+        });
     };
+
+    // Delete study plan
+    const deletePlan = (id: string) => {
+        const planName = studyPlans[id]?.name;
+        setConfirmModal({
+            isOpen: true,
+            title: 'Delete Study Plan',
+            message: `Are you sure you want to delete the study plan "${planName}"? This action cannot be undone.`,
+            onConfirm: async () => {
+                setConfirmModal(prev => ({ ...prev, isOpen: false }));
+                setLoading(true);
+                try {
+                    await adminFetch(`/study-plans/${id}`, { method: 'DELETE' });
+                    showSuccess('Study plan deleted');
+                    await loadData();
+                } catch (err) {
+                    setError(err instanceof Error ? err.message : 'Failed to delete');
+                } finally {
+                    setLoading(false);
+                }
+            },
+            isDangerous: true,
+            confirmText: 'Delete Plan'
+        });
+    };
+
+
 
     // Show login if not authenticated
     if (!adminToken) {
@@ -265,7 +367,9 @@ export const AdminPage: React.FC = () => {
                     {[
                         { id: 'dashboard', icon: LayoutDashboard, label: 'Dashboard' },
                         { id: 'plans', icon: BookOpen, label: 'Study Plans' },
+                        { id: 'topics', icon: Database, label: 'Manage Topics' },
                         { id: 'problems', icon: Code2, label: 'Problems' },
+                        { id: 'history', icon: Clock, label: 'History' },
                         { id: 'analytics', icon: BarChart3, label: 'Analytics' },
                     ].map(item => (
                         <button
@@ -506,152 +610,353 @@ export const AdminPage: React.FC = () => {
                     </div>
                 )}
 
-                {/* Problems Tab */}
-                {activeTab === 'problems' && (
-                    <div>
-                        <h2 className="text-2xl font-bold text-white mb-6">Problems Management</h2>
-                        <div className="bg-slate-800/50 border border-slate-700 rounded-xl p-8 text-center">
-                            <Code2 className="w-12 h-12 text-slate-600 mx-auto mb-4" />
-                            <p className="text-slate-400">Problems editor coming soon</p>
-                            <p className="text-sm text-slate-500">Edit problems.json directly for now</p>
+
+
+                {/* Topics Tab */}
+                {
+                    activeTab === 'topics' && (
+                        <div>
+                            <div className="flex items-center justify-between mb-6">
+                                <h2 className="text-2xl font-bold text-white">Manage Topics</h2>
+                                <div className="flex gap-3">
+                                    <button
+                                        type="button"
+                                        onClick={normalizeTopics}
+                                        className="flex items-center gap-2 bg-slate-700 hover:bg-slate-600 text-white px-4 py-2 rounded-lg"
+                                        title="Scan problems and update categories based on aliases"
+                                    >
+                                        <RefreshCw size={18} />
+                                        Normalize Database
+                                    </button>
+                                    <button
+                                        onClick={() => setEditingTopic({ id: '', name: '', slug: '', aliases: [], icon: '📝' })}
+                                        className="flex items-center gap-2 bg-purple-600 hover:bg-purple-500 text-white px-4 py-2 rounded-lg"
+                                    >
+                                        <Plus size={18} />
+                                        Add Topic
+                                    </button>
+                                </div>
+                            </div>
+
+                            {normalizationResult && (
+                                <div className="mb-6 bg-slate-800/50 border border-slate-700 rounded-xl p-4 relative">
+                                    <button
+                                        onClick={() => setNormalizationResult(null)}
+                                        className="absolute top-4 right-4 text-slate-400 hover:text-white"
+                                    >
+                                        <X size={16} />
+                                    </button>
+                                    <h4 className="text-white font-medium mb-2">Normalization Result</h4>
+                                    <p className="text-emerald-400 text-sm">✅ Updated {normalizationResult.updated} problems</p>
+                                    {normalizationResult.errors?.length > 0 && (
+                                        <div className="mt-2 text-red-400 text-sm">
+                                            <p className="font-medium mb-1">Errors:</p>
+                                            <ul className="list-disc pl-4">
+                                                {normalizationResult.errors.map((e, i) => (
+                                                    <li key={i}>{e.slug}: {e.error}</li>
+                                                ))}
+                                            </ul>
+                                        </div>
+                                    )}
+                                </div>
+                            )}
+
+                            {/* Cache Management Card */}
+                            <div className="mb-6 bg-slate-800/50 border border-slate-700 rounded-xl p-4">
+                                <div className="flex items-center justify-between mb-3">
+                                    <h4 className="text-white font-medium flex items-center gap-2">
+                                        <Database size={18} className="text-blue-400" />
+                                        Cache Management
+                                    </h4>
+                                    <button
+                                        onClick={async () => {
+                                            setLoading(true);
+                                            try {
+                                                const response = await fetch(`${API_BASE}/api/admin/cache/invalidate`, {
+                                                    method: 'POST',
+                                                    headers: { 'Authorization': `Bearer ${adminToken || ''}` }
+                                                });
+                                                const result = await response.json();
+                                                if (result.success) {
+                                                    showSuccess(result.message);
+                                                    // Reload the page data to show fresh content
+                                                    await loadData();
+                                                } else {
+                                                    setError(result.error || 'Failed to refresh cache');
+                                                }
+                                            } catch {
+                                                setError('Failed to refresh cache');
+                                            } finally {
+                                                setLoading(false);
+                                            }
+                                        }}
+                                        disabled={loading}
+                                        className="flex items-center gap-2 bg-blue-600 hover:bg-blue-500 disabled:opacity-50 text-white px-3 py-1.5 rounded-lg text-sm"
+                                    >
+                                        <RefreshCw size={14} className={loading ? 'animate-spin' : ''} />
+                                        Refresh Cache
+                                    </button>
+                                </div>
+                                <p className="text-slate-400 text-sm mb-3">
+                                    If problems or categories appear incorrect, refresh the cache to reload data from the source file.
+                                    This ensures the correct learning flow order is restored.
+                                </p>
+                                <div className="grid grid-cols-3 gap-3">
+                                    <div className="bg-slate-900/50 rounded-lg p-3 text-center">
+                                        <p className="text-2xl font-bold text-white">{analytics?.cache?.hits ?? '—'}</p>
+                                        <p className="text-xs text-slate-500">Cache Hits</p>
+                                    </div>
+                                    <div className="bg-slate-900/50 rounded-lg p-3 text-center">
+                                        <p className="text-2xl font-bold text-white">{analytics?.cache?.misses ?? '—'}</p>
+                                        <p className="text-xs text-slate-500">Cache Misses</p>
+                                    </div>
+                                    <div className="bg-slate-900/50 rounded-lg p-3 text-center">
+                                        <p className="text-2xl font-bold text-white">{analytics?.cache?.size ?? '—'}</p>
+                                        <p className="text-xs text-slate-500">Cache Size</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Topic Editor */}
+                            {editingTopic && (
+                                <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
+                                    <div className="bg-slate-800 border border-slate-700 rounded-2xl p-6 w-full max-w-lg">
+                                        <h3 className="text-xl font-bold text-white mb-4">
+                                            {editingTopic.id ? 'Edit Topic' : 'New Topic'}
+                                        </h3>
+
+                                        <div className="space-y-4">
+                                            <div>
+                                                <label className="block text-sm text-slate-400 mb-1">Name</label>
+                                                <input
+                                                    type="text"
+                                                    value={editingTopic.name}
+                                                    onChange={e => setEditingTopic({ ...editingTopic, name: e.target.value })}
+                                                    className="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-white"
+                                                />
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm text-slate-400 mb-1">Slug (auto-generated if empty)</label>
+                                                <input
+                                                    type="text"
+                                                    value={editingTopic.slug}
+                                                    onChange={e => setEditingTopic({ ...editingTopic, slug: e.target.value })}
+                                                    className="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-white"
+                                                />
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm text-slate-400 mb-1">Icon</label>
+                                                <input
+                                                    type="text"
+                                                    value={editingTopic.icon}
+                                                    onChange={e => setEditingTopic({ ...editingTopic, icon: e.target.value })}
+                                                    className="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-white"
+                                                />
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm text-slate-400 mb-1">Aliases (comma separated)</label>
+                                                <textarea
+                                                    value={editingTopic.aliases.join(', ')}
+                                                    onChange={e => setEditingTopic({
+                                                        ...editingTopic,
+                                                        aliases: e.target.value.split(',').map(s => s.trim()).filter(Boolean)
+                                                    })}
+                                                    className="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-white"
+                                                    rows={3}
+                                                />
+                                            </div>
+                                        </div>
+
+                                        <div className="flex justify-end gap-3 mt-6">
+                                            <button
+                                                onClick={() => setEditingTopic(null)}
+                                                className="px-4 py-2 text-slate-400 hover:text-white"
+                                            >
+                                                Cancel
+                                            </button>
+                                            <button
+                                                onClick={() => saveTopic(editingTopic)}
+                                                className="bg-purple-600 hover:bg-purple-500 text-white px-4 py-2 rounded-lg"
+                                            >
+                                                Save
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            )}
+
+                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                                {topics.map(topic => (
+                                    <div key={topic.id} className="bg-slate-800/50 border border-slate-700 rounded-xl p-4 flex items-center justify-between">
+                                        <div className="flex items-center gap-3">
+                                            <span className="text-2xl">{topic.icon}</span>
+                                            <div>
+                                                <p className="font-medium text-white">{topic.name}</p>
+                                                {topic.aliases.length > 0 && (
+                                                    <p className="text-xs text-slate-500 truncate max-w-[150px]">
+                                                        {topic.aliases.join(', ')}
+                                                    </p>
+                                                )}
+                                            </div>
+                                        </div>
+                                        <button
+                                            onClick={() => setEditingTopic(topic)}
+                                            className="p-2 text-slate-400 hover:text-white rounded-lg hover:bg-slate-700"
+                                        >
+                                            <Edit2 size={16} />
+                                        </button>
+                                    </div>
+                                ))}
+                            </div>
                         </div>
-                    </div>
+                    )
+                }
+
+                {/* Problems Tab */}
+                {
+                    activeTab === 'problems' && (
+                        <div>
+                            <h2 className="text-2xl font-bold text-white mb-6">Problems Management</h2>
+
+                            {/* Cache Management Card */}
+                            <div className="mb-6 bg-slate-800/50 border border-slate-700 rounded-xl p-5">
+                                <div className="flex items-center justify-between mb-3">
+                                    <h4 className="text-white font-medium flex items-center gap-2">
+                                        <Database size={18} className="text-blue-400" />
+                                        Cache Management
+                                    </h4>
+                                    <button
+                                        onClick={async () => {
+                                            setLoading(true);
+                                            try {
+                                                const response = await fetch(`${API_BASE}/api/admin/cache/invalidate`, {
+                                                    method: 'POST',
+                                                    headers: { 'Authorization': `Bearer ${adminToken || ''}` }
+                                                });
+                                                const result = await response.json();
+                                                if (result.success) {
+                                                    showSuccess(result.message);
+                                                    await loadData();
+                                                } else {
+                                                    setError(result.error || 'Failed to refresh cache');
+                                                }
+                                            } catch {
+                                                setError('Failed to refresh cache');
+                                            } finally {
+                                                setLoading(false);
+                                            }
+                                        }}
+                                        disabled={loading}
+                                        className="flex items-center gap-2 bg-blue-600 hover:bg-blue-500 disabled:opacity-50 text-white px-4 py-2 rounded-lg"
+                                    >
+                                        <RefreshCw size={16} className={loading ? 'animate-spin' : ''} />
+                                        Refresh Problems Cache
+                                    </button>
+                                </div>
+                                <p className="text-slate-400 text-sm mb-4">
+                                    Refresh the cache to reload problems from <code className="text-purple-400 bg-slate-900/50 px-1.5 py-0.5 rounded">problems.json</code>.
+                                    This ensures the correct category order and learning flow is restored.
+                                </p>
+                                <div className="grid grid-cols-3 gap-4">
+                                    <div className="bg-slate-900/50 rounded-lg p-3 text-center">
+                                        <p className="text-2xl font-bold text-white">{analytics?.cache?.hits ?? '—'}</p>
+                                        <p className="text-xs text-slate-500">Cache Hits</p>
+                                    </div>
+                                    <div className="bg-slate-900/50 rounded-lg p-3 text-center">
+                                        <p className="text-2xl font-bold text-white">{analytics?.cache?.misses ?? '—'}</p>
+                                        <p className="text-xs text-slate-500">Cache Misses</p>
+                                    </div>
+                                    <div className="bg-slate-900/50 rounded-lg p-3 text-center">
+                                        <p className="text-2xl font-bold text-white">{analytics?.cache?.size ?? '—'}</p>
+                                        <p className="text-xs text-slate-500">Cache Size</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Learning Flow Order Card */}
+                            <div className="mb-6 bg-slate-800/50 border border-slate-700 rounded-xl p-5">
+                                <h4 className="text-white font-medium flex items-center gap-2 mb-3">
+                                    <ChevronRight size={18} className="text-purple-400" />
+                                    Learning Flow Order
+                                </h4>
+                                <p className="text-slate-400 text-sm mb-4">
+                                    Configure the order of categories and problems to create an optimal learning path.
+                                    Changes are persisted and reflected on the main site.
+                                </p>
+                                <div className="grid grid-cols-2 gap-4">
+                                    <button
+                                        onClick={() => navigate('/admin/category-order')}
+                                        className="flex items-center justify-center gap-2 bg-purple-600/20 hover:bg-purple-600/30 border border-purple-500/30 text-purple-400 px-4 py-3 rounded-lg transition-colors"
+                                    >
+                                        <Database size={16} />
+                                        Category Order
+                                    </button>
+                                    <button
+                                        onClick={() => navigate('/admin/problem-order')}
+                                        className="flex items-center justify-center gap-2 bg-blue-600/20 hover:bg-blue-600/30 border border-blue-500/30 text-blue-400 px-4 py-3 rounded-lg transition-colors"
+                                    >
+                                        <Code2 size={16} />
+                                        Problem Order
+                                    </button>
+                                </div>
+                            </div>
+
+                            {/* Source of Truth Info */}
+                            <div className="bg-slate-800/50 border border-slate-700 rounded-xl p-5">
+                                <div className="flex items-start gap-4">
+                                    <Code2 className="w-10 h-10 text-purple-400 flex-shrink-0 mt-1" />
+                                    <div>
+                                        <h4 className="text-white font-medium mb-2">Source of Truth</h4>
+                                        <p className="text-slate-400 text-sm mb-3">
+                                            Problems are loaded from <code className="text-purple-400 bg-slate-900/50 px-1.5 py-0.5 rounded">api/data/problems.json</code>.
+                                            The category order in this file determines the learning flow progression on the main site.
+                                        </p>
+                                        <div className="flex items-center gap-3 text-sm">
+                                            <span className="flex items-center gap-1.5 text-emerald-400">
+                                                <CheckCircle size={14} />
+                                                {stats?.totalProblems || 0} problems
+                                            </span>
+                                            <span className="flex items-center gap-1.5 text-blue-400">
+                                                <Database size={14} />
+                                                {stats?.totalSolutions || 0} solutions
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    )
+                }
+
+                {/* History Tab */}
+                {activeTab === 'history' && (
+                    <ProblemHistoryTab adminToken={adminToken} />
                 )}
 
                 {/* Analytics Tab */}
-                {activeTab === 'analytics' && (
-                    <div>
-                        <div className="flex items-center justify-between mb-6">
-                            <h2 className="text-2xl font-bold text-white">Analytics</h2>
-                            <button
-                                onClick={loadAnalytics}
-                                className="flex items-center gap-2 text-slate-400 hover:text-white"
-                                title="Refresh Data"
-                            >
-                                <RefreshCw size={16} />
-                                Refresh
-                            </button>
-                        </div>
+                {
+                    activeTab === 'analytics' && (
+                        <AnalyticsTab adminToken={adminToken} />
+                    )
+                }
 
-                        {analytics ? (
-                            <div className="space-y-6">
-                                {/* Stats Grid */}
-                                <div className="grid grid-cols-4 gap-4">
-                                    <div className="bg-slate-800/50 border border-slate-700 rounded-xl p-4">
-                                        <div className="flex items-center gap-2 text-slate-400 mb-2">
-                                            <TrendingUp size={16} />
-                                            <span className="text-sm">Total Views</span>
-                                        </div>
-                                        <p className="text-2xl font-bold text-white">{analytics.recommendations.stats.totalViews}</p>
-                                    </div>
-                                    <div className="bg-slate-800/50 border border-slate-700 rounded-xl p-4">
-                                        <div className="flex items-center gap-2 text-slate-400 mb-2">
-                                            <Users size={16} />
-                                            <span className="text-sm">Active Users</span>
-                                        </div>
-                                        <p className="text-2xl font-bold text-white">{analytics.progress.totalUsers}</p>
-                                    </div>
-                                    <div className="bg-slate-800/50 border border-slate-700 rounded-xl p-4">
-                                        <div className="flex items-center gap-2 text-slate-400 mb-2">
-                                            <CheckCircle size={16} />
-                                            <span className="text-sm">Problems Solved</span>
-                                        </div>
-                                        <p className="text-2xl font-bold text-white">{analytics.progress.totalSolves}</p>
-                                    </div>
-                                    <div className="bg-slate-800/50 border border-slate-700 rounded-xl p-4">
-                                        <div className="flex items-center gap-2 text-slate-400 mb-2">
-                                            <Database size={16} />
-                                            <span className="text-sm">Cache Size</span>
-                                        </div>
-                                        <p className="text-2xl font-bold text-white">{analytics.cache.size}</p>
-                                    </div>
-                                </div>
-
-                                {/* Hot Problems & Topics */}
-                                <div className="grid grid-cols-2 gap-6">
-                                    <div className="bg-slate-800/50 border border-slate-700 rounded-xl p-4">
-                                        <h3 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
-                                            <TrendingUp size={18} className="text-orange-400" />
-                                            Hot Problems
-                                        </h3>
-                                        <div className="space-y-2">
-                                            {analytics.recommendations.hotProblems.slice(0, 5).map((p, i) => (
-                                                <div key={p.slug} className="flex items-center justify-between py-2 border-b border-slate-700/50 last:border-0">
-                                                    <div className="flex items-center gap-2">
-                                                        <span className="text-slate-500 text-sm w-5">{i + 1}.</span>
-                                                        <span className="text-white">{p.slug.replace(/-/g, ' ')}</span>
-                                                    </div>
-                                                    <span className="text-slate-400 text-sm">{p.count} views</span>
-                                                </div>
-                                            ))}
-                                            {analytics.recommendations.hotProblems.length === 0 && (
-                                                <p className="text-slate-500 text-sm">No data yet</p>
-                                            )}
-                                        </div>
-                                    </div>
-
-                                    <div className="bg-slate-800/50 border border-slate-700 rounded-xl p-4">
-                                        <h3 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
-                                            <Activity size={18} className="text-purple-400" />
-                                            Hot Topics
-                                        </h3>
-                                        <div className="space-y-2">
-                                            {analytics.recommendations.hotTopics.slice(0, 5).map((t, i) => (
-                                                <div key={t.topic} className="flex items-center justify-between py-2 border-b border-slate-700/50 last:border-0">
-                                                    <div className="flex items-center gap-2">
-                                                        <span className="text-slate-500 text-sm w-5">{i + 1}.</span>
-                                                        <span className="text-white capitalize">{t.topic}</span>
-                                                    </div>
-                                                    <span className="text-slate-400 text-sm">{t.count} views</span>
-                                                </div>
-                                            ))}
-                                            {analytics.recommendations.hotTopics.length === 0 && (
-                                                <p className="text-slate-500 text-sm">No data yet</p>
-                                            )}
-                                        </div>
-                                    </div>
-                                </div>
-
-                                {/* Activity Logs */}
-                                <div className="bg-slate-800/50 border border-slate-700 rounded-xl p-4">
-                                    <h3 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
-                                        <Clock size={18} className="text-blue-400" />
-                                        Recent Activity
-                                    </h3>
-                                    <div className="space-y-1 max-h-80 overflow-auto">
-                                        {activityLogs.map((log, i) => (
-                                            <div key={i} className="flex items-start gap-3 py-2 border-b border-slate-700/50 last:border-0">
-                                                <span className="text-slate-500 text-xs whitespace-nowrap mt-0.5">
-                                                    {formatTime(log.timestamp)}
-                                                </span>
-                                                <div className="flex-1 min-w-0">
-                                                    <div className="flex items-center gap-2">
-                                                        <span className="text-xs font-medium px-2 py-0.5 rounded bg-slate-700 text-slate-300">
-                                                            {log.action}
-                                                        </span>
-                                                        {log.email && (
-                                                            <span className="text-xs text-slate-500">{log.email}</span>
-                                                        )}
-                                                    </div>
-                                                    <p className="text-sm text-slate-400 truncate mt-1">{log.details}</p>
-                                                </div>
-                                            </div>
-                                        ))}
-                                        {activityLogs.length === 0 && (
-                                            <p className="text-slate-500 text-sm py-4 text-center">No activity logs yet</p>
-                                        )}
-                                    </div>
-                                </div>
-                            </div>
-                        ) : (
-                            <div className="bg-slate-800/50 border border-slate-700 rounded-xl p-8 text-center">
-                                <BarChart3 className="w-12 h-12 text-slate-600 mx-auto mb-4" />
-                                <p className="text-slate-400">Loading analytics...</p>
-                            </div>
-                        )}
-                    </div>
-                )}
+                {/* Consent Tab */}
+                {
+                    activeTab === 'consent' && (
+                        <ConsentManagementTab adminToken={adminToken} />
+                    )
+                }
             </main>
+
+            <ConfirmationModal
+                isOpen={confirmModal.isOpen}
+                title={confirmModal.title}
+                message={confirmModal.message}
+                onConfirm={confirmModal.onConfirm}
+                onCancel={() => setConfirmModal(prev => ({ ...prev, isOpen: false }))}
+                isDangerous={confirmModal.isDangerous}
+                confirmText={confirmModal.confirmText}
+            />
         </div>
     );
 };

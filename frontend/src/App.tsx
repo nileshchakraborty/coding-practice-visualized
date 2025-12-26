@@ -1,8 +1,9 @@
+/* eslint-disable max-lines-per-function */
 /**
  * App.tsx - Refactored with MVVM Pattern
  * Uses viewmodel hooks for state management
  */
-import { useState, useMemo, useCallback, useRef } from 'react';
+import { useState, useMemo, useCallback, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import type { Problem } from './models';
 import { useProblems } from './viewmodels';
@@ -11,10 +12,43 @@ import { useAuth } from './hooks/useAuth';
 import { SearchEngine } from './utils/SearchEngine';
 import { ThemeToggle } from './components/ThemeToggle';
 import { LoginButton } from './components/LoginButton';
+import { useActivityTracking } from './hooks/useActivityTracking';
+import { useTrackingConsent } from './hooks/useTrackingConsent';
+import { ConsentModal } from './components/ConsentModal';
 import { getAllPlans, getPlanProblems, type ListFilter } from './data/problemLists';
 import { HotSection } from './components/HotSection';
 import CodeniumLogo from './assets/logo.svg';
 import { Search, Filter, ChevronUp, ChevronDown, Check, Zap, CheckCircle, Pencil } from 'lucide-react';
+
+/**
+ * Static category order defining the learning flow progression.
+ * This order should NEVER change - it represents the optimal learning path.
+ */
+const CATEGORY_ORDER = [
+  'Array / String',
+  'Two Pointers',
+  'Sliding Window',
+  'Matrix',
+  'Hashmap',
+  'Intervals',
+  'Stack',
+  'Linked List',
+  'Binary Tree General',
+  'Binary Tree BFS',
+  'Binary Search Tree',
+  'Graph General',
+  'Graph BFS',
+  'Trie',
+  'Backtracking',
+  'Divide & Conquer',
+  'Kadane\'s Algorithm',
+  'Binary Search',
+  'Heap / Priority Queue',
+  'Bit Manipulation',
+  'Math',
+  '1D DP',
+  'Multidimensional DP',
+] as const;
 
 function App() {
   // ViewModels
@@ -28,6 +62,16 @@ function App() {
   // Progress tracking - only used when authenticated
   const { isSolved, isAttempted, markAttempted, solvedCount, attemptedCount } = useProgress();
 
+  const { logEvent } = useActivityTracking();
+  const {
+    showDisclosure,
+    activeVersion,
+    consentContent,
+    isLoading: consentLoading,
+    acceptConsent,
+    declineConsent
+  } = useTrackingConsent();
+
   // UI state
   const [loadingSlug, setLoadingSlug] = useState<string | null>(null);
   const [showMobileFilters, setShowMobileFilters] = useState(false);
@@ -40,6 +84,11 @@ function App() {
 
   // List filter: All, Blind 75, Top 150
   const [listFilter, setListFilter] = useState<ListFilter>('all');
+
+  // Track filter changes
+  useEffect(() => {
+    logEvent('filter_change', { difficulty: problems.filter.difficulty, status: statusFilter, list: listFilter });
+  }, [problems.filter.difficulty, statusFilter, listFilter, logEvent]);
 
   // Compute stats from viewmodel (respects list filter)
   const stats = useMemo(() => {
@@ -65,11 +114,21 @@ function App() {
       return { ...cat, count: filteredProblems.length, easy, medium, hard };
     });
 
+    // Sort categories according to static CATEGORY_ORDER (learning flow)
+    const sortedCategories = [...categoriesWithStats].sort((a, b) => {
+      const indexA = CATEGORY_ORDER.indexOf(a.name as typeof CATEGORY_ORDER[number]);
+      const indexB = CATEGORY_ORDER.indexOf(b.name as typeof CATEGORY_ORDER[number]);
+      // Categories not in the order go to the end
+      const orderA = indexA === -1 ? CATEGORY_ORDER.length : indexA;
+      const orderB = indexB === -1 ? CATEGORY_ORDER.length : indexB;
+      return orderA - orderB;
+    });
+
     return {
       easy: totalEasy,
       medium: totalMedium,
       hard: totalHard,
-      categories: categoriesWithStats
+      categories: sortedCategories
     };
   }, [problems.stats, listFilter]);
 
@@ -96,6 +155,11 @@ function App() {
     // 2. Fallback: Search Categories (if no problems matched)
     if (!stats) return new Set();
 
+    // Use dynamic topics if available, else hardcoded
+    // Actually better to have the search engine handle this using a unified list?
+    // For now, let's keep it simple.
+
+    // TODO: Use `topics` state for aliases
     const categoryAliases: Record<string, string[]> = {
       "1-D Dynamic Programming": ["dp", "dynamic programming"],
       "Multidimensional DP": ["dp", "matrix", "2d"],
@@ -202,17 +266,27 @@ function App() {
   }, [problems, navigate, markAttempted, isAuthenticated]);
 
   // Loading state
-  if (problems.loading || !stats) {
+  if (problems.loading || !stats || consentLoading) {
     return (
       <div className="flex h-screen items-center justify-center text-slate-500">
-        Loading Dashboard...
+        <span className="animate-pulse">Loading dashboard...</span>
       </div>
     );
   }
 
   return (
-    <div className="bg-slate-50 dark:bg-slate-950 min-h-screen transition-colors">
-      <div className="app max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-8">
+    <div className={`bg-slate-50 dark:bg-slate-950 min-h-screen transition-colors ${showDisclosure ? 'overflow-hidden h-screen' : ''}`}>
+      <ConsentModal
+        isOpen={showDisclosure}
+        title={consentContent?.title || 'Data Collection & Privacy'}
+        content={consentContent?.content || ''}
+        summary={consentContent?.summary || ''}
+        version={activeVersion || '1.0'}
+        isLoading={consentLoading}
+        onAccept={() => activeVersion && acceptConsent(activeVersion)}
+        onDecline={declineConsent}
+      />
+      <div className={`app max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-8 ${showDisclosure ? 'blur-sm pointer-events-none select-none' : ''}`}>
         {/* Header */}
         <header className="mb-6 sm:mb-8 border-b border-slate-200 dark:border-slate-800 pb-4 sm:pb-6">
           {/* Desktop: Logo + Theme + Stats in one row | Mobile: Stacked */}
@@ -288,6 +362,9 @@ function App() {
                   }
                   searchTimeoutRef.current = setTimeout(() => {
                     problems.updateFilter({ search: val });
+                    if (val.length > 2) {
+                      logEvent('app_search', { query: val });
+                    }
                   }, 300);
                 }}
               />
@@ -351,12 +428,12 @@ function App() {
                     ? 'bg-emerald-500 text-white shadow-lg shadow-emerald-500/25'
                     : status === 'In Progress'
                       ? 'bg-amber-500 text-white shadow-lg shadow-amber-500/25'
-                      : 'bg-indigo-600 text-white shadow-lg shadow-indigo-500/25'
+                      : 'bg-slate-800 dark:bg-slate-700 text-white shadow-md'
                   : 'bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-400 border border-slate-300 dark:border-slate-800 hover:border-slate-400 dark:hover:border-slate-600'
                   }`}
               >
                 {status === 'In Progress' ? <Pencil size={10} /> : status === 'Solved' ? <CheckCircle size={12} /> : null}
-                {status === 'All' ? 'All Status' : status}
+                {status === 'All' ? 'All' : status}
               </button>
             ))}
           </div>

@@ -133,3 +133,5 @@ recommendation_stats.json
 coverage/
 
 lint-output.txt
+
+api_clean.txt

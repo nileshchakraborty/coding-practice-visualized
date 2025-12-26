@@ -1,11 +1,13 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
+import axios from 'axios';
 import { SolutionsAPI, TutorAPI, PlaygroundAPI, ProblemsAPI } from '../api';
 
 // Use vi.hoisted to avoid ReferenceError in mock factory
-const { mockGet, mockPost } = vi.hoisted(() => {
+const { mockGet, mockPost, mockInterceptorsUse } = vi.hoisted(() => {
     return {
         mockGet: vi.fn(),
-        mockPost: vi.fn()
+        mockPost: vi.fn(),
+        mockInterceptorsUse: vi.fn()
     };
 });
 
@@ -15,7 +17,7 @@ vi.mock('axios', () => ({
             get: mockGet,
             post: mockPost,
             interceptors: {
-                request: { use: vi.fn() }
+                request: { use: mockInterceptorsUse }
             }
         }),
         isAxiosError: (payload: unknown) => (payload as { isAxiosError?: boolean })?.isAxiosError
@@ -257,6 +259,35 @@ describe('API Models', () => {
             );
 
             expect(result).toEqual({ response: 'AI response' });
+        });
+    });
+
+    describe('Additional Coverage', () => {
+        it('ProblemsAPI.getBySlug returns null if problem not found', async () => {
+            vi.spyOn(ProblemsAPI, 'getAll').mockResolvedValueOnce({
+                easy: 0, medium: 0, hard: 0,
+                categories: [{ name: 'c1', count: 1, icon: 'icon', problems: [{ id: 1, slug: 'other', title: 'Other', difficulty: 'Easy', category: 'Two Pointers', url: 'http://example.com' }] }]
+            });
+            const result = await ProblemsAPI.getBySlug('target');
+            expect(result).toBeNull();
+        });
+
+        it('PlaygroundAPI defaults options values', async () => {
+            const { PlaygroundAPI } = await import('../api'); // Using imported module to test internal default logic
+            vi.mocked(axios.create().post).mockResolvedValueOnce({ data: { success: true } });
+
+            // Test default arg for language and undefined options
+            await PlaygroundAPI.runCode('code', 'slug');
+            expect(axios.create().post).toHaveBeenCalledWith('/execute', expect.objectContaining({
+                language: 'python'
+            }));
+
+            // Test options provided but props missing
+            await PlaygroundAPI.runCode('code', 'slug', undefined, 'python', {});
+            // Should not use queue (default false in options?.useJobQueue ?? false)
+            // If queue was used, it would try to import JobService which we haven't mocked here or verified call
+            // But we verify post is called, meaning it took the fallback path
+            expect(axios.create().post).toHaveBeenCalledTimes(2);
         });
     });
 });

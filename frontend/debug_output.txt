@@ -1,0 +1,3526 @@
+
+[1m[46m RUN [49m[22m [36mv4.0.16 [39m[90m/Users/nileshchakraborty/workspace/study/leetcode-visual/frontend[39m
+
+[90mstdout[2m | src/components/__tests__/SolutionModal.test.tsx[2m > [22m[2mSolutionModal[2m > [22m[2mdisplays failed test results summary and cards
+[22m[39m[36m<body>[39m
+  [36m<div>[39m
+    [36m<div[39m
+      [33mclass[39m=[32m"fixed inset-0 z-50 bg-white dark:bg-slate-900 flex flex-col"[39m
+      [33mstyle[39m=[32m"width: 100vw; height: 100vh;"[39m
+    [36m>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"relative w-full h-full flex flex-col overflow-hidden"[39m
+      [36m>[39m
+        [36m<button[39m
+          [33mclass[39m=[32m"absolute top-3 right-3 sm:top-4 sm:right-4 p-2 rounded-full hover:bg-slate-100 dark:hover:bg-white/10 text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-white transition-colors z-50"[39m
+        [36m>[39m
+          [36m<svg[39m
+            [33maria-hidden[39m=[32m"true"[39m
+            [33mclass[39m=[32m"lucide lucide-x sm:w-6 sm:h-6"[39m
+            [33mfill[39m=[32m"none"[39m
+            [33mheight[39m=[32m"20"[39m
+            [33mstroke[39m=[32m"currentColor"[39m
+            [33mstroke-linecap[39m=[32m"round"[39m
+            [33mstroke-linejoin[39m=[32m"round"[39m
+            [33mstroke-width[39m=[32m"2"[39m
+            [33mviewBox[39m=[32m"0 0 24 24"[39m
+            [33mwidth[39m=[32m"20"[39m
+            [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+          [36m>[39m
+            [36m<path[39m
+              [33md[39m=[32m"M18 6 6 18"[39m
+            [36m/>[39m
+            [36m<path[39m
+              [33md[39m=[32m"m6 6 12 12"[39m
+            [36m/>[39m
+          [36m</svg>[39m
+        [36m</button>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"px-4 sm:px-8 py-3 sm:py-4 border-b border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50 pr-12"[39m
+        [36m>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"flex items-center gap-2 sm:gap-3"[39m
+            [36m>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"text-xl sm:text-2xl"[39m
+              [36m>[39m
+                [0m💡[0m
+              [36m</span>[39m
+              [36m<h2[39m
+                [33mclass[39m=[32m"text-lg sm:text-xl font-bold text-slate-900 dark:text-white line-clamp-1"[39m
+              [36m>[39m
+                [0mTwo Sum[0m
+              [36m</h2>[39m
+            [36m</div>[39m
+            [36m<span[39m
+              [33mclass[39m=[32m"self-start px-2 sm:px-3 py-0.5 sm:py-1 text-xs sm:text-sm font-semibold bg-indigo-500/20 text-indigo-600 dark:text-indigo-300 border border-indigo-500/30 rounded-full"[39m
+            [36m>[39m
+              [0mTwo Pointers[0m
+            [36m</span>[39m
+            [36m<span[39m
+              [33mclass[39m=[32m"self-start flex items-center gap-1 px-2 sm:px-3 py-0.5 sm:py-1 text-xs sm:text-sm font-semibold bg-amber-500/20 text-amber-600 dark:text-amber-300 border border-amber-500/30 rounded-full"[39m
+            [36m>[39m
+              [0m✏️ In Progress[0m
+            [36m</span>[39m
+          [36m</div>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"flex flex-wrap gap-2 sm:gap-4 text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-1"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"flex gap-1 sm:gap-2"[39m
+            [36m>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"font-semibold text-emerald-600 dark:text-emerald-400"[39m
+              [36m>[39m
+                [0mTime:[0m
+              [36m</span>[39m
+              [0m [0m
+              [0mO(n)[0m
+            [36m</div>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"flex gap-1 sm:gap-2"[39m
+            [36m>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"font-semibold text-emerald-600 dark:text-emerald-400"[39m
+              [36m>[39m
+                [0mSpace:[0m
+              [36m</span>[39m
+              [0m [0m
+              [0mO(n)[0m
+            [36m</div>[39m
+          [36m</div>[39m
+        [36m</div>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"flex-1 flex flex-col lg:flex-row overflow-hidden min-h-0"[39m
+        [36m>[39m
+          [36m<div[39m
+            [33mdata-testid[39m=[32m"desktop-layout"[39m
+          [36m>[39m
+            [36m<div>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"flex flex-col h-full overflow-hidden"[39m
+              [36m>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"flex items-center gap-2 px-4 py-2 border-b border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900"[39m
+                [36m>[39m
+                  [36m<button[39m
+                    [33mclass[39m=[32m"flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-sm font-medium transition-all bg-indigo-600 text-white shadow-lg shadow-indigo-500/25"[39m
+                  [36m>[39m
+                    [36m<svg[39m
+                      [33maria-hidden[39m=[32m"true"[39m
+                      [33mclass[39m=[32m"lucide lucide-file-text"[39m
+                      [33mfill[39m=[32m"none"[39m
+                      [33mheight[39m=[32m"16"[39m
+                      [33mstroke[39m=[32m"currentColor"[39m
+                      [33mstroke-linecap[39m=[32m"round"[39m
+                      [33mstroke-linejoin[39m=[32m"round"[39m
+                      [33mstroke-width[39m=[32m"2"[39m
+                      [33mviewBox[39m=[32m"0 0 24 24"[39m
+                      [33mwidth[39m=[32m"16"[39m
+                      [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+                    [36m>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"[39m
+                      [36m/>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M14 2v5a1 1 0 0 0 1 1h5"[39m
+                      [36m/>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M10 9H8"[39m
+                      [36m/>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M16 13H8"[39m
+                      [36m/>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M16 17H8"[39m
+                      [36m/>[39m
+                    [36m</svg>[39m
+                    [0m Problem[0m
+                  [36m</button>[39m
+                  [36m<button[39m
+                    [33mclass[39m=[32m"flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-sm font-medium transition-all text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-200 dark:hover:bg-white...
+[90mundefined[39m
+
+[90mstdout[2m | src/components/__tests__/SolutionModal.test.tsx[2m > [22m[2mSolutionModal[2m > [22m[2mdisplays failed test results summary and cards
+[22m[39m[36m<body>[39m
+  [36m<div>[39m
+    [36m<div[39m
+      [33mclass[39m=[32m"fixed inset-0 z-50 bg-white dark:bg-slate-900 flex flex-col"[39m
+      [33mstyle[39m=[32m"width: 100vw; height: 100vh;"[39m
+    [36m>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"relative w-full h-full flex flex-col overflow-hidden"[39m
+      [36m>[39m
+        [36m<button[39m
+          [33mclass[39m=[32m"absolute top-3 right-3 sm:top-4 sm:right-4 p-2 rounded-full hover:bg-slate-100 dark:hover:bg-white/10 text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-white transition-colors z-50"[39m
+        [36m>[39m
+          [36m<svg[39m
+            [33maria-hidden[39m=[32m"true"[39m
+            [33mclass[39m=[32m"lucide lucide-x sm:w-6 sm:h-6"[39m
+            [33mfill[39m=[32m"none"[39m
+            [33mheight[39m=[32m"20"[39m
+            [33mstroke[39m=[32m"currentColor"[39m
+            [33mstroke-linecap[39m=[32m"round"[39m
+            [33mstroke-linejoin[39m=[32m"round"[39m
+            [33mstroke-width[39m=[32m"2"[39m
+            [33mviewBox[39m=[32m"0 0 24 24"[39m
+            [33mwidth[39m=[32m"20"[39m
+            [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+          [36m>[39m
+            [36m<path[39m
+              [33md[39m=[32m"M18 6 6 18"[39m
+            [36m/>[39m
+            [36m<path[39m
+              [33md[39m=[32m"m6 6 12 12"[39m
+            [36m/>[39m
+          [36m</svg>[39m
+        [36m</button>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"px-4 sm:px-8 py-3 sm:py-4 border-b border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50 pr-12"[39m
+        [36m>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"flex items-center gap-2 sm:gap-3"[39m
+            [36m>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"text-xl sm:text-2xl"[39m
+              [36m>[39m
+                [0m💡[0m
+              [36m</span>[39m
+              [36m<h2[39m
+                [33mclass[39m=[32m"text-lg sm:text-xl font-bold text-slate-900 dark:text-white line-clamp-1"[39m
+              [36m>[39m
+                [0mTwo Sum[0m
+              [36m</h2>[39m
+            [36m</div>[39m
+            [36m<span[39m
+              [33mclass[39m=[32m"self-start px-2 sm:px-3 py-0.5 sm:py-1 text-xs sm:text-sm font-semibold bg-indigo-500/20 text-indigo-600 dark:text-indigo-300 border border-indigo-500/30 rounded-full"[39m
+            [36m>[39m
+              [0mTwo Pointers[0m
+            [36m</span>[39m
+            [36m<span[39m
+              [33mclass[39m=[32m"self-start flex items-center gap-1 px-2 sm:px-3 py-0.5 sm:py-1 text-xs sm:text-sm font-semibold bg-amber-500/20 text-amber-600 dark:text-amber-300 border border-amber-500/30 rounded-full"[39m
+            [36m>[39m
+              [0m✏️ In Progress[0m
+            [36m</span>[39m
+          [36m</div>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"flex flex-wrap gap-2 sm:gap-4 text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-1"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"flex gap-1 sm:gap-2"[39m
+            [36m>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"font-semibold text-emerald-600 dark:text-emerald-400"[39m
+              [36m>[39m
+                [0mTime:[0m
+              [36m</span>[39m
+              [0m [0m
+              [0mO(n)[0m
+            [36m</div>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"flex gap-1 sm:gap-2"[39m
+            [36m>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"font-semibold text-emerald-600 dark:text-emerald-400"[39m
+              [36m>[39m
+                [0mSpace:[0m
+              [36m</span>[39m
+              [0m [0m
+              [0mO(n)[0m
+            [36m</div>[39m
+          [36m</div>[39m
+        [36m</div>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"flex-1 flex flex-col lg:flex-row overflow-hidden min-h-0"[39m
+        [36m>[39m
+          [36m<div[39m
+            [33mdata-testid[39m=[32m"desktop-layout"[39m
+          [36m>[39m
+            [36m<div>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"flex flex-col h-full overflow-hidden"[39m
+              [36m>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"flex items-center gap-2 px-4 py-2 border-b border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900"[39m
+                [36m>[39m
+                  [36m<button[39m
+                    [33mclass[39m=[32m"flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-sm font-medium transition-all bg-indigo-600 text-white shadow-lg shadow-indigo-500/25"[39m
+                  [36m>[39m
+                    [36m<svg[39m
+                      [33maria-hidden[39m=[32m"true"[39m
+                      [33mclass[39m=[32m"lucide lucide-file-text"[39m
+                      [33mfill[39m=[32m"none"[39m
+                      [33mheight[39m=[32m"16"[39m
+                      [33mstroke[39m=[32m"currentColor"[39m
+                      [33mstroke-linecap[39m=[32m"round"[39m
+                      [33mstroke-linejoin[39m=[32m"round"[39m
+                      [33mstroke-width[39m=[32m"2"[39m
+                      [33mviewBox[39m=[32m"0 0 24 24"[39m
+                      [33mwidth[39m=[32m"16"[39m
+                      [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+                    [36m>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"[39m
+                      [36m/>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M14 2v5a1 1 0 0 0 1 1h5"[39m
+                      [36m/>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M10 9H8"[39m
+                      [36m/>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M16 13H8"[39m
+                      [36m/>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M16 17H8"[39m
+                      [36m/>[39m
+                    [36m</svg>[39m
+                    [0m Problem[0m
+                  [36m</button>[39m
+                  [36m<button[39m
+                    [33mclass[39m=[32m"flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-sm font-medium transition-all text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-200 dark:hover:bg-white...
+[90mundefined[39m
+
+[90mstdout[2m | src/components/__tests__/SolutionModal.test.tsx[2m > [22m[2mSolutionModal[2m > [22m[2mdisplays failed test results summary and cards
+[22m[39m[36m<body>[39m
+  [36m<div>[39m
+    [36m<div[39m
+      [33mclass[39m=[32m"fixed inset-0 z-50 bg-white dark:bg-slate-900 flex flex-col"[39m
+      [33mstyle[39m=[32m"width: 100vw; height: 100vh;"[39m
+    [36m>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"relative w-full h-full flex flex-col overflow-hidden"[39m
+      [36m>[39m
+        [36m<button[39m
+          [33mclass[39m=[32m"absolute top-3 right-3 sm:top-4 sm:right-4 p-2 rounded-full hover:bg-slate-100 dark:hover:bg-white/10 text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-white transition-colors z-50"[39m
+        [36m>[39m
+          [36m<svg[39m
+            [33maria-hidden[39m=[32m"true"[39m
+            [33mclass[39m=[32m"lucide lucide-x sm:w-6 sm:h-6"[39m
+            [33mfill[39m=[32m"none"[39m
+            [33mheight[39m=[32m"20"[39m
+            [33mstroke[39m=[32m"currentColor"[39m
+            [33mstroke-linecap[39m=[32m"round"[39m
+            [33mstroke-linejoin[39m=[32m"round"[39m
+            [33mstroke-width[39m=[32m"2"[39m
+            [33mviewBox[39m=[32m"0 0 24 24"[39m
+            [33mwidth[39m=[32m"20"[39m
+            [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+          [36m>[39m
+            [36m<path[39m
+              [33md[39m=[32m"M18 6 6 18"[39m
+            [36m/>[39m
+            [36m<path[39m
+              [33md[39m=[32m"m6 6 12 12"[39m
+            [36m/>[39m
+          [36m</svg>[39m
+        [36m</button>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"px-4 sm:px-8 py-3 sm:py-4 border-b border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50 pr-12"[39m
+        [36m>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"flex items-center gap-2 sm:gap-3"[39m
+            [36m>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"text-xl sm:text-2xl"[39m
+              [36m>[39m
+                [0m💡[0m
+              [36m</span>[39m
+              [36m<h2[39m
+                [33mclass[39m=[32m"text-lg sm:text-xl font-bold text-slate-900 dark:text-white line-clamp-1"[39m
+              [36m>[39m
+                [0mTwo Sum[0m
+              [36m</h2>[39m
+            [36m</div>[39m
+            [36m<span[39m
+              [33mclass[39m=[32m"self-start px-2 sm:px-3 py-0.5 sm:py-1 text-xs sm:text-sm font-semibold bg-indigo-500/20 text-indigo-600 dark:text-indigo-300 border border-indigo-500/30 rounded-full"[39m
+            [36m>[39m
+              [0mTwo Pointers[0m
+            [36m</span>[39m
+            [36m<span[39m
+              [33mclass[39m=[32m"self-start flex items-center gap-1 px-2 sm:px-3 py-0.5 sm:py-1 text-xs sm:text-sm font-semibold bg-amber-500/20 text-amber-600 dark:text-amber-300 border border-amber-500/30 rounded-full"[39m
+            [36m>[39m
+              [0m✏️ In Progress[0m
+            [36m</span>[39m
+          [36m</div>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"flex flex-wrap gap-2 sm:gap-4 text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-1"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"flex gap-1 sm:gap-2"[39m
+            [36m>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"font-semibold text-emerald-600 dark:text-emerald-400"[39m
+              [36m>[39m
+                [0mTime:[0m
+              [36m</span>[39m
+              [0m [0m
+              [0mO(n)[0m
+            [36m</div>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"flex gap-1 sm:gap-2"[39m
+            [36m>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"font-semibold text-emerald-600 dark:text-emerald-400"[39m
+              [36m>[39m
+                [0mSpace:[0m
+              [36m</span>[39m
+              [0m [0m
+              [0mO(n)[0m
+            [36m</div>[39m
+          [36m</div>[39m
+        [36m</div>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"flex-1 flex flex-col lg:flex-row overflow-hidden min-h-0"[39m
+        [36m>[39m
+          [36m<div[39m
+            [33mdata-testid[39m=[32m"desktop-layout"[39m
+          [36m>[39m
+            [36m<div>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"flex flex-col h-full overflow-hidden"[39m
+              [36m>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"flex items-center gap-2 px-4 py-2 border-b border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900"[39m
+                [36m>[39m
+                  [36m<button[39m
+                    [33mclass[39m=[32m"flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-sm font-medium transition-all bg-indigo-600 text-white shadow-lg shadow-indigo-500/25"[39m
+                  [36m>[39m
+                    [36m<svg[39m
+                      [33maria-hidden[39m=[32m"true"[39m
+                      [33mclass[39m=[32m"lucide lucide-file-text"[39m
+                      [33mfill[39m=[32m"none"[39m
+                      [33mheight[39m=[32m"16"[39m
+                      [33mstroke[39m=[32m"currentColor"[39m
+                      [33mstroke-linecap[39m=[32m"round"[39m
+                      [33mstroke-linejoin[39m=[32m"round"[39m
+                      [33mstroke-width[39m=[32m"2"[39m
+                      [33mviewBox[39m=[32m"0 0 24 24"[39m
+                      [33mwidth[39m=[32m"16"[39m
+                      [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+                    [36m>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"[39m
+                      [36m/>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M14 2v5a1 1 0 0 0 1 1h5"[39m
+                      [36m/>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M10 9H8"[39m
+                      [36m/>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M16 13H8"[39m
+                      [36m/>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M16 17H8"[39m
+                      [36m/>[39m
+                    [36m</svg>[39m
+                    [0m Problem[0m
+                  [36m</button>[39m
+                  [36m<button[39m
+                    [33mclass[39m=[32m"flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-sm font-medium transition-all text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-200 dark:hover:bg-white...
+[90mundefined[39m
+
+[90mstdout[2m | src/components/__tests__/SolutionModal.test.tsx[2m > [22m[2mSolutionModal[2m > [22m[2mdisplays failed test results summary and cards
+[22m[39m[36m<body>[39m
+  [36m<div>[39m
+    [36m<div[39m
+      [33mclass[39m=[32m"fixed inset-0 z-50 bg-white dark:bg-slate-900 flex flex-col"[39m
+      [33mstyle[39m=[32m"width: 100vw; height: 100vh;"[39m
+    [36m>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"relative w-full h-full flex flex-col overflow-hidden"[39m
+      [36m>[39m
+        [36m<button[39m
+          [33mclass[39m=[32m"absolute top-3 right-3 sm:top-4 sm:right-4 p-2 rounded-full hover:bg-slate-100 dark:hover:bg-white/10 text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-white transition-colors z-50"[39m
+        [36m>[39m
+          [36m<svg[39m
+            [33maria-hidden[39m=[32m"true"[39m
+            [33mclass[39m=[32m"lucide lucide-x sm:w-6 sm:h-6"[39m
+            [33mfill[39m=[32m"none"[39m
+            [33mheight[39m=[32m"20"[39m
+            [33mstroke[39m=[32m"currentColor"[39m
+            [33mstroke-linecap[39m=[32m"round"[39m
+            [33mstroke-linejoin[39m=[32m"round"[39m
+            [33mstroke-width[39m=[32m"2"[39m
+            [33mviewBox[39m=[32m"0 0 24 24"[39m
+            [33mwidth[39m=[32m"20"[39m
+            [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+          [36m>[39m
+            [36m<path[39m
+              [33md[39m=[32m"M18 6 6 18"[39m
+            [36m/>[39m
+            [36m<path[39m
+              [33md[39m=[32m"m6 6 12 12"[39m
+            [36m/>[39m
+          [36m</svg>[39m
+        [36m</button>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"px-4 sm:px-8 py-3 sm:py-4 border-b border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50 pr-12"[39m
+        [36m>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"flex items-center gap-2 sm:gap-3"[39m
+            [36m>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"text-xl sm:text-2xl"[39m
+              [36m>[39m
+                [0m💡[0m
+              [36m</span>[39m
+              [36m<h2[39m
+                [33mclass[39m=[32m"text-lg sm:text-xl font-bold text-slate-900 dark:text-white line-clamp-1"[39m
+              [36m>[39m
+                [0mTwo Sum[0m
+              [36m</h2>[39m
+            [36m</div>[39m
+            [36m<span[39m
+              [33mclass[39m=[32m"self-start px-2 sm:px-3 py-0.5 sm:py-1 text-xs sm:text-sm font-semibold bg-indigo-500/20 text-indigo-600 dark:text-indigo-300 border border-indigo-500/30 rounded-full"[39m
+            [36m>[39m
+              [0mTwo Pointers[0m
+            [36m</span>[39m
+            [36m<span[39m
+              [33mclass[39m=[32m"self-start flex items-center gap-1 px-2 sm:px-3 py-0.5 sm:py-1 text-xs sm:text-sm font-semibold bg-amber-500/20 text-amber-600 dark:text-amber-300 border border-amber-500/30 rounded-full"[39m
+            [36m>[39m
+              [0m✏️ In Progress[0m
+            [36m</span>[39m
+          [36m</div>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"flex flex-wrap gap-2 sm:gap-4 text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-1"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"flex gap-1 sm:gap-2"[39m
+            [36m>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"font-semibold text-emerald-600 dark:text-emerald-400"[39m
+              [36m>[39m
+                [0mTime:[0m
+              [36m</span>[39m
+              [0m [0m
+              [0mO(n)[0m
+            [36m</div>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"flex gap-1 sm:gap-2"[39m
+            [36m>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"font-semibold text-emerald-600 dark:text-emerald-400"[39m
+              [36m>[39m
+                [0mSpace:[0m
+              [36m</span>[39m
+              [0m [0m
+              [0mO(n)[0m
+            [36m</div>[39m
+          [36m</div>[39m
+        [36m</div>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"flex-1 flex flex-col lg:flex-row overflow-hidden min-h-0"[39m
+        [36m>[39m
+          [36m<div[39m
+            [33mdata-testid[39m=[32m"desktop-layout"[39m
+          [36m>[39m
+            [36m<div>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"flex flex-col h-full overflow-hidden"[39m
+              [36m>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"flex items-center gap-2 px-4 py-2 border-b border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900"[39m
+                [36m>[39m
+                  [36m<button[39m
+                    [33mclass[39m=[32m"flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-sm font-medium transition-all bg-indigo-600 text-white shadow-lg shadow-indigo-500/25"[39m
+                  [36m>[39m
+                    [36m<svg[39m
+                      [33maria-hidden[39m=[32m"true"[39m
+                      [33mclass[39m=[32m"lucide lucide-file-text"[39m
+                      [33mfill[39m=[32m"none"[39m
+                      [33mheight[39m=[32m"16"[39m
+                      [33mstroke[39m=[32m"currentColor"[39m
+                      [33mstroke-linecap[39m=[32m"round"[39m
+                      [33mstroke-linejoin[39m=[32m"round"[39m
+                      [33mstroke-width[39m=[32m"2"[39m
+                      [33mviewBox[39m=[32m"0 0 24 24"[39m
+                      [33mwidth[39m=[32m"16"[39m
+                      [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+                    [36m>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"[39m
+                      [36m/>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M14 2v5a1 1 0 0 0 1 1h5"[39m
+                      [36m/>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M10 9H8"[39m
+                      [36m/>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M16 13H8"[39m
+                      [36m/>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M16 17H8"[39m
+                      [36m/>[39m
+                    [36m</svg>[39m
+                    [0m Problem[0m
+                  [36m</button>[39m
+                  [36m<button[39m
+                    [33mclass[39m=[32m"flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-sm font-medium transition-all text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-200 dark:hover:bg-white...
+[90mundefined[39m
+
+[90mstdout[2m | src/components/__tests__/SolutionModal.test.tsx[2m > [22m[2mSolutionModal[2m > [22m[2mdisplays failed test results summary and cards
+[22m[39m[36m<body>[39m
+  [36m<div>[39m
+    [36m<div[39m
+      [33mclass[39m=[32m"fixed inset-0 z-50 bg-white dark:bg-slate-900 flex flex-col"[39m
+      [33mstyle[39m=[32m"width: 100vw; height: 100vh;"[39m
+    [36m>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"relative w-full h-full flex flex-col overflow-hidden"[39m
+      [36m>[39m
+        [36m<button[39m
+          [33mclass[39m=[32m"absolute top-3 right-3 sm:top-4 sm:right-4 p-2 rounded-full hover:bg-slate-100 dark:hover:bg-white/10 text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-white transition-colors z-50"[39m
+        [36m>[39m
+          [36m<svg[39m
+            [33maria-hidden[39m=[32m"true"[39m
+            [33mclass[39m=[32m"lucide lucide-x sm:w-6 sm:h-6"[39m
+            [33mfill[39m=[32m"none"[39m
+            [33mheight[39m=[32m"20"[39m
+            [33mstroke[39m=[32m"currentColor"[39m
+            [33mstroke-linecap[39m=[32m"round"[39m
+            [33mstroke-linejoin[39m=[32m"round"[39m
+            [33mstroke-width[39m=[32m"2"[39m
+            [33mviewBox[39m=[32m"0 0 24 24"[39m
+            [33mwidth[39m=[32m"20"[39m
+            [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+          [36m>[39m
+            [36m<path[39m
+              [33md[39m=[32m"M18 6 6 18"[39m
+            [36m/>[39m
+            [36m<path[39m
+              [33md[39m=[32m"m6 6 12 12"[39m
+            [36m/>[39m
+          [36m</svg>[39m
+        [36m</button>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"px-4 sm:px-8 py-3 sm:py-4 border-b border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50 pr-12"[39m
+        [36m>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"flex items-center gap-2 sm:gap-3"[39m
+            [36m>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"text-xl sm:text-2xl"[39m
+              [36m>[39m
+                [0m💡[0m
+              [36m</span>[39m
+              [36m<h2[39m
+                [33mclass[39m=[32m"text-lg sm:text-xl font-bold text-slate-900 dark:text-white line-clamp-1"[39m
+              [36m>[39m
+                [0mTwo Sum[0m
+              [36m</h2>[39m
+            [36m</div>[39m
+            [36m<span[39m
+              [33mclass[39m=[32m"self-start px-2 sm:px-3 py-0.5 sm:py-1 text-xs sm:text-sm font-semibold bg-indigo-500/20 text-indigo-600 dark:text-indigo-300 border border-indigo-500/30 rounded-full"[39m
+            [36m>[39m
+              [0mTwo Pointers[0m
+            [36m</span>[39m
+            [36m<span[39m
+              [33mclass[39m=[32m"self-start flex items-center gap-1 px-2 sm:px-3 py-0.5 sm:py-1 text-xs sm:text-sm font-semibold bg-amber-500/20 text-amber-600 dark:text-amber-300 border border-amber-500/30 rounded-full"[39m
+            [36m>[39m
+              [0m✏️ In Progress[0m
+            [36m</span>[39m
+          [36m</div>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"flex flex-wrap gap-2 sm:gap-4 text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-1"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"flex gap-1 sm:gap-2"[39m
+            [36m>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"font-semibold text-emerald-600 dark:text-emerald-400"[39m
+              [36m>[39m
+                [0mTime:[0m
+              [36m</span>[39m
+              [0m [0m
+              [0mO(n)[0m
+            [36m</div>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"flex gap-1 sm:gap-2"[39m
+            [36m>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"font-semibold text-emerald-600 dark:text-emerald-400"[39m
+              [36m>[39m
+                [0mSpace:[0m
+              [36m</span>[39m
+              [0m [0m
+              [0mO(n)[0m
+            [36m</div>[39m
+          [36m</div>[39m
+        [36m</div>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"flex-1 flex flex-col lg:flex-row overflow-hidden min-h-0"[39m
+        [36m>[39m
+          [36m<div[39m
+            [33mdata-testid[39m=[32m"desktop-layout"[39m
+          [36m>[39m
+            [36m<div>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"flex flex-col h-full overflow-hidden"[39m
+              [36m>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"flex items-center gap-2 px-4 py-2 border-b border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900"[39m
+                [36m>[39m
+                  [36m<button[39m
+                    [33mclass[39m=[32m"flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-sm font-medium transition-all bg-indigo-600 text-white shadow-lg shadow-indigo-500/25"[39m
+                  [36m>[39m
+                    [36m<svg[39m
+                      [33maria-hidden[39m=[32m"true"[39m
+                      [33mclass[39m=[32m"lucide lucide-file-text"[39m
+                      [33mfill[39m=[32m"none"[39m
+                      [33mheight[39m=[32m"16"[39m
+                      [33mstroke[39m=[32m"currentColor"[39m
+                      [33mstroke-linecap[39m=[32m"round"[39m
+                      [33mstroke-linejoin[39m=[32m"round"[39m
+                      [33mstroke-width[39m=[32m"2"[39m
+                      [33mviewBox[39m=[32m"0 0 24 24"[39m
+                      [33mwidth[39m=[32m"16"[39m
+                      [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+                    [36m>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"[39m
+                      [36m/>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M14 2v5a1 1 0 0 0 1 1h5"[39m
+                      [36m/>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M10 9H8"[39m
+                      [36m/>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M16 13H8"[39m
+                      [36m/>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M16 17H8"[39m
+                      [36m/>[39m
+                    [36m</svg>[39m
+                    [0m Problem[0m
+                  [36m</button>[39m
+                  [36m<button[39m
+                    [33mclass[39m=[32m"flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-sm font-medium transition-all text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-200 dark:hover:bg-white...
+[90mundefined[39m
+
+[90mstdout[2m | src/components/__tests__/SolutionModal.test.tsx[2m > [22m[2mSolutionModal[2m > [22m[2mdisplays failed test results summary and cards
+[22m[39m[36m<body>[39m
+  [36m<div>[39m
+    [36m<div[39m
+      [33mclass[39m=[32m"fixed inset-0 z-50 bg-white dark:bg-slate-900 flex flex-col"[39m
+      [33mstyle[39m=[32m"width: 100vw; height: 100vh;"[39m
+    [36m>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"relative w-full h-full flex flex-col overflow-hidden"[39m
+      [36m>[39m
+        [36m<button[39m
+          [33mclass[39m=[32m"absolute top-3 right-3 sm:top-4 sm:right-4 p-2 rounded-full hover:bg-slate-100 dark:hover:bg-white/10 text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-white transition-colors z-50"[39m
+        [36m>[39m
+          [36m<svg[39m
+            [33maria-hidden[39m=[32m"true"[39m
+            [33mclass[39m=[32m"lucide lucide-x sm:w-6 sm:h-6"[39m
+            [33mfill[39m=[32m"none"[39m
+            [33mheight[39m=[32m"20"[39m
+            [33mstroke[39m=[32m"currentColor"[39m
+            [33mstroke-linecap[39m=[32m"round"[39m
+            [33mstroke-linejoin[39m=[32m"round"[39m
+            [33mstroke-width[39m=[32m"2"[39m
+            [33mviewBox[39m=[32m"0 0 24 24"[39m
+            [33mwidth[39m=[32m"20"[39m
+            [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+          [36m>[39m
+            [36m<path[39m
+              [33md[39m=[32m"M18 6 6 18"[39m
+            [36m/>[39m
+            [36m<path[39m
+              [33md[39m=[32m"m6 6 12 12"[39m
+            [36m/>[39m
+          [36m</svg>[39m
+        [36m</button>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"px-4 sm:px-8 py-3 sm:py-4 border-b border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50 pr-12"[39m
+        [36m>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"flex items-center gap-2 sm:gap-3"[39m
+            [36m>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"text-xl sm:text-2xl"[39m
+              [36m>[39m
+                [0m💡[0m
+              [36m</span>[39m
+              [36m<h2[39m
+                [33mclass[39m=[32m"text-lg sm:text-xl font-bold text-slate-900 dark:text-white line-clamp-1"[39m
+              [36m>[39m
+                [0mTwo Sum[0m
+              [36m</h2>[39m
+            [36m</div>[39m
+            [36m<span[39m
+              [33mclass[39m=[32m"self-start px-2 sm:px-3 py-0.5 sm:py-1 text-xs sm:text-sm font-semibold bg-indigo-500/20 text-indigo-600 dark:text-indigo-300 border border-indigo-500/30 rounded-full"[39m
+            [36m>[39m
+              [0mTwo Pointers[0m
+            [36m</span>[39m
+            [36m<span[39m
+              [33mclass[39m=[32m"self-start flex items-center gap-1 px-2 sm:px-3 py-0.5 sm:py-1 text-xs sm:text-sm font-semibold bg-amber-500/20 text-amber-600 dark:text-amber-300 border border-amber-500/30 rounded-full"[39m
+            [36m>[39m
+              [0m✏️ In Progress[0m
+            [36m</span>[39m
+          [36m</div>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"flex flex-wrap gap-2 sm:gap-4 text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-1"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"flex gap-1 sm:gap-2"[39m
+            [36m>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"font-semibold text-emerald-600 dark:text-emerald-400"[39m
+              [36m>[39m
+                [0mTime:[0m
+              [36m</span>[39m
+              [0m [0m
+              [0mO(n)[0m
+            [36m</div>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"flex gap-1 sm:gap-2"[39m
+            [36m>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"font-semibold text-emerald-600 dark:text-emerald-400"[39m
+              [36m>[39m
+                [0mSpace:[0m
+              [36m</span>[39m
+              [0m [0m
+              [0mO(n)[0m
+            [36m</div>[39m
+          [36m</div>[39m
+        [36m</div>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"flex-1 flex flex-col lg:flex-row overflow-hidden min-h-0"[39m
+        [36m>[39m
+          [36m<div[39m
+            [33mdata-testid[39m=[32m"desktop-layout"[39m
+          [36m>[39m
+            [36m<div>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"flex flex-col h-full overflow-hidden"[39m
+              [36m>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"flex items-center gap-2 px-4 py-2 border-b border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900"[39m
+                [36m>[39m
+                  [36m<button[39m
+                    [33mclass[39m=[32m"flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-sm font-medium transition-all bg-indigo-600 text-white shadow-lg shadow-indigo-500/25"[39m
+                  [36m>[39m
+                    [36m<svg[39m
+                      [33maria-hidden[39m=[32m"true"[39m
+                      [33mclass[39m=[32m"lucide lucide-file-text"[39m
+                      [33mfill[39m=[32m"none"[39m
+                      [33mheight[39m=[32m"16"[39m
+                      [33mstroke[39m=[32m"currentColor"[39m
+                      [33mstroke-linecap[39m=[32m"round"[39m
+                      [33mstroke-linejoin[39m=[32m"round"[39m
+                      [33mstroke-width[39m=[32m"2"[39m
+                      [33mviewBox[39m=[32m"0 0 24 24"[39m
+                      [33mwidth[39m=[32m"16"[39m
+                      [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+                    [36m>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"[39m
+                      [36m/>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M14 2v5a1 1 0 0 0 1 1h5"[39m
+                      [36m/>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M10 9H8"[39m
+                      [36m/>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M16 13H8"[39m
+                      [36m/>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M16 17H8"[39m
+                      [36m/>[39m
+                    [36m</svg>[39m
+                    [0m Problem[0m
+                  [36m</button>[39m
+                  [36m<button[39m
+                    [33mclass[39m=[32m"flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-sm font-medium transition-all text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-200 dark:hover:bg-white...
+[90mundefined[39m
+
+[90mstdout[2m | src/components/__tests__/SolutionModal.test.tsx[2m > [22m[2mSolutionModal[2m > [22m[2mdisplays failed test results summary and cards
+[22m[39m[36m<body>[39m
+  [36m<div>[39m
+    [36m<div[39m
+      [33mclass[39m=[32m"fixed inset-0 z-50 bg-white dark:bg-slate-900 flex flex-col"[39m
+      [33mstyle[39m=[32m"width: 100vw; height: 100vh;"[39m
+    [36m>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"relative w-full h-full flex flex-col overflow-hidden"[39m
+      [36m>[39m
+        [36m<button[39m
+          [33mclass[39m=[32m"absolute top-3 right-3 sm:top-4 sm:right-4 p-2 rounded-full hover:bg-slate-100 dark:hover:bg-white/10 text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-white transition-colors z-50"[39m
+        [36m>[39m
+          [36m<svg[39m
+            [33maria-hidden[39m=[32m"true"[39m
+            [33mclass[39m=[32m"lucide lucide-x sm:w-6 sm:h-6"[39m
+            [33mfill[39m=[32m"none"[39m
+            [33mheight[39m=[32m"20"[39m
+            [33mstroke[39m=[32m"currentColor"[39m
+            [33mstroke-linecap[39m=[32m"round"[39m
+            [33mstroke-linejoin[39m=[32m"round"[39m
+            [33mstroke-width[39m=[32m"2"[39m
+            [33mviewBox[39m=[32m"0 0 24 24"[39m
+            [33mwidth[39m=[32m"20"[39m
+            [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+          [36m>[39m
+            [36m<path[39m
+              [33md[39m=[32m"M18 6 6 18"[39m
+            [36m/>[39m
+            [36m<path[39m
+              [33md[39m=[32m"m6 6 12 12"[39m
+            [36m/>[39m
+          [36m</svg>[39m
+        [36m</button>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"px-4 sm:px-8 py-3 sm:py-4 border-b border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50 pr-12"[39m
+        [36m>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"flex items-center gap-2 sm:gap-3"[39m
+            [36m>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"text-xl sm:text-2xl"[39m
+              [36m>[39m
+                [0m💡[0m
+              [36m</span>[39m
+              [36m<h2[39m
+                [33mclass[39m=[32m"text-lg sm:text-xl font-bold text-slate-900 dark:text-white line-clamp-1"[39m
+              [36m>[39m
+                [0mTwo Sum[0m
+              [36m</h2>[39m
+            [36m</div>[39m
+            [36m<span[39m
+              [33mclass[39m=[32m"self-start px-2 sm:px-3 py-0.5 sm:py-1 text-xs sm:text-sm font-semibold bg-indigo-500/20 text-indigo-600 dark:text-indigo-300 border border-indigo-500/30 rounded-full"[39m
+            [36m>[39m
+              [0mTwo Pointers[0m
+            [36m</span>[39m
+            [36m<span[39m
+              [33mclass[39m=[32m"self-start flex items-center gap-1 px-2 sm:px-3 py-0.5 sm:py-1 text-xs sm:text-sm font-semibold bg-amber-500/20 text-amber-600 dark:text-amber-300 border border-amber-500/30 rounded-full"[39m
+            [36m>[39m
+              [0m✏️ In Progress[0m
+            [36m</span>[39m
+          [36m</div>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"flex flex-wrap gap-2 sm:gap-4 text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-1"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"flex gap-1 sm:gap-2"[39m
+            [36m>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"font-semibold text-emerald-600 dark:text-emerald-400"[39m
+              [36m>[39m
+                [0mTime:[0m
+              [36m</span>[39m
+              [0m [0m
+              [0mO(n)[0m
+            [36m</div>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"flex gap-1 sm:gap-2"[39m
+            [36m>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"font-semibold text-emerald-600 dark:text-emerald-400"[39m
+              [36m>[39m
+                [0mSpace:[0m
+              [36m</span>[39m
+              [0m [0m
+              [0mO(n)[0m
+            [36m</div>[39m
+          [36m</div>[39m
+        [36m</div>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"flex-1 flex flex-col lg:flex-row overflow-hidden min-h-0"[39m
+        [36m>[39m
+          [36m<div[39m
+            [33mdata-testid[39m=[32m"desktop-layout"[39m
+          [36m>[39m
+            [36m<div>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"flex flex-col h-full overflow-hidden"[39m
+              [36m>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"flex items-center gap-2 px-4 py-2 border-b border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900"[39m
+                [36m>[39m
+                  [36m<button[39m
+                    [33mclass[39m=[32m"flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-sm font-medium transition-all bg-indigo-600 text-white shadow-lg shadow-indigo-500/25"[39m
+                  [36m>[39m
+                    [36m<svg[39m
+                      [33maria-hidden[39m=[32m"true"[39m
+                      [33mclass[39m=[32m"lucide lucide-file-text"[39m
+                      [33mfill[39m=[32m"none"[39m
+                      [33mheight[39m=[32m"16"[39m
+                      [33mstroke[39m=[32m"currentColor"[39m
+                      [33mstroke-linecap[39m=[32m"round"[39m
+                      [33mstroke-linejoin[39m=[32m"round"[39m
+                      [33mstroke-width[39m=[32m"2"[39m
+                      [33mviewBox[39m=[32m"0 0 24 24"[39m
+                      [33mwidth[39m=[32m"16"[39m
+                      [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+                    [36m>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"[39m
+                      [36m/>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M14 2v5a1 1 0 0 0 1 1h5"[39m
+                      [36m/>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M10 9H8"[39m
+                      [36m/>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M16 13H8"[39m
+                      [36m/>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M16 17H8"[39m
+                      [36m/>[39m
+                    [36m</svg>[39m
+                    [0m Problem[0m
+                  [36m</button>[39m
+                  [36m<button[39m
+                    [33mclass[39m=[32m"flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-sm font-medium transition-all text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-200 dark:hover:bg-white...
+[90mundefined[39m
+
+[90mstdout[2m | src/components/__tests__/SolutionModal.test.tsx[2m > [22m[2mSolutionModal[2m > [22m[2mdisplays failed test results summary and cards
+[22m[39m[36m<body>[39m
+  [36m<div>[39m
+    [36m<div[39m
+      [33mclass[39m=[32m"fixed inset-0 z-50 bg-white dark:bg-slate-900 flex flex-col"[39m
+      [33mstyle[39m=[32m"width: 100vw; height: 100vh;"[39m
+    [36m>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"relative w-full h-full flex flex-col overflow-hidden"[39m
+      [36m>[39m
+        [36m<button[39m
+          [33mclass[39m=[32m"absolute top-3 right-3 sm:top-4 sm:right-4 p-2 rounded-full hover:bg-slate-100 dark:hover:bg-white/10 text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-white transition-colors z-50"[39m
+        [36m>[39m
+          [36m<svg[39m
+            [33maria-hidden[39m=[32m"true"[39m
+            [33mclass[39m=[32m"lucide lucide-x sm:w-6 sm:h-6"[39m
+            [33mfill[39m=[32m"none"[39m
+            [33mheight[39m=[32m"20"[39m
+            [33mstroke[39m=[32m"currentColor"[39m
+            [33mstroke-linecap[39m=[32m"round"[39m
+            [33mstroke-linejoin[39m=[32m"round"[39m
+            [33mstroke-width[39m=[32m"2"[39m
+            [33mviewBox[39m=[32m"0 0 24 24"[39m
+            [33mwidth[39m=[32m"20"[39m
+            [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+          [36m>[39m
+            [36m<path[39m
+              [33md[39m=[32m"M18 6 6 18"[39m
+            [36m/>[39m
+            [36m<path[39m
+              [33md[39m=[32m"m6 6 12 12"[39m
+            [36m/>[39m
+          [36m</svg>[39m
+        [36m</button>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"px-4 sm:px-8 py-3 sm:py-4 border-b border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50 pr-12"[39m
+        [36m>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"flex items-center gap-2 sm:gap-3"[39m
+            [36m>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"text-xl sm:text-2xl"[39m
+              [36m>[39m
+                [0m💡[0m
+              [36m</span>[39m
+              [36m<h2[39m
+                [33mclass[39m=[32m"text-lg sm:text-xl font-bold text-slate-900 dark:text-white line-clamp-1"[39m
+              [36m>[39m
+                [0mTwo Sum[0m
+              [36m</h2>[39m
+            [36m</div>[39m
+            [36m<span[39m
+              [33mclass[39m=[32m"self-start px-2 sm:px-3 py-0.5 sm:py-1 text-xs sm:text-sm font-semibold bg-indigo-500/20 text-indigo-600 dark:text-indigo-300 border border-indigo-500/30 rounded-full"[39m
+            [36m>[39m
+              [0mTwo Pointers[0m
+            [36m</span>[39m
+            [36m<span[39m
+              [33mclass[39m=[32m"self-start flex items-center gap-1 px-2 sm:px-3 py-0.5 sm:py-1 text-xs sm:text-sm font-semibold bg-amber-500/20 text-amber-600 dark:text-amber-300 border border-amber-500/30 rounded-full"[39m
+            [36m>[39m
+              [0m✏️ In Progress[0m
+            [36m</span>[39m
+          [36m</div>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"flex flex-wrap gap-2 sm:gap-4 text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-1"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"flex gap-1 sm:gap-2"[39m
+            [36m>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"font-semibold text-emerald-600 dark:text-emerald-400"[39m
+              [36m>[39m
+                [0mTime:[0m
+              [36m</span>[39m
+              [0m [0m
+              [0mO(n)[0m
+            [36m</div>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"flex gap-1 sm:gap-2"[39m
+            [36m>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"font-semibold text-emerald-600 dark:text-emerald-400"[39m
+              [36m>[39m
+                [0mSpace:[0m
+              [36m</span>[39m
+              [0m [0m
+              [0mO(n)[0m
+            [36m</div>[39m
+          [36m</div>[39m
+        [36m</div>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"flex-1 flex flex-col lg:flex-row overflow-hidden min-h-0"[39m
+        [36m>[39m
+          [36m<div[39m
+            [33mdata-testid[39m=[32m"desktop-layout"[39m
+          [36m>[39m
+            [36m<div>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"flex flex-col h-full overflow-hidden"[39m
+              [36m>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"flex items-center gap-2 px-4 py-2 border-b border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900"[39m
+                [36m>[39m
+                  [36m<button[39m
+                    [33mclass[39m=[32m"flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-sm font-medium transition-all bg-indigo-600 text-white shadow-lg shadow-indigo-500/25"[39m
+                  [36m>[39m
+                    [36m<svg[39m
+                      [33maria-hidden[39m=[32m"true"[39m
+                      [33mclass[39m=[32m"lucide lucide-file-text"[39m
+                      [33mfill[39m=[32m"none"[39m
+                      [33mheight[39m=[32m"16"[39m
+                      [33mstroke[39m=[32m"currentColor"[39m
+                      [33mstroke-linecap[39m=[32m"round"[39m
+                      [33mstroke-linejoin[39m=[32m"round"[39m
+                      [33mstroke-width[39m=[32m"2"[39m
+                      [33mviewBox[39m=[32m"0 0 24 24"[39m
+                      [33mwidth[39m=[32m"16"[39m
+                      [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+                    [36m>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"[39m
+                      [36m/>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M14 2v5a1 1 0 0 0 1 1h5"[39m
+                      [36m/>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M10 9H8"[39m
+                      [36m/>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M16 13H8"[39m
+                      [36m/>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M16 17H8"[39m
+                      [36m/>[39m
+                    [36m</svg>[39m
+                    [0m Problem[0m
+                  [36m</button>[39m
+                  [36m<button[39m
+                    [33mclass[39m=[32m"flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-sm font-medium transition-all text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-200 dark:hover:bg-white...
+[90mundefined[39m
+
+[90mstdout[2m | src/components/__tests__/SolutionModal.test.tsx[2m > [22m[2mSolutionModal[2m > [22m[2mdisplays failed test results summary and cards
+[22m[39m[36m<body>[39m
+  [36m<div>[39m
+    [36m<div[39m
+      [33mclass[39m=[32m"fixed inset-0 z-50 bg-white dark:bg-slate-900 flex flex-col"[39m
+      [33mstyle[39m=[32m"width: 100vw; height: 100vh;"[39m
+    [36m>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"relative w-full h-full flex flex-col overflow-hidden"[39m
+      [36m>[39m
+        [36m<button[39m
+          [33mclass[39m=[32m"absolute top-3 right-3 sm:top-4 sm:right-4 p-2 rounded-full hover:bg-slate-100 dark:hover:bg-white/10 text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-white transition-colors z-50"[39m
+        [36m>[39m
+          [36m<svg[39m
+            [33maria-hidden[39m=[32m"true"[39m
+            [33mclass[39m=[32m"lucide lucide-x sm:w-6 sm:h-6"[39m
+            [33mfill[39m=[32m"none"[39m
+            [33mheight[39m=[32m"20"[39m
+            [33mstroke[39m=[32m"currentColor"[39m
+            [33mstroke-linecap[39m=[32m"round"[39m
+            [33mstroke-linejoin[39m=[32m"round"[39m
+            [33mstroke-width[39m=[32m"2"[39m
+            [33mviewBox[39m=[32m"0 0 24 24"[39m
+            [33mwidth[39m=[32m"20"[39m
+            [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+          [36m>[39m
+            [36m<path[39m
+              [33md[39m=[32m"M18 6 6 18"[39m
+            [36m/>[39m
+            [36m<path[39m
+              [33md[39m=[32m"m6 6 12 12"[39m
+            [36m/>[39m
+          [36m</svg>[39m
+        [36m</button>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"px-4 sm:px-8 py-3 sm:py-4 border-b border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50 pr-12"[39m
+        [36m>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"flex items-center gap-2 sm:gap-3"[39m
+            [36m>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"text-xl sm:text-2xl"[39m
+              [36m>[39m
+                [0m💡[0m
+              [36m</span>[39m
+              [36m<h2[39m
+                [33mclass[39m=[32m"text-lg sm:text-xl font-bold text-slate-900 dark:text-white line-clamp-1"[39m
+              [36m>[39m
+                [0mTwo Sum[0m
+              [36m</h2>[39m
+            [36m</div>[39m
+            [36m<span[39m
+              [33mclass[39m=[32m"self-start px-2 sm:px-3 py-0.5 sm:py-1 text-xs sm:text-sm font-semibold bg-indigo-500/20 text-indigo-600 dark:text-indigo-300 border border-indigo-500/30 rounded-full"[39m
+            [36m>[39m
+              [0mTwo Pointers[0m
+            [36m</span>[39m
+            [36m<span[39m
+              [33mclass[39m=[32m"self-start flex items-center gap-1 px-2 sm:px-3 py-0.5 sm:py-1 text-xs sm:text-sm font-semibold bg-amber-500/20 text-amber-600 dark:text-amber-300 border border-amber-500/30 rounded-full"[39m
+            [36m>[39m
+              [0m✏️ In Progress[0m
+            [36m</span>[39m
+          [36m</div>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"flex flex-wrap gap-2 sm:gap-4 text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-1"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"flex gap-1 sm:gap-2"[39m
+            [36m>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"font-semibold text-emerald-600 dark:text-emerald-400"[39m
+              [36m>[39m
+                [0mTime:[0m
+              [36m</span>[39m
+              [0m [0m
+              [0mO(n)[0m
+            [36m</div>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"flex gap-1 sm:gap-2"[39m
+            [36m>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"font-semibold text-emerald-600 dark:text-emerald-400"[39m
+              [36m>[39m
+                [0mSpace:[0m
+              [36m</span>[39m
+              [0m [0m
+              [0mO(n)[0m
+            [36m</div>[39m
+          [36m</div>[39m
+        [36m</div>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"flex-1 flex flex-col lg:flex-row overflow-hidden min-h-0"[39m
+        [36m>[39m
+          [36m<div[39m
+            [33mdata-testid[39m=[32m"desktop-layout"[39m
+          [36m>[39m
+            [36m<div>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"flex flex-col h-full overflow-hidden"[39m
+              [36m>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"flex items-center gap-2 px-4 py-2 border-b border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900"[39m
+                [36m>[39m
+                  [36m<button[39m
+                    [33mclass[39m=[32m"flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-sm font-medium transition-all bg-indigo-600 text-white shadow-lg shadow-indigo-500/25"[39m
+                  [36m>[39m
+                    [36m<svg[39m
+                      [33maria-hidden[39m=[32m"true"[39m
+                      [33mclass[39m=[32m"lucide lucide-file-text"[39m
+                      [33mfill[39m=[32m"none"[39m
+                      [33mheight[39m=[32m"16"[39m
+                      [33mstroke[39m=[32m"currentColor"[39m
+                      [33mstroke-linecap[39m=[32m"round"[39m
+                      [33mstroke-linejoin[39m=[32m"round"[39m
+                      [33mstroke-width[39m=[32m"2"[39m
+                      [33mviewBox[39m=[32m"0 0 24 24"[39m
+                      [33mwidth[39m=[32m"16"[39m
+                      [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+                    [36m>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"[39m
+                      [36m/>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M14 2v5a1 1 0 0 0 1 1h5"[39m
+                      [36m/>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M10 9H8"[39m
+                      [36m/>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M16 13H8"[39m
+                      [36m/>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M16 17H8"[39m
+                      [36m/>[39m
+                    [36m</svg>[39m
+                    [0m Problem[0m
+                  [36m</button>[39m
+                  [36m<button[39m
+                    [33mclass[39m=[32m"flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-sm font-medium transition-all text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-200 dark:hover:bg-white...
+[90mundefined[39m
+
+[90mstdout[2m | src/components/__tests__/SolutionModal.test.tsx[2m > [22m[2mSolutionModal[2m > [22m[2mdisplays failed test results summary and cards
+[22m[39m[36m<body>[39m
+  [36m<div>[39m
+    [36m<div[39m
+      [33mclass[39m=[32m"fixed inset-0 z-50 bg-white dark:bg-slate-900 flex flex-col"[39m
+      [33mstyle[39m=[32m"width: 100vw; height: 100vh;"[39m
+    [36m>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"relative w-full h-full flex flex-col overflow-hidden"[39m
+      [36m>[39m
+        [36m<button[39m
+          [33mclass[39m=[32m"absolute top-3 right-3 sm:top-4 sm:right-4 p-2 rounded-full hover:bg-slate-100 dark:hover:bg-white/10 text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-white transition-colors z-50"[39m
+        [36m>[39m
+          [36m<svg[39m
+            [33maria-hidden[39m=[32m"true"[39m
+            [33mclass[39m=[32m"lucide lucide-x sm:w-6 sm:h-6"[39m
+            [33mfill[39m=[32m"none"[39m
+            [33mheight[39m=[32m"20"[39m
+            [33mstroke[39m=[32m"currentColor"[39m
+            [33mstroke-linecap[39m=[32m"round"[39m
+            [33mstroke-linejoin[39m=[32m"round"[39m
+            [33mstroke-width[39m=[32m"2"[39m
+            [33mviewBox[39m=[32m"0 0 24 24"[39m
+            [33mwidth[39m=[32m"20"[39m
+            [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+          [36m>[39m
+            [36m<path[39m
+              [33md[39m=[32m"M18 6 6 18"[39m
+            [36m/>[39m
+            [36m<path[39m
+              [33md[39m=[32m"m6 6 12 12"[39m
+            [36m/>[39m
+          [36m</svg>[39m
+        [36m</button>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"px-4 sm:px-8 py-3 sm:py-4 border-b border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50 pr-12"[39m
+        [36m>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"flex items-center gap-2 sm:gap-3"[39m
+            [36m>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"text-xl sm:text-2xl"[39m
+              [36m>[39m
+                [0m💡[0m
+              [36m</span>[39m
+              [36m<h2[39m
+                [33mclass[39m=[32m"text-lg sm:text-xl font-bold text-slate-900 dark:text-white line-clamp-1"[39m
+              [36m>[39m
+                [0mTwo Sum[0m
+              [36m</h2>[39m
+            [36m</div>[39m
+            [36m<span[39m
+              [33mclass[39m=[32m"self-start px-2 sm:px-3 py-0.5 sm:py-1 text-xs sm:text-sm font-semibold bg-indigo-500/20 text-indigo-600 dark:text-indigo-300 border border-indigo-500/30 rounded-full"[39m
+            [36m>[39m
+              [0mTwo Pointers[0m
+            [36m</span>[39m
+            [36m<span[39m
+              [33mclass[39m=[32m"self-start flex items-center gap-1 px-2 sm:px-3 py-0.5 sm:py-1 text-xs sm:text-sm font-semibold bg-amber-500/20 text-amber-600 dark:text-amber-300 border border-amber-500/30 rounded-full"[39m
+            [36m>[39m
+              [0m✏️ In Progress[0m
+            [36m</span>[39m
+          [36m</div>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"flex flex-wrap gap-2 sm:gap-4 text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-1"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"flex gap-1 sm:gap-2"[39m
+            [36m>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"font-semibold text-emerald-600 dark:text-emerald-400"[39m
+              [36m>[39m
+                [0mTime:[0m
+              [36m</span>[39m
+              [0m [0m
+              [0mO(n)[0m
+            [36m</div>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"flex gap-1 sm:gap-2"[39m
+            [36m>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"font-semibold text-emerald-600 dark:text-emerald-400"[39m
+              [36m>[39m
+                [0mSpace:[0m
+              [36m</span>[39m
+              [0m [0m
+              [0mO(n)[0m
+            [36m</div>[39m
+          [36m</div>[39m
+        [36m</div>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"flex-1 flex flex-col lg:flex-row overflow-hidden min-h-0"[39m
+        [36m>[39m
+          [36m<div[39m
+            [33mdata-testid[39m=[32m"desktop-layout"[39m
+          [36m>[39m
+            [36m<div>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"flex flex-col h-full overflow-hidden"[39m
+              [36m>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"flex items-center gap-2 px-4 py-2 border-b border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900"[39m
+                [36m>[39m
+                  [36m<button[39m
+                    [33mclass[39m=[32m"flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-sm font-medium transition-all bg-indigo-600 text-white shadow-lg shadow-indigo-500/25"[39m
+                  [36m>[39m
+                    [36m<svg[39m
+                      [33maria-hidden[39m=[32m"true"[39m
+                      [33mclass[39m=[32m"lucide lucide-file-text"[39m
+                      [33mfill[39m=[32m"none"[39m
+                      [33mheight[39m=[32m"16"[39m
+                      [33mstroke[39m=[32m"currentColor"[39m
+                      [33mstroke-linecap[39m=[32m"round"[39m
+                      [33mstroke-linejoin[39m=[32m"round"[39m
+                      [33mstroke-width[39m=[32m"2"[39m
+                      [33mviewBox[39m=[32m"0 0 24 24"[39m
+                      [33mwidth[39m=[32m"16"[39m
+                      [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+                    [36m>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"[39m
+                      [36m/>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M14 2v5a1 1 0 0 0 1 1h5"[39m
+                      [36m/>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M10 9H8"[39m
+                      [36m/>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M16 13H8"[39m
+                      [36m/>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M16 17H8"[39m
+                      [36m/>[39m
+                    [36m</svg>[39m
+                    [0m Problem[0m
+                  [36m</button>[39m
+                  [36m<button[39m
+                    [33mclass[39m=[32m"flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-sm font-medium transition-all text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-200 dark:hover:bg-white...
+[90mundefined[39m
+
+[90mstdout[2m | src/components/__tests__/SolutionModal.test.tsx[2m > [22m[2mSolutionModal[2m > [22m[2mdisplays failed test results summary and cards
+[22m[39m[36m<body>[39m
+  [36m<div>[39m
+    [36m<div[39m
+      [33mclass[39m=[32m"fixed inset-0 z-50 bg-white dark:bg-slate-900 flex flex-col"[39m
+      [33mstyle[39m=[32m"width: 100vw; height: 100vh;"[39m
+    [36m>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"relative w-full h-full flex flex-col overflow-hidden"[39m
+      [36m>[39m
+        [36m<button[39m
+          [33mclass[39m=[32m"absolute top-3 right-3 sm:top-4 sm:right-4 p-2 rounded-full hover:bg-slate-100 dark:hover:bg-white/10 text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-white transition-colors z-50"[39m
+        [36m>[39m
+          [36m<svg[39m
+            [33maria-hidden[39m=[32m"true"[39m
+            [33mclass[39m=[32m"lucide lucide-x sm:w-6 sm:h-6"[39m
+            [33mfill[39m=[32m"none"[39m
+            [33mheight[39m=[32m"20"[39m
+            [33mstroke[39m=[32m"currentColor"[39m
+            [33mstroke-linecap[39m=[32m"round"[39m
+            [33mstroke-linejoin[39m=[32m"round"[39m
+            [33mstroke-width[39m=[32m"2"[39m
+            [33mviewBox[39m=[32m"0 0 24 24"[39m
+            [33mwidth[39m=[32m"20"[39m
+            [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+          [36m>[39m
+            [36m<path[39m
+              [33md[39m=[32m"M18 6 6 18"[39m
+            [36m/>[39m
+            [36m<path[39m
+              [33md[39m=[32m"m6 6 12 12"[39m
+            [36m/>[39m
+          [36m</svg>[39m
+        [36m</button>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"px-4 sm:px-8 py-3 sm:py-4 border-b border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50 pr-12"[39m
+        [36m>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"flex items-center gap-2 sm:gap-3"[39m
+            [36m>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"text-xl sm:text-2xl"[39m
+              [36m>[39m
+                [0m💡[0m
+              [36m</span>[39m
+              [36m<h2[39m
+                [33mclass[39m=[32m"text-lg sm:text-xl font-bold text-slate-900 dark:text-white line-clamp-1"[39m
+              [36m>[39m
+                [0mTwo Sum[0m
+              [36m</h2>[39m
+            [36m</div>[39m
+            [36m<span[39m
+              [33mclass[39m=[32m"self-start px-2 sm:px-3 py-0.5 sm:py-1 text-xs sm:text-sm font-semibold bg-indigo-500/20 text-indigo-600 dark:text-indigo-300 border border-indigo-500/30 rounded-full"[39m
+            [36m>[39m
+              [0mTwo Pointers[0m
+            [36m</span>[39m
+            [36m<span[39m
+              [33mclass[39m=[32m"self-start flex items-center gap-1 px-2 sm:px-3 py-0.5 sm:py-1 text-xs sm:text-sm font-semibold bg-amber-500/20 text-amber-600 dark:text-amber-300 border border-amber-500/30 rounded-full"[39m
+            [36m>[39m
+              [0m✏️ In Progress[0m
+            [36m</span>[39m
+          [36m</div>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"flex flex-wrap gap-2 sm:gap-4 text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-1"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"flex gap-1 sm:gap-2"[39m
+            [36m>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"font-semibold text-emerald-600 dark:text-emerald-400"[39m
+              [36m>[39m
+                [0mTime:[0m
+              [36m</span>[39m
+              [0m [0m
+              [0mO(n)[0m
+            [36m</div>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"flex gap-1 sm:gap-2"[39m
+            [36m>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"font-semibold text-emerald-600 dark:text-emerald-400"[39m
+              [36m>[39m
+                [0mSpace:[0m
+              [36m</span>[39m
+              [0m [0m
+              [0mO(n)[0m
+            [36m</div>[39m
+          [36m</div>[39m
+        [36m</div>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"flex-1 flex flex-col lg:flex-row overflow-hidden min-h-0"[39m
+        [36m>[39m
+          [36m<div[39m
+            [33mdata-testid[39m=[32m"desktop-layout"[39m
+          [36m>[39m
+            [36m<div>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"flex flex-col h-full overflow-hidden"[39m
+              [36m>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"flex items-center gap-2 px-4 py-2 border-b border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900"[39m
+                [36m>[39m
+                  [36m<button[39m
+                    [33mclass[39m=[32m"flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-sm font-medium transition-all bg-indigo-600 text-white shadow-lg shadow-indigo-500/25"[39m
+                  [36m>[39m
+                    [36m<svg[39m
+                      [33maria-hidden[39m=[32m"true"[39m
+                      [33mclass[39m=[32m"lucide lucide-file-text"[39m
+                      [33mfill[39m=[32m"none"[39m
+                      [33mheight[39m=[32m"16"[39m
+                      [33mstroke[39m=[32m"currentColor"[39m
+                      [33mstroke-linecap[39m=[32m"round"[39m
+                      [33mstroke-linejoin[39m=[32m"round"[39m
+                      [33mstroke-width[39m=[32m"2"[39m
+                      [33mviewBox[39m=[32m"0 0 24 24"[39m
+                      [33mwidth[39m=[32m"16"[39m
+                      [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+                    [36m>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"[39m
+                      [36m/>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M14 2v5a1 1 0 0 0 1 1h5"[39m
+                      [36m/>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M10 9H8"[39m
+                      [36m/>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M16 13H8"[39m
+                      [36m/>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M16 17H8"[39m
+                      [36m/>[39m
+                    [36m</svg>[39m
+                    [0m Problem[0m
+                  [36m</button>[39m
+                  [36m<button[39m
+                    [33mclass[39m=[32m"flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-sm font-medium transition-all text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-200 dark:hover:bg-white...
+[90mundefined[39m
+
+[90mstdout[2m | src/components/__tests__/SolutionModal.test.tsx[2m > [22m[2mSolutionModal[2m > [22m[2mdisplays failed test results summary and cards
+[22m[39m[36m<body>[39m
+  [36m<div>[39m
+    [36m<div[39m
+      [33mclass[39m=[32m"fixed inset-0 z-50 bg-white dark:bg-slate-900 flex flex-col"[39m
+      [33mstyle[39m=[32m"width: 100vw; height: 100vh;"[39m
+    [36m>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"relative w-full h-full flex flex-col overflow-hidden"[39m
+      [36m>[39m
+        [36m<button[39m
+          [33mclass[39m=[32m"absolute top-3 right-3 sm:top-4 sm:right-4 p-2 rounded-full hover:bg-slate-100 dark:hover:bg-white/10 text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-white transition-colors z-50"[39m
+        [36m>[39m
+          [36m<svg[39m
+            [33maria-hidden[39m=[32m"true"[39m
+            [33mclass[39m=[32m"lucide lucide-x sm:w-6 sm:h-6"[39m
+            [33mfill[39m=[32m"none"[39m
+            [33mheight[39m=[32m"20"[39m
+            [33mstroke[39m=[32m"currentColor"[39m
+            [33mstroke-linecap[39m=[32m"round"[39m
+            [33mstroke-linejoin[39m=[32m"round"[39m
+            [33mstroke-width[39m=[32m"2"[39m
+            [33mviewBox[39m=[32m"0 0 24 24"[39m
+            [33mwidth[39m=[32m"20"[39m
+            [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+          [36m>[39m
+            [36m<path[39m
+              [33md[39m=[32m"M18 6 6 18"[39m
+            [36m/>[39m
+            [36m<path[39m
+              [33md[39m=[32m"m6 6 12 12"[39m
+            [36m/>[39m
+          [36m</svg>[39m
+        [36m</button>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"px-4 sm:px-8 py-3 sm:py-4 border-b border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50 pr-12"[39m
+        [36m>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"flex items-center gap-2 sm:gap-3"[39m
+            [36m>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"text-xl sm:text-2xl"[39m
+              [36m>[39m
+                [0m💡[0m
+              [36m</span>[39m
+              [36m<h2[39m
+                [33mclass[39m=[32m"text-lg sm:text-xl font-bold text-slate-900 dark:text-white line-clamp-1"[39m
+              [36m>[39m
+                [0mTwo Sum[0m
+              [36m</h2>[39m
+            [36m</div>[39m
+            [36m<span[39m
+              [33mclass[39m=[32m"self-start px-2 sm:px-3 py-0.5 sm:py-1 text-xs sm:text-sm font-semibold bg-indigo-500/20 text-indigo-600 dark:text-indigo-300 border border-indigo-500/30 rounded-full"[39m
+            [36m>[39m
+              [0mTwo Pointers[0m
+            [36m</span>[39m
+            [36m<span[39m
+              [33mclass[39m=[32m"self-start flex items-center gap-1 px-2 sm:px-3 py-0.5 sm:py-1 text-xs sm:text-sm font-semibold bg-amber-500/20 text-amber-600 dark:text-amber-300 border border-amber-500/30 rounded-full"[39m
+            [36m>[39m
+              [0m✏️ In Progress[0m
+            [36m</span>[39m
+          [36m</div>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"flex flex-wrap gap-2 sm:gap-4 text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-1"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"flex gap-1 sm:gap-2"[39m
+            [36m>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"font-semibold text-emerald-600 dark:text-emerald-400"[39m
+              [36m>[39m
+                [0mTime:[0m
+              [36m</span>[39m
+              [0m [0m
+              [0mO(n)[0m
+            [36m</div>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"flex gap-1 sm:gap-2"[39m
+            [36m>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"font-semibold text-emerald-600 dark:text-emerald-400"[39m
+              [36m>[39m
+                [0mSpace:[0m
+              [36m</span>[39m
+              [0m [0m
+              [0mO(n)[0m
+            [36m</div>[39m
+          [36m</div>[39m
+        [36m</div>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"flex-1 flex flex-col lg:flex-row overflow-hidden min-h-0"[39m
+        [36m>[39m
+          [36m<div[39m
+            [33mdata-testid[39m=[32m"desktop-layout"[39m
+          [36m>[39m
+            [36m<div>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"flex flex-col h-full overflow-hidden"[39m
+              [36m>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"flex items-center gap-2 px-4 py-2 border-b border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900"[39m
+                [36m>[39m
+                  [36m<button[39m
+                    [33mclass[39m=[32m"flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-sm font-medium transition-all bg-indigo-600 text-white shadow-lg shadow-indigo-500/25"[39m
+                  [36m>[39m
+                    [36m<svg[39m
+                      [33maria-hidden[39m=[32m"true"[39m
+                      [33mclass[39m=[32m"lucide lucide-file-text"[39m
+                      [33mfill[39m=[32m"none"[39m
+                      [33mheight[39m=[32m"16"[39m
+                      [33mstroke[39m=[32m"currentColor"[39m
+                      [33mstroke-linecap[39m=[32m"round"[39m
+                      [33mstroke-linejoin[39m=[32m"round"[39m
+                      [33mstroke-width[39m=[32m"2"[39m
+                      [33mviewBox[39m=[32m"0 0 24 24"[39m
+                      [33mwidth[39m=[32m"16"[39m
+                      [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+                    [36m>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"[39m
+                      [36m/>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M14 2v5a1 1 0 0 0 1 1h5"[39m
+                      [36m/>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M10 9H8"[39m
+                      [36m/>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M16 13H8"[39m
+                      [36m/>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M16 17H8"[39m
+                      [36m/>[39m
+                    [36m</svg>[39m
+                    [0m Problem[0m
+                  [36m</button>[39m
+                  [36m<button[39m
+                    [33mclass[39m=[32m"flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-sm font-medium transition-all text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-200 dark:hover:bg-white...
+[90mundefined[39m
+
+[90mstdout[2m | src/components/__tests__/SolutionModal.test.tsx[2m > [22m[2mSolutionModal[2m > [22m[2mdisplays failed test results summary and cards
+[22m[39m[36m<body>[39m
+  [36m<div>[39m
+    [36m<div[39m
+      [33mclass[39m=[32m"fixed inset-0 z-50 bg-white dark:bg-slate-900 flex flex-col"[39m
+      [33mstyle[39m=[32m"width: 100vw; height: 100vh;"[39m
+    [36m>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"relative w-full h-full flex flex-col overflow-hidden"[39m
+      [36m>[39m
+        [36m<button[39m
+          [33mclass[39m=[32m"absolute top-3 right-3 sm:top-4 sm:right-4 p-2 rounded-full hover:bg-slate-100 dark:hover:bg-white/10 text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-white transition-colors z-50"[39m
+        [36m>[39m
+          [36m<svg[39m
+            [33maria-hidden[39m=[32m"true"[39m
+            [33mclass[39m=[32m"lucide lucide-x sm:w-6 sm:h-6"[39m
+            [33mfill[39m=[32m"none"[39m
+            [33mheight[39m=[32m"20"[39m
+            [33mstroke[39m=[32m"currentColor"[39m
+            [33mstroke-linecap[39m=[32m"round"[39m
+            [33mstroke-linejoin[39m=[32m"round"[39m
+            [33mstroke-width[39m=[32m"2"[39m
+            [33mviewBox[39m=[32m"0 0 24 24"[39m
+            [33mwidth[39m=[32m"20"[39m
+            [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+          [36m>[39m
+            [36m<path[39m
+              [33md[39m=[32m"M18 6 6 18"[39m
+            [36m/>[39m
+            [36m<path[39m
+              [33md[39m=[32m"m6 6 12 12"[39m
+            [36m/>[39m
+          [36m</svg>[39m
+        [36m</button>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"px-4 sm:px-8 py-3 sm:py-4 border-b border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50 pr-12"[39m
+        [36m>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"flex items-center gap-2 sm:gap-3"[39m
+            [36m>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"text-xl sm:text-2xl"[39m
+              [36m>[39m
+                [0m💡[0m
+              [36m</span>[39m
+              [36m<h2[39m
+                [33mclass[39m=[32m"text-lg sm:text-xl font-bold text-slate-900 dark:text-white line-clamp-1"[39m
+              [36m>[39m
+                [0mTwo Sum[0m
+              [36m</h2>[39m
+            [36m</div>[39m
+            [36m<span[39m
+              [33mclass[39m=[32m"self-start px-2 sm:px-3 py-0.5 sm:py-1 text-xs sm:text-sm font-semibold bg-indigo-500/20 text-indigo-600 dark:text-indigo-300 border border-indigo-500/30 rounded-full"[39m
+            [36m>[39m
+              [0mTwo Pointers[0m
+            [36m</span>[39m
+            [36m<span[39m
+              [33mclass[39m=[32m"self-start flex items-center gap-1 px-2 sm:px-3 py-0.5 sm:py-1 text-xs sm:text-sm font-semibold bg-amber-500/20 text-amber-600 dark:text-amber-300 border border-amber-500/30 rounded-full"[39m
+            [36m>[39m
+              [0m✏️ In Progress[0m
+            [36m</span>[39m
+          [36m</div>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"flex flex-wrap gap-2 sm:gap-4 text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-1"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"flex gap-1 sm:gap-2"[39m
+            [36m>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"font-semibold text-emerald-600 dark:text-emerald-400"[39m
+              [36m>[39m
+                [0mTime:[0m
+              [36m</span>[39m
+              [0m [0m
+              [0mO(n)[0m
+            [36m</div>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"flex gap-1 sm:gap-2"[39m
+            [36m>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"font-semibold text-emerald-600 dark:text-emerald-400"[39m
+              [36m>[39m
+                [0mSpace:[0m
+              [36m</span>[39m
+              [0m [0m
+              [0mO(n)[0m
+            [36m</div>[39m
+          [36m</div>[39m
+        [36m</div>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"flex-1 flex flex-col lg:flex-row overflow-hidden min-h-0"[39m
+        [36m>[39m
+          [36m<div[39m
+            [33mdata-testid[39m=[32m"desktop-layout"[39m
+          [36m>[39m
+            [36m<div>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"flex flex-col h-full overflow-hidden"[39m
+              [36m>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"flex items-center gap-2 px-4 py-2 border-b border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900"[39m
+                [36m>[39m
+                  [36m<button[39m
+                    [33mclass[39m=[32m"flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-sm font-medium transition-all bg-indigo-600 text-white shadow-lg shadow-indigo-500/25"[39m
+                  [36m>[39m
+                    [36m<svg[39m
+                      [33maria-hidden[39m=[32m"true"[39m
+                      [33mclass[39m=[32m"lucide lucide-file-text"[39m
+                      [33mfill[39m=[32m"none"[39m
+                      [33mheight[39m=[32m"16"[39m
+                      [33mstroke[39m=[32m"currentColor"[39m
+                      [33mstroke-linecap[39m=[32m"round"[39m
+                      [33mstroke-linejoin[39m=[32m"round"[39m
+                      [33mstroke-width[39m=[32m"2"[39m
+                      [33mviewBox[39m=[32m"0 0 24 24"[39m
+                      [33mwidth[39m=[32m"16"[39m
+                      [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+                    [36m>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"[39m
+                      [36m/>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M14 2v5a1 1 0 0 0 1 1h5"[39m
+                      [36m/>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M10 9H8"[39m
+                      [36m/>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M16 13H8"[39m
+                      [36m/>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M16 17H8"[39m
+                      [36m/>[39m
+                    [36m</svg>[39m
+                    [0m Problem[0m
+                  [36m</button>[39m
+                  [36m<button[39m
+                    [33mclass[39m=[32m"flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-sm font-medium transition-all text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-200 dark:hover:bg-white...
+[90mundefined[39m
+
+[90mstdout[2m | src/components/__tests__/SolutionModal.test.tsx[2m > [22m[2mSolutionModal[2m > [22m[2mdisplays failed test results summary and cards
+[22m[39m[36m<body>[39m
+  [36m<div>[39m
+    [36m<div[39m
+      [33mclass[39m=[32m"fixed inset-0 z-50 bg-white dark:bg-slate-900 flex flex-col"[39m
+      [33mstyle[39m=[32m"width: 100vw; height: 100vh;"[39m
+    [36m>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"relative w-full h-full flex flex-col overflow-hidden"[39m
+      [36m>[39m
+        [36m<button[39m
+          [33mclass[39m=[32m"absolute top-3 right-3 sm:top-4 sm:right-4 p-2 rounded-full hover:bg-slate-100 dark:hover:bg-white/10 text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-white transition-colors z-50"[39m
+        [36m>[39m
+          [36m<svg[39m
+            [33maria-hidden[39m=[32m"true"[39m
+            [33mclass[39m=[32m"lucide lucide-x sm:w-6 sm:h-6"[39m
+            [33mfill[39m=[32m"none"[39m
+            [33mheight[39m=[32m"20"[39m
+            [33mstroke[39m=[32m"currentColor"[39m
+            [33mstroke-linecap[39m=[32m"round"[39m
+            [33mstroke-linejoin[39m=[32m"round"[39m
+            [33mstroke-width[39m=[32m"2"[39m
+            [33mviewBox[39m=[32m"0 0 24 24"[39m
+            [33mwidth[39m=[32m"20"[39m
+            [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+          [36m>[39m
+            [36m<path[39m
+              [33md[39m=[32m"M18 6 6 18"[39m
+            [36m/>[39m
+            [36m<path[39m
+              [33md[39m=[32m"m6 6 12 12"[39m
+            [36m/>[39m
+          [36m</svg>[39m
+        [36m</button>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"px-4 sm:px-8 py-3 sm:py-4 border-b border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50 pr-12"[39m
+        [36m>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"flex items-center gap-2 sm:gap-3"[39m
+            [36m>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"text-xl sm:text-2xl"[39m
+              [36m>[39m
+                [0m💡[0m
+              [36m</span>[39m
+              [36m<h2[39m
+                [33mclass[39m=[32m"text-lg sm:text-xl font-bold text-slate-900 dark:text-white line-clamp-1"[39m
+              [36m>[39m
+                [0mTwo Sum[0m
+              [36m</h2>[39m
+            [36m</div>[39m
+            [36m<span[39m
+              [33mclass[39m=[32m"self-start px-2 sm:px-3 py-0.5 sm:py-1 text-xs sm:text-sm font-semibold bg-indigo-500/20 text-indigo-600 dark:text-indigo-300 border border-indigo-500/30 rounded-full"[39m
+            [36m>[39m
+              [0mTwo Pointers[0m
+            [36m</span>[39m
+            [36m<span[39m
+              [33mclass[39m=[32m"self-start flex items-center gap-1 px-2 sm:px-3 py-0.5 sm:py-1 text-xs sm:text-sm font-semibold bg-amber-500/20 text-amber-600 dark:text-amber-300 border border-amber-500/30 rounded-full"[39m
+            [36m>[39m
+              [0m✏️ In Progress[0m
+            [36m</span>[39m
+          [36m</div>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"flex flex-wrap gap-2 sm:gap-4 text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-1"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"flex gap-1 sm:gap-2"[39m
+            [36m>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"font-semibold text-emerald-600 dark:text-emerald-400"[39m
+              [36m>[39m
+                [0mTime:[0m
+              [36m</span>[39m
+              [0m [0m
+              [0mO(n)[0m
+            [36m</div>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"flex gap-1 sm:gap-2"[39m
+            [36m>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"font-semibold text-emerald-600 dark:text-emerald-400"[39m
+              [36m>[39m
+                [0mSpace:[0m
+              [36m</span>[39m
+              [0m [0m
+              [0mO(n)[0m
+            [36m</div>[39m
+          [36m</div>[39m
+        [36m</div>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"flex-1 flex flex-col lg:flex-row overflow-hidden min-h-0"[39m
+        [36m>[39m
+          [36m<div[39m
+            [33mdata-testid[39m=[32m"desktop-layout"[39m
+          [36m>[39m
+            [36m<div>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"flex flex-col h-full overflow-hidden"[39m
+              [36m>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"flex items-center gap-2 px-4 py-2 border-b border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900"[39m
+                [36m>[39m
+                  [36m<button[39m
+                    [33mclass[39m=[32m"flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-sm font-medium transition-all bg-indigo-600 text-white shadow-lg shadow-indigo-500/25"[39m
+                  [36m>[39m
+                    [36m<svg[39m
+                      [33maria-hidden[39m=[32m"true"[39m
+                      [33mclass[39m=[32m"lucide lucide-file-text"[39m
+                      [33mfill[39m=[32m"none"[39m
+                      [33mheight[39m=[32m"16"[39m
+                      [33mstroke[39m=[32m"currentColor"[39m
+                      [33mstroke-linecap[39m=[32m"round"[39m
+                      [33mstroke-linejoin[39m=[32m"round"[39m
+                      [33mstroke-width[39m=[32m"2"[39m
+                      [33mviewBox[39m=[32m"0 0 24 24"[39m
+                      [33mwidth[39m=[32m"16"[39m
+                      [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+                    [36m>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"[39m
+                      [36m/>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M14 2v5a1 1 0 0 0 1 1h5"[39m
+                      [36m/>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M10 9H8"[39m
+                      [36m/>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M16 13H8"[39m
+                      [36m/>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M16 17H8"[39m
+                      [36m/>[39m
+                    [36m</svg>[39m
+                    [0m Problem[0m
+                  [36m</button>[39m
+                  [36m<button[39m
+                    [33mclass[39m=[32m"flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-sm font-medium transition-all text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-200 dark:hover:bg-white...
+[90mundefined[39m
+
+[90mstdout[2m | src/components/__tests__/SolutionModal.test.tsx[2m > [22m[2mSolutionModal[2m > [22m[2mdisplays failed test results summary and cards
+[22m[39m[36m<body>[39m
+  [36m<div>[39m
+    [36m<div[39m
+      [33mclass[39m=[32m"fixed inset-0 z-50 bg-white dark:bg-slate-900 flex flex-col"[39m
+      [33mstyle[39m=[32m"width: 100vw; height: 100vh;"[39m
+    [36m>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"relative w-full h-full flex flex-col overflow-hidden"[39m
+      [36m>[39m
+        [36m<button[39m
+          [33mclass[39m=[32m"absolute top-3 right-3 sm:top-4 sm:right-4 p-2 rounded-full hover:bg-slate-100 dark:hover:bg-white/10 text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-white transition-colors z-50"[39m
+        [36m>[39m
+          [36m<svg[39m
+            [33maria-hidden[39m=[32m"true"[39m
+            [33mclass[39m=[32m"lucide lucide-x sm:w-6 sm:h-6"[39m
+            [33mfill[39m=[32m"none"[39m
+            [33mheight[39m=[32m"20"[39m
+            [33mstroke[39m=[32m"currentColor"[39m
+            [33mstroke-linecap[39m=[32m"round"[39m
+            [33mstroke-linejoin[39m=[32m"round"[39m
+            [33mstroke-width[39m=[32m"2"[39m
+            [33mviewBox[39m=[32m"0 0 24 24"[39m
+            [33mwidth[39m=[32m"20"[39m
+            [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+          [36m>[39m
+            [36m<path[39m
+              [33md[39m=[32m"M18 6 6 18"[39m
+            [36m/>[39m
+            [36m<path[39m
+              [33md[39m=[32m"m6 6 12 12"[39m
+            [36m/>[39m
+          [36m</svg>[39m
+        [36m</button>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"px-4 sm:px-8 py-3 sm:py-4 border-b border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50 pr-12"[39m
+        [36m>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"flex items-center gap-2 sm:gap-3"[39m
+            [36m>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"text-xl sm:text-2xl"[39m
+              [36m>[39m
+                [0m💡[0m
+              [36m</span>[39m
+              [36m<h2[39m
+                [33mclass[39m=[32m"text-lg sm:text-xl font-bold text-slate-900 dark:text-white line-clamp-1"[39m
+              [36m>[39m
+                [0mTwo Sum[0m
+              [36m</h2>[39m
+            [36m</div>[39m
+            [36m<span[39m
+              [33mclass[39m=[32m"self-start px-2 sm:px-3 py-0.5 sm:py-1 text-xs sm:text-sm font-semibold bg-indigo-500/20 text-indigo-600 dark:text-indigo-300 border border-indigo-500/30 rounded-full"[39m
+            [36m>[39m
+              [0mTwo Pointers[0m
+            [36m</span>[39m
+            [36m<span[39m
+              [33mclass[39m=[32m"self-start flex items-center gap-1 px-2 sm:px-3 py-0.5 sm:py-1 text-xs sm:text-sm font-semibold bg-amber-500/20 text-amber-600 dark:text-amber-300 border border-amber-500/30 rounded-full"[39m
+            [36m>[39m
+              [0m✏️ In Progress[0m
+            [36m</span>[39m
+          [36m</div>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"flex flex-wrap gap-2 sm:gap-4 text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-1"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"flex gap-1 sm:gap-2"[39m
+            [36m>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"font-semibold text-emerald-600 dark:text-emerald-400"[39m
+              [36m>[39m
+                [0mTime:[0m
+              [36m</span>[39m
+              [0m [0m
+              [0mO(n)[0m
+            [36m</div>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"flex gap-1 sm:gap-2"[39m
+            [36m>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"font-semibold text-emerald-600 dark:text-emerald-400"[39m
+              [36m>[39m
+                [0mSpace:[0m
+              [36m</span>[39m
+              [0m [0m
+              [0mO(n)[0m
+            [36m</div>[39m
+          [36m</div>[39m
+        [36m</div>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"flex-1 flex flex-col lg:flex-row overflow-hidden min-h-0"[39m
+        [36m>[39m
+          [36m<div[39m
+            [33mdata-testid[39m=[32m"desktop-layout"[39m
+          [36m>[39m
+            [36m<div>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"flex flex-col h-full overflow-hidden"[39m
+              [36m>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"flex items-center gap-2 px-4 py-2 border-b border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900"[39m
+                [36m>[39m
+                  [36m<button[39m
+                    [33mclass[39m=[32m"flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-sm font-medium transition-all bg-indigo-600 text-white shadow-lg shadow-indigo-500/25"[39m
+                  [36m>[39m
+                    [36m<svg[39m
+                      [33maria-hidden[39m=[32m"true"[39m
+                      [33mclass[39m=[32m"lucide lucide-file-text"[39m
+                      [33mfill[39m=[32m"none"[39m
+                      [33mheight[39m=[32m"16"[39m
+                      [33mstroke[39m=[32m"currentColor"[39m
+                      [33mstroke-linecap[39m=[32m"round"[39m
+                      [33mstroke-linejoin[39m=[32m"round"[39m
+                      [33mstroke-width[39m=[32m"2"[39m
+                      [33mviewBox[39m=[32m"0 0 24 24"[39m
+                      [33mwidth[39m=[32m"16"[39m
+                      [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+                    [36m>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"[39m
+                      [36m/>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M14 2v5a1 1 0 0 0 1 1h5"[39m
+                      [36m/>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M10 9H8"[39m
+                      [36m/>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M16 13H8"[39m
+                      [36m/>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M16 17H8"[39m
+                      [36m/>[39m
+                    [36m</svg>[39m
+                    [0m Problem[0m
+                  [36m</button>[39m
+                  [36m<button[39m
+                    [33mclass[39m=[32m"flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-sm font-medium transition-all text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-200 dark:hover:bg-white...
+[90mundefined[39m
+
+[90mstdout[2m | src/components/__tests__/SolutionModal.test.tsx[2m > [22m[2mSolutionModal[2m > [22m[2mdisplays failed test results summary and cards
+[22m[39m[36m<body>[39m
+  [36m<div>[39m
+    [36m<div[39m
+      [33mclass[39m=[32m"fixed inset-0 z-50 bg-white dark:bg-slate-900 flex flex-col"[39m
+      [33mstyle[39m=[32m"width: 100vw; height: 100vh;"[39m
+    [36m>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"relative w-full h-full flex flex-col overflow-hidden"[39m
+      [36m>[39m
+        [36m<button[39m
+          [33mclass[39m=[32m"absolute top-3 right-3 sm:top-4 sm:right-4 p-2 rounded-full hover:bg-slate-100 dark:hover:bg-white/10 text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-white transition-colors z-50"[39m
+        [36m>[39m
+          [36m<svg[39m
+            [33maria-hidden[39m=[32m"true"[39m
+            [33mclass[39m=[32m"lucide lucide-x sm:w-6 sm:h-6"[39m
+            [33mfill[39m=[32m"none"[39m
+            [33mheight[39m=[32m"20"[39m
+            [33mstroke[39m=[32m"currentColor"[39m
+            [33mstroke-linecap[39m=[32m"round"[39m
+            [33mstroke-linejoin[39m=[32m"round"[39m
+            [33mstroke-width[39m=[32m"2"[39m
+            [33mviewBox[39m=[32m"0 0 24 24"[39m
+            [33mwidth[39m=[32m"20"[39m
+            [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+          [36m>[39m
+            [36m<path[39m
+              [33md[39m=[32m"M18 6 6 18"[39m
+            [36m/>[39m
+            [36m<path[39m
+              [33md[39m=[32m"m6 6 12 12"[39m
+            [36m/>[39m
+          [36m</svg>[39m
+        [36m</button>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"px-4 sm:px-8 py-3 sm:py-4 border-b border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50 pr-12"[39m
+        [36m>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"flex items-center gap-2 sm:gap-3"[39m
+            [36m>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"text-xl sm:text-2xl"[39m
+              [36m>[39m
+                [0m💡[0m
+              [36m</span>[39m
+              [36m<h2[39m
+                [33mclass[39m=[32m"text-lg sm:text-xl font-bold text-slate-900 dark:text-white line-clamp-1"[39m
+              [36m>[39m
+                [0mTwo Sum[0m
+              [36m</h2>[39m
+            [36m</div>[39m
+            [36m<span[39m
+              [33mclass[39m=[32m"self-start px-2 sm:px-3 py-0.5 sm:py-1 text-xs sm:text-sm font-semibold bg-indigo-500/20 text-indigo-600 dark:text-indigo-300 border border-indigo-500/30 rounded-full"[39m
+            [36m>[39m
+              [0mTwo Pointers[0m
+            [36m</span>[39m
+            [36m<span[39m
+              [33mclass[39m=[32m"self-start flex items-center gap-1 px-2 sm:px-3 py-0.5 sm:py-1 text-xs sm:text-sm font-semibold bg-amber-500/20 text-amber-600 dark:text-amber-300 border border-amber-500/30 rounded-full"[39m
+            [36m>[39m
+              [0m✏️ In Progress[0m
+            [36m</span>[39m
+          [36m</div>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"flex flex-wrap gap-2 sm:gap-4 text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-1"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"flex gap-1 sm:gap-2"[39m
+            [36m>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"font-semibold text-emerald-600 dark:text-emerald-400"[39m
+              [36m>[39m
+                [0mTime:[0m
+              [36m</span>[39m
+              [0m [0m
+              [0mO(n)[0m
+            [36m</div>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"flex gap-1 sm:gap-2"[39m
+            [36m>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"font-semibold text-emerald-600 dark:text-emerald-400"[39m
+              [36m>[39m
+                [0mSpace:[0m
+              [36m</span>[39m
+              [0m [0m
+              [0mO(n)[0m
+            [36m</div>[39m
+          [36m</div>[39m
+        [36m</div>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"flex-1 flex flex-col lg:flex-row overflow-hidden min-h-0"[39m
+        [36m>[39m
+          [36m<div[39m
+            [33mdata-testid[39m=[32m"desktop-layout"[39m
+          [36m>[39m
+            [36m<div>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"flex flex-col h-full overflow-hidden"[39m
+              [36m>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"flex items-center gap-2 px-4 py-2 border-b border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900"[39m
+                [36m>[39m
+                  [36m<button[39m
+                    [33mclass[39m=[32m"flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-sm font-medium transition-all bg-indigo-600 text-white shadow-lg shadow-indigo-500/25"[39m
+                  [36m>[39m
+                    [36m<svg[39m
+                      [33maria-hidden[39m=[32m"true"[39m
+                      [33mclass[39m=[32m"lucide lucide-file-text"[39m
+                      [33mfill[39m=[32m"none"[39m
+                      [33mheight[39m=[32m"16"[39m
+                      [33mstroke[39m=[32m"currentColor"[39m
+                      [33mstroke-linecap[39m=[32m"round"[39m
+                      [33mstroke-linejoin[39m=[32m"round"[39m
+                      [33mstroke-width[39m=[32m"2"[39m
+                      [33mviewBox[39m=[32m"0 0 24 24"[39m
+                      [33mwidth[39m=[32m"16"[39m
+                      [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+                    [36m>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"[39m
+                      [36m/>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M14 2v5a1 1 0 0 0 1 1h5"[39m
+                      [36m/>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M10 9H8"[39m
+                      [36m/>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M16 13H8"[39m
+                      [36m/>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M16 17H8"[39m
+                      [36m/>[39m
+                    [36m</svg>[39m
+                    [0m Problem[0m
+                  [36m</button>[39m
+                  [36m<button[39m
+                    [33mclass[39m=[32m"flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-sm font-medium transition-all text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-200 dark:hover:bg-white...
+[90mundefined[39m
+
+[90mstdout[2m | src/components/__tests__/SolutionModal.test.tsx[2m > [22m[2mSolutionModal[2m > [22m[2mdisplays failed test results summary and cards
+[22m[39m[36m<body>[39m
+  [36m<div>[39m
+    [36m<div[39m
+      [33mclass[39m=[32m"fixed inset-0 z-50 bg-white dark:bg-slate-900 flex flex-col"[39m
+      [33mstyle[39m=[32m"width: 100vw; height: 100vh;"[39m
+    [36m>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"relative w-full h-full flex flex-col overflow-hidden"[39m
+      [36m>[39m
+        [36m<button[39m
+          [33mclass[39m=[32m"absolute top-3 right-3 sm:top-4 sm:right-4 p-2 rounded-full hover:bg-slate-100 dark:hover:bg-white/10 text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-white transition-colors z-50"[39m
+        [36m>[39m
+          [36m<svg[39m
+            [33maria-hidden[39m=[32m"true"[39m
+            [33mclass[39m=[32m"lucide lucide-x sm:w-6 sm:h-6"[39m
+            [33mfill[39m=[32m"none"[39m
+            [33mheight[39m=[32m"20"[39m
+            [33mstroke[39m=[32m"currentColor"[39m
+            [33mstroke-linecap[39m=[32m"round"[39m
+            [33mstroke-linejoin[39m=[32m"round"[39m
+            [33mstroke-width[39m=[32m"2"[39m
+            [33mviewBox[39m=[32m"0 0 24 24"[39m
+            [33mwidth[39m=[32m"20"[39m
+            [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+          [36m>[39m
+            [36m<path[39m
+              [33md[39m=[32m"M18 6 6 18"[39m
+            [36m/>[39m
+            [36m<path[39m
+              [33md[39m=[32m"m6 6 12 12"[39m
+            [36m/>[39m
+          [36m</svg>[39m
+        [36m</button>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"px-4 sm:px-8 py-3 sm:py-4 border-b border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50 pr-12"[39m
+        [36m>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"flex items-center gap-2 sm:gap-3"[39m
+            [36m>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"text-xl sm:text-2xl"[39m
+              [36m>[39m
+                [0m💡[0m
+              [36m</span>[39m
+              [36m<h2[39m
+                [33mclass[39m=[32m"text-lg sm:text-xl font-bold text-slate-900 dark:text-white line-clamp-1"[39m
+              [36m>[39m
+                [0mTwo Sum[0m
+              [36m</h2>[39m
+            [36m</div>[39m
+            [36m<span[39m
+              [33mclass[39m=[32m"self-start px-2 sm:px-3 py-0.5 sm:py-1 text-xs sm:text-sm font-semibold bg-indigo-500/20 text-indigo-600 dark:text-indigo-300 border border-indigo-500/30 rounded-full"[39m
+            [36m>[39m
+              [0mTwo Pointers[0m
+            [36m</span>[39m
+            [36m<span[39m
+              [33mclass[39m=[32m"self-start flex items-center gap-1 px-2 sm:px-3 py-0.5 sm:py-1 text-xs sm:text-sm font-semibold bg-amber-500/20 text-amber-600 dark:text-amber-300 border border-amber-500/30 rounded-full"[39m
+            [36m>[39m
+              [0m✏️ In Progress[0m
+            [36m</span>[39m
+          [36m</div>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"flex flex-wrap gap-2 sm:gap-4 text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-1"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"flex gap-1 sm:gap-2"[39m
+            [36m>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"font-semibold text-emerald-600 dark:text-emerald-400"[39m
+              [36m>[39m
+                [0mTime:[0m
+              [36m</span>[39m
+              [0m [0m
+              [0mO(n)[0m
+            [36m</div>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"flex gap-1 sm:gap-2"[39m
+            [36m>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"font-semibold text-emerald-600 dark:text-emerald-400"[39m
+              [36m>[39m
+                [0mSpace:[0m
+              [36m</span>[39m
+              [0m [0m
+              [0mO(n)[0m
+            [36m</div>[39m
+          [36m</div>[39m
+        [36m</div>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"flex-1 flex flex-col lg:flex-row overflow-hidden min-h-0"[39m
+        [36m>[39m
+          [36m<div[39m
+            [33mdata-testid[39m=[32m"desktop-layout"[39m
+          [36m>[39m
+            [36m<div>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"flex flex-col h-full overflow-hidden"[39m
+              [36m>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"flex items-center gap-2 px-4 py-2 border-b border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900"[39m
+                [36m>[39m
+                  [36m<button[39m
+                    [33mclass[39m=[32m"flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-sm font-medium transition-all bg-indigo-600 text-white shadow-lg shadow-indigo-500/25"[39m
+                  [36m>[39m
+                    [36m<svg[39m
+                      [33maria-hidden[39m=[32m"true"[39m
+                      [33mclass[39m=[32m"lucide lucide-file-text"[39m
+                      [33mfill[39m=[32m"none"[39m
+                      [33mheight[39m=[32m"16"[39m
+                      [33mstroke[39m=[32m"currentColor"[39m
+                      [33mstroke-linecap[39m=[32m"round"[39m
+                      [33mstroke-linejoin[39m=[32m"round"[39m
+                      [33mstroke-width[39m=[32m"2"[39m
+                      [33mviewBox[39m=[32m"0 0 24 24"[39m
+                      [33mwidth[39m=[32m"16"[39m
+                      [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+                    [36m>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"[39m
+                      [36m/>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M14 2v5a1 1 0 0 0 1 1h5"[39m
+                      [36m/>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M10 9H8"[39m
+                      [36m/>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M16 13H8"[39m
+                      [36m/>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M16 17H8"[39m
+                      [36m/>[39m
+                    [36m</svg>[39m
+                    [0m Problem[0m
+                  [36m</button>[39m
+                  [36m<button[39m
+                    [33mclass[39m=[32m"flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-sm font-medium transition-all text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-200 dark:hover:bg-white...
+[90mundefined[39m
+
+[90mstdout[2m | src/components/__tests__/SolutionModal.test.tsx[2m > [22m[2mSolutionModal[2m > [22m[2mdisplays failed test results summary and cards
+[22m[39m[36m<body>[39m
+  [36m<div>[39m
+    [36m<div[39m
+      [33mclass[39m=[32m"fixed inset-0 z-50 bg-white dark:bg-slate-900 flex flex-col"[39m
+      [33mstyle[39m=[32m"width: 100vw; height: 100vh;"[39m
+    [36m>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"relative w-full h-full flex flex-col overflow-hidden"[39m
+      [36m>[39m
+        [36m<button[39m
+          [33mclass[39m=[32m"absolute top-3 right-3 sm:top-4 sm:right-4 p-2 rounded-full hover:bg-slate-100 dark:hover:bg-white/10 text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-white transition-colors z-50"[39m
+        [36m>[39m
+          [36m<svg[39m
+            [33maria-hidden[39m=[32m"true"[39m
+            [33mclass[39m=[32m"lucide lucide-x sm:w-6 sm:h-6"[39m
+            [33mfill[39m=[32m"none"[39m
+            [33mheight[39m=[32m"20"[39m
+            [33mstroke[39m=[32m"currentColor"[39m
+            [33mstroke-linecap[39m=[32m"round"[39m
+            [33mstroke-linejoin[39m=[32m"round"[39m
+            [33mstroke-width[39m=[32m"2"[39m
+            [33mviewBox[39m=[32m"0 0 24 24"[39m
+            [33mwidth[39m=[32m"20"[39m
+            [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+          [36m>[39m
+            [36m<path[39m
+              [33md[39m=[32m"M18 6 6 18"[39m
+            [36m/>[39m
+            [36m<path[39m
+              [33md[39m=[32m"m6 6 12 12"[39m
+            [36m/>[39m
+          [36m</svg>[39m
+        [36m</button>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"px-4 sm:px-8 py-3 sm:py-4 border-b border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50 pr-12"[39m
+        [36m>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"flex items-center gap-2 sm:gap-3"[39m
+            [36m>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"text-xl sm:text-2xl"[39m
+              [36m>[39m
+                [0m💡[0m
+              [36m</span>[39m
+              [36m<h2[39m
+                [33mclass[39m=[32m"text-lg sm:text-xl font-bold text-slate-900 dark:text-white line-clamp-1"[39m
+              [36m>[39m
+                [0mTwo Sum[0m
+              [36m</h2>[39m
+            [36m</div>[39m
+            [36m<span[39m
+              [33mclass[39m=[32m"self-start px-2 sm:px-3 py-0.5 sm:py-1 text-xs sm:text-sm font-semibold bg-indigo-500/20 text-indigo-600 dark:text-indigo-300 border border-indigo-500/30 rounded-full"[39m
+            [36m>[39m
+              [0mTwo Pointers[0m
+            [36m</span>[39m
+            [36m<span[39m
+              [33mclass[39m=[32m"self-start flex items-center gap-1 px-2 sm:px-3 py-0.5 sm:py-1 text-xs sm:text-sm font-semibold bg-amber-500/20 text-amber-600 dark:text-amber-300 border border-amber-500/30 rounded-full"[39m
+            [36m>[39m
+              [0m✏️ In Progress[0m
+            [36m</span>[39m
+          [36m</div>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"flex flex-wrap gap-2 sm:gap-4 text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-1"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"flex gap-1 sm:gap-2"[39m
+            [36m>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"font-semibold text-emerald-600 dark:text-emerald-400"[39m
+              [36m>[39m
+                [0mTime:[0m
+              [36m</span>[39m
+              [0m [0m
+              [0mO(n)[0m
+            [36m</div>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"flex gap-1 sm:gap-2"[39m
+            [36m>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"font-semibold text-emerald-600 dark:text-emerald-400"[39m
+              [36m>[39m
+                [0mSpace:[0m
+              [36m</span>[39m
+              [0m [0m
+              [0mO(n)[0m
+            [36m</div>[39m
+          [36m</div>[39m
+        [36m</div>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"flex-1 flex flex-col lg:flex-row overflow-hidden min-h-0"[39m
+        [36m>[39m
+          [36m<div[39m
+            [33mdata-testid[39m=[32m"desktop-layout"[39m
+          [36m>[39m
+            [36m<div>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"flex flex-col h-full overflow-hidden"[39m
+              [36m>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"flex items-center gap-2 px-4 py-2 border-b border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900"[39m
+                [36m>[39m
+                  [36m<button[39m
+                    [33mclass[39m=[32m"flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-sm font-medium transition-all bg-indigo-600 text-white shadow-lg shadow-indigo-500/25"[39m
+                  [36m>[39m
+                    [36m<svg[39m
+                      [33maria-hidden[39m=[32m"true"[39m
+                      [33mclass[39m=[32m"lucide lucide-file-text"[39m
+                      [33mfill[39m=[32m"none"[39m
+                      [33mheight[39m=[32m"16"[39m
+                      [33mstroke[39m=[32m"currentColor"[39m
+                      [33mstroke-linecap[39m=[32m"round"[39m
+                      [33mstroke-linejoin[39m=[32m"round"[39m
+                      [33mstroke-width[39m=[32m"2"[39m
+                      [33mviewBox[39m=[32m"0 0 24 24"[39m
+                      [33mwidth[39m=[32m"16"[39m
+                      [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+                    [36m>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"[39m
+                      [36m/>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M14 2v5a1 1 0 0 0 1 1h5"[39m
+                      [36m/>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M10 9H8"[39m
+                      [36m/>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M16 13H8"[39m
+                      [36m/>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M16 17H8"[39m
+                      [36m/>[39m
+                    [36m</svg>[39m
+                    [0m Problem[0m
+                  [36m</button>[39m
+                  [36m<button[39m
+                    [33mclass[39m=[32m"flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-sm font-medium transition-all text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-200 dark:hover:bg-white...
+[90mundefined[39m
+
+[90mstdout[2m | src/components/__tests__/SolutionModal.test.tsx[2m > [22m[2mSolutionModal[2m > [22m[2mdisplays failed test results summary and cards
+[22m[39m[36m<body>[39m
+  [36m<div>[39m
+    [36m<div[39m
+      [33mclass[39m=[32m"fixed inset-0 z-50 bg-white dark:bg-slate-900 flex flex-col"[39m
+      [33mstyle[39m=[32m"width: 100vw; height: 100vh;"[39m
+    [36m>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"relative w-full h-full flex flex-col overflow-hidden"[39m
+      [36m>[39m
+        [36m<button[39m
+          [33mclass[39m=[32m"absolute top-3 right-3 sm:top-4 sm:right-4 p-2 rounded-full hover:bg-slate-100 dark:hover:bg-white/10 text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-white transition-colors z-50"[39m
+        [36m>[39m
+          [36m<svg[39m
+            [33maria-hidden[39m=[32m"true"[39m
+            [33mclass[39m=[32m"lucide lucide-x sm:w-6 sm:h-6"[39m
+            [33mfill[39m=[32m"none"[39m
+            [33mheight[39m=[32m"20"[39m
+            [33mstroke[39m=[32m"currentColor"[39m
+            [33mstroke-linecap[39m=[32m"round"[39m
+            [33mstroke-linejoin[39m=[32m"round"[39m
+            [33mstroke-width[39m=[32m"2"[39m
+            [33mviewBox[39m=[32m"0 0 24 24"[39m
+            [33mwidth[39m=[32m"20"[39m
+            [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+          [36m>[39m
+            [36m<path[39m
+              [33md[39m=[32m"M18 6 6 18"[39m
+            [36m/>[39m
+            [36m<path[39m
+              [33md[39m=[32m"m6 6 12 12"[39m
+            [36m/>[39m
+          [36m</svg>[39m
+        [36m</button>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"px-4 sm:px-8 py-3 sm:py-4 border-b border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50 pr-12"[39m
+        [36m>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"flex items-center gap-2 sm:gap-3"[39m
+            [36m>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"text-xl sm:text-2xl"[39m
+              [36m>[39m
+                [0m💡[0m
+              [36m</span>[39m
+              [36m<h2[39m
+                [33mclass[39m=[32m"text-lg sm:text-xl font-bold text-slate-900 dark:text-white line-clamp-1"[39m
+              [36m>[39m
+                [0mTwo Sum[0m
+              [36m</h2>[39m
+            [36m</div>[39m
+            [36m<span[39m
+              [33mclass[39m=[32m"self-start px-2 sm:px-3 py-0.5 sm:py-1 text-xs sm:text-sm font-semibold bg-indigo-500/20 text-indigo-600 dark:text-indigo-300 border border-indigo-500/30 rounded-full"[39m
+            [36m>[39m
+              [0mTwo Pointers[0m
+            [36m</span>[39m
+            [36m<span[39m
+              [33mclass[39m=[32m"self-start flex items-center gap-1 px-2 sm:px-3 py-0.5 sm:py-1 text-xs sm:text-sm font-semibold bg-amber-500/20 text-amber-600 dark:text-amber-300 border border-amber-500/30 rounded-full"[39m
+            [36m>[39m
+              [0m✏️ In Progress[0m
+            [36m</span>[39m
+          [36m</div>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"flex flex-wrap gap-2 sm:gap-4 text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-1"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"flex gap-1 sm:gap-2"[39m
+            [36m>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"font-semibold text-emerald-600 dark:text-emerald-400"[39m
+              [36m>[39m
+                [0mTime:[0m
+              [36m</span>[39m
+              [0m [0m
+              [0mO(n)[0m
+            [36m</div>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"flex gap-1 sm:gap-2"[39m
+            [36m>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"font-semibold text-emerald-600 dark:text-emerald-400"[39m
+              [36m>[39m
+                [0mSpace:[0m
+              [36m</span>[39m
+              [0m [0m
+              [0mO(n)[0m
+            [36m</div>[39m
+          [36m</div>[39m
+        [36m</div>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"flex-1 flex flex-col lg:flex-row overflow-hidden min-h-0"[39m
+        [36m>[39m
+          [36m<div[39m
+            [33mdata-testid[39m=[32m"desktop-layout"[39m
+          [36m>[39m
+            [36m<div>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"flex flex-col h-full overflow-hidden"[39m
+              [36m>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"flex items-center gap-2 px-4 py-2 border-b border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900"[39m
+                [36m>[39m
+                  [36m<button[39m
+                    [33mclass[39m=[32m"flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-sm font-medium transition-all bg-indigo-600 text-white shadow-lg shadow-indigo-500/25"[39m
+                  [36m>[39m
+                    [36m<svg[39m
+                      [33maria-hidden[39m=[32m"true"[39m
+                      [33mclass[39m=[32m"lucide lucide-file-text"[39m
+                      [33mfill[39m=[32m"none"[39m
+                      [33mheight[39m=[32m"16"[39m
+                      [33mstroke[39m=[32m"currentColor"[39m
+                      [33mstroke-linecap[39m=[32m"round"[39m
+                      [33mstroke-linejoin[39m=[32m"round"[39m
+                      [33mstroke-width[39m=[32m"2"[39m
+                      [33mviewBox[39m=[32m"0 0 24 24"[39m
+                      [33mwidth[39m=[32m"16"[39m
+                      [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+                    [36m>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"[39m
+                      [36m/>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M14 2v5a1 1 0 0 0 1 1h5"[39m
+                      [36m/>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M10 9H8"[39m
+                      [36m/>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M16 13H8"[39m
+                      [36m/>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M16 17H8"[39m
+                      [36m/>[39m
+                    [36m</svg>[39m
+                    [0m Problem[0m
+                  [36m</button>[39m
+                  [36m<button[39m
+                    [33mclass[39m=[32m"flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-sm font-medium transition-all text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-200 dark:hover:bg-white...
+[90mundefined[39m
+
+[90mstdout[2m | src/components/__tests__/SolutionModal.test.tsx[2m > [22m[2mSolutionModal[2m > [22m[2mdisplays failed test results summary and cards
+[22m[39m[36m<body>[39m
+  [36m<div>[39m
+    [36m<div[39m
+      [33mclass[39m=[32m"fixed inset-0 z-50 bg-white dark:bg-slate-900 flex flex-col"[39m
+      [33mstyle[39m=[32m"width: 100vw; height: 100vh;"[39m
+    [36m>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"relative w-full h-full flex flex-col overflow-hidden"[39m
+      [36m>[39m
+        [36m<button[39m
+          [33mclass[39m=[32m"absolute top-3 right-3 sm:top-4 sm:right-4 p-2 rounded-full hover:bg-slate-100 dark:hover:bg-white/10 text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-white transition-colors z-50"[39m
+        [36m>[39m
+          [36m<svg[39m
+            [33maria-hidden[39m=[32m"true"[39m
+            [33mclass[39m=[32m"lucide lucide-x sm:w-6 sm:h-6"[39m
+            [33mfill[39m=[32m"none"[39m
+            [33mheight[39m=[32m"20"[39m
+            [33mstroke[39m=[32m"currentColor"[39m
+            [33mstroke-linecap[39m=[32m"round"[39m
+            [33mstroke-linejoin[39m=[32m"round"[39m
+            [33mstroke-width[39m=[32m"2"[39m
+            [33mviewBox[39m=[32m"0 0 24 24"[39m
+            [33mwidth[39m=[32m"20"[39m
+            [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+          [36m>[39m
+            [36m<path[39m
+              [33md[39m=[32m"M18 6 6 18"[39m
+            [36m/>[39m
+            [36m<path[39m
+              [33md[39m=[32m"m6 6 12 12"[39m
+            [36m/>[39m
+          [36m</svg>[39m
+        [36m</button>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"px-4 sm:px-8 py-3 sm:py-4 border-b border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50 pr-12"[39m
+        [36m>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"flex items-center gap-2 sm:gap-3"[39m
+            [36m>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"text-xl sm:text-2xl"[39m
+              [36m>[39m
+                [0m💡[0m
+              [36m</span>[39m
+              [36m<h2[39m
+                [33mclass[39m=[32m"text-lg sm:text-xl font-bold text-slate-900 dark:text-white line-clamp-1"[39m
+              [36m>[39m
+                [0mTwo Sum[0m
+              [36m</h2>[39m
+            [36m</div>[39m
+            [36m<span[39m
+              [33mclass[39m=[32m"self-start px-2 sm:px-3 py-0.5 sm:py-1 text-xs sm:text-sm font-semibold bg-indigo-500/20 text-indigo-600 dark:text-indigo-300 border border-indigo-500/30 rounded-full"[39m
+            [36m>[39m
+              [0mTwo Pointers[0m
+            [36m</span>[39m
+            [36m<span[39m
+              [33mclass[39m=[32m"self-start flex items-center gap-1 px-2 sm:px-3 py-0.5 sm:py-1 text-xs sm:text-sm font-semibold bg-amber-500/20 text-amber-600 dark:text-amber-300 border border-amber-500/30 rounded-full"[39m
+            [36m>[39m
+              [0m✏️ In Progress[0m
+            [36m</span>[39m
+          [36m</div>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"flex flex-wrap gap-2 sm:gap-4 text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-1"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"flex gap-1 sm:gap-2"[39m
+            [36m>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"font-semibold text-emerald-600 dark:text-emerald-400"[39m
+              [36m>[39m
+                [0mTime:[0m
+              [36m</span>[39m
+              [0m [0m
+              [0mO(n)[0m
+            [36m</div>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"flex gap-1 sm:gap-2"[39m
+            [36m>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"font-semibold text-emerald-600 dark:text-emerald-400"[39m
+              [36m>[39m
+                [0mSpace:[0m
+              [36m</span>[39m
+              [0m [0m
+              [0mO(n)[0m
+            [36m</div>[39m
+          [36m</div>[39m
+        [36m</div>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"flex-1 flex flex-col lg:flex-row overflow-hidden min-h-0"[39m
+        [36m>[39m
+          [36m<div[39m
+            [33mdata-testid[39m=[32m"desktop-layout"[39m
+          [36m>[39m
+            [36m<div>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"flex flex-col h-full overflow-hidden"[39m
+              [36m>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"flex items-center gap-2 px-4 py-2 border-b border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900"[39m
+                [36m>[39m
+                  [36m<button[39m
+                    [33mclass[39m=[32m"flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-sm font-medium transition-all bg-indigo-600 text-white shadow-lg shadow-indigo-500/25"[39m
+                  [36m>[39m
+                    [36m<svg[39m
+                      [33maria-hidden[39m=[32m"true"[39m
+                      [33mclass[39m=[32m"lucide lucide-file-text"[39m
+                      [33mfill[39m=[32m"none"[39m
+                      [33mheight[39m=[32m"16"[39m
+                      [33mstroke[39m=[32m"currentColor"[39m
+                      [33mstroke-linecap[39m=[32m"round"[39m
+                      [33mstroke-linejoin[39m=[32m"round"[39m
+                      [33mstroke-width[39m=[32m"2"[39m
+                      [33mviewBox[39m=[32m"0 0 24 24"[39m
+                      [33mwidth[39m=[32m"16"[39m
+                      [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+                    [36m>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"[39m
+                      [36m/>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M14 2v5a1 1 0 0 0 1 1h5"[39m
+                      [36m/>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M10 9H8"[39m
+                      [36m/>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M16 13H8"[39m
+                      [36m/>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M16 17H8"[39m
+                      [36m/>[39m
+                    [36m</svg>[39m
+                    [0m Problem[0m
+                  [36m</button>[39m
+                  [36m<button[39m
+                    [33mclass[39m=[32m"flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-sm font-medium transition-all text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-200 dark:hover:bg-white...
+[90mundefined[39m
+
+[90mstdout[2m | src/components/__tests__/SolutionModal.test.tsx[2m > [22m[2mSolutionModal[2m > [22m[2mdisplays failed test results summary and cards
+[22m[39m[36m<body>[39m
+  [36m<div>[39m
+    [36m<div[39m
+      [33mclass[39m=[32m"fixed inset-0 z-50 bg-white dark:bg-slate-900 flex flex-col"[39m
+      [33mstyle[39m=[32m"width: 100vw; height: 100vh;"[39m
+    [36m>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"relative w-full h-full flex flex-col overflow-hidden"[39m
+      [36m>[39m
+        [36m<button[39m
+          [33mclass[39m=[32m"absolute top-3 right-3 sm:top-4 sm:right-4 p-2 rounded-full hover:bg-slate-100 dark:hover:bg-white/10 text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-white transition-colors z-50"[39m
+        [36m>[39m
+          [36m<svg[39m
+            [33maria-hidden[39m=[32m"true"[39m
+            [33mclass[39m=[32m"lucide lucide-x sm:w-6 sm:h-6"[39m
+            [33mfill[39m=[32m"none"[39m
+            [33mheight[39m=[32m"20"[39m
+            [33mstroke[39m=[32m"currentColor"[39m
+            [33mstroke-linecap[39m=[32m"round"[39m
+            [33mstroke-linejoin[39m=[32m"round"[39m
+            [33mstroke-width[39m=[32m"2"[39m
+            [33mviewBox[39m=[32m"0 0 24 24"[39m
+            [33mwidth[39m=[32m"20"[39m
+            [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+          [36m>[39m
+            [36m<path[39m
+              [33md[39m=[32m"M18 6 6 18"[39m
+            [36m/>[39m
+            [36m<path[39m
+              [33md[39m=[32m"m6 6 12 12"[39m
+            [36m/>[39m
+          [36m</svg>[39m
+        [36m</button>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"px-4 sm:px-8 py-3 sm:py-4 border-b border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50 pr-12"[39m
+        [36m>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"flex items-center gap-2 sm:gap-3"[39m
+            [36m>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"text-xl sm:text-2xl"[39m
+              [36m>[39m
+                [0m💡[0m
+              [36m</span>[39m
+              [36m<h2[39m
+                [33mclass[39m=[32m"text-lg sm:text-xl font-bold text-slate-900 dark:text-white line-clamp-1"[39m
+              [36m>[39m
+                [0mTwo Sum[0m
+              [36m</h2>[39m
+            [36m</div>[39m
+            [36m<span[39m
+              [33mclass[39m=[32m"self-start px-2 sm:px-3 py-0.5 sm:py-1 text-xs sm:text-sm font-semibold bg-indigo-500/20 text-indigo-600 dark:text-indigo-300 border border-indigo-500/30 rounded-full"[39m
+            [36m>[39m
+              [0mTwo Pointers[0m
+            [36m</span>[39m
+            [36m<span[39m
+              [33mclass[39m=[32m"self-start flex items-center gap-1 px-2 sm:px-3 py-0.5 sm:py-1 text-xs sm:text-sm font-semibold bg-amber-500/20 text-amber-600 dark:text-amber-300 border border-amber-500/30 rounded-full"[39m
+            [36m>[39m
+              [0m✏️ In Progress[0m
+            [36m</span>[39m
+          [36m</div>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"flex flex-wrap gap-2 sm:gap-4 text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-1"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"flex gap-1 sm:gap-2"[39m
+            [36m>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"font-semibold text-emerald-600 dark:text-emerald-400"[39m
+              [36m>[39m
+                [0mTime:[0m
+              [36m</span>[39m
+              [0m [0m
+              [0mO(n)[0m
+            [36m</div>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"flex gap-1 sm:gap-2"[39m
+            [36m>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"font-semibold text-emerald-600 dark:text-emerald-400"[39m
+              [36m>[39m
+                [0mSpace:[0m
+              [36m</span>[39m
+              [0m [0m
+              [0mO(n)[0m
+            [36m</div>[39m
+          [36m</div>[39m
+        [36m</div>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"flex-1 flex flex-col lg:flex-row overflow-hidden min-h-0"[39m
+        [36m>[39m
+          [36m<div[39m
+            [33mdata-testid[39m=[32m"desktop-layout"[39m
+          [36m>[39m
+            [36m<div>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"flex flex-col h-full overflow-hidden"[39m
+              [36m>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"flex items-center gap-2 px-4 py-2 border-b border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900"[39m
+                [36m>[39m
+                  [36m<button[39m
+                    [33mclass[39m=[32m"flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-sm font-medium transition-all bg-indigo-600 text-white shadow-lg shadow-indigo-500/25"[39m
+                  [36m>[39m
+                    [36m<svg[39m
+                      [33maria-hidden[39m=[32m"true"[39m
+                      [33mclass[39m=[32m"lucide lucide-file-text"[39m
+                      [33mfill[39m=[32m"none"[39m
+                      [33mheight[39m=[32m"16"[39m
+                      [33mstroke[39m=[32m"currentColor"[39m
+                      [33mstroke-linecap[39m=[32m"round"[39m
+                      [33mstroke-linejoin[39m=[32m"round"[39m
+                      [33mstroke-width[39m=[32m"2"[39m
+                      [33mviewBox[39m=[32m"0 0 24 24"[39m
+                      [33mwidth[39m=[32m"16"[39m
+                      [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+                    [36m>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"[39m
+                      [36m/>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M14 2v5a1 1 0 0 0 1 1h5"[39m
+                      [36m/>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M10 9H8"[39m
+                      [36m/>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M16 13H8"[39m
+                      [36m/>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M16 17H8"[39m
+                      [36m/>[39m
+                    [36m</svg>[39m
+                    [0m Problem[0m
+                  [36m</button>[39m
+                  [36m<button[39m
+                    [33mclass[39m=[32m"flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-sm font-medium transition-all text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-200 dark:hover:bg-white...
+[90mundefined[39m
+
+ [31m❯[39m src/components/__tests__/SolutionModal.test.tsx [2m([22m[2m23 tests[22m[2m | [22m[31m2 failed[39m[2m)[22m[33m 2708[2mms[22m[39m
+     [32m✓[39m renders modal content[32m 35[2mms[22m[39m
+     [32m✓[39m switches tabs[32m 51[2mms[22m[39m
+     [32m✓[39m toggles approaches in Explanation tab[32m 41[2mms[22m[39m
+     [32m✓[39m runs code via button[32m 30[2mms[22m[39m
+     [32m✓[39m handles run code failure[32m 30[2mms[22m[39m
+     [32m✓[39m opens and confirms reset code[32m 26[2mms[22m[39m
+     [32m✓[39m opens and closes settings modal[32m 23[2mms[22m[39m
+     [32m✓[39m saves draft on code change (debounced)[32m 26[2mms[22m[39m
+     [32m✓[39m executes JavaScript on client side[32m 72[2mms[22m[39m
+     [32m✓[39m prompts for auth when running code while unauthenticated[32m 16[2mms[22m[39m
+     [32m✓[39m cancels reset code[32m 23[2mms[22m[39m
+     [32m✓[39m handles mobile tab navigation[32m 41[2mms[22m[39m
+     [32m✓[39m reveals hints progressively[32m 17[2mms[22m[39m
+     [32m✓[39m shows visualizer when solution has visualization data[32m 27[2mms[22m[39m
+     [32m✓[39m displays complexity analysis in editor[32m 25[2mms[22m[39m
+     [32m✓[39m shows key insight when available[32m 26[2mms[22m[39m
+     [32m✓[39m handles solution without key insight[32m 26[2mms[22m[39m
+     [32m✓[39m switches to logs tab on failed test results[32m 17[2mms[22m[39m
+     [32m✓[39m switches to logs tab on execution exception[32m 10[2mms[22m[39m
+[31m     [31m×[31m handles custom test case solo run toggle[39m[33m 1027[2mms[22m[39m
+     [32m✓[39m clears custom test case[32m 39[2mms[22m[39m
+[31m     [31m×[31m displays failed test results summary and cards[39m[33m 1061[2mms[22m[39m
+     [32m✓[39m covers tab switches in desktop[32m 18[2mms[22m[39m
+
+[31m⎯⎯⎯⎯⎯⎯⎯[39m[1m[41m Failed Tests 2 [49m[22m[31m⎯⎯⎯⎯⎯⎯⎯[39m
+
+[41m[1m FAIL [22m[49m src/components/__tests__/SolutionModal.test.tsx[2m > [22mSolutionModal[2m > [22mhandles custom test case solo run toggle
+[31m[1mAssertionError[22m[39m: expected "vi.fn()" to be called with arguments: [ Any<String>, Any<String>, [], …(2) ][90m
+
+Received: 
+
+[1m  1st vi.fn() call:
+
+[22m[2m  [[22m
+[32m-   Any<String>,[90m
+[32m-   Any<String>,[90m
+[32m-   [],[90m
+[31m+   "def",[90m
+[31m+   "two-sum",[90m
+[31m+   [[90m
+[31m+     {[90m
+[31m+       "input": "test input",[90m
+[31m+       "output": "",[90m
+[31m+     },[90m
+[31m+   ],[90m
+[2m    "python",[22m
+[32m-   Anything,[90m
+[31m+   {[90m
+[31m+     "constraints": [[90m
+[31m+       "2 <= nums.length <= 10^4",[90m
+[31m+     ],[90m
+[31m+     "referenceCode": "def",[90m
+[31m+   },[90m
+[2m  ][22m
+[39m[90m
+
+Number of calls: [1m1[22m
+[39m
+
+Ignored nodes: comments, script, style
+[36m<html>[39m
+  [36m<head />[39m
+  [36m<body>[39m
+    [36m<div>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"fixed inset-0 z-50 bg-white dark:bg-slate-900 flex flex-col"[39m
+        [33mstyle[39m=[32m"width: 100vw; height: 100vh;"[39m
+      [36m>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"relative w-full h-full flex flex-col overflow-hidden"[39m
+        [36m>[39m
+          [36m<button[39m
+            [33mclass[39m=[32m"absolute top-3 right-3 sm:top-4 sm:right-4 p-2 rounded-full hover:bg-slate-100 dark:hover:bg-white/10 text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-white transition-colors z-50"[39m
+          [36m>[39m
+            [36m<svg[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mclass[39m=[32m"lucide lucide-x sm:w-6 sm:h-6"[39m
+              [33mfill[39m=[32m"none"[39m
+              [33mheight[39m=[32m"20"[39m
+              [33mstroke[39m=[32m"currentColor"[39m
+              [33mstroke-linecap[39m=[32m"round"[39m
+              [33mstroke-linejoin[39m=[32m"round"[39m
+              [33mstroke-width[39m=[32m"2"[39m
+              [33mviewBox[39m=[32m"0 0 24 24"[39m
+              [33mwidth[39m=[32m"20"[39m
+              [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M18 6 6 18"[39m
+              [36m/>[39m
+              [36m<path[39m
+                [33md[39m=[32m"m6 6 12 12"[39m
+              [36m/>[39m
+            [36m</svg>[39m
+          [36m</button>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"px-4 sm:px-8 py-3 sm:py-4 border-b border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50 pr-12"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3"[39m
+            [36m>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"flex items-center gap-2 sm:gap-3"[39m
+              [36m>[39m
+                [36m<span[39m
+                  [33mclass[39m=[32m"text-xl sm:text-2xl"[39m
+                [36m>[39m
+                  [0m💡[0m
+                [36m</span>[39m
+                [36m<h2[39m
+                  [33mclass[39m=[32m"text-lg sm:text-xl font-bold text-slate-900 dark:text-white line-clamp-1"[39m
+                [36m>[39m
+                  [0mTwo Sum[0m
+                [36m</h2>[39m
+              [36m</div>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"self-start px-2 sm:px-3 py-0.5 sm:py-1 text-xs sm:text-sm font-semibold bg-indigo-500/20 text-indigo-600 dark:text-indigo-300 border border-indigo-500/30 rounded-full"[39m
+              [36m>[39m
+                [0mTwo Pointers[0m
+              [36m</span>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"self-start flex items-center gap-1 px-2 sm:px-3 py-0.5 sm:py-1 text-xs sm:text-sm font-semibold bg-amber-500/20 text-amber-600 dark:text-amber-300 border border-amber-500/30 rounded-full"[39m
+              [36m>[39m
+                [0m✏️ In Progress[0m
+              [36m</span>[39m
+            [36m</div>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"flex flex-wrap gap-2 sm:gap-4 text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-1"[39m
+            [36m>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"flex gap-1 sm:gap-2"[39m
+              [36m>[39m
+                [36m<span[39m
+                  [33mclass[39m=[32m"font-semibold text-emerald-600 dark:text-emerald-400"[39m
+                [36m>[39m
+                  [0mTime:[0m
+                [36m</span>[39m
+                [0m [0m
+                [0mO(n)[0m
+              [36m</div>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"flex gap-1 sm:gap-2"[39m
+              [36m>[39m
+                [36m<span[39m
+                  [33mclass[39m=[32m"font-semibold text-emerald-600 dark:text-emerald-400"[39m
+                [36m>[39m
+                  [0mSpace:[0m
+                [36m</span>[39m
+                [0m [0m
+                [0mO(n)[0m
+              [36m</div>[39m
+            [36m</div>[39m
+          [36m</div>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"flex-1 flex flex-col lg:flex-row overflow-hidden min-h-0"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mdata-testid[39m=[32m"desktop-layout"[39m
+            [36m>[39m
+              [36m<div>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"flex flex-col h-full overflow-hidden"[39m
+                [36m>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"flex items-center gap-2 px-4 py-2 border-b border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900"[39m
+                  [36m>[39m
+                    [36m<button[39m
+                      [33mclass[39m=[32m"flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-sm font-medium transition-all bg-indigo-600 text-white shadow-lg shadow-indigo-500/25"[39m
+                    [36m>[39m
+                      [36m<svg[39m
+                        [33maria-hidden[39m=[32m"true"[39m
+                        [33mclass[39m=[32m"lucide lucide-file-text"[39m
+                        [33mfill[39m=[32m"none"[39m
+                        [33mheight[39m=[32m"16"[39m
+                        [33mstroke[39m=[32m"currentColor"[39m
+                        [33mstroke-linecap[39m=[32m"round"[39m
+                        [33mstroke-linejoin[39m=[32m"round"[39m
+                        [33mstroke-width[39m=[32m"2"[39m
+                        [33mviewBox[39m=[32m"0 0 24 24"[39m
+                        [33mwidth[39m=[32m"16"[39m
+                        [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+                      [36m>[39m
+                        [36m<path[39m
+                          [33md[39m=[32m"M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"[39m
+                        [36m/>[39m
+                        [36m<path[39m
+                          [33md[39m=[32m"M14 2v5a1 1 0 0 0 1 1h5"[39m
+                        [36m/>[39m
+                        [36m<path[39m
+                          [33md[39m=[32m"M10 9H8"[39m
+                        [36m/>[39m
+                        [36m<path[39m
+                          [33md[39m=[32m"M16 13H8"[39m
+                        [36m/>[39m
+                        [36m<path[39m
+                          [33md[39m=[32m"M16 17H8"[39m
+                        [36m/>[39m
+                      [36m</svg>[39m
+                      [0m Problem[0m
+                 ...
+[36m [2m❯[22m src/components/__tests__/SolutionModal.test.tsx:[2m457:43[22m[39m
+    [90m455| [39m        fireEvent[33m.[39m[34mclick[39m(screen[33m.[39m[34mgetByText[39m([36m/Run Code/i[39m))[33m;[39m
+    [90m456| [39m        [35mawait[39m [34mwaitFor[39m(() [33m=>[39m {
+    [90m457| [39m            [34mexpect[39m(mockPlaygroundRunCode)[33m.[39m[34mtoHaveBeenCalledWith[39m(
+    [90m   | [39m                                          [31m^[39m
+    [90m458| [39m                expect[33m.[39m[34many[39m([33mString[39m)[33m,[39m
+    [90m459| [39m                expect[33m.[39m[34many[39m([33mString[39m)[33m,[39m
+[90m [2m❯[22m runWithExpensiveErrorDiagnosticsDisabled node_modules/@testing-library/dom/dist/config.js:[2m47:12[22m[39m
+[90m [2m❯[22m checkCallback node_modules/@testing-library/dom/dist/wait-for.js:[2m124:77[22m[39m
+[90m [2m❯[22m MutationObserver.checkRealTimersCallback node_modules/@testing-library/dom/dist/wait-for.js:[2m118:16[22m[39m
+[90m [2m❯[22m MutationObserver.invokeTheCallbackFunction node_modules/jsdom/lib/jsdom/living/generated/MutationCallback.js:[2m19:26[22m[39m
+[90m [2m❯[22m notifyMutationObservers node_modules/jsdom/lib/jsdom/living/helpers/mutation-observers.js:[2m160:22[22m[39m
+[90m [2m❯[22m node_modules/jsdom/lib/jsdom/living/helpers/mutation-observers.js:[2m133:5[22m[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/components/__tests__/SolutionModal.test.tsx[2m > [22mSolutionModal[2m > [22mdisplays failed test results summary and cards
+[31m[1mTestingLibraryElementError[22m[39m: Unable to find an element with the text: Some Tests Failed. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible.
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<div[39m
+      [33mclass[39m=[32m"fixed inset-0 z-50 bg-white dark:bg-slate-900 flex flex-col"[39m
+      [33mstyle[39m=[32m"width: 100vw; height: 100vh;"[39m
+    [36m>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"relative w-full h-full flex flex-col overflow-hidden"[39m
+      [36m>[39m
+        [36m<button[39m
+          [33mclass[39m=[32m"absolute top-3 right-3 sm:top-4 sm:right-4 p-2 rounded-full hover:bg-slate-100 dark:hover:bg-white/10 text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-white transition-colors z-50"[39m
+        [36m>[39m
+          [36m<svg[39m
+            [33maria-hidden[39m=[32m"true"[39m
+            [33mclass[39m=[32m"lucide lucide-x sm:w-6 sm:h-6"[39m
+            [33mfill[39m=[32m"none"[39m
+            [33mheight[39m=[32m"20"[39m
+            [33mstroke[39m=[32m"currentColor"[39m
+            [33mstroke-linecap[39m=[32m"round"[39m
+            [33mstroke-linejoin[39m=[32m"round"[39m
+            [33mstroke-width[39m=[32m"2"[39m
+            [33mviewBox[39m=[32m"0 0 24 24"[39m
+            [33mwidth[39m=[32m"20"[39m
+            [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+          [36m>[39m
+            [36m<path[39m
+              [33md[39m=[32m"M18 6 6 18"[39m
+            [36m/>[39m
+            [36m<path[39m
+              [33md[39m=[32m"m6 6 12 12"[39m
+            [36m/>[39m
+          [36m</svg>[39m
+        [36m</button>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"px-4 sm:px-8 py-3 sm:py-4 border-b border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50 pr-12"[39m
+        [36m>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"flex items-center gap-2 sm:gap-3"[39m
+            [36m>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"text-xl sm:text-2xl"[39m
+              [36m>[39m
+                [0m💡[0m
+              [36m</span>[39m
+              [36m<h2[39m
+                [33mclass[39m=[32m"text-lg sm:text-xl font-bold text-slate-900 dark:text-white line-clamp-1"[39m
+              [36m>[39m
+                [0mTwo Sum[0m
+              [36m</h2>[39m
+            [36m</div>[39m
+            [36m<span[39m
+              [33mclass[39m=[32m"self-start px-2 sm:px-3 py-0.5 sm:py-1 text-xs sm:text-sm font-semibold bg-indigo-500/20 text-indigo-600 dark:text-indigo-300 border border-indigo-500/30 rounded-full"[39m
+            [36m>[39m
+              [0mTwo Pointers[0m
+            [36m</span>[39m
+            [36m<span[39m
+              [33mclass[39m=[32m"self-start flex items-center gap-1 px-2 sm:px-3 py-0.5 sm:py-1 text-xs sm:text-sm font-semibold bg-amber-500/20 text-amber-600 dark:text-amber-300 border border-amber-500/30 rounded-full"[39m
+            [36m>[39m
+              [0m✏️ In Progress[0m
+            [36m</span>[39m
+          [36m</div>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"flex flex-wrap gap-2 sm:gap-4 text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-1"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"flex gap-1 sm:gap-2"[39m
+            [36m>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"font-semibold text-emerald-600 dark:text-emerald-400"[39m
+              [36m>[39m
+                [0mTime:[0m
+              [36m</span>[39m
+              [0m [0m
+              [0mO(n)[0m
+            [36m</div>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"flex gap-1 sm:gap-2"[39m
+            [36m>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"font-semibold text-emerald-600 dark:text-emerald-400"[39m
+              [36m>[39m
+                [0mSpace:[0m
+              [36m</span>[39m
+              [0m [0m
+              [0mO(n)[0m
+            [36m</div>[39m
+          [36m</div>[39m
+        [36m</div>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"flex-1 flex flex-col lg:flex-row overflow-hidden min-h-0"[39m
+        [36m>[39m
+          [36m<div[39m
+            [33mdata-testid[39m=[32m"desktop-layout"[39m
+          [36m>[39m
+            [36m<div>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"flex flex-col h-full overflow-hidden"[39m
+              [36m>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"flex items-center gap-2 px-4 py-2 border-b border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900"[39m
+                [36m>[39m
+                  [36m<button[39m
+                    [33mclass[39m=[32m"flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-sm font-medium transition-all bg-indigo-600 text-white shadow-lg shadow-indigo-500/25"[39m
+                  [36m>[39m
+                    [36m<svg[39m
+                      [33maria-hidden[39m=[32m"true"[39m
+                      [33mclass[39m=[32m"lucide lucide-file-text"[39m
+                      [33mfill[39m=[32m"none"[39m
+                      [33mheight[39m=[32m"16"[39m
+                      [33mstroke[39m=[32m"currentColor"[39m
+                      [33mstroke-linecap[39m=[32m"round"[39m
+                      [33mstroke-linejoin[39m=[32m"round"[39m
+                      [33mstroke-width[39m=[32m"2"[39m
+                      [33mviewBox[39m=[32m"0 0 24 24"[39m
+                      [33mwidth[39m=[32m"16"[39m
+                      [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+                    [36m>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"[39m
+                      [36m/>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M14 2v5a1 1 0 0 0 1 1h5"[39m
+                      [36m/>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M10 9H8"[39m
+                      [36m/>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M16 13H8"[39m
+                      [36m/>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M16 17H8"[39m
+                      [36m/>[39m
+                    [36m</svg>[39m
+                    [0m Problem[0m
+                  [36m</button>[39m
+                  [36m<button[39m
+                    [33mclass[39m=[32m"flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-sm font-medium transition-all text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-200 dark:hover:bg-white...
+
+Ignored nodes: comments, script, style
+[36m<html>[39m
+  [36m<head />[39m
+  [36m<body>[39m
+    [36m<div>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"fixed inset-0 z-50 bg-white dark:bg-slate-900 flex flex-col"[39m
+        [33mstyle[39m=[32m"width: 100vw; height: 100vh;"[39m
+      [36m>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"relative w-full h-full flex flex-col overflow-hidden"[39m
+        [36m>[39m
+          [36m<button[39m
+            [33mclass[39m=[32m"absolute top-3 right-3 sm:top-4 sm:right-4 p-2 rounded-full hover:bg-slate-100 dark:hover:bg-white/10 text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-white transition-colors z-50"[39m
+          [36m>[39m
+            [36m<svg[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mclass[39m=[32m"lucide lucide-x sm:w-6 sm:h-6"[39m
+              [33mfill[39m=[32m"none"[39m
+              [33mheight[39m=[32m"20"[39m
+              [33mstroke[39m=[32m"currentColor"[39m
+              [33mstroke-linecap[39m=[32m"round"[39m
+              [33mstroke-linejoin[39m=[32m"round"[39m
+              [33mstroke-width[39m=[32m"2"[39m
+              [33mviewBox[39m=[32m"0 0 24 24"[39m
+              [33mwidth[39m=[32m"20"[39m
+              [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M18 6 6 18"[39m
+              [36m/>[39m
+              [36m<path[39m
+                [33md[39m=[32m"m6 6 12 12"[39m
+              [36m/>[39m
+            [36m</svg>[39m
+          [36m</button>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"px-4 sm:px-8 py-3 sm:py-4 border-b border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50 pr-12"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3"[39m
+            [36m>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"flex items-center gap-2 sm:gap-3"[39m
+              [36m>[39m
+                [36m<span[39m
+                  [33mclass[39m=[32m"text-xl sm:text-2xl"[39m
+                [36m>[39m
+                  [0m💡[0m
+                [36m</span>[39m
+                [36m<h2[39m
+                  [33mclass[39m=[32m"text-lg sm:text-xl font-bold text-slate-900 dark:text-white line-clamp-1"[39m
+                [36m>[39m
+                  [0mTwo Sum[0m
+                [36m</h2>[39m
+              [36m</div>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"self-start px-2 sm:px-3 py-0.5 sm:py-1 text-xs sm:text-sm font-semibold bg-indigo-500/20 text-indigo-600 dark:text-indigo-300 border border-indigo-500/30 rounded-full"[39m
+              [36m>[39m
+                [0mTwo Pointers[0m
+              [36m</span>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"self-start flex items-center gap-1 px-2 sm:px-3 py-0.5 sm:py-1 text-xs sm:text-sm font-semibold bg-amber-500/20 text-amber-600 dark:text-amber-300 border border-amber-500/30 rounded-full"[39m
+              [36m>[39m
+                [0m✏️ In Progress[0m
+              [36m</span>[39m
+            [36m</div>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"flex flex-wrap gap-2 sm:gap-4 text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-1"[39m
+            [36m>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"flex gap-1 sm:gap-2"[39m
+              [36m>[39m
+                [36m<span[39m
+                  [33mclass[39m=[32m"font-semibold text-emerald-600 dark:text-emerald-400"[39m
+                [36m>[39m
+                  [0mTime:[0m
+                [36m</span>[39m
+                [0m [0m
+                [0mO(n)[0m
+              [36m</div>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"flex gap-1 sm:gap-2"[39m
+              [36m>[39m
+                [36m<span[39m
+                  [33mclass[39m=[32m"font-semibold text-emerald-600 dark:text-emerald-400"[39m
+                [36m>[39m
+                  [0mSpace:[0m
+                [36m</span>[39m
+                [0m [0m
+                [0mO(n)[0m
+              [36m</div>[39m
+            [36m</div>[39m
+          [36m</div>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"flex-1 flex flex-col lg:flex-row overflow-hidden min-h-0"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mdata-testid[39m=[32m"desktop-layout"[39m
+            [36m>[39m
+              [36m<div>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"flex flex-col h-full overflow-hidden"[39m
+                [36m>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"flex items-center gap-2 px-4 py-2 border-b border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900"[39m
+                  [36m>[39m
+                    [36m<button[39m
+                      [33mclass[39m=[32m"flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-sm font-medium transition-all bg-indigo-600 text-white shadow-lg shadow-indigo-500/25"[39m
+                    [36m>[39m
+                      [36m<svg[39m
+                        [33maria-hidden[39m=[32m"true"[39m
+                        [33mclass[39m=[32m"lucide lucide-file-text"[39m
+                        [33mfill[39m=[32m"none"[39m
+                        [33mheight[39m=[32m"16"[39m
+                        [33mstroke[39m=[32m"currentColor"[39m
+                        [33mstroke-linecap[39m=[32m"round"[39m
+                        [33mstroke-linejoin[39m=[32m"round"[39m
+                        [33mstroke-width[39m=[32m"2"[39m
+                        [33mviewBox[39m=[32m"0 0 24 24"[39m
+                        [33mwidth[39m=[32m"16"[39m
+                        [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+                      [36m>[39m
+                        [36m<path[39m
+                          [33md[39m=[32m"M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"[39m
+                        [36m/>[39m
+                        [36m<path[39m
+                          [33md[39m=[32m"M14 2v5a1 1 0 0 0 1 1h5"[39m
+                        [36m/>[39m
+                        [36m<path[39m
+                          [33md[39m=[32m"M10 9H8"[39m
+                        [36m/>[39m
+                        [36m<path[39m
+                          [33md[39m=[32m"M16 13H8"[39m
+                        [36m/>[39m
+                        [36m<path[39m
+                          [33md[39m=[32m"M16 17H8"[39m
+                        [36m/>[39m
+                      [36m</svg>[39m
+                      [0m Problem[0m
+                 ...
+[90m [2m❯[22m Proxy.waitForWrapper node_modules/@testing-library/dom/dist/wait-for.js:[2m163:27[22m[39m
+[36m [2m❯[22m src/components/__tests__/SolutionModal.test.tsx:[2m496:15[22m[39m
+    [90m494| [39m        fireEvent[33m.[39m[34mclick[39m(resultTabBtn)[33m;[39m
+    [90m495| [39m
+    [90m496| [39m        [35mawait[39m [34mwaitFor[39m(() [33m=>[39m {
+    [90m   | [39m              [31m^[39m
+    [90m497| [39m            console[33m.[39m[34mlog[39m(screen[33m.[39m[34mdebug[39m())[33m;[39m [90m// debugging[39m
+    [90m498| [39m            expect(screen.getByText('Some Tests Failed')).toBeInTheDoc…
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯[22m[39m
+
+
+[2m Test Files [22m [1m[31m1 failed[39m[22m[90m (1)[39m
+[2m      Tests [22m [1m[31m2 failed[39m[22m[2m | [22m[1m[32m21 passed[39m[22m[90m (23)[39m
+[2m   Start at [22m 16:20:01
+[2m   Duration [22m 3.41s[2m (transform 178ms, setup 56ms, import 406ms, tests 2.71s, environment 179ms)[22m
+

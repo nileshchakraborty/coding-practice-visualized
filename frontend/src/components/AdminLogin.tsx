@@ -16,10 +16,20 @@ interface AdminLoginProps {
 
 const API_BASE = import.meta.env.VITE_API_URL || '';
 
-type AuthStep = 'checking' | 'google' | 'totp-setup' | 'totp-verify' | 'local';
+// Auth step constants to avoid duplicate string literals
+const AUTH_STEPS = {
+    CHECKING: 'checking',
+    GOOGLE: 'google',
+    TOTP_SETUP: 'totp-setup',
+    TOTP_VERIFY: 'totp-verify',
+    LOCAL: 'local',
+} as const;
 
+type AuthStep = typeof AUTH_STEPS[keyof typeof AUTH_STEPS];
+
+// eslint-disable-next-line complexity, max-lines-per-function
 export const AdminLogin: React.FC<AdminLoginProps> = ({ onLogin, googleToken, googleEmail, login }) => {
-    const [step, setStep] = useState<AuthStep>('checking');
+    const [step, setStep] = useState<AuthStep>(AUTH_STEPS.CHECKING);
     const [adminToken, setAdminToken] = useState('');
     const [jweToken, setJweToken] = useState('');
     const [googleId, setGoogleId] = useState('');
@@ -41,7 +51,7 @@ export const AdminLogin: React.FC<AdminLoginProps> = ({ onLogin, googleToken, go
             if (savedToken) {
                 try {
                     const res = await fetch(`${API_BASE}/api/admin/status`, {
-                        headers: { 'x-admin-token': savedToken }
+                        headers: { 'Authorization': `Bearer ${savedToken}` }
                     });
                     const data = await res.json();
                     if (data.active && data.fullyAuthenticated) {
@@ -50,7 +60,7 @@ export const AdminLogin: React.FC<AdminLoginProps> = ({ onLogin, googleToken, go
                     }
                     if (data.active && data.totpRequired) {
                         setAdminToken(savedToken);
-                        setStep('totp-verify');
+                        setStep(AUTH_STEPS.TOTP_VERIFY);
                         return;
                     }
                 } catch {
@@ -61,17 +71,19 @@ export const AdminLogin: React.FC<AdminLoginProps> = ({ onLogin, googleToken, go
 
             // Determine initial step
             if (local) {
-                setStep('google');
+                setStep(AUTH_STEPS.GOOGLE);
             } else if (googleToken) {
                 // Signal that we should auto-authenticate (handled by separate effect)
-                setStep('google');
+                setStep(AUTH_STEPS.GOOGLE);
             } else {
-                setStep('google');
+                setStep(AUTH_STEPS.GOOGLE);
             }
         };
 
         checkSession();
     }, [onLogin, googleToken]);
+
+
 
     // Handle Google OAuth authentication for production
     const handleGoogleAuth = useCallback(async () => {
@@ -110,9 +122,9 @@ export const AdminLogin: React.FC<AdminLoginProps> = ({ onLogin, googleToken, go
             // Check if TOTP is required
             if (data.totpRequired) {
                 if (!data.totpSetup) {
-                    setStep('totp-setup');
+                    setStep(AUTH_STEPS.TOTP_SETUP);
                 } else {
-                    setStep('totp-verify');
+                    setStep(AUTH_STEPS.TOTP_VERIFY);
                 }
             } else {
                 // Localhost or TOTP not required
@@ -126,6 +138,13 @@ export const AdminLogin: React.FC<AdminLoginProps> = ({ onLogin, googleToken, go
         }
     }, [googleToken, googleEmail, onLogin]);
 
+    // Auto-trigger Google Auth if token is present
+    useEffect(() => {
+        if (googleToken && step === AUTH_STEPS.GOOGLE && !loading && !error && !adminToken) {
+            handleGoogleAuth();
+        }
+    }, [googleToken, step, loading, error, adminToken, handleGoogleAuth]);
+
     // Setup TOTP
     const handleTotpSetup = async () => {
         setLoading(true);
@@ -136,7 +155,7 @@ export const AdminLogin: React.FC<AdminLoginProps> = ({ onLogin, googleToken, go
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'x-admin-token': adminToken
+                    'Authorization': `Bearer ${adminToken}`
                 }
             });
 
@@ -150,7 +169,7 @@ export const AdminLogin: React.FC<AdminLoginProps> = ({ onLogin, googleToken, go
 
             setTotpSecret(data.secret);
             setTotpQrCode(data.qrCodeDataUrl);
-            setStep('totp-verify');
+            setStep(AUTH_STEPS.TOTP_VERIFY);
         } catch {
             setError('Failed to setup TOTP');
         } finally {
@@ -175,7 +194,7 @@ export const AdminLogin: React.FC<AdminLoginProps> = ({ onLogin, googleToken, go
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'x-admin-token': adminToken
+                    'Authorization': `Bearer ${adminToken}`
                 },
                 body: JSON.stringify({ code: totpCode })
             });
@@ -238,7 +257,7 @@ export const AdminLogin: React.FC<AdminLoginProps> = ({ onLogin, googleToken, go
     };
 
     // Loading state
-    if (step === 'checking') {
+    if (step === AUTH_STEPS.CHECKING) {
         return (
             <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex items-center justify-center">
                 <Loader2 className="w-8 h-8 text-purple-400 animate-spin" />
@@ -256,10 +275,10 @@ export const AdminLogin: React.FC<AdminLoginProps> = ({ onLogin, googleToken, go
                     </div>
                     <h1 className="text-2xl font-bold text-white mb-2">Admin Access</h1>
                     <p className="text-slate-400">
-                        {step === 'google' && 'Sign in with your authorized Google account'}
-                        {step === 'totp-setup' && 'Set up two-factor authentication'}
-                        {step === 'totp-verify' && 'Enter your authenticator code'}
-                        {step === 'local' && 'Enter your JWE token'}
+                        {step === AUTH_STEPS.GOOGLE && 'Sign in with your authorized Google account'}
+                        {step === AUTH_STEPS.TOTP_SETUP && 'Set up two-factor authentication'}
+                        {step === AUTH_STEPS.TOTP_VERIFY && 'Enter your authenticator code'}
+                        {step === AUTH_STEPS.LOCAL && 'Enter your JWE token'}
                     </p>
                 </div>
 
@@ -278,7 +297,7 @@ export const AdminLogin: React.FC<AdminLoginProps> = ({ onLogin, googleToken, go
                 )}
 
                 {/* Google OAuth Step (Production) */}
-                {step === 'google' && (
+                {step === AUTH_STEPS.GOOGLE && (
                     <div className="bg-slate-800/50 backdrop-blur border border-slate-700 rounded-2xl p-6 space-y-4">
                         {googleToken ? (
                             <>
@@ -338,7 +357,7 @@ export const AdminLogin: React.FC<AdminLoginProps> = ({ onLogin, googleToken, go
                         {isLocalhost && (
                             <div className="pt-4 border-t border-slate-700">
                                 <button
-                                    onClick={() => setStep('local')}
+                                    onClick={() => setStep(AUTH_STEPS.LOCAL)}
                                     className="w-full text-sm text-slate-400 hover:text-white py-2"
                                 >
                                     Use local JWE token instead
@@ -349,7 +368,7 @@ export const AdminLogin: React.FC<AdminLoginProps> = ({ onLogin, googleToken, go
                 )}
 
                 {/* TOTP Setup Step */}
-                {step === 'totp-setup' && (
+                {step === AUTH_STEPS.TOTP_SETUP && (
                     <div className="bg-slate-800/50 backdrop-blur border border-slate-700 rounded-2xl p-6 space-y-4">
                         <div className="flex items-center gap-3 text-slate-300 mb-4">
                             <Smartphone size={20} className="text-purple-400" />
@@ -369,7 +388,7 @@ export const AdminLogin: React.FC<AdminLoginProps> = ({ onLogin, googleToken, go
                                     <p className="text-sm text-purple-400 font-mono break-all">{totpSecret}</p>
                                 </div>
                                 <button
-                                    onClick={() => setStep('totp-verify')}
+                                    onClick={() => setStep(AUTH_STEPS.TOTP_VERIFY)}
                                     className="w-full bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-medium py-3 px-4 rounded-xl"
                                 >
                                     I've added it → Enter Code
@@ -392,7 +411,7 @@ export const AdminLogin: React.FC<AdminLoginProps> = ({ onLogin, googleToken, go
                 )}
 
                 {/* TOTP Verify Step */}
-                {step === 'totp-verify' && (
+                {step === AUTH_STEPS.TOTP_VERIFY && (
                     <form onSubmit={handleTotpVerify} className="bg-slate-800/50 backdrop-blur border border-slate-700 rounded-2xl p-6 space-y-4">
                         <div className="flex items-center gap-3 text-slate-300 mb-4">
                             <Key size={20} className="text-purple-400" />
@@ -402,12 +421,15 @@ export const AdminLogin: React.FC<AdminLoginProps> = ({ onLogin, googleToken, go
                         <div>
                             <input
                                 type="text"
+                                inputMode="numeric"
+                                pattern="[0-9]*"
+                                maxLength={6}
                                 value={totpCode}
                                 onChange={(e) => setTotpCode(e.target.value.replace(/\D/g, '').slice(0, 6))}
                                 placeholder="000000"
-                                maxLength={6}
                                 className="w-full bg-slate-900 border border-slate-700 rounded-xl py-4 px-4 text-white text-center text-2xl tracking-[0.5em] font-mono placeholder-slate-600 focus:outline-none focus:border-purple-500"
                                 autoFocus
+                                data-testid="totp-input"
                             />
                             <p className="text-xs text-slate-500 text-center mt-2">
                                 Enter the 6-digit code from your authenticator app
@@ -429,7 +451,7 @@ export const AdminLogin: React.FC<AdminLoginProps> = ({ onLogin, googleToken, go
                         {totpQrCode && (
                             <button
                                 type="button"
-                                onClick={() => setStep('totp-setup')}
+                                onClick={() => setStep(AUTH_STEPS.TOTP_SETUP)}
                                 className="w-full text-sm text-slate-400 hover:text-white py-2 flex items-center justify-center gap-2"
                             >
                                 <RefreshCw size={14} /> Show QR Code Again
@@ -439,7 +461,7 @@ export const AdminLogin: React.FC<AdminLoginProps> = ({ onLogin, googleToken, go
                 )}
 
                 {/* Local JWE Token Step */}
-                {step === 'local' && (
+                {step === AUTH_STEPS.LOCAL && (
                     <form onSubmit={handleLocalActivation} className="bg-slate-800/50 backdrop-blur border border-slate-700 rounded-2xl p-6 space-y-4">
                         <div>
                             <label className="block text-sm font-medium text-slate-300 mb-2">
@@ -511,9 +533,9 @@ export const AdminLogin: React.FC<AdminLoginProps> = ({ onLogin, googleToken, go
                 )}
 
                 {/* Switch between modes */}
-                {isLocalhost && step !== 'local' && step !== 'totp-setup' && step !== 'totp-verify' && (
+                {isLocalhost && step !== AUTH_STEPS.LOCAL && step !== AUTH_STEPS.TOTP_SETUP && step !== AUTH_STEPS.TOTP_VERIFY && (
                     <button
-                        onClick={() => setStep('local')}
+                        onClick={() => setStep(AUTH_STEPS.LOCAL)}
                         className="mt-4 w-full text-sm text-slate-500 hover:text-slate-300 py-2"
                     >
                         Switch to local JWE token

@@ -1,5 +1,6 @@
 import { Router, Request, Response } from 'express';
 import { problemRepository } from '../repositories/ProblemRepository';
+import { statsRepository } from '../repositories/StatsRepository';
 import { executionService } from '../services/ExecutionService';
 import { aiService } from '../services/AIService';
 import { ExecuteRequest, TutorRequest } from '../types';
@@ -9,6 +10,39 @@ const router = Router();
 // Health check
 router.get('/health', (req: Request, res: Response) => {
     res.json({ status: 'healthy', timestamp: new Date().toISOString() });
+});
+
+// Get recommendations
+router.get('/recommendations', async (req: Request, res: Response) => {
+    try {
+        const stats = await statsRepository.loadStats();
+        res.json({
+            hotProblems: stats.hotProblems,
+            hotTopics: stats.hotTopics,
+            stats: {
+                problems: (await problemRepository.getAllProblems()).length,
+                categories: 0 // Placeholder
+            }
+        });
+    } catch (error) {
+        res.status(500).json({ error: 'Failed to fetch recommendations' });
+    }
+});
+
+// Update stats interaction
+router.post('/stats/interaction', async (req: Request, res: Response) => {
+    try {
+        const { updates } = req.body; // Expects { updates: { slug, views, solves }[] }
+        if (!updates || !Array.isArray(updates)) {
+            res.status(400).json({ error: 'Invalid updates format' });
+            return;
+        }
+
+        const newStats = await statsRepository.updateProblemStats(updates);
+        res.json(newStats);
+    } catch (error) {
+        res.status(500).json({ error: 'Failed to update stats' });
+    }
 });
 
 // Get all problems

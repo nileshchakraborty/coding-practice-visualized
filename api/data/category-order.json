@@ -1,0 +1,28 @@
+{
+    "order": [
+        "Array / String",
+        "Two Pointers",
+        "Sliding Window",
+        "Matrix",
+        "Hashmap",
+        "Intervals",
+        "Stack",
+        "Linked List",
+        "Binary Tree General",
+        "Binary Tree BFS",
+        "Binary Search Tree",
+        "Graph General",
+        "Graph BFS",
+        "Trie",
+        "Backtracking",
+        "Divide & Conquer",
+        "Kadane's Algorithm",
+        "Binary Search",
+        "Heap / Priority Queue",
+        "Bit Manipulation",
+        "Math",
+        "1D DP",
+        "Multidimensional DP"
+    ],
+    "lastUpdated": "2025-12-25T23:53:00Z"
+}

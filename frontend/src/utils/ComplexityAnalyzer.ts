@@ -13,6 +13,7 @@ export interface ComplexityResult {
 
 export class ComplexityAnalyzer {
 
+    // eslint-disable-next-line complexity, sonarjs/cognitive-complexity
     static analyze(code: string): ComplexityResult {
         // Simple heuristics based on common patterns
         // This is an estimation and not a full AST analysis

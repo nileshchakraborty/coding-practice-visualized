@@ -140,8 +140,24 @@ const SmartVisualizer: React.FC<SmartVisualizerProps> = ({ solution }) => {
     // Keyboard shortcuts
     useEffect(() => {
         const handleKeyDown = (e: KeyboardEvent) => {
-            // Ignore if user is typing in an input
-            if (e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement) return;
+            // Ignore if user is typing in an input, textarea, or Monaco editor
+            const target = e.target as HTMLElement;
+            const activeEl = document.activeElement as HTMLElement;
+
+            const isTargetInEditor = (target.closest && target.closest('.monaco-editor')) ||
+                (target.classList && target.classList.contains('inputarea'));
+            const isActiveInEditor = (activeEl?.closest && activeEl.closest('.monaco-editor')) ||
+                (activeEl?.classList && activeEl.classList.contains('inputarea'));
+
+            if (
+                target.tagName === 'INPUT' ||
+                target.tagName === 'TEXTAREA' ||
+                target.isContentEditable ||
+                isTargetInEditor ||
+                isActiveInEditor
+            ) {
+                return;
+            }
 
             switch (e.code) {
                 case 'Space':

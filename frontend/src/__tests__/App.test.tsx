@@ -168,9 +168,11 @@ describe('App Component', () => {
         expect(screen.getByText('3Sum')).toBeInTheDocument();
         expect(screen.queryByText('Two Sum')).not.toBeInTheDocument();
 
-        // Click "All" filter (The button text is "All Status")
-        const allBtn = screen.getByText('All Status');
-        fireEvent.click(allBtn);
+        // Click "All" status filter button (second "All" button - first is for difficulty)
+        const allBtns = screen.getAllByText('All');
+        // The status filter "All" button is the second one in the DOM
+        const statusAllBtn = allBtns.filter(b => b.tagName === 'BUTTON')[1];
+        if (statusAllBtn) fireEvent.click(statusAllBtn);
 
         // Both present
         expect(screen.getByText('Two Sum')).toBeInTheDocument();

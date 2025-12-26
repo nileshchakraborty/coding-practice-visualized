@@ -13,4 +13,5 @@ export interface Solution {
     testCases: any[];
     hints?: string[];
     generated?: boolean;
+    language?: string;
 }

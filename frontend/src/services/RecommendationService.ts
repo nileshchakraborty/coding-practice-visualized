@@ -45,6 +45,28 @@ class RecommendationServiceImpl {
             };
         }
     }
+
+    async updateStats(updates: { slug: string; views?: number; solves?: number }[]): Promise<Recommendations> {
+        try {
+            const response = await fetch(`${API_BASE}/api/stats/interaction`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ updates }),
+            });
+
+            if (!response.ok) throw new Error('Failed to update stats');
+
+            return await response.json();
+        } catch (error) {
+            console.error('Stats update error:', error);
+            // Return minimal / empty object to prevent crash, though usually we rely on current state if fail
+            return {
+                hotProblems: [],
+                hotTopics: [],
+                stats: { problems: 0, categories: 0 },
+            };
+        }
+    }
 }
 
 export const RecommendationService = new RecommendationServiceImpl();

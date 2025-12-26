@@ -114,7 +114,7 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
 
     if (!clientId) {
         console.warn('VITE_GOOGLE_CLIENT_ID is not set. Auth will be disabled.');
-        // Provide a mock context when no client ID - show alert to user
+        // Provide a mock context when no client ID - show console error (toast not available here)
         return (
             <AuthContext.Provider value={{
                 user: null,
@@ -122,7 +122,9 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
                 isLoading: false,
                 accessToken: null,
                 login: () => {
-                    alert('Google OAuth is not configured.\n\nTo enable login:\n1. Create a Google OAuth Client ID at console.cloud.google.com/apis/credentials\n2. Add VITE_GOOGLE_CLIENT_ID to your .env file\n3. Restart the development server');
+                    // Can't use toast here as we're outside the ToastProvider in this branch
+                    // Use console.error instead - the AdminLogin component will handle UI feedback
+                    console.error('Google OAuth is not configured. Set VITE_GOOGLE_CLIENT_ID in .env');
                 },
                 logout: () => { }
             }}>

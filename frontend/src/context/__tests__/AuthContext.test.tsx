@@ -221,7 +221,7 @@ describe('AuthContext', () => {
     it('provides mock login when client ID is missing', async () => {
         vi.stubEnv('VITE_GOOGLE_CLIENT_ID', '');
 
-        const alertSpy = vi.spyOn(window, 'alert').mockImplementation(() => { });
+        const consoleSpy = vi.spyOn(console, 'error').mockImplementation(() => { });
 
         const LoginTest = () => {
             const context = useContext(AuthContext);
@@ -240,12 +240,12 @@ describe('AuthContext', () => {
             expect(screen.getByTestId('authenticated')).toHaveTextContent('no');
         });
 
-        // Click login - should show alert
+        // Click login - should log error to console
         const loginBtn = screen.getByText('Login');
         loginBtn.click();
 
-        expect(alertSpy).toHaveBeenCalledWith(expect.stringContaining('Google OAuth is not configured'));
+        expect(consoleSpy).toHaveBeenCalledWith(expect.stringContaining('Google OAuth is not configured'));
 
-        alertSpy.mockRestore();
+        consoleSpy.mockRestore();
     });
 });

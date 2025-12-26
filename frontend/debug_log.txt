@@ -1,0 +1,120 @@
+
+[1m[46m RUN [49m[22m [36mv4.0.16 [39m[90m/Users/nileshchakraborty/workspace/study/leetcode-visual/frontend[39m
+
+[90mstdout[2m | src/components/__tests__/SolutionModal.test.tsx[2m > [22m[2mSolutionModal[2m > [22m[2mCode Template Conversion[2m > [22m[2mconverts python template to java
+[22m[39mDEBUG CODE: def twoSum(nums, target): pass
+
+[90mstdout[2m | src/components/__tests__/SolutionModal.test.tsx[2m > [22m[2mSolutionModal[2m > [22m[2mCode Template Conversion[2m > [22m[2mconverts python template to cpp
+[22m[39mDEBUG CODE: def twoSum(nums, target): pass
+
+[90mstdout[2m | src/components/__tests__/SolutionModal.test.tsx[2m > [22m[2mSolutionModal[2m > [22m[2mCode Template Conversion[2m > [22m[2mconverts python template to go
+[22m[39mDEBUG CODE: def twoSum(nums, target): pass
+
+[90mstdout[2m | src/components/__tests__/SolutionModal.test.tsx[2m > [22m[2mSolutionModal[2m > [22m[2mCode Template Conversion[2m > [22m[2mconverts python template to rust
+[22m[39mDEBUG CODE: def twoSum(nums, target): pass
+
+ [31m❯[39m src/components/__tests__/SolutionModal.test.tsx [2m([22m[2m27 tests[22m[2m | [22m[31m4 failed[39m[2m | [22m[33m1 skipped[39m[2m)[22m[33m 608[2mms[22m[39m
+     [32m✓[39m renders modal content[32m 32[2mms[22m[39m
+     [32m✓[39m switches tabs[32m 48[2mms[22m[39m
+     [32m✓[39m toggles approaches in Explanation tab[32m 37[2mms[22m[39m
+     [32m✓[39m runs code via button[32m 31[2mms[22m[39m
+     [32m✓[39m handles run code failure[32m 25[2mms[22m[39m
+     [32m✓[39m opens and confirms reset code[32m 22[2mms[22m[39m
+     [32m✓[39m opens and closes settings modal[32m 23[2mms[22m[39m
+     [32m✓[39m saves draft on code change (debounced)[32m 24[2mms[22m[39m
+     [32m✓[39m executes JavaScript on client side[32m 56[2mms[22m[39m
+     [32m✓[39m prompts for auth when running code while unauthenticated[32m 8[2mms[22m[39m
+     [32m✓[39m cancels reset code[32m 8[2mms[22m[39m
+     [32m✓[39m handles mobile tab navigation[32m 34[2mms[22m[39m
+     [32m✓[39m reveals hints progressively[32m 17[2mms[22m[39m
+     [32m✓[39m shows visualizer when solution has visualization data[32m 24[2mms[22m[39m
+     [32m✓[39m displays complexity analysis in editor[32m 23[2mms[22m[39m
+     [32m✓[39m shows key insight when available[32m 23[2mms[22m[39m
+     [32m✓[39m handles solution without key insight[32m 23[2mms[22m[39m
+     [32m✓[39m switches to logs tab on failed test results[32m 21[2mms[22m[39m
+     [32m✓[39m switches to logs tab on execution exception[32m 23[2mms[22m[39m
+     [32m✓[39m handles custom test case solo run toggle[32m 34[2mms[22m[39m
+     [32m✓[39m clears custom test case[32m 10[2mms[22m[39m
+     [2m[90m↓[39m[22m displays failed test results summary and cards
+     [32m✓[39m covers tab switches in desktop[32m 5[2mms[22m[39m
+[31m       [31m×[31m converts python template to java[39m[32m 17[2mms[22m[39m
+[31m       [31m×[31m converts python template to cpp[39m[32m 14[2mms[22m[39m
+[31m       [31m×[31m converts python template to go[39m[32m 13[2mms[22m[39m
+[31m       [31m×[31m converts python template to rust[39m[32m 13[2mms[22m[39m
+
+[31m⎯⎯⎯⎯⎯⎯⎯[39m[1m[41m Failed Tests 4 [49m[22m[31m⎯⎯⎯⎯⎯⎯⎯[39m
+
+[41m[1m FAIL [22m[49m src/components/__tests__/SolutionModal.test.tsx[2m > [22mSolutionModal[2m > [22mCode Template Conversion[2m > [22mconverts python template to java
+[31m[1mError[22m: [2mexpect([22m[31melement[31m[2m).toHaveValue([22m[32mStringContaining[31m[2m)[22m
+
+Expected the element to have value:
+[32m  StringContaining "public int twoSum(int nums, int target)"[31m
+Received:
+[31m  code[31m[39m
+[36m [2m❯[22m src/components/__tests__/SolutionModal.test.tsx:[2m532:32[22m[39m
+    [90m530| [39m                [90m// Monaco mock displays value[39m
+    [90m531| [39m                [35mconst[39m editor [33m=[39m screen[33m.[39m[34mgetByTestId[39m([32m'monaco-mock'[39m)[33m;[39m
+    [90m532| [39m                expect(editor).toHaveValue(expect.stringContaining(exp…
+    [90m   | [39m                               [31m^[39m
+    [90m533| [39m            })[33m;[39m
+    [90m534| [39m        })[33m;[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/components/__tests__/SolutionModal.test.tsx[2m > [22mSolutionModal[2m > [22mCode Template Conversion[2m > [22mconverts python template to cpp
+[31m[1mError[22m: [2mexpect([22m[31melement[31m[2m).toHaveValue([22m[32mStringContaining[31m[2m)[22m
+
+Expected the element to have value:
+[32m  StringContaining "int twoSum(int nums, int target)"[31m
+Received:
+[31m  code[31m[39m
+[36m [2m❯[22m src/components/__tests__/SolutionModal.test.tsx:[2m532:32[22m[39m
+    [90m530| [39m                [90m// Monaco mock displays value[39m
+    [90m531| [39m                [35mconst[39m editor [33m=[39m screen[33m.[39m[34mgetByTestId[39m([32m'monaco-mock'[39m)[33m;[39m
+    [90m532| [39m                expect(editor).toHaveValue(expect.stringContaining(exp…
+    [90m   | [39m                               [31m^[39m
+    [90m533| [39m            })[33m;[39m
+    [90m534| [39m        })[33m;[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/4]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/components/__tests__/SolutionModal.test.tsx[2m > [22mSolutionModal[2m > [22mCode Template Conversion[2m > [22mconverts python template to go
+[31m[1mError[22m: [2mexpect([22m[31melement[31m[2m).toHaveValue([22m[32mStringContaining[31m[2m)[22m
+
+Expected the element to have value:
+[32m  StringContaining "func twoSum(nums int, target int) int"[31m
+Received:
+[31m  code[31m[39m
+[36m [2m❯[22m src/components/__tests__/SolutionModal.test.tsx:[2m532:32[22m[39m
+    [90m530| [39m                [90m// Monaco mock displays value[39m
+    [90m531| [39m                [35mconst[39m editor [33m=[39m screen[33m.[39m[34mgetByTestId[39m([32m'monaco-mock'[39m)[33m;[39m
+    [90m532| [39m                expect(editor).toHaveValue(expect.stringContaining(exp…
+    [90m   | [39m                               [31m^[39m
+    [90m533| [39m            })[33m;[39m
+    [90m534| [39m        })[33m;[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/4]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/components/__tests__/SolutionModal.test.tsx[2m > [22mSolutionModal[2m > [22mCode Template Conversion[2m > [22mconverts python template to rust
+[31m[1mError[22m: [2mexpect([22m[31melement[31m[2m).toHaveValue([22m[32mStringContaining[31m[2m)[22m
+
+Expected the element to have value:
+[32m  StringContaining "pub fn two_sum"[31m
+Received:
+[31m  code[31m[39m
+[36m [2m❯[22m src/components/__tests__/SolutionModal.test.tsx:[2m532:32[22m[39m
+    [90m530| [39m                [90m// Monaco mock displays value[39m
+    [90m531| [39m                [35mconst[39m editor [33m=[39m screen[33m.[39m[34mgetByTestId[39m([32m'monaco-mock'[39m)[33m;[39m
+    [90m532| [39m                expect(editor).toHaveValue(expect.stringContaining(exp…
+    [90m   | [39m                               [31m^[39m
+    [90m533| [39m            })[33m;[39m
+    [90m534| [39m        })[33m;[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/4]⎯[22m[39m
+
+
+[2m Test Files [22m [1m[31m1 failed[39m[22m[90m (1)[39m
+[2m      Tests [22m [1m[31m4 failed[39m[22m[2m | [22m[1m[32m22 passed[39m[22m[2m | [22m[33m1 skipped[39m[90m (27)[39m
+[2m   Start at [22m 16:26:54
+[2m   Duration [22m 1.29s[2m (transform 167ms, setup 64ms, import 381ms, tests 608ms, environment 173ms)[22m
+

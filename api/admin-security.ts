@@ -12,12 +12,13 @@ import * as crypto from 'crypto';
 import { authenticator } from 'otplib';
 import * as QRCode from 'qrcode';
 import type { Request, Response, NextFunction } from 'express';
+import { supabase } from '../src/infrastructure/db/SupabaseClient';
 
 // ============================================
 // Configuration
 // ============================================
 
-const ADMIN_SECRET = process.env.ADMIN_SECRET || '';
+const ADMIN_SECRET = process.env.ADMIN_SECRET || 'CODENIUM_ADMIN_SECRET_2024';
 const ADMIN_EMAILS = process.env.ADMIN_EMAILS?.split(',')
     .map(e => e.trim().toLowerCase()) || [];
 const TOTP_ISSUER = 'Codenium Admin';
@@ -30,6 +31,8 @@ interface AdminSession {
     expiresAt: number;
     totpVerified: boolean;
     userAgent: string;
+    clientIp: string;           // IP address for session binding
+    fingerprint: string;        // Hash of UA + IP for anti-hijacking
     lastActivity: number;
 }
 
@@ -44,6 +47,47 @@ interface TotpRecord {
 }
 
 const totpSecrets = new Map<string, TotpRecord>();
+let secretsLoaded = false;
+
+async function ensureSecretsLoaded() {
+    if (secretsLoaded) return;
+    if (!supabase) {
+        secretsLoaded = true;
+        return;
+    }
+
+    try {
+        const { data } = await supabase
+            .from('site_settings')
+            .select('value')
+            .eq('key', 'admin_totp_secrets')
+            .single();
+
+        if (data?.value) {
+            // Merge with existing
+            Object.entries(data.value).forEach(([email, record]) => {
+                totpSecrets.set(email, record as TotpRecord);
+            });
+        }
+        secretsLoaded = true;
+    } catch (error) {
+        console.error('Failed to load TOTP secrets:', error);
+    }
+}
+
+async function saveTotpSecrets() {
+    if (!supabase) return;
+    try {
+        const jsonObject = Object.fromEntries(totpSecrets);
+        await supabase.from('site_settings').upsert({
+            key: 'admin_totp_secrets',
+            value: jsonObject,
+            updated_at: new Date().toISOString()
+        });
+    } catch (error) {
+        console.error('Failed to save TOTP secrets:', error);
+    }
+}
 
 // Activity log
 interface AdminActivity {
@@ -77,6 +121,52 @@ export function generateSessionToken(): string {
 
 export function isEmailAllowed(email: string): boolean {
     return ADMIN_EMAILS.includes(email.toLowerCase());
+}
+
+/**
+ * Generate a session fingerprint from client characteristics
+ * Used to detect token hijacking attempts
+ */
+function generateFingerprint(req: Request): string {
+    const userAgent = req.headers['user-agent'] || 'unknown';
+    const ip = getClientIp(req);
+    // Create hash of client characteristics
+    const data = `${userAgent}:${ip}`;
+    return crypto.createHash('sha256').update(data).digest('hex').substring(0, 16);
+}
+
+/**
+ * Extract client IP address from request
+ */
+function getClientIp(req: Request): string {
+    // Handle proxied requests
+    const forwardedFor = req.headers['x-forwarded-for'];
+    if (forwardedFor) {
+        const ips = (typeof forwardedFor === 'string' ? forwardedFor : forwardedFor[0]).split(',');
+        return ips[0].trim();
+    }
+    return req.ip || req.socket?.remoteAddress || 'unknown';
+}
+
+/**
+ * Validate session fingerprint matches current request
+ * Returns null if valid, error message if invalid
+ */
+export function validateSessionFingerprint(session: AdminSession, req: Request): string | null {
+    const currentFingerprint = generateFingerprint(req);
+
+    if (session.fingerprint !== currentFingerprint) {
+        const currentIp = getClientIp(req);
+        // Log the mismatch for security monitoring
+        logActivity(
+            'SESSION_FINGERPRINT_MISMATCH',
+            `Possible token hijacking detected. Session IP: ${session.clientIp}, Request IP: ${currentIp}`,
+            req,
+            session.email
+        );
+        return 'Session fingerprint mismatch. Please re-authenticate.';
+    }
+    return null;
 }
 
 export function logActivity(action: string, details: string, req: Request, email?: string): void {
@@ -145,7 +235,8 @@ export function verifyJWE(token: string): { valid: boolean; payload?: { sub: str
 // TOTP Functions
 // ============================================
 
-export function generateTotpSecret(email: string): { secret: string; qrCodeUrl: string } {
+export async function generateTotpSecret(email: string): Promise<{ secret: string; qrCodeUrl: string }> {
+    await ensureSecretsLoaded();
     const secret = authenticator.generateSecret();
     const otpauth = authenticator.keyuri(email, TOTP_ISSUER, secret);
 
@@ -157,10 +248,13 @@ export function generateTotpSecret(email: string): { secret: string; qrCodeUrl: 
         createdAt: Date.now()
     });
 
+    await saveTotpSecrets();
+
     return { secret, qrCodeUrl: otpauth };
 }
 
 export async function getTotpQRCode(email: string): Promise<string | null> {
+    await ensureSecretsLoaded();
     const record = totpSecrets.get(email.toLowerCase());
     if (!record) return null;
 
@@ -172,7 +266,8 @@ export async function getTotpQRCode(email: string): Promise<string | null> {
     }
 }
 
-export function verifyTotpCode(email: string, code: string): boolean {
+export async function verifyTotpCode(email: string, code: string): Promise<boolean> {
+    await ensureSecretsLoaded();
     const record = totpSecrets.get(email.toLowerCase());
     if (!record) return false;
 
@@ -182,17 +277,20 @@ export function verifyTotpCode(email: string, code: string): boolean {
         // Mark as verified on first successful code
         record.verified = true;
         totpSecrets.set(email.toLowerCase(), record);
+        await saveTotpSecrets();
     }
 
     return isValid;
 }
 
-export function isTotpSetup(email: string): boolean {
+export async function isTotpSetup(email: string): Promise<boolean> {
+    await ensureSecretsLoaded();
     const record = totpSecrets.get(email.toLowerCase());
     return record?.verified ?? false;
 }
 
-export function requiresTotpSetup(email: string): boolean {
+export async function requiresTotpSetup(email: string): Promise<boolean> {
+    await ensureSecretsLoaded();
     const record = totpSecrets.get(email.toLowerCase());
     return !record || !record.verified;
 }
@@ -208,13 +306,19 @@ export function createSession(
     req: Request,
     totpVerified: boolean = false
 ): AdminSession {
+    const userAgent = req.headers['user-agent'] || 'unknown';
+    const clientIp = getClientIp(req);
+    const fingerprint = generateFingerprint(req);
+
     const session: AdminSession = {
         googleId,
         email: email.toLowerCase(),
         createdAt: Date.now(),
         expiresAt: Date.now() + (4 * 60 * 60 * 1000), // 4 hours
         totpVerified,
-        userAgent: req.headers['user-agent'] || 'unknown',
+        userAgent,
+        clientIp,
+        fingerprint,
         lastActivity: Date.now()
     };
 
@@ -352,14 +456,25 @@ export function checkAdminAllowlist(req: Request, res: Response, next: NextFunct
 }
 
 /**
+ * Extract Bearer token from Authorization header
+ */
+function extractBearerToken(req: Request): string | null {
+    const authHeader = req.headers.authorization;
+    if (authHeader?.startsWith('Bearer ')) {
+        return authHeader.substring(7);
+    }
+    return null;
+}
+
+/**
  * Validate admin session token
  */
 export function validateAdminSession(req: Request, res: Response, next: NextFunction): void {
-    const token = req.headers['x-admin-token'] as string;
+    const token = extractBearerToken(req);
 
     if (!token) {
         res.status(401).json({
-            error: 'Admin session required. Please activate your session.',
+            error: 'Admin session required. Please provide Authorization: Bearer token.',
             code: 'SESSION_REQUIRED'
         });
         return;
@@ -384,6 +499,18 @@ export function validateAdminSession(req: Request, res: Response, next: NextFunc
         return;
     }
 
+    // Validate session fingerprint to prevent token hijacking
+    const fingerprintError = validateSessionFingerprint(session, req);
+    if (fingerprintError) {
+        // Invalidate the potentially compromised session
+        deleteSession(token);
+        res.status(401).json({
+            error: fingerprintError,
+            code: 'SESSION_HIJACK_DETECTED'
+        });
+        return;
+    }
+
     (req as any).adminSession = session;
     next();
 }
@@ -394,7 +521,7 @@ export function validateAdminSession(req: Request, res: Response, next: NextFunc
 export function requireAdminAuth(req: Request, res: Response, next: NextFunction): void {
     // For local development, allow JWE token flow
     if (isLocalRequest(req) || process.env.NODE_ENV === 'development') {
-        const jweToken = req.headers['x-admin-token'] as string;
+        const jweToken = extractBearerToken(req);
         if (jweToken) {
             // Check for existing session first
             const session = getSession(jweToken);

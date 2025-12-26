@@ -1,0 +1,73 @@
+{
+    "hotProblems": [
+        {
+            "slug": "two-sum",
+            "views": 150,
+            "solves": 45,
+            "score": 195
+        },
+        {
+            "slug": "valid-parentheses",
+            "views": 120,
+            "solves": 38,
+            "score": 158
+        },
+        {
+            "slug": "climbing-stairs",
+            "views": 110,
+            "solves": 42,
+            "score": 152
+        },
+        {
+            "slug": "merge-two-sorted-lists",
+            "views": 95,
+            "solves": 30,
+            "score": 125
+        },
+        {
+            "slug": "longest-substring-without-repeating-characters",
+            "views": 92,
+            "solves": 32,
+            "score": 124
+        },
+        {
+            "slug": "binary-search",
+            "views": 88,
+            "solves": 35,
+            "score": 123
+        },
+        {
+            "slug": "smoke-test",
+            "views": 4,
+            "solves": 0,
+            "score": 4
+        }
+    ],
+    "hotTopics": [
+        {
+            "category": "1D DP",
+            "problemCount": 2,
+            "engagement": 0.9
+        },
+        {
+            "category": "Array / String",
+            "problemCount": 1,
+            "engagement": 0.8
+        },
+        {
+            "category": "Stack",
+            "problemCount": 1,
+            "engagement": 0.7
+        },
+        {
+            "category": "Binary Search",
+            "problemCount": 1,
+            "engagement": 0.6
+        },
+        {
+            "category": "Sliding Window",
+            "problemCount": 1,
+            "engagement": 0.5
+        }
+    ]
+}

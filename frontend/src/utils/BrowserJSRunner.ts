@@ -88,11 +88,23 @@ export class BrowserJSRunner {
             // Execute user code against each test case
             for (let i = 0; i < enrichedTestCases.length; i++) {
                 const tc = enrichedTestCases[i];
+                this.logs.push(`\n${'='.repeat(40)}`);
+                this.logs.push(` TEST CASE ${i + 1}`);
+                this.logs.push(`${'='.repeat(40)}`);
+                this.logs.push(`Input: ${tc.input}`);
+
                 try {
                     const result = await this.executeTestCase(executableCode, tc);
+                    this.logs.push(`Actual: ${result.actual}`);
+                    this.logs.push(`Expected: ${result.expected}`);
+                    this.logs.push(`Result: ${result.passed ? 'PASSED' : 'FAILED'}`);
+                    this.logs.push(`\n`);
                     results.push(result);
                 } catch (error: unknown) {
                     const errMsg = error instanceof Error ? error.message : String(error);
+                    this.logs.push(`Error: ${errMsg}`);
+                    this.logs.push(`Result: FAILED`);
+                    this.logs.push(`\n`);
                     results.push({
                         passed: false,
                         input: tc.input,

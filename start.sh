@@ -1,19 +1,33 @@
 #!/bin/bash
+set -x
+export DEBUG_LOGS=true
+export PORT=3001
 
 # Function to kill processes on specific ports
 kill_port() {
     PORT=$1
-    PID=$(lsof -t -i:$PORT)
+    echo "Checking port $PORT..."
+    # PID=$(lsof -t -i:$PORT)
+    # Using specific lsof syntax for robustness
+    PID=$(lsof -ti :$PORT)
     if [ -n "$PID" ]; then
         echo "Port $PORT is in use by PID $PID. Killing..."
         kill -9 $PID 2>/dev/null
     fi
 }
 
-# Clean start: Kill anything on our ports
+echo "🧹 Cleaning up ports..."
 kill_port 8000
 kill_port 3001
 kill_port 3000
+
+# Run Validation
+echo "🧪 Validating Infrastructure..."
+npx ts-node backend-node/scripts/validate_infrastructure.ts
+if [ $? -ne 0 ]; then
+    echo "❌ Validation failed. Check your environment variables and connections."
+    exit 1
+fi
 
 BACKEND_PID=""
 FRONTEND_PID=""
@@ -27,17 +41,13 @@ cleanup() {
     
     if [ -n "$BACKEND_PID" ]; then
         echo "Stopping Backend..."
-        # Kill child processes (reloader)
         pkill -P $BACKEND_PID 2>/dev/null
-        # Kill parent
         kill $BACKEND_PID 2>/dev/null
     fi
     
     if [ -n "$FRONTEND_PID" ]; then
         echo "Stopping Frontend..."
-        # Kill child processes (vite)
         pkill -P $FRONTEND_PID 2>/dev/null
-        # Kill parent (npm)
         kill $FRONTEND_PID 2>/dev/null
     fi
     
@@ -52,17 +62,16 @@ cleanup() {
 trap cleanup SIGINT SIGTERM EXIT
 
 echo "Starting Backend (Port 3001)..."
-echo "Starting Backend (Port 3001)..."
-make run-api &
+# Use Makefile target
+PORT=3001 make run-api > api.log 2>&1 &
 BACKEND_PID=$!
-# cd .. # No longer needed as make handles cwd
 
 # Give backend a moment to grab the socket
-sleep 1
+sleep 5
 
 echo "Starting Frontend (Port 3000)..."
-echo "Starting Frontend (Port 3000)..."
-make run-frontend &
+make run-frontend > frontend.log 2>&1 &
 FRONTEND_PID=$!
+cd ..
 
 wait
