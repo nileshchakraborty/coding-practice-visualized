@@ -537,6 +537,15 @@ describe('SolutionModal', () => {
     });
 
     describe('Code Template Conversion', () => {
+        // Enable experimental languages for these tests
+        beforeAll(() => {
+            import.meta.env.VITE_ENABLE_EXPERIMENTAL_LANGUAGES = 'true';
+        });
+
+        afterAll(() => {
+            delete import.meta.env.VITE_ENABLE_EXPERIMENTAL_LANGUAGES;
+        });
+
         const languages = [
             { lang: 'java', expected: 'public int twoSum(int nums, int target)' },
             { lang: 'cpp', expected: 'int twoSum(int nums, int target)' },
