@@ -218,8 +218,12 @@ const mockSolution = {
     constraints: ['2 <= nums.length <= 10^4'],
     initialCode: 'def twoSum(nums, target): pass',
     implementations: {
-        python: { code: 'def', initialCode: 'def' },
-        javascript: { code: 'function', initialCode: 'function' }
+        python: { code: 'def', initialCode: 'def twoSum(nums, target): pass' },
+        javascript: { code: 'function', initialCode: 'function twoSum(nums, target) {}' },
+        java: { code: 'public int', initialCode: 'public int twoSum(int nums, int target) { return 0; }' },
+        cpp: { code: 'int', initialCode: 'int twoSum(int nums, int target) { return 0; }' },
+        go: { code: 'func', initialCode: 'func twoSum(nums int, target int) int { return 0 }' },
+        rust: { code: 'pub fn', initialCode: 'pub fn two_sum(nums: Vec<i32>, target: i32) -> Vec<i32> { vec![] }' }
     },
     oneliner: 'One liner summary',
     bruteForceTimeComplexity: 'O(n^2)',
