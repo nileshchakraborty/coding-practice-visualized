@@ -545,14 +545,16 @@ describe('SolutionModal', () => {
         ];
 
         languages.forEach(({ lang, expected }) => {
-            it(`converts python template to ${lang}`, () => {
+            it(`converts python template to ${lang}`, async () => {
                 render(<SolutionModal {...minProps} />);
                 const select = screen.getByRole('combobox');
                 fireEvent.change(select, { target: { value: lang } });
 
-                // Monaco mock displays value
-                const editor = screen.getByTestId('monaco-mock') as HTMLTextAreaElement;
-                expect(editor.value).toContain(expected);
+                // Wait for the useEffect to update code state based on language change
+                await waitFor(() => {
+                    const editor = screen.getByTestId('monaco-mock') as HTMLTextAreaElement;
+                    expect(editor.value).toContain(expected);
+                });
             });
         });
 
